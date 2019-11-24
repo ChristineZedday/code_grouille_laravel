@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFaqReponsesTable extends Migration
+class CreateSitesPartenairesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateFaqReponsesTable extends Migration
      */
     public function up()
     {
-        Schema::create('faq_reponses', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->timestamps();
-            $table->text('faq_reponse_texte');
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -28,6 +29,6 @@ class CreateFaqReponsesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq_reponses');
+        Schema::dropIfExists('sites_partenaires');
     }
 }
