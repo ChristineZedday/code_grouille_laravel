@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActusesTable extends Migration
+class CreateCommentairesActusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateActusesTable extends Migration
      */
     public function up()
     {
-        Schema::create('actus', function (Blueprint $table) {
+        Schema::create('commentaires_actu', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->text('actu_texte');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('actu_id')->references('id')->on('actus');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateActusesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('actus');
+        Schema::dropIfExists('commentaires_actu');
     }
 }
