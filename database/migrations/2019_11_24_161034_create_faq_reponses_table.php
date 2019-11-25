@@ -17,7 +17,10 @@ class CreateFaqReponsesTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->text('faq_reponse_texte');
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
+            $table->bigInteger('faq_question_id')->unsigned();
+            $table->foreign('faq_question_id')->references('id')->on('faq_questions');
         });
     }
 

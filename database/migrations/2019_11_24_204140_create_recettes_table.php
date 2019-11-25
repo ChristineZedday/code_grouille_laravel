@@ -24,8 +24,9 @@ class CreateRecettesTable extends Migration
             $table->string('appetence_recette');
             $table->string('deroule_recette');
             $table->string('portion_recette');
+            $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->nullable;
-            $table->foreign('ustensile_id')->references('id')->on('ustensiles')->nullable;
+           
         });
     }
 
