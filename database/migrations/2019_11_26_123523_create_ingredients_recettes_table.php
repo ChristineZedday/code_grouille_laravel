@@ -22,7 +22,7 @@ class CreateIngredientsRecettesTable extends Migration
             $table->bigInteger('ingredient_id')->unsigned();
             $table->foreign('ingredient_id')->references('id')->on('ingredients');
             $table->bigInteger('recette_id')->unsigned();
-            $table->foreign('recettes_id')->references('id')->on('recettes');
+            $table->foreign('recette_id')->references('id')->on('recettes');
         });
     }
 
