@@ -350,3 +350,14 @@ input:not([type=submit]) {
   font-family: "Shadows Into Light", cursive, cursive;
 }
 
+#insectes{
+    margin-top: 10%;
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+#insectes img{
+    max-width: 250px;;
+}
