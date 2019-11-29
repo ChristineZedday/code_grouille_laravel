@@ -17,8 +17,7 @@ class CreateIngredientsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('nom_ingredient');
-            $table->bigInteger('saison_id')->unsigned();
-            $table->foreign('saison_id')->references('id')->on('saisons')->nullable;
+            $table->string('saison')->nullable;
             $table->bigInteger('insecte_id')->unsigned();
             $table->foreign('insecte_id')->references('id')->on('insectes')->nullable;
         });
