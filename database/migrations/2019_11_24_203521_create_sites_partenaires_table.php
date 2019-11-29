@@ -13,7 +13,7 @@ class CreateSitesPartenairesTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('site_partenaires', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('url')->unique();

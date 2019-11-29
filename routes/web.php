@@ -11,6 +11,30 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+    return view('pages.home');
+});
+Route::get('/apropos', function () {
+    return view('pages.apropos');
+});
+Route::get('/insectes', function () {
+    return view('pages.insectes');
+});
+Route::get('/recettes', function () {
+    return view('pages.recettes');
+});
+Route::get('/actus', function () {
+    return view('pages.actus');
+});
+Route::get('/FAQ', function () {
+    return view('pages.FAQ');
+});
+Route::get('/partenaires', function () {
+    return view('pages.partenaires');
+});
+Route::get('/mentions', function () {
+    return view('pages.mentions');
+});
+Route::get('/contact', function () {
+    return view('pages.contact');
 });

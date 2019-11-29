@@ -1,1 +1,26 @@
-//
+@import 'header';
+@import 'membreform';
+@import 'menu';
+@import 'content';
+
+
+$font1 : 'Alata', sans-serif;
+$font2 : 'Shadows Into Light', cursive;
+$brun : chocolate;
+
+*{
+	margin:0;
+	padding:0;
+    box-sizing:border-box;
+
+        body{
+        font-family: $font1;
+        overflow-x:hidden;
+
+            h1, h2{
+                font-family: $font2, cursive;
+            }
+        }
+ }
+
+

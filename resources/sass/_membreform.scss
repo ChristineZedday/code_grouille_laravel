@@ -1,0 +1,54 @@
+/* ============================CONNECT============================= */
+
+#membre{
+	background-color: #000000ad;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+	z-index: 4;
+	display: none;
+}
+
+#boxconnect{
+	width: 40vh;
+    position: fixed;
+    border: 4px solid;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    padding: 40px;
+}
+
+#boxconnect img{
+	cursor:pointer;
+	width: 40px;
+}
+
+#membre h2{
+	font-size: 40px;
+}
+
+.form{
+	width:100%;
+	margin-bottom:10px;
+}
+
+#submit{
+	border-radius: 20px;
+    padding: 13px;
+    background-color: black;
+    color: white;
+	font-family:  'Shadows Into Light', cursive;
+	font-size: 15px;
+}
+
+input:not([type="submit"]){
+	border-radius: 10px;
+    width: 80%;
+    height: 36px;
+    text-align: center;
+}
+

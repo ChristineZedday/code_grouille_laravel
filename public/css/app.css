@@ -1,0 +1,303 @@
+header {
+  display: -webkit-box;
+  display: flex;
+  border-bottom: solid 4px chocolate;
+  background-image: "{{ URL::asset('../assets/img/imgheader.jpg') }}";
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header h1 {
+  font-size: 10em;
+  color: chocolate;
+}
+
+header #right {
+  right: 0;
+  position: absolute;
+  text-align: center;
+}
+
+header #reseaux {
+  padding: 10px;
+}
+
+header .pict {
+  width: 40px;
+}
+
+header #newsletter {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  display: block;
+  margin: 5% 6% 7% 21%;
+}
+
+header #newsletter a {
+  color: black;
+  font-size: 20px;
+  margin-top: -13px;
+  display: block;
+}
+
+header #newsletter img {
+  width: 40px;
+}
+
+header #favoris {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  display: block;
+  margin: 5% 6% 7% 21%;
+}
+
+header #favoris a {
+  color: black;
+  font-size: 20px;
+  margin-top: -13px;
+  display: block;
+}
+
+header #favoris img {
+  width: 60px;
+}
+
+header #connexion button {
+  background-color: chocolate;
+  border: none;
+  border-radius: 15px;
+  padding: 6px;
+  float: left;
+  width: 100%;
+  margin: 4px;
+}
+
+header #connexion button a {
+  color: white;
+  font-style: oblique;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+footer {
+  display: -webkit-box;
+  display: flex;
+  border-top: solid 4px chocolate;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+footer ul {
+  width: 36vh;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  list-style: none;
+  font-weight: bold;
+}
+
+footer ul li {
+  list-style: none;
+}
+
+footer ul li a {
+  color: chocolate;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+footer ul li a:hover {
+  font-style: italic;
+}
+
+footer #adress {
+  position: fixed;
+  right: 30px;
+  margin: 30px;
+}
+
+/* ============================CONNECT============================= */
+
+#membre {
+  background-color: #000000ad;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  display: none;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  z-index: 4;
+  display: none;
+}
+
+#boxconnect {
+  width: 40vh;
+  position: fixed;
+  border: 4px solid;
+  border-radius: 20px;
+  background-color: white;
+  text-align: center;
+  padding: 40px;
+}
+
+#boxconnect img {
+  cursor: pointer;
+  width: 40px;
+}
+
+#membre h2 {
+  font-size: 40px;
+}
+
+.form {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#submit {
+  border-radius: 20px;
+  padding: 13px;
+  background-color: black;
+  color: white;
+  font-family: "Shadows Into Light", cursive;
+  font-size: 15px;
+}
+
+input:not([type=submit]) {
+  border-radius: 10px;
+  width: 80%;
+  height: 36px;
+  text-align: center;
+}
+
+#menu {
+  position: absolute;
+  margin: 12px;
+}
+
+#menu ul {
+  width: 36vh;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  list-style: none;
+  font-weight: bold;
+}
+
+#menu ul li {
+  list-style: none;
+}
+
+#menu ul li a {
+  color: black;
+  text-decoration: none;
+}
+
+#menu ul li a:hover {
+  font-style: italic;
+}
+
+#content {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#content article {
+  padding-top: 14%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+#content article .lineleft {
+  width: 88%;
+  max-height: 100px;
+  margin-left: 13%;
+}
+
+#content article .lineright {
+  width: 88%;
+  max-height: 100px;
+  float: right;
+}
+
+#content article h2 {
+  font-size: 5em;
+}
+
+#content article .imgarticle {
+  width: 73%;
+  margin-left: 22%;
+}
+
+#content article .articleb {
+  text-align: right;
+}
+
+#content article .articleb .imgarticleb {
+  width: 73%;
+  margin-left: 2%;
+}
+
+#content #recettes .lineleft {
+  width: 50%;
+  height: 200px;
+  float: left;
+}
+
+#content #recettes h2 {
+  font-size: 5em;
+  width: 50%;
+  float: left;
+}
+
+#content #recettes #suggestions {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+#content #recettes #suggestions .recettehome {
+  padding: 10%;
+}
+
+#content #recettes #suggestions .imgrecette {
+  width: 100%;
+  max-height: 380px;
+}
+
+#content #recettes #suggestions h3 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* body {
+  font-family: "Alata", sans-serif;
+  overflow-x: hidden;
+}
+
+* body h1,
+* body h2 {
+  font-family: "Shadows Into Light", cursive, cursive;
+}
+

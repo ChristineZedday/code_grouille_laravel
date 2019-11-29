@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUstensilesTable extends Migration
+class CreateCommentairesActusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateUstensilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ustensiles', function (Blueprint $table) {
+        Schema::create('commentaires_actus', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('nom_ustensile');
+            $table->bigInteger('actu_id')->unsigned();
+            $table->foreign('actu_id')->references('id')->on('actus');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->nullable;
         });
     }
 
@@ -27,6 +30,6 @@ class CreateUstensilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ustensiles');
+        Schema::dropIfExists('commentaires_actus');
     }
 }

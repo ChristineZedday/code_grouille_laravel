@@ -1,0 +1,36 @@
+$brun : chocolate;
+
+#menu{
+    position: absolute;
+    margin: 12px;
+
+    ul{
+        width: 36vh;
+        font-size: 20px;
+        text-decoration: none;
+        padding: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        list-style: none;
+        font-weight: bold;
+
+            li{
+            list-style: none;
+
+            a{
+                color: black;
+                text-decoration: none;
+            }
+
+            a:hover{
+                font-style: italic;
+            }
+        }
+    }
+}
+
+
+
+
+
+
