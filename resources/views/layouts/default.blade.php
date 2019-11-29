@@ -11,6 +11,10 @@
         @include('includes.header')
     </header>
 
+    <div id="fav">
+    @include('includes.fav')
+    </div>
+
     <div id="content">
             @yield('content')
     </div>
