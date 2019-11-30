@@ -1,6 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <section id='insectes'>
+    @if ($insectes)
     @foreach($insectes as $insecte)
         <figure>
             <img src="../img/1.png"/>
@@ -9,7 +10,7 @@
             <p>{{$insecte->description_insecte}}</p>
         <figure>
     @endforeach
-        
+    @endif    
 
     </section>
 @stop

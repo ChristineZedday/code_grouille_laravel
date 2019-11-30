@@ -11,7 +11,7 @@ class InsecteController extends Controller
 
     public function __construct()
     {
-       // $this->middleware('auth'); définir la route login! seeder des users et users admin!
+       $this->middleware('auth'); 
        // $this->middleware('admin');
     }
 
