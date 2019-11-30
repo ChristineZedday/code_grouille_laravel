@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <a href="{{route('insectes')}}">Back office:insectes</a>
                 </div>
             </div>
         </div>

@@ -17,6 +17,9 @@ Route::get('/login', function(){
 Route::get('/', function () {
     return view('pages.home');
 });
+Route::get('/home', function () {
+    return view('home');
+});
 Route::get('/apropos', function () {
     return view('pages.apropos');
 });
@@ -44,4 +47,4 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home'); //remplacera la première routr qd homeController sera fonctionnel
+Route::get('/', 'HomeController@index')->name('home'); //remplacera la première route qd homeController sera fonctionnel
