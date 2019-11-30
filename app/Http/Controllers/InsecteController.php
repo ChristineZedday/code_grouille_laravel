@@ -37,7 +37,7 @@ class InsecteController extends Controller
      */
     public function create()
     {
-        return view('backpages.forminsectes');
+        return view('backpages.forminsecte');
     }
 
     /**
@@ -70,7 +70,8 @@ class InsecteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $insecte = Insecte::find($id);
+        return view('backpages.forminsecte', ['insecte' => $insecte]);
     }
 
     /**
