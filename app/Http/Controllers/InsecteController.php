@@ -37,7 +37,7 @@ class InsecteController extends Controller
      */
     public function create()
     {
-        //
+        return view('backpages.forminsectes');
     }
 
     /**
