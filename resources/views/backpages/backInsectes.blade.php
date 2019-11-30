@@ -1,5 +1,14 @@
 @extends('layouts.backLayout')
 @section('content')
+@if (session('status'))
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="alert {{ session('alert-class') }}" role="alert">
+				{{ session('status') }}
+			</div>
+        </div>
+    </div>
+    @endif
     <section id='insectes' class='content'>
     <h1>Gestion des insectes </h1>
     @if ($insectes)
@@ -23,7 +32,7 @@
                                 <td class="align-middle"> {{ $insecte->nom_insecte }}</td>
                                 <td class="align-middle">{{$insecte->nom_latin_insecte}}</td>
                                 <td class="align-middle">{{$insecte->ordre_insecte}}</td>
-                                <td class="align-middle">{{$insecte->description_insecte}}</td>
+                                
                                 
                                 
                     </tr>
@@ -37,4 +46,4 @@
     @endif    
 
     </section>
-@stop
+@endsection
