@@ -9,7 +9,10 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
+Route::get('/login', function(){
+    return view('welcome');  //en attendant la vraie page!
+});
 
 Route::get('/', function () {
     return view('pages.home');
@@ -41,4 +44,4 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home'); //remplacera la première routr qd homeController sera fonctionnel
