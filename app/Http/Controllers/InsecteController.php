@@ -25,15 +25,9 @@ class InsecteController extends Controller
     {
         $insectes = Insecte::all();
 
-        return view('backpages.backInsectes',$insectes);
+      
 
-     /*   return view('backInsectes',[
-            'nom_insecte'=> $nom_insecte,
-            'nom_latin_insecte' => $nom_latin_insecte,
-            'ordre_insecte' => $ordre_insecte,
-            'description_insecte' => $description_insecte,
-    
-        ]);*/
+       return view('backpages.backInsectes',['insectes' => $insectes]);
     }
 
     /** 
