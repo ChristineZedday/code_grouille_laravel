@@ -3,9 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\Admin;
 
 class InsecteController extends Controller
 {
+
+    public function __construct()
+    {
+       // $this->middleware('auth'); définir la route login! seeder des users et users admin!
+       // $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,10 +22,18 @@ class InsecteController extends Controller
      */
     public function index()
     {
-        //
+        $insectes = insecte::all();
+
+        return view('backInsectes',[
+            'nom_insecte'=> $nom_insecte,
+            'nom_latin_insecte' => $nom_latin_insecte,
+            'ordre_insecte' => $ordre_insecte,
+            'description_insecte' => $description_insecte,
+    
+        ]);
     }
 
-    /**
+    /** 
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
