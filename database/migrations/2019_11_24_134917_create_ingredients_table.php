@@ -16,8 +16,8 @@ class CreateIngredientsTable extends Migration
         Schema::create('ingredients', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->string('nom_ingredient')->nullable;
-            $table->bigInteger('insecte_id')->unsigned()->nullable;
+            $table->string('nom_ingredient');
+            $table->bigInteger('insecte_id')->unsigned()->nullable();
             $table->foreign('insecte_id')->references('id')->on('insectes');
         });
     }
