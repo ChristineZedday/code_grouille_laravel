@@ -21,7 +21,7 @@ class InsecteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $insectes = Insecte::all();
 
@@ -48,7 +48,24 @@ class InsecteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nom_insecte' => 'required',
+            'nom_latin_insecte' => 'required',
+            'ordre_insecte' =>  'required',
+            'description_insecte' =>  'required',
+
+        ]);
+        
+        
+        $newInsecte = new Insecte;
+        $newInsecte->fill($validated); 
+       
+        
+        if ($newInsecte->save()) {
+            $request->session()->flash('status',"insecte enregistré avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('InsecteController@index');
+        }
     }
 
     /**
@@ -59,7 +76,18 @@ class InsecteController extends Controller
      */
     public function show($id)
     {
-        //
+        $insecte = Insecte::find($id);
+
+        if (!$insecte) {
+            $request->session()->flash('status',"Cette bestiole n'existe pas");
+            $request->session()->flash('alert-class',"alert-warning");
+            return redirect()->action('InsecteController@index');
+        } 
+        
+
+        return view('insectes/show',[
+            'insecte'=> $insecte,
+        ]);
     }
 
     /**

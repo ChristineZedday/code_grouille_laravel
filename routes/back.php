@@ -16,5 +16,5 @@ Route::get('/back/insectes/show/{id}', 'InsecteController@show')->name('insecte.
 Route::get('/back/insectes/edit/{id}', 'InsecteController@edit')->name('insecte.edit');
 Route::get('/back/insectes/create', 'InsecteController@create')->name('insecte.create');
 Route::put('/back/insectes/update/{id}', 'InsecteController@update')->name('insecte.update');
-Route::post('/back/insectes/store/{id}', 'InsecteController@store')->name('insecte.store');
+Route::post('/back/insectes/store/', 'InsecteController@store')->name('insecte.store');
 Route::delete('/back/insectes/{id}/destroy', 'InsecteController@destroy')->name('insecte.destroy');
