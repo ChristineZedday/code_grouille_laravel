@@ -111,7 +111,24 @@ class InsecteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       
+        
+        $validated = $request->validate([
+            'nom_insecte' => 'string|required',
+            'nom_latin_insecte' => 'string|required',
+            'ordre_insecte' =>  'string|required',
+            'description_insecte' =>  'required',
+
+        ]);
+
+        $insecte = Insecte::find($id);
+        $insecte->fill($validated);
+        
+        if ($insecte->save()) {
+            $request->session()->flash('status',"insecte enregistré avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('InsecteController@index');
+        }
     }
 
     /**
@@ -122,6 +139,12 @@ class InsecteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $insecte = Insecte::find($id);
+        
+        if ($insecte && $insecte->delete()) {
+            $request->session()->flash('status',"insecte supprimé avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('InsecteController@index');
+        }
     }
 }
