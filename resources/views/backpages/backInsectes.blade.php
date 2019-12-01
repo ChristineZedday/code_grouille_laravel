@@ -74,7 +74,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                <form id="formDeleteFlight" action="" method="POST" class="d-inline m-0">
+                <form id="formDeleteInsecte" action="" method="POST" class="d-inline m-0">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger">Valider</button>
