@@ -12,24 +12,27 @@ class IngredientsTableSeeder extends Seeder
     public function run()
     {
         DB::table('ingredients')->insert([
-            'nom_ingredient' => "sucre",
-            'insecte_id' => NULL,
-       
+            'nom_ingredient' => "sucre", 
         ]);
 
         DB::table('ingredients')->insert([
             'nom_ingredient' => "farine",
-            'insecte_id' => NULL,
+            
         ]);
 
         DB::table('ingredients')->insert([
             'nom_ingredient' => "oeufs",
-            'insecte_id' => NULL,
+            
         ]);
 
         DB::table('ingredients')->insert([
-            'nom_ingredient' => NULL,
-            'insecte_id' => "1",
+            'nom_ingredient' => "gruyère",
+
+        ]); 
+
+        DB::table('ingredients')->insert([
+            'nom_insecte' => "1",
+
         ]); 
         
        
