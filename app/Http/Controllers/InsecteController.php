@@ -13,7 +13,7 @@ class InsecteController extends Controller
     public function __construct()
     {
        $this->middleware('auth'); 
-       // $this->middleware('admin');
+       //$this->middleware('admin');
     }
 
     /**
@@ -49,9 +49,9 @@ class InsecteController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nom_insecte' => 'required',
-            'nom_latin_insecte' => 'required',
-            'ordre_insecte' =>  'required',
+            'nom_insecte' => 'string|required',
+            'nom_latin_insecte' => 'string|required',
+            'ordre_insecte' =>  'string|required',
             'description_insecte' =>  'required',
 
         ]);
@@ -85,7 +85,7 @@ class InsecteController extends Controller
         } 
         
 
-        return view('insectes/show',[
+        return view('backpages.showInsecte',[
             'insecte'=> $insecte,
         ]);
     }
