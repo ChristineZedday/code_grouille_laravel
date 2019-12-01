@@ -15,7 +15,7 @@ class CreateSitesPartenairesTable extends Migration
     {
         Schema::create('sites_partenaires', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('nom_partenaire');
             $table->string('url')->unique();
             $table->timestamp('url_verified_at')->nullable();
             $table->timestamps();
