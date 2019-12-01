@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(InsectesTableSeeder::class);
         $this->call(UnitesTableSeeder::class);
         $this->call(Sites_PartenairesTableSeeder::class);
+        $this->call(IngredientsTableSeeder::class);
     }
 }
