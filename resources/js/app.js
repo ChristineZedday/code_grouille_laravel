@@ -1,6 +1,3 @@
-require('./bootstrap');
-require('../sass/app.scss');
-
 var button =  document.getElementById("connectmembre");
 var modal =  document.getElementById("membre");
 var close =  document.getElementById("close");
