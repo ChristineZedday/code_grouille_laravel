@@ -18,3 +18,11 @@ Route::get('/back/insectes/create', 'InsecteController@create')->name('insecte.c
 Route::put('/back/insectes/update/{id}', 'InsecteController@update')->name('insecte.update');
 Route::post('/back/insectes/store/', 'InsecteController@store')->name('insecte.store');
 Route::delete('/back/insectes/{id}/destroy', 'InsecteController@destroy')->name('insecte.destroy');
+
+Route::get('/back/recettes', 'RecetteController@index')->name('recettes');
+Route::get('/back/recettes/show/{id}', 'recetteController@show')->name('recette.show');
+Route::get('/back/recettes/edit/{id}', 'recetteController@edit')->name('recette.edit');
+Route::get('/back/recettes/create', 'recetteController@create')->name('recette.create');
+Route::put('/back/recettes/update/{id}', 'recetteController@update')->name('recette.update');
+Route::post('/back/recettes/store/', 'recetteController@store')->name('recette.store');
+Route::delete('/back/recettes/{id}/destroy', 'recetteController@destroy')->name('recette.destroy');

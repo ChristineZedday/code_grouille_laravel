@@ -16,6 +16,7 @@ class CreateCommentairesRecettesTable extends Migration
         Schema::create('commentaires_recettes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->text('texte');
             $table->bigInteger('recette_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('recette_id')->references('id')->on('recettes');

@@ -18,15 +18,15 @@ class CreateRecettesTable extends Migration
             $table->timestamps();
             $table->string('titre_recette');
             $table->text('description_recette');
-            $table->string('temps_preparation_recette');
-            $table->string('temps_cuisson_recette');
-            $table->string('difficulte_recette');
-            $table->string('appetence_recette');
-            $table->string('deroule_recette');
-            $table->string('portion_recette');
+            $table->mediumInteger('temps_preparation_recette');
+            $table->mediumInteger('temps_cuisson_recette');
+            $table->tinyInteger('difficulte_recette');
+            $table->tinyInteger('appetence_recette');
+            $table->text('deroule_recette');
+            $table->tinyInteger('portion_recette');
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->nullable;
-           
+
         });
     }
 
