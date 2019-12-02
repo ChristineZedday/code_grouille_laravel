@@ -12,7 +12,7 @@ class InsecteController extends Controller
 
     public function __construct()
     {
-       $this->middleware('auth'); 
+       $this->middleware('auth');
        //$this->middleware('admin');
     }
 
@@ -25,12 +25,12 @@ class InsecteController extends Controller
     {
         $insectes = Insecte::all();
 
-      
+
 
        return view('backpages.backInsectes',['insectes' => $insectes]);
     }
 
-    /** 
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -55,12 +55,12 @@ class InsecteController extends Controller
             'description_insecte' =>  'required',
 
         ]);
-        
-        
+
+
         $newInsecte = new Insecte;
-        $newInsecte->fill($validated); 
-       
-        
+        $newInsecte->fill($validated);
+
+
         if ($newInsecte->save()) {
             $request->session()->flash('status',"insecte enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
@@ -79,11 +79,10 @@ class InsecteController extends Controller
         $insecte = Insecte::find($id);
 
         if (!$insecte) {
-            $request->session()->flash('status',"Cette bestiole n'existe pas");
-            $request->session()->flash('alert-class',"alert-warning");
+
             return redirect()->action('InsecteController@index');
-        } 
-        
+        }
+
 
         return view('backpages.showInsecte',[
             'insecte'=> $insecte,
@@ -111,8 +110,8 @@ class InsecteController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
-        
+
+
         $validated = $request->validate([
             'nom_insecte' => 'string|required',
             'nom_latin_insecte' => 'string|required',
@@ -123,7 +122,7 @@ class InsecteController extends Controller
 
         $insecte = Insecte::find($id);
         $insecte->fill($validated);
-        
+
         if ($insecte->save()) {
             $request->session()->flash('status',"insecte enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
@@ -140,10 +139,9 @@ class InsecteController extends Controller
     public function destroy($id)
     {
         $insecte = Insecte::find($id);
-        
+
         if ($insecte && $insecte->delete()) {
-            $request->session()->flash('status',"insecte supprimé avec succès");
-            $request->session()->flash('alert-class',"alert-success");
+          
             return redirect()->action('InsecteController@index');
         }
     }
