@@ -26,3 +26,11 @@ Route::get('/back/recettes/create', 'recetteController@create')->name('recette.c
 Route::put('/back/recettes/update/{id}', 'recetteController@update')->name('recette.update');
 Route::post('/back/recettes/store/', 'recetteController@store')->name('recette.store');
 Route::delete('/back/recettes/{id}/destroy', 'recetteController@destroy')->name('recette.destroy');
+
+Route::get('/back/ingredients', 'ingredientController@index')->name('ingredients');
+Route::get('/back/ingredients/show/{id}', 'ingredientController@show')->name('ingredient.show');
+Route::get('/back/ingredients/edit/{id}', 'ingredientController@edit')->name('ingredient.edit');
+Route::get('/back/ingredients/create', 'ingredientController@create')->name('ingredient.create');
+Route::put('/back/ingredients/update/{id}', 'ingredientController@update')->name('ingredient.update');
+Route::post('/back/ingredients/store/', 'ingredientController@store')->name('ingredient.store');
+Route::delete('/back/ingredients/{id}/destroy', 'ingredientController@destroy')->name('ingredient.destroy');

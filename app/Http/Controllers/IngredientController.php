@@ -6,14 +6,25 @@ use Illuminate\Http\Request;
 
 class IngredientController extends Controller
 {
+
+    public function __construct()
+    {
+       $this->middleware('auth');
+       //$this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $ingredients = Ingredient::all();
+
+
+
+       return view('backpages.backIngredients',['ingredients' => $ingredients]);
     }
 
     /**
@@ -23,8 +34,9 @@ class IngredientController extends Controller
      */
     public function create()
     {
-        //
+        return view('backpages.formingredient');
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -34,9 +46,24 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validated = $request->validate([
+            'id_insecte' => 'BigInteger',
+            'nom_ingredient' => 'string|required',
 
+
+        ]);
+
+
+        $newIngredient = new Ingredient;
+        $newIngredient->fill($validated);
+
+
+        if ($newIngredient->save()) {
+            $request->session()->flash('status',"ingrédient enregistré avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('InsecteController@index');
+        }
+    }
     /**
      * Display the specified resource.
      *
@@ -45,7 +72,16 @@ class IngredientController extends Controller
      */
     public function show($id)
     {
-        //
+        $ingredient = Ingredient::find($id);
+
+        if (!$ingredient) {
+
+            return redirect()->action('IngredientController@index');
+        }
+
+        return view('backpages.showIngredient',[
+            'insecte'=> $ingredient,
+        ]);
     }
 
     /**
@@ -56,7 +92,8 @@ class IngredientController extends Controller
      */
     public function edit($id)
     {
-        //
+        $ingredient = Ingredient::find($id);
+        return view('backpages.formingredient', ['ingredient' => $ingredient]);
     }
 
     /**
@@ -68,7 +105,23 @@ class IngredientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+        $validated = $request->validate([
+            'id_insecte' => 'BigInteger',
+            'nom_ingredient' => 'string|required',
+
+
+        ]);
+
+        $ingredient = Ingredient::find($id);
+        $ingredient->fill($validated);
+
+        if ($ingredient->save()) {
+            $request->session()->flash('status',"ingredient enregistré avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('IngredientController@index');
+        }
     }
 
     /**
@@ -79,6 +132,11 @@ class IngredientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $ingredient = Insgredient::find($id);
+
+        if ($ingredient && $ingredient->delete()) {
+
+            return redirect()->action('IngredientController@index');
+        }
     }
 }

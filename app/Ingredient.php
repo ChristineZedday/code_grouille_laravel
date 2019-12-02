@@ -6,12 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ingredient extends Model
 {
-    public function IngredientRecette() 
+
+    protected $fillable = ['nom_ingredient'];
+
+    public function IngredientRecette()
     {
     return $this->hasMany('App\IngredientRecette');
     }
 
-    public function Insecte() 
+    public function Insecte()
     {
     return $this->belongsTo('App\Insecte');
     }
