@@ -2,11 +2,14 @@
 @import 'membreform';
 @import 'menu';
 @import 'content';
+@import 'insectes';
+@import 'footer';
 
 
 $font1 : 'Alata', sans-serif;
 $font2 : 'Shadows Into Light', cursive;
-$brun : chocolate;
+$sandy : sandybrown;
+$blue: cadetblue;
 
 *{
 	margin:0;

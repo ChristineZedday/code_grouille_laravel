@@ -4,23 +4,23 @@
     margin-right: auto;
 
 
-article{
-    padding-top: 14%;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
+    article{
+        padding-top: 14%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
 
         .lineleft{
             width: 88%;
-            max-height: 100px;
+            max-height: 200px;
             margin-left: 13%;
         }
 
         .lineright{
             width: 88%;
-            max-height: 100px;
+            max-height: 200px;
             float: right;
         }
 
@@ -72,7 +72,7 @@ article{
 
                 .imgrecette{
                     width: 100%;
-                    max-height: 380px;
+                    max-height: 340px;
                 }
 
                 h3{

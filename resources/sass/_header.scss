@@ -1,23 +1,33 @@
-$brun : chocolate;
-$border : solid 4px $brun;
+$sandy : sandybrown;
+$blue: cadetblue;
+$border : solid 4px $sandy;
+
+.pict {
+    width: 40px;
+  }
 
 header{
-    display: flex;
-    border-bottom: solid 4px $brun;
-    background-image: "{{ URL::asset('../assets/img/imgheader.jpg') }}";
-    background-repeat: no-repeat;
-    background-size: cover;
+    display: -webkit-box;
+    border-bottom: solid 4px $sandy;
+    background-color: $blue;
+    min-height: 200px;
 
 
     h1{
-        font-size: 10em;
-        color:$brun;
+        font-size: 7vw;
+        color: sandybrown;
+        position: absolute;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
     }
 
 
-    #right{
+    #right {
         right: 0;
         position: absolute;
+        padding: 35px;
         text-align: center;
     }
 
@@ -30,26 +40,27 @@ header{
     }
 
 
-    #newsletter{
+    #newsletter {
         text-align: center;
         font-size: 25px;
         font-weight: bold;
         display: block;
         margin: 5% 6% 7% 21%;
 
-        a{
+
+        a {
             color: black;
             font-size: 20px;
             margin-top: -13px;
             display: block;
-        }
+          }
 
         img{
         width:40px;
         }
     }
 
-    #favoris{
+    #favoris {
         text-align: center;
         font-size: 25px;
         font-weight: bold;
@@ -69,7 +80,7 @@ header{
     }
 
     #connexion button{
-        background-color: $brun;
+        background-color: $sandy;
         border: none;
         border-radius: 15px;
         padding: 6px;
@@ -84,12 +95,33 @@ header{
             font-weight: bold;
         }
     }
+}
 
+#fav{
+    text-align: center;
+    background-color: black;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: solid 4px sandybrown;
+    -webkit-box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
+    -moz-box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
+    box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
+}
+
+.subheader{
+    display:inline;
+    text-align: center;
+}
+
+.subheader a{
+color: white;
+text-decoration: none;
+padding: 5px;
 }
 
 footer{
     display: flex;
-    border-top: solid 4px $brun;
+    border-top: solid 4px $sandy;
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -107,7 +139,7 @@ footer{
             list-style: none;
 
             a{
-                color: $brun;
+                color: $sandy;
                 text-decoration: none;
                 font-size: 15px;
             }
