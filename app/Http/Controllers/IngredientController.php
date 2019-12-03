@@ -9,7 +9,7 @@ class IngredientController extends Controller
 
     public function __construct()
     {
-       $this->middleware('auth');
+      // $this->middleware('auth');
        //$this->middleware('admin');
     }
 
@@ -34,7 +34,8 @@ class IngredientController extends Controller
      */
     public function create()
     {
-        return view('backpages.formingredient');
+        $insectes = Insecte::All();
+        return view('backpages.formingredient', ['insecte' => $insectes->nom_insecte]);
     }
 
 

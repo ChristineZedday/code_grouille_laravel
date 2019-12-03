@@ -12,7 +12,7 @@ class InsecteController extends Controller
 
     public function __construct()
     {
-       $this->middleware('auth');
+      // $this->middleware('auth');
        //$this->middleware('admin');
     }
 
@@ -141,7 +141,7 @@ class InsecteController extends Controller
         $insecte = Insecte::find($id);
 
         if ($insecte && $insecte->delete()) {
-          
+
             return redirect()->action('InsecteController@index');
         }
     }

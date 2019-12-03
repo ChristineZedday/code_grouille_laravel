@@ -20,15 +20,17 @@
     <div class='form-group'>
     <label><h3>Nom de l'insecte</h3></label>
     <select>
+            <option>Aucun ou sélectionnez</option>
         @foreach ($insectes as $insecte)
-
+        <option value="{{$glider->id}}" {{old('glider_id') == $glider->id? "selected" : ""}}> {{$glider->type}}
+                : {{$glider->registration}}</option>
         @endforeach
     </select>
     </div>
 
     <div class='form-group'>
     <label><h3>Nom latin</h3></label>
-    <input type="texte" class="form-control" @error('nom_ingredient') is-invalid @enderror" value="@isset($insecte){{$insecte->nom_ingredient}}@else{{ old('nom_ingredient') }}@endisset" name="nom_ingredient" required>
+    <input type="texte" class="form-control" @error('nom_ingredient') is-invalid @enderror value="@isset($insecte){{$insecte->nom_ingredient}}@else{{ old('nom_ingredient') }}@endisset" name="nom_ingredient" required>
     @error('nom_ingredient')
 								<div class="invalid-feedback">
 									{{ $message }}
