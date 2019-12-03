@@ -19,7 +19,7 @@
 						@endif
     <div class='form-group'>
     <label><h3>Titre de la recette</h3></label>
-    <input type="text" class="form-control" @error('titre_recette') is-invalid @enderror" value="@isset($recette){{$recette->titre_recette}}@else{{ old('titre_recette') }}@endisset" name="titre_recette" required>
+    <input type="text" class="form-control" @error('titre_recette') is-invalid @enderror value="@isset($recette){{$recette->titre_recette}}@else{{ old('titre_recette') }}@endisset" name="titre_recette" required>
     @error('titre_recette')
 								<div class="invalid-feedback">
 									{{ $message }}
@@ -29,7 +29,7 @@
 
     <div class='form-group'>
     <label><p>Description de la recette</p></label>
-    <input type="texte" class="form-control" @error('nom_latin_insecte') is-invalid @enderror" value="@isset($insecte){{$insecte->nom_latin_insecte}}@else{{ old('nom_latin_insecte') }}@endisset" name="nom_latin_insecte" required>
+    <input type="texte" class="form-control" @error('nom_latin_insecte') is-invalid @enderror value="@isset($insecte){{$insecte->nom_latin_insecte}}@else{{ old('nom_latin_insecte') }}@endisset" name="nom_latin_insecte" required>
     @error('nom_latin_insecte')
 								<div class="invalid-feedback">
 									{{ $message }}
@@ -39,7 +39,7 @@
 
     <div class='form-group'>
     <label><h3>Ordre</h3></label>
-    <input type="texte" class="form-control" @error('ordre_insecte') is-invalid @enderror" value="@isset($insecte){{$insecte->ordre_insecte}}@else{{ old('ordre_insecte') }}@endisset" name="ordre_insecte" required>
+    <input type="texte" class="form-control" @error('ordre_insecte') is-invalid @enderror value="@isset($insecte){{$insecte->ordre_insecte}}@else{{ old('ordre_insecte') }}@endisset" name="ordre_insecte" required>
     @error('ordre_insecte')
 								<div class="invalid-feedback">
 									{{ $message }}
