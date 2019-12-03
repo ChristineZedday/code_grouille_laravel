@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\Admin;
+use App\Insecte;
+use App\Ingredient;
 
 class IngredientController extends Controller
 {

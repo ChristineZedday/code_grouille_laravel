@@ -1,4 +1,4 @@
-@extends('layouts.backLayout')
+@extends('../layouts.backLayout')
 
 @section('content')
 <div class="container">
@@ -19,11 +19,15 @@
 						@endif
     <div class='form-group'>
     <label><h3>Nom de l'insecte</h3></label>
-    <select>
+    <select class="form-control @error('insecte_id') is-invalid @enderror" name="insecte_id">
             <option>Aucun ou sélectionnez</option>
         @foreach ($insectes as $insecte)
-        <option value="{{$glider->id}}" {{old('glider_id') == $glider->id? "selected" : ""}}> {{$glider->type}}
-                : {{$glider->registration}}</option>
+            @isset($flight)
+            <option value="{{$insecte->id}}" {{old('insecte_id') == $insecte->id? "selected" : ""}}> {{$insecte->nom_insecte}}>
+                </option>
+            @else
+            <option value="{{$insecte->id}}" {{old('insecte_id') == $insecte->id? "selected" : ""}}> {{$insecte->nom_insecte}}>
+            </option>
         @endforeach
     </select>
     </div>

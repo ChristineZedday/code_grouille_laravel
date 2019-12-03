@@ -1,4 +1,4 @@
-@extends('layouts.backLayout')
+@extends('../layouts.backLayout')
 @section('content')
 @if (session('status'))
     <div class="row justify-content-center">
