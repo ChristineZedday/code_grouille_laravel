@@ -51,19 +51,24 @@ class RecetteController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nom_insecte' => 'string|required',
-            'nom_latin_insecte' => 'string|required',
-            'ordre_insecte' =>  'string|required',
-            'description_insecte' =>  'required',
+            'titre_recette' => 'string|required',
+            'description_recette' => 'string|required',
+            'temps_preparation_recette' =>  'required',
+            'temps_cuisson_recette' =>  'required',
+            'difficulte_recette' =>  'required',
+            'appetence_recette' =>  'required',
+            'deroule_recette' =>  'required',
+            'portion_recette' =>  'required',
 
         ]);
 
         $validated['description_recette'] = str_replace("\n", "<br>", $validated['description_recette']);
-        $newInsecte = new Insecte;
-        $newInsecte->fill($validated);
+        $validated['deroule_recette'] = str_replace("\n", "<br>", $validated['deroule_recette']);
+        $newRecette = new Recette;
+        $newRecette->fill($validated);
 
 
-        if ($newInsecte->save()) {
+        if ($newRecette->save()) {
             $request->session()->flash('status',"recette enregistrée avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('RecetteController@index');
@@ -100,7 +105,7 @@ class RecetteController extends Controller
     public function edit($id)
     {
         $recette = Recette::find($id);
-        return view('backpages.forminsecte', ['insecte' => $insecte]);
+        return view('backpages.formrecette', ['recette' => $recette]);
     }
 
     /**
@@ -113,20 +118,23 @@ class RecetteController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'nom_insecte' => 'string|required',
-            'nom_latin_insecte' => 'string|required',
-            'ordre_insecte' =>  'string|required',
-            'description_insecte' =>  'required',
-
+            'titre_recette' => 'string|required',
+            'description_recette' => 'string|required',
+            'temps_preparation_recette' =>  'required',
+            'temps_cuisson_recette' =>  'required',
+            'difficulte_recette' =>  'required',
+            'appetence_recette' =>  'required',
+            'deroule_recette' =>  'required',
+            'portion_recette' =>  'required',
         ]);
 
-        $insecte = Insecte::find($id);
-        $insecte->fill($validated);
+        $recette = Recette::find($id);
+        $recette->fill($validated);
 
-        if ($insecte->save()) {
-            $request->session()->flash('status',"insecte enregistré avec succès");
+        if ($recette->save()) {
+            $request->session()->flash('status',"recette mise à jour avec succès");
             $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('InsecteController@index');
+            return redirect()->action('RecetteController@index');
         }
     }
 
@@ -138,11 +146,11 @@ class RecetteController extends Controller
      */
     public function destroy($id)
     {
-        $insecte = Insecte::find($id);
+        $recette = Recette::find($id);
 
-        if ($insecte && $insecte->delete()) {
+        if ($recette && $recette->delete()) {
 
-            return redirect()->action('InsecteController@index');
+            return redirect()->action('RecetteController@index');
         }
     }
 }
