@@ -32,8 +32,8 @@
 
 
                     <tr>
-                                <td class="align-middle"> {{ $ingredient->id_insecte->nom_insecte }}</td>
-                                <td class="align-middle">{{$ingredient->nom_ingredient}}</td>
+                                <td class="align-middle">  @isset($ingredient->id_insecte) {{$ingredient->id_insecte->nom_insecte}} @endisset }} </td>
+                                <td class="align-middle"> {{$ingredient->nom_ingredient}} </td>
 
                                 <td  class="align-middle"> <a href="{{route('ingredient.show',$ingredient->id)}}" >Voir</a>
                                     <a href="{{route('ingredient.edit',$ingredient->id)}}">Modifier</a>

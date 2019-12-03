@@ -39,7 +39,7 @@ class IngredientController extends Controller
     public function create()
     {
         $insectes = Insecte::All();
-        return view('backpages.formingredient', ['insecte' => $insectes->nom_insecte]);
+        return view('backpages.formingredient', ['insectes' => $insectes]);
     }
 
 
@@ -66,7 +66,7 @@ class IngredientController extends Controller
         if ($newIngredient->save()) {
             $request->session()->flash('status',"ingrédient enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('InsecteController@index');
+            return redirect()->action('IngredientController@index');
         }
     }
     /**
