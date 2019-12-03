@@ -56,7 +56,7 @@ class InsecteController extends Controller
 
         ]);
 
-
+        $validated['description_insecte'] = str_replace("\n", "<br>", $validated['description_insecte']);
         $newInsecte = new Insecte;
         $newInsecte->fill($validated);
 
