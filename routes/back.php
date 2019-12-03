@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/back', function () {
+Route::get('/home', function () {
     return view('backpages.back');
 });
 

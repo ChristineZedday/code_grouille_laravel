@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('../layouts/default')
 
 @section('meta_title', 'page d\'accueil')
 
