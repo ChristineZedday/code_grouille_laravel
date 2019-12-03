@@ -49,13 +49,17 @@
 
     <div class='form-groupl'>
     <label><h3>Description</h3></label>
-    <textarea rows="20" cols="100" class="form-control" @error('description_insecte') is-invalid @enderror name="description_insecte" required> @isset($insecte){{$insecte->description_insecte}}@else{{ old('description_insecte') }}@endisset
-    </textarea>
+
+    <div class="YSeditor">
+        <textarea rows="20" cols="100" class="form-control" @error('description_insecte') is-invalid @enderror name="description_insecte" required> @isset($insecte){{$insecte->description_insecte}}@else{{ old('description_insecte') }}@endisset
+        </textarea>
+    </div>
+
     @error('description_insecte')
-								<div class="invalid-feedback">
-									{{ $message }}
-								</div>
-                        	@enderror
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+    @enderror
     </div>
 
     <input type="submit" id='submit' value='Enregistrer' >

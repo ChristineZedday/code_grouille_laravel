@@ -1,3 +1,5 @@
+require('./wysiwyg');
+
 var button =  document.getElementById("connectmembre");
 var modal =  document.getElementById("membre");
 var close =  document.getElementById("close");
