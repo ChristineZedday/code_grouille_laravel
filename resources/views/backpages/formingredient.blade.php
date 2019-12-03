@@ -22,8 +22,8 @@
     <select class="form-control @error('insecte_id') is-invalid @enderror" name="insecte_id">
             <option>Aucun ou sélectionnez</option>
         @foreach ($insectes as $insecte)
-            @isset($flight)
-            <option value="{{$insecte->id}}" {{old('insecte_id') == $insecte->id? "selected" : ""}}> {{$insecte->nom_insecte}}>
+            @isset($insecte)
+            <option value="{{$insecte->id}}" {{$insecte_id == $insecte->id? "selected" : ""}}> {{$insecte->nom_insecte}}>
                 </option>
             @else
             <option value="{{$insecte->id}}" {{old('insecte_id') == $insecte->id? "selected" : ""}}> {{$insecte->nom_insecte}}>
