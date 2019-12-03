@@ -63,14 +63,14 @@
 @endsection
 
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
 function confirmation()
 {
-var message = confirm('Voulez-vous vraiment supprimer l\'insecte n°: '.{{$insecte->id}}.'?');
+var message = confirm('Voulez-vous vraiment supprimer la recette n°: '.{{$recette->id}}.'?');
 if (message)
 {
 
-}
-}
+} --}}
+{{-- }
 
-</script>
+</script> --}}

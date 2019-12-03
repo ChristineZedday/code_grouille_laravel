@@ -49,13 +49,31 @@
                 </div>
 
                 <div class='form-group'>
-                    <label><p>Temps de cuisson</p></label>
-                    <input type="text" class="form-control" @error('difficulte_recette') is-invalid @enderror value="@isset($recette){{$recette->difficulte_recerte}}@else{{ old('difficulte_recette') }}@endisset" name="difficulte_recette" required>
+                    <label><p>Difficulte recette</p></label>
+                    <input type="text" class="form-control" @error('difficulte_recette') is-invalid @enderror value="@isset($recette){{$recette->difficulte_recette}}@else{{ old('difficulte_recette') }}@endisset" name="difficulte_recette" required>
+
+                    <option>sélectionnez</option>
+
+                    @isset($recette)
+                    <option value="Facile" {{old('difficulte_recette') == $recette->difficulte? "selected" : ""}}> {{$recette->recette_difficulte}}>
+                    </option>
+                    <option value="Moyen" {{old('difficulte_recette') == $recette->difficulte? "selected" : ""}}> {{$recette->recette_difficulte}}>
+                    </option>
+                    <option value="Difficile" {{old('difficulte_recette') == $recette->difficulte? "selected" : ""}}> {{$recette->recette_difficulte}}>
+                    </option>
+
                     @error('difficulte_recette')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
+                <div class='form-group'>
+                    <label><p>Appetance recette</p></label>
+                    <input type="text" class="form-control" @error('appetance_recette') is-invalid @enderror value="@isset($recette){{$recette->appetance_recette}}@else{{ old('appetance_recette') }}@endisset" name="appetance_recette" required>
+                    @error('appetance_recette')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
 
 
