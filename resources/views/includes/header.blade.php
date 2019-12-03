@@ -4,6 +4,7 @@
 
 
 <section>
+
 @include('includes.menu')
 
 <h1>Grouille !</h1>
@@ -19,6 +20,7 @@
     <button id='newmembre'><a href="#">Créer un compte</a></button>
     <button id='connectmembre'><a href="#">Déjà membre?</a></button>
 </div>
+
 </section>
 
 </div>

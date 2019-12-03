@@ -1,8 +1,8 @@
-$brun : chocolate;
 
 #menu{
     position: absolute;
     margin: 12px;
+    z-index: 9999;
 
     ul{
         width: 36vh;
