@@ -25,8 +25,6 @@ class RecetteController extends Controller
     {
         $recettes = Recette::all();
 
-
-
        return view('backpages.backRecettes',['recettes' => $recettes]);
     }
 
