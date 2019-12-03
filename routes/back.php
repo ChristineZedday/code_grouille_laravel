@@ -11,6 +11,11 @@
 |
 */
 
+Route::get('/back', function () {
+    return view('backpages.back');
+});
+
+
 Route::get('/back/insectes', 'InsecteController@index')->name('insectes');
 Route::get('/back/insectes/show/{id}', 'InsecteController@show')->name('insecte.show');
 Route::get('/back/insectes/edit/{id}', 'InsecteController@edit')->name('insecte.edit');
