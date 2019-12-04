@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Middleware\Admin;
+use App\Recette;
+use App\User;
 
 class RecetteController extends Controller
 {
@@ -18,10 +22,14 @@ class RecetteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $recettes = Recette::all();
+
+       return view('backpages.backRecettes',['recettes' => $recettes]);
     }
+
+   
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +38,7 @@ class RecetteController extends Controller
      */
     public function create()
     {
-        //
+        return view('backpages.formrecette');
     }
 
     /**
@@ -41,7 +49,29 @@ class RecetteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'titre_recette' => 'string|required',
+            'description_recette' => 'string|required',
+            'temps_preparation_recette' =>  'required',
+            'temps_cuisson_recette' =>  'required',
+            'difficulte_recette' =>  'required',
+            'appetence_recette' =>  'required',
+            'deroule_recette' =>  'required',
+            'portion_recette' =>  'required',
+
+        ]);
+
+        $validated['description_recette'] = str_replace("\n", "<br>", $validated['description_recette']);
+        $validated['deroule_recette'] = str_replace("\n", "<br>", $validated['deroule_recette']);
+        $newRecette = new Recette;
+        $newRecette->fill($validated);
+
+
+        if ($newRecette->save()) {
+            $request->session()->flash('status',"recette enregistrée avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('RecetteController@index');
+        }
     }
 
     /**
@@ -52,7 +82,17 @@ class RecetteController extends Controller
      */
     public function show($id)
     {
-        //
+        $recette = Recette::find($id);
+
+        if (!$recette) {
+
+            return redirect()->action('RecetteController@index');
+        }
+
+
+        return view('backpages.showRecette',[
+            'recette'=> $recette,
+        ]);
     }
 
     /**
@@ -63,7 +103,8 @@ class RecetteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $recette = Recette::find($id);
+        return view('backpages.formrecette', ['recette' => $recette]);
     }
 
     /**
@@ -75,7 +116,25 @@ class RecetteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'titre_recette' => 'string|required',
+            'description_recette' => 'string|required',
+            'temps_preparation_recette' =>  'required',
+            'temps_cuisson_recette' =>  'required',
+            'difficulte_recette' =>  'required',
+            'appetence_recette' =>  'required',
+            'deroule_recette' =>  'required',
+            'portion_recette' =>  'required',
+        ]);
+
+        $recette = Recette::find($id);
+        $recette->fill($validated);
+
+        if ($recette->save()) {
+            $request->session()->flash('status',"recette mise à jour avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('RecetteController@index');
+        }
     }
 
     /**
@@ -86,6 +145,11 @@ class RecetteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $recette = Recette::find($id);
+
+        if ($recette && $recette->delete()) {
+
+            return redirect()->action('RecetteController@index');
+        }
     }
 }

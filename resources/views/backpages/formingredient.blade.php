@@ -1,4 +1,4 @@
-@extends('layouts.backLayout')
+@extends('../layouts.backLayout')
 
 @section('content')
 <div class="container">
@@ -6,7 +6,7 @@
         <div class="col-md-12">
 
 
-<form action="@isset($ingredient){{route('ingredient.update', $insecte->id)}}@else{{route('ingredient.store')}}@endisset" method="POST">
+<form action="@isset($ingredient){{route('ingredient.update', $ingredient->id)}}@else{{route('ingredient.store')}}@endisset" method="POST">
 						@csrf
 						@isset($ingredient) @method('PUT') @endisset
 
@@ -19,17 +19,22 @@
 						@endif
     <div class='form-group'>
     <label><h3>Nom de l'insecte</h3></label>
-    <select>
+    <select class="form-control  name="insecte_id">
             <option>Aucun ou sélectionnez</option>
         @foreach ($insectes as $insecte)
-        <option value="{{$glider->id}}" {{old('glider_id') == $glider->id? "selected" : ""}}> {{$glider->type}}
-                : {{$glider->registration}}</option>
+            @isset($insecte)
+            <option value="{{$insecte->id}}" {{$insecte_id ?? '' == $insecte->id? "selected" : ""}}> {{$insecte->nom_insecte ?? ''}}
+                </option>
+            @else
+            <option value="{{$insecte->id}}" {{old('insecte_id' ?? '') == $insecte->id? "selected" : ""}}> {{$insecte->nom_insecte ?? ''}}
+            </option>
+            @endisset
         @endforeach
     </select>
     </div>
 
     <div class='form-group'>
-    <label><h3>Nom latin</h3></label>
+    <label><h3>Nom de l'ingrédient</h3></label>
     <input type="texte" class="form-control" @error('nom_ingredient') is-invalid @enderror value="@isset($insecte){{$insecte->nom_ingredient}}@else{{ old('nom_ingredient') }}@endisset" name="nom_ingredient" required>
     @error('nom_ingredient')
 								<div class="invalid-feedback">
