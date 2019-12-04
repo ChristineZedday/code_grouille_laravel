@@ -2,20 +2,17 @@
 
 @section('content')
 @if (session('status'))
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+
             <div class="alert {{ session('alert-class') }}" role="alert">
 				{{ session('status') }}
 			</div>
-        </div>
-    </div>
+
     @endif
-
+            <div class="intit">
             <a href="{{route('ingredient.create')}}" > Ajouter un ingrédient</a>
-        </div>
-    </div>
+            </div>
 
-    <section id='ingredients' class='content'>
+    <section id="ingredients" class="content">
     <h1>Gestion des ingrédients </h1>
     @if ($ingredients)
     <table >
@@ -41,7 +38,7 @@
                                  <form action="@isset($ingredient){{route('ingredient.destroy', $ingredient->id)}}@endisset" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" onclick="confirmation()" >
+                                    <button type="submit" >
                                     Supprimer</button></td></form>
 
 
@@ -56,19 +53,8 @@
     @endif
 
     </section>
-    </div>
-    </div>
+
 @endsection
 
 
-<script type="text/javascript">
-function confirmation()
-{
-var message = confirm('Voulez-vous vraiment supprimer l\'ingrédient n°: '.{{$ingredient->id}}.'?');
-if (message)
-{
 
-}
-}
-
-</script>
