@@ -33,6 +33,14 @@
                 </div>
 
                 <div class='form-group'>
+                        <label><p>Déroulé de la recette</p></label>
+                        <input type="texte" class="form-control" @error('deroule_recette') is-invalid @enderror value="@isset($recette){{$recette->deroule_recette}}@else{{ old('deroule_recette') }}@endisset" name="deroule_recette" required>
+                        @error('deroule_recette')
+                       <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                <div class='form-group'>
                     <label><p>Temps de préparation</p></label>
                     <input type="number" class="form-control" @error('temps_preparation_recette') is-invalid @enderror value="@isset($recette){{$recette->temps_preparation_recerte}}@else{{ old('temps_preparation_recette') }}@endisset" name="temps_preparation_recette" required>
                     @error('temps_preparation_recette')
@@ -49,11 +57,15 @@
                 </div>
 
                 <div class='form-group'>
+
+
                     <label><p>Difficulte recette</p></label>
-                    <input type="text" class="form-control" @error('difficulte_recette') is-invalid @enderror value="@isset($recette){{$recette->difficulte_recette}}@else{{ old('difficulte_recette') }}@endisset" name="difficulte_recette" required>
 
-                    <option>sélectionnez</option>
-
+                    <select type="text" class="form-control" @error('difficulte_recette') is-invalid @enderror value="@isset($recette){{$recette->difficulte_recette}}@else{{ old('difficulte_recette') }}@endisset" name="difficulte_recette" required>
+                        <option value="Facile" >Facile</option>
+                        <option value="Moyen" >Moyen</option>
+                        <option value="Expert" >Expert</option>
+                    </select>
 
                     @error('difficulte_recette')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -62,13 +74,24 @@
 
                 <div class='form-group'>
                     <label><p>Appetance recette</p></label>
-                    <input type="text" class="form-control" @error('appetance_recette') is-invalid @enderror value="@isset($recette){{$recette->appetance_recette}}@else{{ old('appetance_recette') }}@endisset" name="appetance_recette" required>
+                    <select type="text" class="form-control" @error('difficulte_recette') is-invalid @enderror value="@isset($recette){{$recette->difficulte_recette}}@else{{ old('difficulte_recette') }}@endisset" name="difficulte_recette" required>
+                            <option value="Entomophage Débutant">Entomophage Débutant</option>
+                            <option value="Entomophage Moyen">Entomophage Moyen</option>
+                            <option value="Entomophage Confirmé">Entomophage Confirmé</option>
+                        </select>
                     @error('appetance_recette')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
 
 
+                <div class='form-group'>
+                        <label><p>Nombre de parts</p></label>
+                        <input type="number" class="form-control" @error('portion_recette') is-invalid @enderror value="@isset($recette){{$recette->portion_recerte}}@else{{ old('portion_recette') }}@endisset" name="portion_recette" required>
+                        @error('portion_recette')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
 
     <input type="submit" id="submit" value="Enregistrer" >
 
