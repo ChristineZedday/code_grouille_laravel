@@ -6,7 +6,8 @@
         <div class="col-md-12">
 
 
-<form action="@isset($ingredient){{route('ingredient.update', $ingredient->id)}}@else{{route('ingredient.store')}}@endisset" method="POST">
+<form action="@isset($ingredient) {{route('ingredient.update', $ingredient->id)}}
+                @else {{route('ingredient.store')}} @endisset" method="POST">
 						@csrf
 						@isset($ingredient) @method('PUT') @endisset
 
@@ -22,11 +23,11 @@
     <select class="form-control  name="insecte_id">
             <option>Aucun ou sélectionnez</option>
         @foreach ($insectes as $insecte)
-            @isset($insecte)
-            <option value="{{$insecte->id}}" {{$insecte_id ?? '' == $insecte->id? "selected" : ""}}> {{$insecte->nom_insecte ?? ''}}
+            @isset($ingredient)
+            <option value="{{$insecte->id  }}" > {{$insecte->nom_insecte }}  //{{$insecte_id ?? '' == $insecte->id? "selected" : ""}}
                 </option>
             @else
-            <option value="{{$insecte->id}}" {{old('insecte_id' ?? '') == $insecte->id? "selected" : ""}}> {{$insecte->nom_insecte ?? ''}}
+            <option value="{{$insecte->id }}" >{{$insecte->nom_insecte}} //{{old('insecte_id' ?? '') == $insecte->id? "selected" : ""}}
             </option>
             @endisset
         @endforeach

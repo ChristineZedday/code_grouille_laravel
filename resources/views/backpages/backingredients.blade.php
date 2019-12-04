@@ -33,7 +33,7 @@
 
 
                     <tr>
-                                <td class="align-middle">  @isset($ingredient->id_insecte) {{$ingredient->id_insecte->nom_insecte}} @else &nbsp; @endisset  </td>
+                                <td class="align-middle">  @isset($ingredient->insecte) {{$ingredient->insecte->nom_insecte}} @else &nbsp; @endisset  </td>
                                 <td class="align-middle"> {{$ingredient->nom_ingredient}} </td>
 
                                 <td  class="align-middle"> <a href="{{route('ingredient.show',$ingredient->id)}}" >Voir</a>
