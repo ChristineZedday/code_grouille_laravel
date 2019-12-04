@@ -56,16 +56,61 @@ $white : #D3E5E2;
                 border: solid 2px black;
                 width: 90%;
 
-            thead{
-                width: 100%;
-                background-color: white;
-                border-bottom: solid 2px black;
-            }
+                thead{
+                    width: 100%;
+                    background-color: white;
+                    border-bottom: solid 2px black;
+                }
 
-            td{
-                padding: 8px;
-            }
+                td{
+                    padding: 8px;
+                }
+
+                button{
+                        display: block;
+                        background-color: black;
+                        border: none;
+                        border-radius: 5px;
+                        width: 75px;
+                        padding: 2px;
+                        color:white;
+                        font-weight:bold;
+                        margin: 2px;
+                        text-align: center;
+
+                        a{
+                            color:white;
+                            font-weight:bold;
+                            text-decoration: none;
+                        }
+                }
 
             }
 
         }
+
+#forminsecte{
+
+    form{
+        width: 70vw;
+        margin: 5%;
+
+        h2{
+            font-size: 33px;
+            margin-bottom: 20px;
+        }
+
+        input{
+            text-align: left;
+        }
+
+        textarea{
+            max-width: 56vw;
+            border-radius: 10px;
+            width: 80%;
+            border-style: inset;
+            border-width: 2px;
+            border-color: initial;
+        }
+    }
+}

@@ -11,10 +11,10 @@
 
 <section id='insectes' class='content'>
 
-<div class='intit'>
-    <h1>Gestion des insectes </h1>
-    <a href="{{route('insecte.create')}}"><h2>Ajouter un insecte</h2></a>
-</div>
+    <div class='intit'>
+        <h1>Gestion des insectes </h1>
+        <a href="{{route('insecte.create')}}"><h2>Ajouter un insecte</h2></a>
+    </div>
 
 @if ($insectes)
 <table >
@@ -32,13 +32,14 @@
         <td class="align-middle"> {{ $insecte->nom_insecte }}</td>
         <td class="align-middle">{{$insecte->nom_latin_insecte}}</td>
         <td class="align-middle">{{$insecte->ordre_insecte}}</td>
-        <td  class="align-middle"> <a href="{{route('insecte.show',$insecte->id)}}" >Voir</a>
-            <a href="{{route('insecte.edit',$insecte->id)}}">Modifier</a>
-            <form action="@isset($insecte){{route('insecte.destroy', $insecte->id)}}@endisset" method="POST">
+        <td  class="align-middle">
+        <button><a href="{{route('insecte.show',$insecte->id)}}" >Voir</a></button>
+        <button><a href="{{route('insecte.edit',$insecte->id)}}">Modifier</a></button>
+        <form action="@isset($insecte){{route('insecte.destroy', $insecte->id)}}@endisset" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" onclick="confirmation()" >
-            Supprimer</button></td></form>
+            <button type="submit" onclick="confirmation()">Supprimer</button></td>
+        </form>
     </tr>
  @endforeach
 </tbody>
