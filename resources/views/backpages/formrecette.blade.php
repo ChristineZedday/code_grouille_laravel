@@ -1,4 +1,4 @@
-@extends('layouts.backLayout')
+@extends('../layouts/backlayout')
 
 @section('content')
 <div class="container">
@@ -54,13 +54,6 @@
 
                     <option>sélectionnez</option>
 
-                    @isset($recette)
-                    <option value="Facile" {{old('difficulte_recette') == $recette->difficulte? "selected" : ""}}> {{$recette->recette_difficulte}}>
-                    </option>
-                    <option value="Moyen" {{old('difficulte_recette') == $recette->difficulte? "selected" : ""}}> {{$recette->recette_difficulte}}>
-                    </option>
-                    <option value="Difficile" {{old('difficulte_recette') == $recette->difficulte? "selected" : ""}}> {{$recette->recette_difficulte}}>
-                    </option>
 
                     @error('difficulte_recette')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -77,7 +70,7 @@
 
 
 
-    <input type="submit" id='submit' value='Enregistrer' >
+    <input type="submit" id="submit" value="Enregistrer" >
 
 </form>
 </div>
