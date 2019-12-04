@@ -209,8 +209,14 @@ input:not([type=submit]) {
   z-index: 9999;
 }
 
+#menu span {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 3px solid black;
+  display: block;
+}
+
 #menu ul {
-  width: 36vh;
   font-size: 20px;
   text-decoration: none;
   padding: 20px;
@@ -378,7 +384,7 @@ footer #adress {
 #backleft {
   width: 20%;
   height: 100vh;
-  position: fixed;
+  float: left;
   background-color: sandybrown;
   left: 0;
 }

@@ -30,7 +30,7 @@ class IngredientController extends Controller
 
 
 
-       return view('backpages.backIngredients',['ingredients' => $ingredients]);
+       return view('backpages.backingredients',['ingredients' => $ingredients]);
     }
 
     /**
@@ -68,9 +68,11 @@ class IngredientController extends Controller
         if ($newIngredient->save()) {
             $request->session()->flash('status',"ingrédient enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
+
             return redirect()->action('IngredientController@index');
         }
     }
+    
     /**
      * Display the specified resource.
      *
