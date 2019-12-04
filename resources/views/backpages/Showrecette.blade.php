@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('../layouts/backlayout')
 @section('content')
     <section id='recettes'>
 
@@ -9,6 +9,7 @@
 
             <p>{{$recette->difficulte_recette}}</p>
             <p>{{$recette->appetence_recette}}</p>
-            <p>{{$user->user_id}}</p>
+            <p>{{$recette->user->name}}</p>
+
 
 @stop

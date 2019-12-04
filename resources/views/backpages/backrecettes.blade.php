@@ -32,9 +32,10 @@
                             <td class="align-middle"> {{$recette->titre_recette}}</td>
                             <td class="align-middle">{{$recette->temps_preparation_recette}}</td>
                             <td class="align-middle">{{$recette->temps_cuisson_recette}}</td>
+                            <td class="align-middle">{{$recette->user->name}}</td>
                             <td class="align-middle">{{$recette->portion_recette}}</td>
 
-                            <td class="align-middle">{{$user->user_id}}</td>
+
                             <td class="align-middle"> <a href="{{route('recette.show',$recette->id)}}" >Voir</a>
                             <a href="{{route('recette.edit',$recette->id)}}">Modifier</a>
                             <form action="@isset($recette){{route('recette.destroy', $recette->id)}}@endisset" method="POST">
