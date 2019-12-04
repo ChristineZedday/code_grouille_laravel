@@ -1,64 +1,53 @@
 @extends('../layouts/backlayout')
+
 @section('content')
+
 @if (session('status'))
-    <div class="row justify-content-center">
-        <div class="col-md-8">
             <div class="alert {{ session('alert-class') }}" role="alert">
 				{{ session('status') }}
 			</div>
-        </div>
-    </div>
-    @endif
+@endif
 
-            <a href="{{route('insecte.create')}}" > Ajouter un insecte</a>
-        </div>
-    </div>
 
-    <section id='insectes' class='content'>
+<section id='insectes' class='content'>
+
+<div class='intit'>
     <h1>Gestion des insectes </h1>
-    @if ($insectes)
-    <table >
-                    <thead >
-                        <tr>
-                            <th>Nom de l'insecte</th>
-                            <th>Nom latin</th>
-                            <th>Ordre</th>
-                            <th>Actions</th>
+    <a href="{{route('insecte.create')}}"><h2>Ajouter un insecte</h2></a>
+</div>
 
-                        </tr>
+@if ($insectes)
+<table >
+    <thead >
+        <tr>
+            <th>Nom de l'insecte</th>
+            <th>Nom latin</th>
+            <th>Ordre</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+<tbody>
+@foreach ($insectes as $insecte)
+    <tr>
+        <td class="align-middle"> {{ $insecte->nom_insecte }}</td>
+        <td class="align-middle">{{$insecte->nom_latin_insecte}}</td>
+        <td class="align-middle">{{$insecte->ordre_insecte}}</td>
+        <td  class="align-middle"> <a href="{{route('insecte.show',$insecte->id)}}" >Voir</a>
+            <a href="{{route('insecte.edit',$insecte->id)}}">Modifier</a>
+            <form action="@isset($insecte){{route('insecte.destroy', $insecte->id)}}@endisset" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" onclick="confirmation()" >
+            Supprimer</button></td></form>
+    </tr>
+ @endforeach
+</tbody>
+</table>
 
-                    </thead>
-                    <tbody>
-      @foreach ($insectes as $insecte)
-
-
-
-                    <tr>
-                                <td class="align-middle"> {{ $insecte->nom_insecte }}</td>
-                                <td class="align-middle">{{$insecte->nom_latin_insecte}}</td>
-                                <td class="align-middle">{{$insecte->ordre_insecte}}</td>
-                                <td  class="align-middle"> <a href="{{route('insecte.show',$insecte->id)}}" >Voir</a>
-                                    <a href="{{route('insecte.edit',$insecte->id)}}">Modifier</a>
-                                 <form action="@isset($insecte){{route('insecte.destroy', $insecte->id)}}@endisset" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" onclick="confirmation()" >
-                                    Supprimer</button></td></form>
-
-
-                    </tr>
-
-        @endforeach
-        </tbody>
-                        </table>
-
-    @else
-              <P>  Aucun insecte enregistré! </P>
-    @endif
-
-    </section>
-    </div>
-    </div>
+@else
+<P>  Aucun insecte enregistré! </P>
+@endif
+</section>
 @endsection
 
 
@@ -71,5 +60,4 @@ if (message)
 
 }
 }
-
 </script>

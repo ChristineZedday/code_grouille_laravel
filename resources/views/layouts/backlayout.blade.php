@@ -16,7 +16,7 @@
             @include('includes.menuback')
     </section>
 
-    <div id="content">
+    <div id='backright'>
         @yield('content')
     </div>
 
