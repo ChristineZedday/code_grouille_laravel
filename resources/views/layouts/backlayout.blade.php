@@ -5,15 +5,20 @@
     </head>
 
 <body>
+
 <div class="container">
 
-    
+    <header class="row">
+        @include('includes.headerback')
+    </header>
+
+    <section id='backleft'>
+            @include('includes.menuback')
+    </section>
 
     <div id="content">
-            @yield('content')
+        @yield('content')
     </div>
-
-   
 
 </div>
 

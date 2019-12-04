@@ -206,7 +206,6 @@ input:not([type=submit]) {
 
 #menu {
   position: absolute;
-  margin: 12px;
   z-index: 9999;
 }
 
@@ -374,6 +373,14 @@ footer #menufooter {
 
 footer #adress {
   margin-top: 1%;
+}
+
+#backleft {
+  width: 25%;
+  height: 100vh;
+  position: fixed;
+  background-color: sandybrown;
+  left: 0;
 }
 
 * {
