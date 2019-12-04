@@ -313,7 +313,7 @@ input:not([type=submit]) {
   margin-bottom: 10px;
 }
 
-#insectes {
+#insectesfront {
   margin-top: 10%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -321,7 +321,7 @@ input:not([type=submit]) {
   grid-auto-rows: minmax(100px, auto);
 }
 
-#insectes img {
+#insectesfront img {
   max-width: 250px;
 }
 
@@ -376,11 +376,70 @@ footer #adress {
 }
 
 #backleft {
-  width: 25%;
+  width: 20%;
   height: 100vh;
   position: fixed;
   background-color: sandybrown;
   left: 0;
+}
+
+#backright {
+  float: right;
+  background-color: #D3E5E2;
+  width: 80%;
+  height: 100vh;
+}
+
+#backright .intit {
+  width: 100%;
+  background-color: black;
+  height: 150px;
+}
+
+#backright .intit h1 {
+  float: left;
+  color: #D3E5E2;
+  padding: 3%;
+  font-size: 40px;
+}
+
+#backright .intit a {
+  margin-right: 10%;
+  margin-top: 5%;
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  /* display: inline; */
+  background-color: white;
+  width: 200px;
+  height: 50px;
+  float: right;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#backright .intit a h2 {
+  margin: 5%;
+}
+
+#backright .intit a:hover {
+  background-color: sandybrown;
+}
+
+#backright table {
+  margin: 5%;
+  border: solid 2px black;
+  width: 90%;
+}
+
+#backright table thead {
+  width: 100%;
+  background-color: white;
+  border-bottom: solid 2px black;
+}
+
+#backright table td {
+  padding: 8px;
 }
 
 * {

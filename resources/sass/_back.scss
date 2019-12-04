@@ -1,7 +1,71 @@
+$sandy : sandybrown;
+$white : #D3E5E2;
+
 #backleft{
-    width: 25%;
+    width: 20%;
     height: 100vh;
     position: fixed;
-    background-color: sandybrown;
+    background-color: $sandy;
     left: 0;
 }
+
+#backright{
+    float:right;
+    background-color: $white;
+    width:80%;
+    height: 100vh;
+
+        .intit{
+            width:100%;
+            background-color: black;
+            height:150px;
+
+                h1{
+                    float: left;
+                    color: $white;
+                    padding: 3%;
+                    font-size: 40px;
+                }
+
+                a{
+                    margin-right: 10%;
+                    margin-top: 5%;
+                    text-decoration: none;
+                    color: black;
+                    font-size: 15px;
+                    /* display: inline; */
+                    background-color: white;
+                    width: 200px;
+                    height: 50px;
+                    float: right;
+                    border-radius: 10px;
+                    text-align: center;
+
+                    h2{
+                        margin:5%;
+                    }
+                }
+
+                a:hover{
+                    background-color: $sandy;
+                }
+            }
+
+            table{
+                margin: 5%;
+                border: solid 2px black;
+                width: 90%;
+
+            thead{
+                width: 100%;
+                background-color: white;
+                border-bottom: solid 2px black;
+            }
+
+            td{
+                padding: 8px;
+            }
+
+            }
+
+        }
