@@ -22,8 +22,10 @@ class IngredientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
+
         $ingredients = Ingredient::all();
 
 
@@ -85,7 +87,7 @@ class IngredientController extends Controller
         }
 
         return view('backpages.showIngredient',[
-            'insecte'=> $ingredient,
+            'ingredient'=> $ingredient,
         ]);
     }
 
@@ -97,8 +99,9 @@ class IngredientController extends Controller
      */
     public function edit($id)
     {
+        $insectes = Insecte::All();
         $ingredient = Ingredient::find($id);
-        return view('backpages.formingredient', ['ingredient' => $ingredient]);
+        return view('backpages.formingredient',[ 'ingredient' => $ingredient,  'insectes' => $insectes]);
     }
 
     /**
@@ -137,7 +140,7 @@ class IngredientController extends Controller
      */
     public function destroy($id)
     {
-        $ingredient = Insgredient::find($id);
+        $ingredient = Ingredient::find($id);
 
         if ($ingredient && $ingredient->delete()) {
 
