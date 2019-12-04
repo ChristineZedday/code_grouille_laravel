@@ -4,7 +4,7 @@ $white : #D3E5E2;
 #backleft{
     width: 20%;
     height: 100vh;
-    position: fixed;
+    float: left;
     background-color: $sandy;
     left: 0;
 }

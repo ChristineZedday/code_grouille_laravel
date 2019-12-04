@@ -6,9 +6,12 @@
         <li><a href='/back/recettes'>Recettes</a></li>
         <li><a href='/back/actus'>Actus</a></li>
         <li><a href='/back/partenaires'>Partenaires</a></li>
-        <li><a href='/back/membres'>Membres</a></li>
+        <li><a href='/back/ingredients'>Ingrédients</a></li>
+
+    <span>
         <li><a href='/back/commentaires'>Commentaires</a></li>
-        <li><a href='/back/contact'>Contact</a></li>
-        <li><a href='/back/FAQ'>FAQ</a></li>
+        <li><a href='/back/membres'>Membres</a></li>
+    </span>
+
     </ul>
 </nav>
