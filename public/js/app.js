@@ -91,7 +91,9 @@
   !*** ./resources/js/app.js ***!
   \*****************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ./wysiwyg */ "./resources/js/wysiwyg.js");
 
 var button = document.getElementById("connectmembre");
 var modal = document.getElementById("membre");
