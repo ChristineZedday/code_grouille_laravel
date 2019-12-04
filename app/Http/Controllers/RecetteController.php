@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Recette;
+use App\User;
 
 class RecetteController extends Controller
 {
@@ -28,7 +29,7 @@ class RecetteController extends Controller
        return view('backpages.backRecettes',['recettes' => $recettes]);
     }
 
-
+   
 
     /**
      * Show the form for creating a new resource.

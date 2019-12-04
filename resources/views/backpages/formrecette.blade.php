@@ -13,7 +13,7 @@
                     @if (isset($recette))
 						<h2>Modification d'une recette</h2>
 					@else
-							<h2>Création d'une recette</h2>
+						<h2>Création d'une recette</h2>
                     @endif
 
                 <div class='form-group'>

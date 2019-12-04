@@ -1,4 +1,4 @@
-@extends('../layouts.backLayout')
+@extends('layouts.backLayout')
 @section('content')
 @if (session('status'))
     <div class="row justify-content-center">
@@ -55,13 +55,3 @@
 @endsection
 
 
-<script type="text/javascript">
-function confirmation()
-{
-var message = confirm('Voulez-vous vraiment supprimer la recette n°: '.{{$recette->id}}.'?');
-if (message)
-    {
-
-    }   
-}
-</script>
