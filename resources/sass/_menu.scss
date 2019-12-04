@@ -3,8 +3,14 @@
     position: absolute;
     z-index: 9999;
 
+    span{
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 3px solid black;
+        display: block;
+    }
+
     ul{
-        width: 36vh;
         font-size: 20px;
         text-decoration: none;
         padding: 20px;
