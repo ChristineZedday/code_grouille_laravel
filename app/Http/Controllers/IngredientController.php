@@ -55,7 +55,7 @@ class IngredientController extends Controller
     {
 
         $validated = $request->validate([
-            'insecte_id' => 'integer',
+
             'nom_ingredient' => 'string|required',
 
 
@@ -64,6 +64,7 @@ class IngredientController extends Controller
 
         $newIngredient = new Ingredient;
         $newIngredient->fill($validated);
+        $newIngredient->insecte_id = $request['insecte_id'];
 
 
         if ($newIngredient->save()) {
@@ -119,13 +120,14 @@ class IngredientController extends Controller
 
 
         $validated = $request->validate([
-        'insecte_id' => 'BigInteger',
+
         'nom_ingredient' => 'string|required' ]);
 
 
 
         $ingredient = Ingredient::find($id);
         $ingredient->fill($validated);
+        $ingredient->insecte_id = $request['insecte_id'];
 
         if ($ingredient->save()) {
             $request->session()->flash('status',"ingredient enregistré avec succès");

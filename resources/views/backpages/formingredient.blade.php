@@ -24,10 +24,11 @@
             <option>Aucun ou sélectionnez</option>
         @foreach ($insectes as $insecte)
             @isset($ingredient)
-            <option value="@isset($insecte->id) {{$insecte->id}} @endisset" > {{$insecte->nom_insecte }}
+            <option value="{{$insecte->id}}" @isset($ingredient->insecte) {{$insecte->id  == $ingredient->insecte_id? "selected" : ""}} @endisset >
+                {{$insecte->nom_insecte}}
                 </option>
             @else
-            <option value="{{$insecte->id }}" >{{$insecte->nom_insecte}}
+            <option value= "{{$insecte->id}}" {{old('insecte_id') == $insecte->id? "selected" : ""}} >{{$insecte->nom_insecte}}
             </option>
             @endisset
         @endforeach
