@@ -53,30 +53,16 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
-
-        if (isset($request['insecte_id']))
-            { $validated = $request->validate([
+                $validated = $request->validate([
 
                     'insecte_id' => 'integer',
                     'nom_ingredient' => 'string|required',
 
 
                 ]);
-                }
-        else {
-            $validated = $request->validate([
+                $newIngredient = new Ingredient;
+                $newIngredient->fill($validated);
 
-
-                'nom_ingredient' => 'string|required',
-
-
-            ]);
-            }
-        
-
-
-        $newIngredient = new Ingredient;
-        $newIngredient->fill($validated);
 
 
 
