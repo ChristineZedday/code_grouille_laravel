@@ -26,7 +26,7 @@ class RecetteController extends Controller
     {
         $recettes = Recette::all();
 
-       return view('backpages.backRecettes',['recettes' => $recettes]);
+       return view('backpages.backrecettes',['recettes' => $recettes]);
     }
 
    
@@ -58,11 +58,10 @@ class RecetteController extends Controller
             'appetence_recette' =>  'required',
             'deroule_recette' =>  'required',
             'portion_recette' =>  'required',
-
         ]);
 
         $validated['description_recette'] = str_replace("\n", "<br>", $validated['description_recette']);
-        $validated['deroule_recette'] = str_replace("\n", "<br>", $validated['deroule_recette']);
+        // $validated['deroule_recette'] = str_replace("\n", "<br>", $validated['deroule_recette']);
         $newRecette = new Recette;
         $newRecette->fill($validated);
 
@@ -90,7 +89,7 @@ class RecetteController extends Controller
         }
 
 
-        return view('backpages.showRecette',[
+        return view('backpages.showrecette',[
             'recette'=> $recette,
         ]);
     }

@@ -14,8 +14,8 @@ class RecettesTableSeeder extends Seeder
         DB::table('recettes')->insert([
             'titre_recette' => "Titre de ma recette",
             'description_recette' => "description de ma recette. description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.",
-            'temps_preparation_recette' => "10",
-            'temps_cuisson_recette' => "10",
+            'temps_preparation_recette' => "2",
+            'temps_cuisson_recette' => "2",
             'difficulte_recette' => "1",
             'appetence_recette' => "1",
             'deroule_recette' => "Gemer dibabet war-eeun gouarnerezh dre e war-eeun en vro pe hini deus war-eeun e da e hantererezh war-eeun gwir da.Gemer dibabet war-eeun gouarnerezh dre e war-eeun en vro pe hini deus war-eeun e da e hantererezh war-eeun gwir da.Gemer dibabet war-eeun gouarnerezh dre e war-eeun en vro pe hini deus war-eeun e da e hantererezh war-eeun gwir da.",
