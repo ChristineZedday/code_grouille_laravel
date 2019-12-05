@@ -3,34 +3,31 @@
 @section('content')
 
 <div id='register'>
-    <h1>{{ __('Bienvenue, cher entomophage') }}</h1>
+    <h1>Bienvenue, cher entomophage</h1>
         {{-- <form method="POST" action="{{ route('register') }}" class='boxconnect'> --}}
              <form method="POST" action="" class='boxconnect'>
                 @csrf
-                            <div class="form-group row">
-                                <label for="name">{{ __('Name') }}</label>
-                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus>
 
-                                    @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                            </div>
+                <label for="name">Votre nom</label>
+                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required>
 
-                            <div class="form-group row">
-                                <label for="email" class="">{{ __('E-Mail Address') }}</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required >
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
 
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                            </div>
+                <label for="email">Votre mail</label>
+                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required >
 
-                            <div class="form-group row">
-                                <label for="password" class="">{{ __('Password') }}</label>
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
+
+                 <label for="password" class="">Choisissez un mot de passe</label>
 
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required>
 
