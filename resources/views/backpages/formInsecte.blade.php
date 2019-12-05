@@ -54,7 +54,8 @@
     <div class='form-group'>
     <label><h3>Description</h3></label>
     <div class="YSeditor">
-    <textarea rows="20" cols="100" class="form-control" @error('description_insecte') is-invalid @enderror name="description_insecte" required>@isset($insecte){{str_replace( "<br>", "\n",$insecte->description_insecte)}}@else{{ old('description_insecte') }}@endisset</textarea>
+    <textarea rows="20" cols="100" class="form-control" @error('description_insecte') is-invalid @enderror name="description_insecte" required>@isset($insecte)
+        {{$insecte->description_insecte}}@else{{ old('description_insecte') }}@endisset</textarea>
     </div>
 
         @error('description_insecte')
