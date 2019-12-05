@@ -47,3 +47,11 @@ Route::get('/back/actus/create', 'ActuController@create')->name('actu.create');
 Route::put('/back/actus/update/{id}', 'ActuController@update')->name('actu.update');
 Route::post('/back/actus/store/', 'ActuController@store')->name('actu.store');
 Route::delete('/back/actus/{id}/destroy', 'ActuController@destroy')->name('actu.destroy');
+
+Route::get('/back/membres', 'MembreController@index')->name('membres');
+Route::get('/back/membres/show/{id}', 'MembreController@show')->name('membre.show');
+Route::get('/back/membres/edit/{id}', 'MembreController@edit')->name('membre.edit');
+Route::get('/back/membres/create', 'MembreController@create')->name('membre.create');
+Route::put('/back/membres/update/{id}', 'MembreController@update')->name('membre.update');
+Route::post('/back/membres/store/', 'MembreController@store')->name('membre.store');
+Route::delete('/back/membres/{id}/destroy', 'MembreController@destroy')->name('membre.destroy');

@@ -49,6 +49,24 @@
 
 
         <div class='form-group'>
+            <label><p>Difficulte recette</p></label>
+            <select class="form-control" value="@isset($recette){{$recette->difficulte_recette}}@else{{ old('difficulte_recette') }}@endisset" name="difficulte_recette" required>
+                <option value="1">1-Facile</option>
+                <option value="2">2-Moyen</option>
+                <option value="3">3-Expert</option>
+            </select>
+        </div>
+
+        <div class='form-group'>
+            <label><p>Appetance recette</p></label>
+            <select class="form-control" value="@isset($recette){{$recette->appetance_recette}}@else{{ old('appetance_recette') }}@endisset" name="appetance_recette" required>
+                    <option value="1">1-Entomophage Débutant</option>
+                    <option value="2">2-Entomophage Moyen</option>
+                    <option value="3">3-Entomophage Confirmé</option>
+            </select>
+        </div>
+
+        <div class='form-group'>
             <label><p>Nombre de parts</p></label>
             <input type="number" class="form-control" @error('portion_recette') is-invalid @enderror value="@isset($recette){{$recette->portion_recette}}@else{{ old('portion_recette') }}@endisset" name="portion_recette" required>
             @error('portion_recette')

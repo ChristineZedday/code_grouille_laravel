@@ -1,6 +1,6 @@
 @extends('../layouts/backlayout')
 @section('content')
-    <section id='recettes'>
+    <section id='showrecette'>
         <h2>{{$recette->titre_recette}}</h2>
 
         <h3>Recette postée par : {{$recette->user->name}}</h3>
