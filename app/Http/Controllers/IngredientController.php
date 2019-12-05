@@ -127,7 +127,7 @@ class IngredientController extends Controller
 
         $ingredient = Ingredient::find($id);
         $ingredient->fill($validated);
-            if isset($request['insecte_id'])
+            if (isset($request['insecte_id']))
             {$ingredient->insecte_id = $request['insecte_id'];}
 
         if ($ingredient->save()) {
