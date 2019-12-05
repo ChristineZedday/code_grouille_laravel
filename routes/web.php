@@ -14,6 +14,10 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
+Route::get('/home', function () {
+    return view('pages.home');
+});
+
 Route::get('/registration', function(){
     return view('pages.registration');
 });
@@ -43,9 +47,24 @@ Route::get('/partenaires', function () {
 Route::get('/mentions', function () {
     return view('pages.mentions');
 });
+
 Route::get('/contact', function () {
     return view('pages.contact');
 });
+
+Route::get('/membre', function () {
+    return view('membres.dashboard');
+});
+Route::get('/comment', function () {
+    return view('membres.comment');
+});
+Route::get('/favoris', function () {
+    return view('membres.favoris');
+});
+Route::get('/postrecette', function () {
+    return view('membres.postrecette');
+});
+
 
 Auth::routes();
 

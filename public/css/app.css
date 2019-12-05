@@ -1175,6 +1175,25 @@ div[contenteditable] img {
   content: "</ul>";
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.grid a {
+  display: block;
+  height: 50vh;
+  background-color: red;
+  border-radius: 250px;
+  margin: 20px;
+  color: white;
+  font-weight: bold;
+}
+
 * {
   margin: 0;
   padding: 0;

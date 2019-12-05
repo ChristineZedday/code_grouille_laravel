@@ -54,15 +54,9 @@ class IngredientController extends Controller
     public function store(Request $request)
     {
 
-<<<<<<< HEAD
         $validated = $request->validate([
             'insecte_id' => 'integer',
             'nom_ingredient' => 'string|required',
-=======
-
-                    'nom_ingredient' => 'string|required',
-                    'insecte_id' => 'integer',
->>>>>>> d53aa620b4057fbb023ee7272e3025676a09c5fd
 
 
         ]);
@@ -125,23 +119,13 @@ class IngredientController extends Controller
 
 
         $validated = $request->validate([
-<<<<<<< HEAD
         'insecte_id' => 'BigInteger',
         'nom_ingredient' => 'string|required' ]);
-=======
-
-        'nom_ingredient' => 'string|required' ,
-        'insecte_id' => 'integer',]);
->>>>>>> d53aa620b4057fbb023ee7272e3025676a09c5fd
 
 
 
         $ingredient = Ingredient::find($id);
         $ingredient->fill($validated);
-<<<<<<< HEAD
-=======
-
->>>>>>> d53aa620b4057fbb023ee7272e3025676a09c5fd
 
         if ($ingredient->save()) {
             $request->session()->flash('status',"ingredient enregistré avec succès");
