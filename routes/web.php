@@ -10,16 +10,18 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/login', function(){
-    return view('home');  //en attendant la vraie page!
-});
-
 Route::get('/', function () {
     return view('pages.home');
 });
-/*Route::get('/home', function () {
-    return view('home');
-});*/
+
+Route::get('/registration', function(){
+    return view('pages.registration');
+});
+
+Route::post('/verification', function(){
+return view('pages.verification')->name('verify');
+});
+
 Route::get('/apropos', function () {
     return view('pages.apropos');
 });
@@ -47,4 +49,5 @@ Route::get('/contact', function () {
 
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home'); //remplacera la première route qd homeController sera fonctionnel
+Route::get('/', 'HomeController@index')->name('home');
+//remplacera la première route qd homeController sera fonctionnel

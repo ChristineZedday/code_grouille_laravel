@@ -35,4 +35,4 @@
         <figure>
 
     </section>
-@stop
+    @endsection

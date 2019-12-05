@@ -2,6 +2,9 @@
     @include('includes.membreform')
 </div>
 
+{{-- <div id='register'>
+    @include('includes.register')
+</div> --}}
 
 <section>
 
@@ -17,8 +20,10 @@
     </div>
 
 <div id='connexion'>
-    <button id='newmembre'><a href="#">Créer un compte</a></button>
-    <button id='connectmembre'><a href="#">Déjà membre?</a></button>
+
+        <button id='connectmembre'><a href="#">Déjà membre?</a></button>
+        <button id='newmembre'><a href="/registration">Créer un compte</a></button>
+
 </div>
 
 </section>

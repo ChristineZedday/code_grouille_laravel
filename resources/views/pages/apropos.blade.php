@@ -25,6 +25,6 @@
                     </div>
                 </article>
     <section>
-@stop
+@endsection
 
 
