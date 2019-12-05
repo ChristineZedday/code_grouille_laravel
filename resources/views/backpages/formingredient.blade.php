@@ -24,7 +24,7 @@
             <option>Aucun ou sélectionnez</option>
         @foreach ($insectes as $insecte)
             @isset($ingredient)
-            <option value="{{$insecte->id  }}" > {{$insecte->nom_insecte }}
+            <option value="@isset($insecte->id) {{$insecte->id}} @endisset" > {{$insecte->nom_insecte }}
                 </option>
             @else
             <option value="{{$insecte->id }}" >{{$insecte->nom_insecte}}
