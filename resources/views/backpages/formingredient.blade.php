@@ -20,14 +20,14 @@
 						@endif
     <div class='form-group'>
     <label><h3>Nom de l'insecte</h3></label>
-    <select class="form-control  name="insecte_id">
+    <select class="form-control"  name="insecte_id">
             <option>Aucun ou sélectionnez</option>
         @foreach ($insectes as $insecte)
             @isset($ingredient)
-            <option value="{{$insecte->id  }}" > {{$insecte->nom_insecte }}  //{{$insecte_id ?? '' == $insecte->id? "selected" : ""}}
+            <option value="{{$insecte->id  }}" > {{$insecte->nom_insecte }}
                 </option>
             @else
-            <option value="{{$insecte->id }}" >{{$insecte->nom_insecte}} //{{old('insecte_id' ?? '') == $insecte->id? "selected" : ""}}
+            <option value="{{$insecte->id }}" >{{$insecte->nom_insecte}}
             </option>
             @endisset
         @endforeach
@@ -36,7 +36,7 @@
 
     <div class='form-group'>
     <label><h3>Nom de l'ingrédient</h3></label>
-    <input type="texte" class="form-control" @error('nom_ingredient') is-invalid @enderror value="@isset($insecte){{$insecte->nom_ingredient}}@else{{ old('nom_ingredient') }}@endisset" name="nom_ingredient" required>
+    <input type="texte" class="form-control" @error('nom_ingredient') is-invalid @enderror value="@isset($ingredient){{$ingredient->nom_ingredient}}@else{{ old('nom_ingredient') }}@endisset" name="nom_ingredient" required>
     @error('nom_ingredient')
 								<div class="invalid-feedback">
 									{{ $message }}
