@@ -53,8 +53,9 @@ class IngredientController extends Controller
      */
     public function store(Request $request)
     {
+
         $validated = $request->validate([
-            'id_insecte' => 'BigInteger',
+            'insecte_id' => 'integer',
             'nom_ingredient' => 'string|required',
 
 
@@ -72,7 +73,7 @@ class IngredientController extends Controller
             return redirect()->action('IngredientController@index');
         }
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -118,11 +119,10 @@ class IngredientController extends Controller
 
 
         $validated = $request->validate([
-            'id_insecte' => 'BigInteger',
-            'nom_ingredient' => 'string|required',
+        'insecte_id' => 'BigInteger',
+        'nom_ingredient' => 'string|required' ]);
 
 
-        ]);
 
         $ingredient = Ingredient::find($id);
         $ingredient->fill($validated);
