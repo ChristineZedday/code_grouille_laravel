@@ -39,3 +39,11 @@ Route::get('/back/ingredients/create', 'IngredientController@create')->name('ing
 Route::put('/back/ingredients/update/{id}', 'IngredientController@update')->name('ingredient.update');
 Route::post('/back/ingredients/store/', 'IngredientController@store')->name('ingredient.store');
 Route::delete('/back/ingredients/{id}/destroy', 'IngredientController@destroy')->name('ingredient.destroy');
+
+Route::get('/back/actus', 'ActuController@index')->name('actus');
+Route::get('/back/actus/show/{id}', 'ActuController@show')->name('actu.show');
+Route::get('/back/actus/edit/{id}', 'ActuController@edit')->name('actu.edit');
+Route::get('/back/actus/create', 'ActuController@create')->name('actu.create');
+Route::put('/back/actus/update/{id}', 'ActuController@update')->name('actu.update');
+Route::post('/back/actus/store/', 'ActuController@store')->name('actu.store');
+Route::delete('/back/actus/{id}/destroy', 'ActuController@destroy')->name('actu.destroy');

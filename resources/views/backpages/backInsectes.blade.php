@@ -48,7 +48,7 @@
 </table>
 
 @else
-<P>  Aucun insecte enregistré! </P>
+<p>  Aucun insecte enregistré! </p>
 @endif
 </section>
 @endsection

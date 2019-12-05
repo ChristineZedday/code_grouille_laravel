@@ -1,0 +1,63 @@
+@extends('layouts.backLayout')
+
+@section('content')
+
+<div id='formActu'>
+
+    <form action="@isset($actu){{route('actu.update', $actu->id)}}@else{{route('actu.store')}}@endisset" method="POST">
+						@csrf
+						@isset($actu) @method('PUT') @endisset
+
+    @if (isset($actu))
+        <h2>Modification d'une actualité</h2>
+    @else
+        <h2>Création d'une actualité</h2>
+    @endif
+
+    <div class='form-group'>
+        <label><h3>Titre de l'actualité</h3></label>
+
+        <input type="text" class="form-control" @error('titre_actu') is-invalid @enderror value="@isset($actu){{$actu->titre_actu}}@else{{ old('titre_actu') }}@endisset" name="titre_actu" required>
+
+        @error('titre_actu')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+
+    </div>
+
+    <div class='form-group'>
+    <label><h3>Résumé de l'actualité</h3></label>
+    <input type="texte" class="form-control" @error('resume_actu') is-invalid @enderror value="@isset($actu){{$actu->'resume_actu'}}@else{{ old(''resume_actu'') }}@endisset" name="resume_actu" required>
+
+        @error('resume_actu')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+
+    </div>
+
+
+
+    <div class='form-groupl'>
+    <label><h3>texte de l'actualité</h3></label>
+    <div class="YSeditor">
+    <textarea rows="20" cols="100" class="form-control" @error('texte_actu') is-invalid @enderror name="texte_actu" required>@isset($actu)
+        {{$actu->texte_actu}}@else{{ old('texte_actu') }}@endisset</textarea>
+    </div>
+
+        @error('texte_actu')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+        @enderror
+    </div>
+
+    <input type="submit" id='submit' value='Enregistrer' >
+
+</form>
+
+</div>
+@endsection
