@@ -14,7 +14,7 @@ class RecettesTableSeeder extends Seeder
         DB::table('recettes')->insert([
             'titre_recette' => "Titre de ma recette",
             'description_recette' => "description de ma recette. description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.description de ma recette.",
-            'temps_preparation_recette' => "50",
+            'temps_preparation_recette' => "10",
             'temps_cuisson_recette' => "10",
             'difficulte_recette' => "1",
             'appetence_recette' => "1",
