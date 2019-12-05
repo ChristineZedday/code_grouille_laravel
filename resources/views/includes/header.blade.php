@@ -11,9 +11,9 @@
 
 <div id="right">
     <div id='reseaux'>
-        <a href="" target='blank'><img class='pict' src="../img/picto/youtube.png"/></a>
-        <a href="" target='blank'><img class='pict' src="../img/picto/instagram.png"/></a>
-        <a href="" target='blank'><img class='pict' src="../img/picto/facebook.png"/></a>
+        <a href="" target='blank'><img class='pict' src="./img/picto/youtube.png"/></a>
+        <a href="" target='blank'><img class='pict' src="./img/picto/instagram.png"/></a>
+        <a href="" target='blank'><img class='pict' src="./img/picto/facebook.png"/></a>
     </div>
 
 <div id='connexion'>

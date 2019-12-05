@@ -2,19 +2,21 @@
 
 @section('content')
 
-@if (session('status'))
-            <div class="alert {{ session('alert-class') }}" role="alert">
-				{{ session('status') }}
-			</div>
-@endif
 
 
-<section id='insectes' class='content'>
+
+<section id='insectesback' class='content'>
 
     <div class='intit'>
         <h1>Gestion des insectes </h1>
         <a href="{{route('insecte.create')}}"><h2>Ajouter un insecte</h2></a>
     </div>
+
+@if (session('status'))
+<div class="alert {{ session('alert-class') }}" role="alert">
+    {{ session('status') }}
+</div>
+@endif
 
 @if ($insectes)
 <table >
