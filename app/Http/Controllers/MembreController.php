@@ -92,7 +92,7 @@ class MembreController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('backpages.formMembres', ['user' => $user]);
+        return view('backpages.formMembre', ['user' => $user]);
     }
 
     /**
