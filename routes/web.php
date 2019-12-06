@@ -18,13 +18,17 @@ Route::get('/home', function () {
     return view('pages.home');
 });
 
-Route::get('/registration', function(){
-    return view('pages.registration');
+Route::get('/login', function(){
+    return view('layouts.default')->name('login');
 });
 
-Route::post('/verification', function(){
-return view('pages.verification')->name('verify');
+Route::get('/registration', function(){
+    return view('pages.registration')->name('register');
 });
+
+Route::post('/verification', 'UserController@verify') ->name('verify');
+
+//Route::post('/back', 'BackController@index')->name('back');
 
 Route::get('/apropos', function () {
     return view('pages.apropos');
@@ -53,7 +57,7 @@ Route::get('/contact', function () {
 });
 
 Route::get('/membre', function () {
-    return view('membres.dashboard');
+    return view('membres.dashboard')->name('dashboard');
 });
 Route::get('/comment', function () {
     return view('membres.comment');
@@ -66,7 +70,7 @@ Route::get('/postrecette', function () {
 });
 
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 //remplacera la première route qd homeController sera fonctionnel
