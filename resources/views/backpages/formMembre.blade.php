@@ -17,7 +17,7 @@
     <div class='form-group'>
         <label><h3>Nom du membre</h3></label>
 
-        <input type="text" class="form-control" @error('name') is-invalid @enderror value="@isset($user){{$user->name_user}}@else{{ old('name') }}@endisset" name="name" required>
+        <input type="text" class="form-control" @error('name') is-invalid @enderror value="@isset($user){{$user->name}}@else{{ old('name') }}@endisset" name="name" required>
 
         @error('name')
         <div class="invalid-feedback">
@@ -29,7 +29,7 @@
 
     <div class='form-group'>
     <label><h3>Adresse e-mail</h3></label>
-    <input type="texte" class="form-control" @error('user_email') is-invalid @enderror value="@isset($user){{$user->email}}@else{{ old('email') }}@endisset" name="email" required>
+    <input type="texte" class="form-control" @error('email') is-invalid @enderror value="@isset($user){{$user->email}}@else{{ old('email') }}@endisset" name="email" required>
 
         @error('email')
         <div class="invalid-feedback">
@@ -66,8 +66,8 @@
      <div class='form-group'>
             <label><p>Rôle</p></label>
             <select class="form-control" value="@isset($user){{$user->role}}@else{{ old('role') }}@endisset" name="role" required>
-                <option value="1">1-Utilisateur</option>
-                <option value="2">2-Administrateur</option>
+                <option value="utilisateur">Utilisateur</option>
+                <option value="admin">Administrateur</option>
             </select>
         </div>
 

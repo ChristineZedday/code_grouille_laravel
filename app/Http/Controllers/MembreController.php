@@ -105,10 +105,10 @@ class MembreController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'name_user' => 'string|required',
-            'email_user' => 'required',
+            'name' => 'string|required',
+            'email' => 'required',
             'password_user' =>  'required',
-            'role_user' =>  'required',
+            'role' =>  'required',
          ]);
 
         $user = User::find($id);
@@ -132,7 +132,7 @@ class MembreController extends Controller
         $user = User::find($id);
 
         if ($user && $user->delete()) {
-
+            //ici il faudra anonymiser les recettes et commentaires et supprimer favoris sinon ça ne marchera pas
             return redirect()->action('MembreController@index');
         }
     }
