@@ -1186,12 +1186,35 @@ div[contenteditable] img {
 
 .grid a {
   display: block;
+  font-size: 20px;
   height: 50vh;
-  background-color: red;
+  background-color: sandybrown;
   border-radius: 250px;
   margin: 20px;
   color: white;
   font-weight: bold;
+  text-align: center;
+  padding-top: 33%;
+  box-shadow: 2px 11px 25px 0px rgba(0, 0, 0, 0.75);
+}
+
+.grid a img {
+  width: 100px;
+  height: 100px;
+}
+
+#formrecette {
+  text-align: center;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+#formrecette .YSeditor {
+  width: 80%;
+  font-size: 0.85rem;
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 * {
