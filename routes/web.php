@@ -10,16 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/login', function(){
-    return view('home');  //en attendant la vraie page!
-});
-
 Route::get('/', function () {
     return view('pages.home');
 });
-/*Route::get('/home', function () {
-    return view('home');
-});*/
+
+Route::get('/home', function () {
+    return view('pages.home');
+});
+
+Route::get('/registration', function(){
+    return view('pages.registration');
+});
+
+Route::post('/verification', function(){
+return view('pages.verification')->name('verify');
+});
+
 Route::get('/apropos', function () {
     return view('pages.apropos');
 });
@@ -41,10 +47,26 @@ Route::get('/partenaires', function () {
 Route::get('/mentions', function () {
     return view('pages.mentions');
 });
+
 Route::get('/contact', function () {
     return view('pages.contact');
 });
 
+Route::get('/membre', function () {
+    return view('membres.dashboard');
+});
+Route::get('/comment', function () {
+    return view('membres.comment');
+});
+Route::get('/favoris', function () {
+    return view('membres.favoris');
+});
+Route::get('/postrecette', function () {
+    return view('membres.postrecette');
+});
+
+
 Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home'); //remplacera la première route qd homeController sera fonctionnel
+Route::get('/', 'HomeController@index')->name('home');
+//remplacera la première route qd homeController sera fonctionnel
