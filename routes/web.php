@@ -30,7 +30,7 @@ Route::post('/verification', 'UserController@verify') ->name('verify');
 
 Route::post('/registration', 'UserController@store') ->name('youpi');
 
-//Route::post('/back', 'BackController@index')->name('back');
+Route::post('/back', 'BackController@index')->name('back');
 
 Route::get('/apropos', function () {
     return view('pages.apropos');
