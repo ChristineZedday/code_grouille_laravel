@@ -20,7 +20,6 @@
             <tr>
                 <th>Nom du membre</th>
                 <th>Email du membre</th>
-                <th>Mot de passe du membre</th>
                 <th>Role du membre</th>
                 <th>Action</th>
             </tr>
@@ -30,7 +29,6 @@
         <tr>
             <td class="align-middle"> {{$user->name}}</td>
             <td class="align-middle">{{$user->email}}</td>
-            <td class="align-middle">{{$user->password}}</td>
             <td class="align-middle">{{$user->role}}</td>
             <td class="align-middle">
                 <button><a href="{{route('membre.show',$user->id)}}" >Voir</a></button>

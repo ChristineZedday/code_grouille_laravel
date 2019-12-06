@@ -3,15 +3,6 @@
 
 <section id='showmembre' class='content'>
 
-    <div class='intit'>
-        <h1>Fiche Membre</h1>
-    </div>
-
-    <table>
-        <th>Nom du membre</th>
-        <th>Email du membre</th>
-        <th>Role du membre</th>
-        <th>Date d'inscription</th>
 
     <h2>Nom : </h2>
     <p>{{$user->name}}</p>
@@ -23,7 +14,7 @@
     <p><p>
 
     <h2>Date d'inscription : </h2>
-    <p>{{$user->created_at}}</p>
+    <p>{{  date('d/m/Y', strtotime($user->created_at)) }}</p>
     
 
 </section>

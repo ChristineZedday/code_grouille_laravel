@@ -26,45 +26,41 @@ class MembreController extends Controller
     }
    
 
-    // /**
-    //  * Show the form for creating a new resource.
-    //  *
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function create()
-    // {
-    //     return view('backpages.formMembre');
-    // }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        return view('backpages.formMembre');
+    }
 
-    // /**
-    //  * Store a newly created resource in storage.
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return \Illuminate\Http\Response
-    //  */
-    // public function store(Request $request)
-    // {
-    //     $validated = $request->validate([
-    //         'titre_user' => 'string|required',
-    //         'description_user' => 'string|required',
-    //         'temps_preparation_user' =>  'required',
-    //         'temps_cuisson_user' =>  'required',
-    //         'difficulte_user' =>  'required',
-    //         'appetence_user' =>  'required',
-    //         'deroule_user' =>  'required',
-    //         'portion_user' =>  'required',
-    //     ]);
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'string|required',
+            'email' => 'required',
+            'password' =>  'required|confirmed',
+            'role' =>  'required',
+        ]);
 
-    //     $newUser = new User;
-    //     $newUser->fill($validated);
+        $newUser = new User;
+        $newUser->fill($validated);
 
 
-    //     if ($newUser->save()) {
-    //         $request->session()->flash('status',"membre enregistrée avec succès");
-    //         $request->session()->flash('alert-class',"alert-success");
-    //         return redirect()->action('MembreController@index');
-    //     }
-    // }
+        if ($newUser->save()) {
+            $request->session()->flash('status',"membre enregistré avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('MembreController@index');
+        }
+    }
 
     /**
      * Display the specified resource.

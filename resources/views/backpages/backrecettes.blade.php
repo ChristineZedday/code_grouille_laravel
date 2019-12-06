@@ -57,13 +57,3 @@
 
 @endsection
 
-<script type="text/javascript">
-function confirmation()
-{
-var message = confirm('Voulez-vous vraiment supprimer la recette '.{{$recette->titre_recette}}.'?');
-if (message)
-{
-
-}
-}
-</script>
