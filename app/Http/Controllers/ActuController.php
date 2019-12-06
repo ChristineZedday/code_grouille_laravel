@@ -54,20 +54,18 @@ class ActuController extends Controller
         $validated = $request->validate([
             'titre_actu' => 'string|required',
             'texte_actu' => 'required',
-            'resume_actu' =>  'string|required',
-
-
+            'resume_actu' =>  'required',
         ]);
 
-        $validated['description_insecte'] = str_replace("\n", "<br>", $validated['description_insecte']);
+
         $newactu = new Actu;
         $newactu->fill($validated);
 
 
         if ($newactu->save()) {
-            $request->session()->flash('status',"insecte enregistré avec succès");
+            $request->session()->flash('status',"actu enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('InsecteController@index');
+            return redirect()->action('ActuController@index');
         }
     }
 
@@ -80,7 +78,17 @@ class ActuController extends Controller
      */
     public function show($id)
     {
-        //
+        $actu = Actu::find($id);
+
+        if (!$actu) {
+
+            return redirect()->action('ActuController@index');
+        }
+
+
+        return view('backpages.showActu',[
+            'actu'=> $actu,
+        ]);
     }
 
     /**
@@ -91,8 +99,12 @@ class ActuController extends Controller
      */
     public function edit($id)
     {
-        //
+        $insecte = Insecte::find($id);
+        return view('backpages.formactu', [
+            'actu'=> $actu,
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -103,7 +115,22 @@ class ActuController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+        $validated = $request->validate([
+            'titre_actu' => 'string|required',
+            'texte_actu' => 'required',
+            'resume_actu' =>  'required',
+        ]);
+
+        $actu = Actu::find($id);
+        $actu->fill($validated);
+
+        if ($actu->save()) {
+            $request->session()->flash('status',"actu enregistrée avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ActuController@index');
+        }
     }
 
     /**
@@ -114,6 +141,11 @@ class ActuController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $actu = Actu::find($id);
+
+        if ($actu && $actu->delete()) {
+
+            return redirect()->action('ActuController@index');
+        }
     }
 }
