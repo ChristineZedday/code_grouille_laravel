@@ -29,8 +29,10 @@
 
     <div class='form-group'>
     <label><h3>Résumé de l'actualité</h3></label>
-    <input type="texte" class="form-control" @error('resume_actu') is-invalid @enderror value="@isset($actu){{$actu->'resume_actu'}}@else{{ old(''resume_actu'') }}@endisset" name="resume_actu" required>
-
+    <div class="YSeditor">
+        <textarea rows="20" cols="50" class="form-control" @error('resume_actu') is-invalid @enderror name="resume_actu" required>@isset($actu)
+            {{$actu->resume_actu}}@else{{ old('resume_actu') }}@endisset</textarea>
+        </div>
         @error('resume_actu')
         <div class="invalid-feedback">
             {{ $message }}

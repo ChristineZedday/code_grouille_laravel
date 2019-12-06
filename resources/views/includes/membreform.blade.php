@@ -5,7 +5,7 @@
    <h2>Connexion</h2>
 
 
-          <form method="POST" action="{{ route('login') }}">
+<form method="POST" action="{{route('verify')}}">
                 @csrf
 
                       <label for="email">{{ __('E-Mail Address') }}</label>

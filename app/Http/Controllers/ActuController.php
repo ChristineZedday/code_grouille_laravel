@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
-use App\Insecte;
+use App\Actu;
 
-class InsecteController extends Controller
+class ActuController extends Controller
 {
 
     public function __construct()
@@ -23,12 +23,13 @@ class InsecteController extends Controller
      */
     public function index(Request $request)
     {
-        $insectes = Insecte::all();
+        $actus = Actu::all();
 
 
 
-       return view('backpages.backInsectes',['insectes' => $insectes]);
+       return view('backpages.backActus',['actus' => $actus]);
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -37,7 +38,9 @@ class InsecteController extends Controller
      */
     public function create()
     {
-        return view('backpages.forminsecte');
+        {
+            return view('backpages.formactu');
+        }
     }
 
     /**
@@ -49,24 +52,23 @@ class InsecteController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'nom_insecte' => 'string|required',
-            'nom_latin_insecte' => 'string|required',
-            'ordre_insecte' =>  'string|required',
-            'description_insecte' =>  'required',
-
+            'titre_actu' => 'string|required',
+            'texte_actu' => 'required',
+            'resume_actu' =>  'required',
         ]);
 
 
-        $newInsecte = new Insecte;
-        $newInsecte->fill($validated);
+        $newactu = new Actu;
+        $newactu->fill($validated);
 
 
-        if ($newInsecte->save()) {
-            $request->session()->flash('status',"insecte enregistré avec succès");
+        if ($newactu->save()) {
+            $request->session()->flash('status',"actu enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('InsecteController@index');
+            return redirect()->action('ActuController@index');
         }
     }
+
 
     /**
      * Display the specified resource.
@@ -76,16 +78,16 @@ class InsecteController extends Controller
      */
     public function show($id)
     {
-        $insecte = Insecte::find($id);
+        $actu = Actu::find($id);
 
-        if (!$insecte) {
+        if (!$actu) {
 
-            return redirect()->action('InsecteController@index');
+            return redirect()->action('ActuController@index');
         }
 
 
-        return view('backpages.showInsecte',[
-            'insecte'=> $insecte,
+        return view('backpages.showActu',[
+            'actu'=> $actu,
         ]);
     }
 
@@ -98,8 +100,11 @@ class InsecteController extends Controller
     public function edit($id)
     {
         $insecte = Insecte::find($id);
-        return view('backpages.forminsecte', ['insecte' => $insecte]);
+        return view('backpages.formactu', [
+            'actu'=> $actu,
+        ]);
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -113,20 +118,18 @@ class InsecteController extends Controller
 
 
         $validated = $request->validate([
-            'nom_insecte' => 'string|required',
-            'nom_latin_insecte' => 'string|required',
-            'ordre_insecte' =>  'string|required',
-            'description_insecte' =>  'required',
-
+            'titre_actu' => 'string|required',
+            'texte_actu' => 'required',
+            'resume_actu' =>  'required',
         ]);
 
-        $insecte = Insecte::find($id);
-        $insecte->fill($validated);
+        $actu = Actu::find($id);
+        $actu->fill($validated);
 
-        if ($insecte->save()) {
-            $request->session()->flash('status',"insecte enregistré avec succès");
+        if ($actu->save()) {
+            $request->session()->flash('status',"actu enregistrée avec succès");
             $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('InsecteController@index');
+            return redirect()->action('ActuController@index');
         }
     }
 
@@ -138,11 +141,11 @@ class InsecteController extends Controller
      */
     public function destroy($id)
     {
-        $insecte = Insecte::find($id);
+        $actu = Actu::find($id);
 
-        if ($insecte && $insecte->delete()) {
+        if ($actu && $actu->delete()) {
 
-            return redirect()->action('InsecteController@index');
+            return redirect()->action('ActuController@index');
         }
     }
 }
