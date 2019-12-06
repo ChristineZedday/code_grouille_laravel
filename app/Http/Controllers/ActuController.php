@@ -99,7 +99,7 @@ class ActuController extends Controller
      */
     public function edit($id)
     {
-        $insecte = Insecte::find($id);
+        $actu = Actu::find($id);
         return view('backpages.formactu', [
             'actu'=> $actu,
         ]);

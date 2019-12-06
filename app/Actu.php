@@ -6,12 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Actu extends Model
 {
-    public function Image() 
+    protected $fillable = [
+        'titre_actu', 'resume_actu', 'texte_actu'
+    ];
+
+    public function Image()
     {
     return $this->hasMany('App\Image');
     }
 
-    public function Commentaire() 
+    public function Commentaire()
     {
     return $this->hasMany('App\Commentaire');
     }

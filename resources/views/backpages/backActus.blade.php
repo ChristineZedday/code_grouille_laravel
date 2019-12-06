@@ -34,12 +34,12 @@
         <td class="align-middle">{{$actu->resume_actu}}</td>
 
         <td  class="align-middle">
-        <button><a href="{{route('actu.show',$insecte->id)}}" >Voir</a></button>
-        <button><a href="{{route('actu.edit',$insecte->id)}}">Modifier</a></button>
+        <button><a href="{{route('actu.show',$actu->id)}}" >Voir</a></button>
+        <button><a href="{{route('actu.edit',$actu->id)}}">Modifier</a></button>
         <form action="@isset($actu){{route('actu.destroy', $actu->id)}}@endisset" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" onclick="confirmation()">Supprimer</button></td>
+            <button type="submit">Supprimer</button></td>
         </form>
     </tr>
  @endforeach
@@ -47,19 +47,8 @@
 </table>
 
 @else
-<p>  Aucunee actu enregistrée! </p>
+<p>  Aucune actu enregistrée! </p>
 @endif
 </section>
 @endsection
 
-
-<script type="text/javascript">
-function confirmation()
-{
-var message = confirm('Voulez-vous vraiment supprimer l\'actu n°: '.{{$actu->id}}.'?');
-if (message)
-{
-
-}
-}
-</script>
