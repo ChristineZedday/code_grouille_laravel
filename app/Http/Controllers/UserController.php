@@ -34,7 +34,7 @@ class UserController extends Controller
 
     $user = new User;
     $user->fill($validated);
-    $user->role = null;
+    $user->role = "utilisateur";
     $user->password = bcrypt($user->password);
 
     if ($user->save()) {
