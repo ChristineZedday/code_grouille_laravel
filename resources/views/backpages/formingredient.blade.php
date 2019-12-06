@@ -21,7 +21,7 @@
     <div class='form-group'>
     <label><h3>Nom de l'insecte</h3></label>
     <select class="form-control"  name="insecte_id">
-            <option value="" @if (isset($ingredient) && isset($ingredient->insecte)) {{""}} @else {{"selected"}} @endif >Aucun ou sélectionnez:</option>
+            <option>Aucun ou sélectionnez:</option>
         @foreach ($insectes as $insecte)
             @isset($ingredient)
             <option value="{{$insecte->id  }}" > {{$insecte->nom_insecte }}

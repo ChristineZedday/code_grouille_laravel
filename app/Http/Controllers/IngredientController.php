@@ -119,7 +119,7 @@ class IngredientController extends Controller
 
 
         $validated = $request->validate([
-        'insecte_id' => 'BigInteger',
+        'insecte_id' => 'integer',
         'nom_ingredient' => 'string|required' ]);
 
 
