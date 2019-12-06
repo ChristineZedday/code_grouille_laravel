@@ -33,8 +33,8 @@ class UserController extends Controller
     $user->password = bcrypt($user->password);
 
     if ($user->save()) {
-        $user->session()->flash('status',"membre enregistré avec succès");
-        $user->session()->flash('alert-class',"alert-success");
+        session()->flash('status',"membre enregistré avec succès");
+        session()->flash('alert-class',"alert-success");
         return view('membres.dashboard');
     }
 }
