@@ -19,14 +19,16 @@ Route::get('/home', function () {
 });
 
 Route::get('/login', function(){
-    return view('layouts.default')->name('login');
-});
+    return view('layouts.default');
+})->name('login');
 
 Route::get('/registration', function(){
-    return view('pages.registration')->name('register');
-});
+    return view('pages.registration');
+})->name('registration');
 
 Route::post('/verification', 'UserController@verify') ->name('verify');
+
+Route::post('/registration', 'UserController@store');
 
 //Route::post('/back', 'BackController@index')->name('back');
 
@@ -57,8 +59,9 @@ Route::get('/contact', function () {
 });
 
 Route::get('/membre', function () {
-    return view('membres.dashboard')->name('dashboard');
-});
+    return view('membres.dashboard');
+})->name('dashboard');
+
 Route::get('/comment', function () {
     return view('membres.comment');
 });

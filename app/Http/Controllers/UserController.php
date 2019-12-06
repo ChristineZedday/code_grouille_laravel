@@ -10,4 +10,9 @@ class UserController extends Controller
    {
     return view('membres.dashboard');
    }
+
+   public function store(Request $request)
+   {
+    return view('membres.dashboard');
+   }
 }
