@@ -4,11 +4,11 @@
 
 <div id='formMembre'>
 
-    <form action="@isset($membre){{route('membre.update', $membre->id)}}@else{{route('membre.store')}}@endisset" method="POST">
+    <form action="@isset($user){{route('membre.update', $user->id)}}@else{{route('membre.store')}}@endisset" method="POST">
 						@csrf
-						@isset($membre) @method('PUT') @endisset
+						@isset($user) @method('PUT') @endisset
       <img class='pict' id='close' src="{{asset('img/picto/cross.png')}}"/>
-    @if (isset($membre))
+    @if (isset($user))
         <h2>Modification d'un membre</h2>
     @else
         <h2>Création d'un membre</h2>
@@ -65,7 +65,7 @@
     </div>
      <div class='form-group'>
             <label><p>Rôle</p></label>
-            <select class="form-control" value="@isset($user){{$user->role}}@else{{ old('role') }}@endisset" name="role" required>
+            <select class="form-control"  name="role" required>
                 <option value="utilisateur">Utilisateur</option>
                 <option value="admin">Administrateur</option>
             </select>
