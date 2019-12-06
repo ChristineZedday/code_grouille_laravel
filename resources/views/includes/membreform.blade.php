@@ -2,7 +2,7 @@
 <div class='boxconnect'>
      <img class='pict' id='close' src="../img/picto/cross.png"/>
 
-   <h2>Connexion</h2>
+<h2>Connexion</h2>
 
 
 <form method="POST" action="{{route('verify')}}">

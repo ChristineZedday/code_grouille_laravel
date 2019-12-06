@@ -5,7 +5,7 @@
 <div id='register'>
     <h1>Bienvenue, cher entomophage</h1>
         {{-- <form method="POST" action="{{ route('register') }}" class='boxconnect'> --}}
-             <form method="POST" action="" class='boxconnect'>
+             <form method="POST" action="{{ route('youpi') }}" class='boxconnect'>
                 @csrf
 
                 <label for="name">Votre nom</label>
@@ -35,10 +35,10 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
-
+{{--
                 <label for="password-confirm" class="">Confirmez</label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-
+ --}}
                 <button type="submit" class="btn btn-primary">
                     {{ __('Register') }}
                 </button>

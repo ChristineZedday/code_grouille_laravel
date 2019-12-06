@@ -28,7 +28,7 @@ Route::get('/registration', function(){
 
 Route::post('/verification', 'UserController@verify') ->name('verify');
 
-Route::post('/registration', 'UserController@store');
+Route::post('/registration', 'UserController@store') ->name('youpi');
 
 //Route::post('/back', 'BackController@index')->name('back');
 
