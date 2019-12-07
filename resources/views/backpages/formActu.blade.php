@@ -4,7 +4,7 @@
 
 <div id='formActu'>
 
-    <form action="@isset($actu){{route('actu.update', $actu->id)}}@else{{route('actu.store')}}@endisset" method="POST">
+    <form action="@isset($actu){{route('actu.update', $actu->id)}}@else{{route('actu.store')}}@endisset" method="POST" enctype="multipart/form-data">
 						@csrf
 						@isset($actu) @method('PUT') @endisset
 
@@ -55,6 +55,16 @@
             {{ $message }}
         </div>
         @enderror
+    </div>
+
+    <div class='form-group'>
+    <label>Image 1 (optionnelle)</label>
+	<input id="image1" type="file" name="image1" value="" />
+    </div>
+
+    <div class='form-group'>
+    <label>Image 2 (optionnelle)</label>
+	<input id="image2" type="file" name="image2" value="" />
     </div>
 
     <input type="submit" id='submit' value='Enregistrer' >

@@ -24,7 +24,6 @@
         <tr>
             <th>Titre de l'actualité</th>
             <th>Résumé de l'actualité</th>
-          
             <th>Actions</th>
         </tr>
     </thead>
