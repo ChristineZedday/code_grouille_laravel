@@ -14,7 +14,7 @@ class ActusTableSeeder extends Seeder
         DB::table('actus')->insert([
             'titre_actu' => "Scandale: de la viande de scarabée dans les lasagnes",
             'resume_actu' => "Un scandale à Trou-les-bouses-en-Cambrousse, on a découvert que les lasagnes produites par l'usine agro-alimentaire qui fait la fierté du pays",
-            'texte_actu' => "Un scandale à Trou-les-bouses-en-Cambrousse, on a découvert que les lasagnes produites par l'usine agro-alimentaire qui fait la fierté du pays contenait une forte proportion de scarabée, importé frauduleusement des pays de l'Ouest",
+            'texte_actu' => "Un scandale à Trou-les-bouses-en-Cambrousse, on a découvert que les lasagnes produites par l'usine agro-alimentaire qui fait la fierté du pays contenait une forte proportion de scarabée, importé frauduleusement des pays de l'Ouest. Cette usine étant la principale pourvoyeuse d'emplois de la régio depuis la fermeture des pinces à linge Hopdebec, la consternation est immense à Trou et ses environs.",
             
             
         ]);

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Actu;
+use App\Image;
 
 class ActuController extends Controller
 {
@@ -23,7 +24,9 @@ class ActuController extends Controller
      */
     public function index(Request $request)
     {
+
         $actus = Actu::all();
+        $images = Image::all();
 
 
 
@@ -87,7 +90,7 @@ class ActuController extends Controller
 
 
         return view('backpages.showActu',[
-            'actu'=> $actu,
+            'actu'=> $actu, 'images' => $actu->image()->get(),
         ]);
     }
 

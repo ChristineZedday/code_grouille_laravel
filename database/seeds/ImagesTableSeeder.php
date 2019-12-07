@@ -31,7 +31,7 @@ class ImagesTableSeeder extends Seeder
         ]);
         DB::table('images')->insert([
             'chemin_image' => "sugg2.jpg",
-            'recette_id'  => "1"
+            'actu_id'  => "1"
         ]);
 
     }
