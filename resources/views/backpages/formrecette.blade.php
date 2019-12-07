@@ -1,7 +1,7 @@
 @extends('/layouts/backlayout')
 @section('content')
 
-{{-- formulaire pour Créer une recette et Modifier une recette --}}
+
 <div id="formrecette">
     <form action="@isset($recette){{route('recette.update', $recette->id)}}@else{{route('recette.store')}}@endisset" method="POST">
         @csrf
@@ -19,7 +19,9 @@
             <label><h3>Titre de la recette</h3></label>
             <input type="text" class="form-control" @error('titre_recette') is-invalid @enderror value="@isset($recette){{$recette->titre_recette}}@else{{ old('titre_recette') }}@endisset" name='titre_recette' required>
             @error('titre_recette')
-            <div class="invalid-feedback">{{ $message }}</div>
+            <div class="invalid-feedback">
+            {{ $message }}
+            </div>
             @enderror
         </div>
 
@@ -36,7 +38,9 @@
             <label><p>Temps de préparation en minutes</p></label>
             <input type="text" class="form-control" @error('temps_preparation_recette') is-invalid @enderror value="@isset($recette){{$recette->temps_preparation_recette}}@else{{ old('temps_preparation_recette') }}@endisset" name="temps_preparation_recette" required>
             @error('temps_preparation_recette')
-            <div class="invalid-feedback">{{ $message }}</div>
+            <div class="invalid-feedback">
+            {{ $message }}
+            </div>
             @enderror
         </div>
 
@@ -44,14 +48,16 @@
             <label><p>Temps de cuisson en minutes</p></label>
             <input type="text" class="form-control" @error('temps_cuisson_recette') is-invalid @enderror value="@isset($recette){{$recette->temps_cuisson_recette}}@else{{ old('temps_cuisson_recette') }}@endisset" name="temps_cuisson_recette" required>
             @error('temps_cuisson_recette')
-                <div class="invalid-feedback">{{ $message }}</div>
+                <div class="invalid-feedback">
+                {{ $message }}
+                </div>
             @enderror
         </div>
 
 
         <div class='form-group'>
             <label><p>Difficulte recette</p></label>
-            <select class="form-control" value="@isset($recette){{$recette->difficulte_recette}}@else{{ old('difficulte_recette') }}@endisset" name="difficulte_recette" required>
+            <select class="form-control" value="{{$recette->difficulte_recette}}" name="difficulte_recette">
                 <option value="1">1-Facile</option>
                 <option value="2">2-Moyen</option>
                 <option value="3">3-Expert</option>
@@ -60,7 +66,7 @@
 
         <div class='form-group'>
             <label><p>Appetance recette</p></label>
-            <select class="form-control" value="@isset($recette){{$recette->appetance_recette}}@else{{ old('appetance_recette') }}@endisset" name="appetance_recette" required>
+            <select class="form-control" value="{{$recette->appetance_recette}}" name="appetance_recette">
                     <option value="1">1-Entomophage Débutant</option>
                     <option value="2">2-Entomophage Moyen</option>
                     <option value="3">3-Entomophage Confirmé</option>
@@ -71,7 +77,9 @@
             <label><p>Nombre de parts</p></label>
             <input type="text" class="form-control" @error('portion_recette') is-invalid @enderror value="@isset($recette){{$recette->portion_recette}}@else{{ old('portion_recette') }}@endisset" name="portion_recette" required>
             @error('portion_recette')
-                <div class="invalid-feedback">{{ $message }}</div>
+                <div class="invalid-feedback">
+                {{ $message }}
+                </div>
             @enderror
         </div>
 
@@ -83,11 +91,15 @@
             </div>
 
             @error('deroule_recette')
-                <div class="invalid-feedback">{{ $message }}</div>
+                <div class="invalid-feedback">
+                {{ $message }}
+                </div>
             @enderror
         </div>
 
+        <input type="submit" id='cancel' value='Annuler' >
         <input type="submit" id='submit' value='Enregistrer' >
+
 
     </form>
 </div>
