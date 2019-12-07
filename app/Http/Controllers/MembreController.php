@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Recettes;
+
 
 class MembreController extends Controller
 {
@@ -121,6 +123,9 @@ class MembreController extends Controller
         }
     }
 
+    
+  
+
     /**
      * Remove the specified resource from storage.
      *
@@ -130,9 +135,16 @@ class MembreController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+        $recettes = $user->recette()->get();
+        foreach ($recettes as $recette)
+        {
+            $recette->SetUserId();
+            $recette->save();
+            
+        }
 
         if ($user && $user->delete()) {
-            //ici il faudra anonymiser les recettes et commentaires et supprimer favoris sinon ça ne marchera pas
+           
             return redirect()->action('MembreController@index');
         }
     }

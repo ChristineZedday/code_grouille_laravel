@@ -23,4 +23,9 @@ class Recette extends Model {
         return $this->hasMany('App\CommentaireRecette');
     }
 
+    public function SetUserId()
+    {
+         $this->user_id = 1; //utilisateur anonyme
+    }
+
 }
