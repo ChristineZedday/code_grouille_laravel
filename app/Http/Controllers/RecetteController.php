@@ -8,6 +8,7 @@ use App\Http\Middleware\Admin;
 use App\Recette;
 use App\User;
 
+
 class RecetteController extends Controller
 {
 
@@ -49,18 +50,19 @@ class RecetteController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+        $validated = $request->validate([           
             'titre_recette' => 'string|required',
-            'description_recette' => 'string|required',
+            'description_recette' => 'required',
             'temps_preparation_recette' =>  'required',
             'temps_cuisson_recette' =>  'required',
             'difficulte_recette' =>  'required',
             'appetence_recette' =>  'required',
             'deroule_recette' =>  'required',
             'portion_recette' =>  'required',
+            'user_id' => 'required',
         ]);
 
-        $validated['description_recette'] = str_replace("\n", "<br>", $validated['description_recette']);
+        // $validated['description_recette'] = str_replace("\n", "<br>", $validated['description_recette']);
         // $validated['deroule_recette'] = str_replace("\n", "<br>", $validated['deroule_recette']);
         $newRecette = new Recette;
         $newRecette->fill($validated);
@@ -117,13 +119,14 @@ class RecetteController extends Controller
     {
         $validated = $request->validate([
             'titre_recette' => 'string|required',
-            'description_recette' => 'string|required',
+            'description_recette' => 'required',
             'temps_preparation_recette' =>  'required',
             'temps_cuisson_recette' =>  'required',
             'difficulte_recette' =>  'required',
             'appetence_recette' =>  'required',
             'deroule_recette' =>  'required',
             'portion_recette' =>  'required',
+            'user_id' => 'required',
         ]);
 
         $recette = Recette::find($id);
