@@ -55,3 +55,11 @@ Route::get('/back/membres/create', 'MembreController@create')->name('membre.crea
 Route::put('/back/membres/update/{id}', 'MembreController@update')->name('membre.update');
 Route::post('/back/membres/store/', 'MembreController@store')->name('membre.store');
 Route::delete('/back/membres/{id}/destroy', 'MembreController@destroy')->name('membre.destroy');
+
+Route::get('/back/mentions', 'MentionsController@index')->name('mentions');
+Route::get('/back/mentions/show/{id}', 'MentionsController@show')->name('mentionsshow');
+Route::get('/back/mentions/edit/{id}', 'MentionsController@edit')->name('mentionsedit');
+Route::get('/back/mentions/create', 'MentionsController@create')->name('mentionscreate');
+Route::put('/back/mentions/update/{id}', 'MentionsController@update')->name('mentionsupdate');
+Route::post('/back/mentions/store/', 'MentionsController@store')->name('mentionsstore');
+Route::delete('/back/mentions/{id}/destroy', 'MentionsController@destroy')->name('mentionsdestroy');
