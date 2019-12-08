@@ -20,7 +20,7 @@ class RecettesTableSeeder extends Seeder
             'appetence_recette' => "1",
             'deroule_recette' => "Gemer dibabet war-eeun gouarnerezh dre e war-eeun en vro pe hini deus war-eeun e da e hantererezh war-eeun gwir da.Gemer dibabet war-eeun gouarnerezh dre e war-eeun en vro pe hini deus war-eeun e da e hantererezh war-eeun gwir da.Gemer dibabet war-eeun gouarnerezh dre e war-eeun en vro pe hini deus war-eeun e da e hantererezh war-eeun gwir da.",
             'portion_recette' => "6",
-            'user_id' => "1",
+            'user_id' => "2",
 
             ]);
     }

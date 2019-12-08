@@ -14,7 +14,7 @@ class Commentaires_RecettesTableSeeder extends Seeder
         DB::table('commentaires_recettes')->insert([
             'texte' => "cette recette est super bonne !",
             'recette_id' => "1",
-            'user_id' => "1",
+            'user_id' => "3",
         ]);
     }
 }

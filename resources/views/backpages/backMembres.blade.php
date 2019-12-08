@@ -36,7 +36,7 @@
                     <form action="@isset($user){{route('membre.destroy', $user->id)}}@endisset" method="POST">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" onclick="confirmation()">Supprimer</button>
+                    <button type="submit" >Supprimer</button>
                     </form>
             </td>    
         </tr>
@@ -52,14 +52,3 @@
 
 
 @endsection
-
-<script type="text/javascript">
-function confirmation()
-{
-var message = confirm('Voulez-vous vraiment supprimer le membre '.{{$user->name_user}}.'?');
-if (message)
-{
-
-}
-}
-</script>
