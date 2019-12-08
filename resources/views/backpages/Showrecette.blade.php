@@ -28,4 +28,9 @@
             <p>{{$recette->deroule_recette}}</p>  
     </section>
 
+    
+    <button type="submit" class="retour arriere"> <a href='recettes'>Retouner à la page des recettes </a></button>
+    <button type="submit" class="retour arriere"> <a href='/edit{$recette->id}'>Modifier cette recette </a></button>
+    <button type="submit" class="retour arriere"> <a href='recettes.destroy'>Supprimer cette recette </a></button>
+
 @endsection
