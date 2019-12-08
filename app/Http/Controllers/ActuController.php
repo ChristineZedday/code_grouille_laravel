@@ -42,6 +42,7 @@ class ActuController extends Controller
     public function create()
     {
         {
+           
             return view('backpages.formactu');
         }
     }
@@ -157,8 +158,10 @@ class ActuController extends Controller
     public function edit($id)
     {
         $actu = Actu::find($id);
+        $images = $actu->image()->get();
+
         return view('backpages.formactu', [
-            'actu'=> $actu,
+            'actu'=> $actu, 'images' =>$images
         ]);
     }
 
@@ -183,8 +186,79 @@ class ActuController extends Controller
         $actu = Actu::find($id);
         $actu->fill($validated);
 
+        $images =   $actu->image()->get();
+        $old_images = array();
+        $old_id = array();
+        $i=0;
+            foreach ($images as $image)
+            {
+                $old_images[$i] = $image->chemin_image;
+                $old_id[$i] = $image->id;
+            }
+
+        if (isset($_FILES['image1']['name']))
+        {
+            $uploaded = $_FILES['image1']['name'];
+            $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+
+            if($extension=="jpg" ||
+                $extension=="png" || 
+                $extension=="gif")
+                {
+                   
+                    
+                   
+                    $chemin_image="actu" . $actu->id . "_1." . $extension; //c'est modif, on a son id! 
+                    $img = array_search($chemin_image, $old_images);
+                    if ($img )
+                    {
+                        echo $img;
+                        //supprimer l'ancienne de la base sinon plusieurs images avec id différentes mais identiques et même nom
+                        $old_image = Image::find($img);
+                        $old_image->delete(); //vérifier pas utilisée ailleurs mais pour l'instant elles aurient des chemins différents
+
+
+                    }
+                    $chemin_dossier=public_path('') .'/img/';
+                    if(is_uploaded_file($_FILES['image1']['tmp_name']))
+                                {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$chemin_image))
+                                    {   
+                                        $image = New Image; //on a effacé l'ancienne si existait donc c'est nouvelle
+                                            $image->chemin_image =  $chemin_image;
+                                            $image->actu_id = $actu->id;
+                                            $image->save();
+                                    }	
+                                                
+                                 }            
+               }
+        }
+
+        if (isset($_FILES['image2']['name']))
+        {
+            $uploaded = $_FILES['image2']['name'];
+            $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+
+            if($extension=="jpg" ||
+                $extension=="png" || 
+                $extension=="gif")
+                {
+                   
+                    
+                   
+                    $chemin_image="actu" . $actu->id . "_2." . $extension; //c'est modif, on a son id!
+                    $chemin_dossier=public_path('') .'/img/';
+                    if(is_uploaded_file($_FILES['image2']['tmp_name']))
+                                {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$chemin_image))
+                                    {  
+                                        $image->save();
+                                    }	
+                                                
+                                 }            
+               }
+        }
+
         if ($actu->save()) {
-            $request->session()->flash('status',"actu enregistrée avec succès");
+            $request->session()->flash('status',"actu modifiée avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('ActuController@index');
         }

@@ -6,7 +6,7 @@
             <p><?php echo($actu->resume_actu) ?></p>
             @isset($images)
                 @foreach ($images as $image)
-                    <img src="{{URL::asset('/img/'.$image->chemin_image)}}">
+                    <img src="{{URL::asset('/img/'.$image->chemin_image)}}"/>
                 @endforeach
             @endisset
             <h4>texte</h4>
