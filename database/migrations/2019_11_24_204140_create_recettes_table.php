@@ -20,8 +20,8 @@ class CreateRecettesTable extends Migration
             $table->text('description_recette');
             $table->mediumInteger('temps_preparation_recette');
             $table->mediumInteger('temps_cuisson_recette');
-            $table->tinyInteger('difficulte_recette');
-            $table->tinyInteger('appetence_recette');
+            $table->string('difficulte_recette');
+            $table->string('appetence_recette');
             $table->text('deroule_recette');
             $table->tinyInteger('portion_recette');
             $table->bigInteger('user_id')->unsigned();
