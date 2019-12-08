@@ -80,7 +80,7 @@ class ActuController extends Controller
                         
                        
                         $chemin_image="actu" . $newactu->id . "_1." . $extension; //qd save, on a son id!
-                        $chemin_dossier="/assets/img/";
+                        $chemin_dossier=public_path('') .'/img/';
                         if(is_uploaded_file($_FILES['image1']['tmp_name']))
                                     {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$chemin_image))
                                         {   $image = New Image;
