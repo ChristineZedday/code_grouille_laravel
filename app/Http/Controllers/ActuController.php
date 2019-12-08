@@ -93,6 +93,32 @@ class ActuController extends Controller
                    }
             }
 
+            if (isset($_FILES['image2']['name']))
+            {
+                $uploaded = $_FILES['image2']['name'];
+                $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+
+                if($extension=="jpg" ||
+                    $extension=="png" || 
+                    $extension=="gif")
+                    {
+                       
+                        
+                       
+                        $chemin_image="actu" . $newactu->id . "_2." . $extension; //qd save, on a son id!
+                        $chemin_dossier=public_path('') .'/img/';
+                        if(is_uploaded_file($_FILES['image2']['tmp_name']))
+                                    {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$chemin_image))
+                                        {   $image = New Image;
+                                            $image->chemin_image =  $chemin_image;
+                                            $image->actu_id = $newactu->id;
+                                            $image->save();
+                                        }	
+                                                    
+                                     }            
+                   }
+            }
+
             $request->session()->flash('status',"actu enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
 
