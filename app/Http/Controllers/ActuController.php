@@ -69,17 +69,22 @@ class ActuController extends Controller
 
             if (isset($_FILES['image1']['name']))
             {
-                if(fichier_type($_FILES['image1']['name'])=="jpg" ||
-                    fichier_type($_FILES['image1']['name'])=="jpeg" ||
-                    fichier_type($_FILES['image1']['name'])=="png" || 
-                    fichier_type($_FILES['image1']['name'])=="gif")
+                $uploaded = $_FILES['image1']['name'];
+                $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+
+                if($extension=="jpg" ||
+                    $extension=="png" || 
+                    $extension=="gif")
                     {
+                       
                         
-                        $extension=fichier_type($_FILES['photo_produit']['name']);
-						$chemin_media="actu" . $newactu->id . "_1." . $extension; //qd save, on a son id!
+                       
+                        $chemin_image="actu" . $newactu->id . "_1." . $extension; //qd save, on a son id!
+                        $chemin_dossier=public_path('') .'/img/';
                         if(is_uploaded_file($_FILES['image1']['tmp_name']))
-                                    {  	if(copy($_FILES['image1']['tmp_name'], $chemin_media))
+                                    {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$chemin_image))
                                         {   $image = New Image;
+                                            $image->chemin_image =  $chemin_image;
                                             $image->actu_id = $newactu->id;
                                             $image->save();
                                         }	
