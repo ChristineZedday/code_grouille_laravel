@@ -7,8 +7,6 @@
         @csrf
         @isset($recette) @method('PUT') @endisset
 
-        <img class='pict' id='close' src="{{asset('img/picto/cross.png')}}"/>
-
         @if (isset($recette))
             <h2>Modification d'une recette</h2>
         @else
@@ -17,7 +15,7 @@
 
         <div class='form-group'>
             <label><h3>Titre de la recette</h3></label>
-            <input type="text" class="form-control" @error('titre_recette') is-invalid @enderror value="@isset($recette){{$recette->titre_recette}}@else{{ old('titre_recette') }}@endisset" name='titre_recette' required>
+            <input type="text" class="form-control" @error ('titre_recette') is-invalid @enderror value="@isset($recette){{$recette->titre_recette}}@else{{ old('titre_recette') }}@endisset" name='titre_recette' required>
             @error('titre_recette')
             <div class="invalid-feedback">
             {{ $message }}
@@ -28,7 +26,7 @@
 
         <div class='form-group'>
             <label><h4>Description de la recette</h4></label>
-            <input type="text" class="form-control" @error('description_recette') is-invalid @enderror value="@isset($recette){{$recette->description_recette}}@else{{ old('description_recette') }}@endisset" name='description_recette' required>
+            <input type="text" class="form-control" @error ('description_recette') is-invalid @enderror value="@isset($recette){{$recette->description_recette}}@else{{ old('description_recette') }}@endisset" name='description_recette' required>
             @error('description_recette')
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
@@ -75,7 +73,7 @@
 
         <div class='form-group'>
             <label><p>Nombre de parts</p></label>
-            <input type="text" class="form-control" @error('portion_recette') is-invalid @enderror value="@isset($recette){{$recette->portion_recette}}@else{{ old('portion_recette') }}@endisset" name="portion_recette" required>
+            <input type="text" class="form-control" @error('portion_recette') is-invalid @enderror value="@isset($recette){{$recette->portion_recette}}@else{{ old('portion_recette') }}@endisset" name="portion_recette">
             @error('portion_recette')
                 <div class="invalid-feedback">
                 {{ $message }}
@@ -87,7 +85,7 @@
         <div class='form-group'>
             <label><h3>Déroulé</h3></label>
             <div class="YSeditor">
-            <textarea rows="20" cols="100" class="form-control" @error('deroule_recette') is-invalid @enderror name="deroule_recette" required>@isset($recette){{str_replace( "<br>", "\n",$recette->deroule_recette)}}@else{{ old('deroule_recette') }}@endisset</textarea>
+                <textarea rows="20" cols="100" class="form-control"  @error('deroule_recette') is-invalid @enderror value="@isset($recette){{$recette->deroule_recette}}@else{{ old('deroule_recette') }}@endisset" name="deroule_recette"></textarea>
             </div>
 
             @error('deroule_recette')

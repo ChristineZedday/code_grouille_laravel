@@ -51,17 +51,19 @@ class RecetteController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([           
-            'titre_recette' => 'string|required',
-            'description_recette' => 'required',
-            'temps_preparation_recette' =>  'required',
-            'temps_cuisson_recette' =>  'required',
-            'difficulte_recette' =>  'required',
-            'appetence_recette' =>  'required',
-            'deroule_recette' =>  'required',
-            'portion_recette' =>  'required',
-            'user_id' => 'required',
+            'titre_recette' => 'string',
+            'description_recette' => 'string',
+            'temps_preparation_recette' =>  'integer',
+            'temps_cuisson_recette' =>  'integer',
+            'difficulte_recette' =>  'string',
+            'appetence_recette' =>  'string',
+            'deroule_recette' =>  'string',
+            'portion_recette' =>  'integer',
+            'user_id' => 'integer',
         ]);
 
+
+       
         // $validated['description_recette'] = str_replace("\n", "<br>", $validated['description_recette']);
         // $validated['deroule_recette'] = str_replace("\n", "<br>", $validated['deroule_recette']);
         $newRecette = new Recette;
@@ -118,15 +120,15 @@ class RecetteController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'titre_recette' => 'string|required',
-            'description_recette' => 'required',
-            'temps_preparation_recette' =>  'required',
-            'temps_cuisson_recette' =>  'required',
-            'difficulte_recette' =>  'required',
-            'appetence_recette' =>  'required',
-            'deroule_recette' =>  'required',
-            'portion_recette' =>  'required',
-            'user_id' => 'required',
+            'titre_recette' => 'string',
+            'description_recette' => 'string',
+            'temps_preparation_recette' =>  'integer',
+            'temps_cuisson_recette' =>  'integer',
+            'difficulte_recette' =>  'string',
+            'appetence_recette' =>  'string',
+            'deroule_recette' =>  'string',
+            'portion_recette' =>  'integer',
+            'user_id' => 'integer',
         ]);
 
         $recette = Recette::find($id);
