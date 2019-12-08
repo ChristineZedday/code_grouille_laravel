@@ -25,8 +25,8 @@ class ActuController extends Controller
     public function index(Request $request)
     {
 
+       
         $actus = Actu::all();
-        $images = Image::all();
 
 
 
@@ -66,8 +66,31 @@ class ActuController extends Controller
 
 
         if ($newactu->save()) {
+
+            if (isset($_FILES['image1']['name']))
+            {
+                if(fichier_type($_FILES['image1']['name'])=="jpg" ||
+                    fichier_type($_FILES['image1']['name'])=="jpeg" ||
+                    fichier_type($_FILES['image1']['name'])=="png" || 
+                    fichier_type($_FILES['image1']['name'])=="gif")
+                    {
+                        
+                        $extension=fichier_type($_FILES['photo_produit']['name']);
+						$chemin_media="actu" . $newactu->id . "_1." . $extension; //qd save, on a son id!
+                        if(is_uploaded_file($_FILES['image1']['tmp_name']))
+                                    {  	if(copy($_FILES['image1']['tmp_name'], $chemin_media))
+                                        {   $image = New Image;
+                                            $image->actu_id = $newactu->id;
+                                            $image->save();
+                                        }	
+                                                    
+                                     }            
+                   }
+            }
+
             $request->session()->flash('status',"actu enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
+
             return redirect()->action('ActuController@index');
         }
     }
