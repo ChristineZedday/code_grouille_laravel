@@ -28,6 +28,8 @@ Route::get('/registration', function(){
 
 Route::post('/verification', 'UserController@verify') ->name('verify');
 
+Route::post('/dashboard', 'UserController@verify') ->name('todash');
+
 Route::post('/registration', 'UserController@store') ->name('youpi');
 
 Route::get('/deconnexion', 'UserController@deconnexion') ->name('disconnect');

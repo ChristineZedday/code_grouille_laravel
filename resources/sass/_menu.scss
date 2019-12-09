@@ -1,4 +1,40 @@
+@media screen and (max-width: 640px) {
+#menu{
+    z-index: 9999;
 
+    span{
+        margin-top: 20px;
+        padding-top: 20px;
+        border-top: 3px solid black;
+        display: block;
+    }
+
+    ul{
+        font-size: 20px;
+        text-decoration: none;
+        padding: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        list-style: none;
+        font-weight: bold;
+
+            li{
+            list-style: none;
+
+            a{
+                color: black;
+                text-decoration: none;
+            }
+
+            a:hover{
+                font-style: italic;
+            }
+        }
+    }
+}
+}
+
+@media screen and (min-width: 640px) {
 #menu{
     position: absolute;
     z-index: 9999;
@@ -32,6 +68,7 @@
             }
         }
     }
+}
 }
 
 
