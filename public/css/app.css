@@ -111,45 +111,6 @@ header #connexion button a {
   padding: 5px;
 }
 
-footer {
-  display: -webkit-box;
-  display: flex;
-  border-top: solid 4px sandybrown;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-footer ul {
-  width: 36vh;
-  font-size: 20px;
-  text-decoration: none;
-  padding: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  list-style: none;
-  font-weight: bold;
-}
-
-footer ul li {
-  list-style: none;
-}
-
-footer ul li a {
-  color: sandybrown;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-footer ul li a:hover {
-  font-style: italic;
-}
-
-footer #adress {
-  position: fixed;
-  right: 30px;
-  margin: 30px;
-}
-
 /* ============================CONNECT============================= */
 
 #membre {
@@ -418,13 +379,15 @@ footer ul li a:hover {
   font-style: italic;
 }
 
+footer #adress {
+  right: 30px;
+  margin: 30px;
+  margin-top: 1%;
+}
+
 footer #menufooter {
   width: 30%;
   margin-left: 15%;
-}
-
-footer #adress {
-  margin-top: 1%;
 }
 
 #backtofront {
