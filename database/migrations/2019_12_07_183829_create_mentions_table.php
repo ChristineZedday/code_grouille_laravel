@@ -16,7 +16,7 @@ class CreateMentionsTable extends Migration
         Schema::create('mentions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->text('texte_mentions');
+            $table->string('texte_mentions');
         });
     }
 
