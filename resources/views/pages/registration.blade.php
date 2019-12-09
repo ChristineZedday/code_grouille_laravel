@@ -38,7 +38,7 @@
                 <label for="password-confirm" class="">Confirmez</label>
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
  --}}
-                <button type="submit" class="btn btn-primary">
+                <button id='submit' type="submit" class="btn btn-primary">
                     {{ __('Register') }}
                 </button>
         </form>
