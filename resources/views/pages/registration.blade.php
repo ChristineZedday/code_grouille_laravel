@@ -1,11 +1,10 @@
-@extends('layouts.bug')
+@extends('layouts.default')
 
 @section('content')
 
-<div id='register'>
+<div id='register' class='boxconnect'>
     <h1>Bienvenue, cher entomophage</h1>
-        {{-- <form method="POST" action="{{ route('register') }}" class='boxconnect'> --}}
-             <form method="POST" action="{{ route('youpi') }}" class='boxconnect'>
+             <form method="POST" action="{{ route('youpi') }}">
                 @csrf
 
                 <label for="name">Votre nom</label>
