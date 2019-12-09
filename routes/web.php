@@ -41,9 +41,13 @@ Route::get('/insectes', function () {
 Route::get('/recettes', function () {
     return view('pages.recettes');
 });
-Route::get('/actus', function () {
-    return view('pages.actus');
-});
+
+Route::get('/actus', 'ShowActus@index')->name('actus');
+
+// Route::get('/actus', function () {
+//     return view('pages.actus');
+// });
+
 Route::get('/FAQ', function () {
     return view('pages.FAQ');
 });
