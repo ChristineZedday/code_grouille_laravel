@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 
-
-
-class MembreController extends Controller
+class CommentaireController extends Controller
 {
     public function __construct()
     {
@@ -22,11 +19,12 @@ class MembreController extends Controller
      */
     public function index(Request $request)
     {
-        $users = User::all();
+        $commentaires = Commentaire::all();
 
-       return view('backpages.backMembres',['users' => $users]);
+
+
+       return view('backpages.backCommentaires',['commentaires' => $commentaires]);
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -35,7 +33,7 @@ class MembreController extends Controller
      */
     public function create()
     {
-        return view('backpages.formMembre');
+        return view('backpages.formcommentaire');
     }
 
     /**
@@ -47,20 +45,19 @@ class MembreController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'string|required',
-            'email' => 'required',
-            'password' =>  'required|confirmed',
-            'role' =>  'required',
+            'texte' => 'string|required',
+
         ]);
 
-        $newUser = new User;
-        $newUser->fill($validated);
+
+        $newCommentaire = new Commentaire;
+        $newCommentaire->fill($validated);
 
 
-        if ($newUser->save()) {
-            $request->session()->flash('status',"Mentions légales mis à jour avec succès !");
+        if ($newCommentaire->save()) {
+            $request->session()->flash('status',"commentaire enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('MembreController@index');
+            return redirect()->action('CommentaireController@index');
         }
     }
 
@@ -72,16 +69,16 @@ class MembreController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
+        $commentaire = Commentaire::find($id);
 
-        if (!$user) {
+        if (!$commentaire) {
 
-            return redirect()->action('MembreController@index');
+            return redirect()->action('CommentaireController@index');
         }
 
 
-        return view('backpages.ShowMembre',[
-            'user'=> $user,
+        return view('backpages.showCommentaire',[
+            'commentaire'=> $commentaire,
         ]);
     }
 
@@ -93,8 +90,8 @@ class MembreController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('backpages.formMembre', ['user' => $user]);
+        $commentaire = Commentaire::find($id);
+        return view('backpages.formcommentaire', ['commentaire' => $commentaire]);
     }
 
     /**
@@ -106,24 +103,25 @@ class MembreController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
         $validated = $request->validate([
-            'name' => 'string|required',
-            'email' => 'required',
-            'role' =>  'required',
-         ]);
+            'nom_commentaire' => 'string|required',
+            'nom_latin_commentaire' => 'string|required',
+            'ordre_commentaire' =>  'string|required',
+            'description_commentaire' =>  'required',
 
-        $user = User::find($id);
-        $user->fill($validated);
+        ]);
 
-        if ($user->save()) {
-            $request->session()->flash('status',"Membre mis à jour avec succès");
+        $commentaire = Commentaire::find($id);
+        $commentaire->fill($validated);
+
+        if ($commentaire->save()) {
+            $request->session()->flash('status',"commentaire enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('MembreController@index');
+            return redirect()->action('CommentaireController@index');
         }
     }
-
-
-
 
     /**
      * Remove the specified resource from storage.
@@ -133,18 +131,11 @@ class MembreController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $recettes = $user->recette()->get();
-        foreach ($recettes as $recette)
-        {
-            $recette->SetUserId();
-            $recette->save();
+        $commentaire = Commentaire::find($id);
 
-        }
+        if ($commentaire && $commentaire->delete()) {
 
-        if ($user && $user->delete()) {
-
-            return redirect()->action('MembreController@index');
+            return redirect()->action('CommentaireController@index');
         }
     }
 }
