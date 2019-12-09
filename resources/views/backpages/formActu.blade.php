@@ -17,7 +17,7 @@
     <div class='form-group'>
         <label><h3>Titre de l'actualité</h3></label>
 
-        <input type="text" class="form-control" @error('titre_actu') is-invalid @enderror value="@isset($actu){{$actu->titre_actu}}@else{{ old('titre_actu') }}@endisset" name="titre_actu" required>
+        <input type="text" class="form-control" @error('titre_actu') is-invalid @enderror value="@isset($actu){{$actu->titre_actu}}@else{{ old('titre_actu') }}@endisset" name="titre_actu" required/>
 
         @error('titre_actu')
         <div class="invalid-feedback">
@@ -56,15 +56,16 @@
         </div>
         @enderror
     </div>
-    
+
     @isset($actu)
         <div>
         @foreach ($images as $image)
             <img src="{{URL::asset('/img/'.$image->chemin_image)}}" width:50px height:50px/>
+            <input type="checkbox" value= "{{'suppr'.$image->id}}" /> Supprimer cette image
         @endforeach
         </div>
 	@endisset
-    
+
 
     <div class='form-group'>
     <label>Image 1 (optionnelle)</label>

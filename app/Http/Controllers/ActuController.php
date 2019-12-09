@@ -25,7 +25,7 @@ class ActuController extends Controller
     public function index(Request $request)
     {
 
-       
+
         $actus = Actu::all();
 
 
@@ -42,7 +42,7 @@ class ActuController extends Controller
     public function create()
     {
         {
-           
+
             return view('backpages.formactu');
         }
     }
@@ -74,23 +74,23 @@ class ActuController extends Controller
                 $extension = Image::fichier_type($uploaded); //fonction statique du model Image
 
                 if($extension=="jpg" ||
-                    $extension=="png" || 
+                    $extension=="png" ||
                     $extension=="gif")
                     {
-                       
-                        
-                       
-                        $chemin_image="actu" . $newactu->id . "_1." . $extension; //qd save, on a son id!
+
+
+
+
                         $chemin_dossier=public_path('') .'/img/';
                         if(is_uploaded_file($_FILES['image1']['tmp_name']))
-                                    {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$chemin_image))
+                                    {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
                                         {   $image = New Image;
-                                            $image->chemin_image =  $chemin_image;
+                                            $image->chemin_image =  $uploaded;
                                             $image->actu_id = $newactu->id;
                                             $image->save();
-                                        }	
-                                                    
-                                     }            
+                                        }
+
+                                     }
                    }
             }
 
@@ -100,23 +100,23 @@ class ActuController extends Controller
                 $extension = Image::fichier_type($uploaded); //fonction statique du model Image
 
                 if($extension=="jpg" ||
-                    $extension=="png" || 
+                    $extension=="png" ||
                     $extension=="gif")
                     {
-                       
-                        
-                       
-                        $chemin_image="actu" . $newactu->id . "_2." . $extension; //qd save, on a son id!
+
+
+
+
                         $chemin_dossier=public_path('') .'/img/';
                         if(is_uploaded_file($_FILES['image2']['tmp_name']))
-                                    {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$chemin_image))
+                                    {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$uploaded))
                                         {   $image = New Image;
-                                            $image->chemin_image =  $chemin_image;
+                                            $image->chemin_image =  $uploaded;
                                             $image->actu_id = $newactu->id;
                                             $image->save();
-                                        }	
-                                                    
-                                     }            
+                                        }
+
+                                     }
                    }
             }
 
@@ -202,13 +202,13 @@ class ActuController extends Controller
             $extension = Image::fichier_type($uploaded); //fonction statique du model Image
 
             if($extension=="jpg" ||
-                $extension=="png" || 
+                $extension=="png" ||
                 $extension=="gif")
                 {
-                   
-                    
-                   
-                    $chemin_image="actu" . $actu->id . "_1." . $extension; //c'est modif, on a son id! 
+
+
+
+                    $chemin_image="actu" . $actu->id . "_1." . $extension; //c'est modif, on a son id!
                     $img = array_search($chemin_image, $old_images);
                     if ($img )
                     {
@@ -222,14 +222,14 @@ class ActuController extends Controller
                     $chemin_dossier=public_path('') .'/img/';
                     if(is_uploaded_file($_FILES['image1']['tmp_name']))
                                 {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$chemin_image))
-                                    {   
+                                    {
                                         $image = New Image; //on a effacé l'ancienne si existait donc c'est nouvelle
                                             $image->chemin_image =  $chemin_image;
                                             $image->actu_id = $actu->id;
                                             $image->save();
-                                    }	
-                                                
-                                 }            
+                                    }
+
+                                 }
                }
         }
 
@@ -239,21 +239,21 @@ class ActuController extends Controller
             $extension = Image::fichier_type($uploaded); //fonction statique du model Image
 
             if($extension=="jpg" ||
-                $extension=="png" || 
+                $extension=="png" ||
                 $extension=="gif")
                 {
-                   
-                    
-                   
+
+
+
                     $chemin_image="actu" . $actu->id . "_2." . $extension; //c'est modif, on a son id!
                     $chemin_dossier=public_path('') .'/img/';
                     if(is_uploaded_file($_FILES['image2']['tmp_name']))
                                 {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$chemin_image))
-                                    {  
+                                    {
                                         $image->save();
-                                    }	
-                                                
-                                 }            
+                                    }
+
+                                 }
                }
         }
 
