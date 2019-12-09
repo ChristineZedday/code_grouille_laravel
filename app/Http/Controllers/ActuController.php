@@ -102,44 +102,49 @@ class ActuController extends Controller
 
                                         }
                         }
-                     }
-            }
-            if (file_exists ($chemin_dossier.$uploaded ) )
-            {
-                 //chercher dans la base et ajouter actu_id
-                 $id = DB::table('images')->where('chemin_image', '$uploaded')->value(id);
-                 $image = Image::find($id);
-                 $image->actu_id = $actu->id;
+                     } //fin else: file existe pas
+            } // fin on a uploadé image 1
 
-            }
+            if (isset($_FILES['image2']['name']))
+                {
+                    $uploaded = $_FILES['image2']['name'];
+                        if (file_exists ($chemin_dossier.$uploaded ) )
+                        {
+                            //chercher dans la base et ajouter actu_id
+                            $id = DB::table('images')->where('chemin_image', '$uploaded')->value(id);
+                            $image = Image::find($id);
+                            $image->actu_id = $actu->id;
 
-            else{
-                    if (isset($_FILES['image2']['name']))
-                    {
-                        $uploaded = $_FILES['image2']['name'];
-                        $extension = Image::fichier_type($uploaded); //fonction statique du model Image
-
-                        if($extension=="jpg" ||
-                            $extension=="png" ||
-                            $extension=="gif")
-                            {
-
-
-
-
-                                $chemin_dossier=public_path('') .'/img/';
-                                if(is_uploaded_file($_FILES['image2']['tmp_name']))
-                                            {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$uploaded))
-                                                {   $image = New Image;
-                                                    $image->chemin_image =  $uploaded;
-                                                    $image->actu_id = $newactu->id;
-                                                    $image->save();
-                                                }
-
-                                            }
                         }
-                    }
-            }
+
+                        else{
+
+                                {
+
+                                    $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+
+                                    if($extension=="jpg" ||
+                                        $extension=="png" ||
+                                        $extension=="gif")
+                                        {
+
+
+
+
+                                            $chemin_dossier=public_path('') .'/img/';
+                                            if(is_uploaded_file($_FILES['image2']['tmp_name']))
+                                                        {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$uploaded))
+                                                            {   $image = New Image;
+                                                                $image->chemin_image =  $uploaded;
+                                                                $image->actu_id = $newactu->id;
+                                                                $image->save();
+                                                            }
+
+                                                        }
+                                    }
+                                }
+                        }
+                }
 
             $request->session()->flash('status',"actu enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");

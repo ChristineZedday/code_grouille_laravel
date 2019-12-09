@@ -65,6 +65,26 @@
         @enderror
     </div>
 
+    @isset($insecte)
+    <div>
+    @foreach ($images as $image)
+        <img src="{{URL::asset('/img/'.$image->chemin_image)}}" width:50px height:50px/>
+        <input type="checkbox" id="suppr" name="{{'suppr'.$image->id}}" value= "{{$image->id}}" /> <label for="suppr">Supprimer l'image {{$image->id}}</label>
+    @endforeach
+    </div>
+@endisset
+
+
+<div class='form-group'>
+<label>Image 1 (optionnelle)</label>
+<input id="image1" type="file" name="image1" value="" />
+</div>
+
+<div class='form-group'>
+<label>Image 2 (optionnelle)</label>
+<input id="image2" type="file" name="image2" value="" />
+</div>
+
     <input type="submit" id='submit' value='Enregistrer' >
 
 </form>
