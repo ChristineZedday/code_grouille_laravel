@@ -1,4 +1,4 @@
-
+@media screen and (max-width: 800px) {
 footer {
     display: -webkit-box;
     display: flex;
@@ -12,7 +12,8 @@ footer {
 
         h1{
             font-size: 5vw;
-            width: 30%
+            width: 30%;
+            position: relative;
         }
 
         ul {
@@ -49,11 +50,66 @@ footer {
         }
 
         #menufooter{
-            width: 30%;
-            margin-left: 15%;
+            width: 100%;
         }
     }
+}
 
+
+@media screen and (min-width: 800px) {
+footer {
+    display: -webkit-box;
+    display: flex;
+    border-top: solid 4px sandybrown;
+    background-color: $blue;
+    width:100%;
+    bottom:0;
+    -webkit-box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
+    box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
+
+        h1{
+            font-size: 7vw;
+            width: 300px;
+            float: left;
+            position: relative;
+        }
+
+        ul {
+            width: 36vh;
+            font-size: 20px;
+            text-decoration: none;
+            padding: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            list-style: none;
+            font-weight: bold;
+
+            li {
+                list-style: none;
+
+                a {
+                    color: black;
+                    text-decoration: underline;
+                    cursor: pointer;
+                    font-size: 15px;
+                }
+
+                a:hover {
+                    font-style: italic;
+                }
+            }
+        }
+
+
+        #adress{
+        right: 30px;
+        margin: 30px;
+        margin-top: 1%;
+        }
+
+    }
+}
 
 
 

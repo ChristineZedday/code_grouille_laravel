@@ -6,78 +6,201 @@ $border : solid 4px $sandy;
     width: 40px;
   }
 
-header{
-    display: -webkit-box;
-    border-bottom: solid 4px $sandy;
-    background-color: $blue;
-    min-height: 200px;
+h1{
+    font-size: 55px;
+    color: sandybrown;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.welcome{
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    background-color: cadetblue;
+}
+
+// ================================ MOBILE =======================================
+
+@media screen and (max-width: 800px) {
+
+    header{
+        display:none;
+    }
+
+    #burger{
+        display: block;
+        position: fixed;
+        right:15px;
+        top:30px;
+        cursor: pointer;
+        z-index: 999;
+        width: 40px;
+        height: 40px;
+    }
+
+    #hiddenheader{
+        border-bottom: solid 4px $sandy;
+        background-color: $blue;
+        width:100%;
+        min-height: 400px;
+        position: fixed;
+        top:0;
+        display: none;
+
+        #right {
+            right: 0;
+            text-align: center;
+
+            #connexion{
+                width: 100%;
+                height: 70px;
+                display: flex;
+                justify-content: center;
+
+
+                button{
+                    background-color: $sandy;
+                    border: none;
+                    border-radius: 15px;
+                    padding: 6px;
+                    float: left;
+                    margin: 15px;
+
+                a{
+                        color:white;
+                        font-style: oblique;
+                        text-decoration: underline;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+
+        #reseaux{
+            padding:10px;
+            border-bottom: 3px solid black;
+            border-top: 3px solid black;
+        }
+
+
+        #newsletter {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            display: block;
+            margin: 5% 6% 7% 21%;
+
+
+            a {
+                color: black;
+                font-size: 20px;
+                margin-top: -13px;
+                display: block;
+              }
+
+            img{
+            width:40px;
+            }
+        }
+
+        #favoris {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            display: block;
+            margin: 5% 6% 7% 21%;
+
+            a{
+                color: black;
+                font-size: 20px;
+                margin-top: -13px;
+                display: block;
+            }
+
+            img{
+            width:60px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 800px) {
 
     h1{
         font-size: 7vw;
-        color: sandybrown;
+        color: $sandy;
         position: absolute;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
+        top: -20px;
     }
 
-
-    #right {
-        right: 0;
+    .welcome{
+        font-size: 3vw;
+        color: white;
         position: absolute;
-        padding: 35px;
         text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        margin-top: 8%;
     }
 
-    #reseaux{
-        padding:10px;
+    #hiddenheader{
+        display: none;
     }
 
-    .pict{
-        width: 40px;
-    }
+    #burger{
+            display: none;
+        }
 
+    header section{
+        display: -webkit-box;
+        border-bottom: solid 4px $sandy;
+        background-color: $blue;
+        min-height: 200px;
 
-    #newsletter {
-        text-align: center;
-        font-size: 25px;
-        font-weight: bold;
-        display: block;
-        margin: 5% 6% 7% 21%;
+        #right {
+            right: 0;
+            position: absolute;
+            padding: 35px;
+            text-align: center;
+        }
 
+        #reseaux{
+            padding:10px;
+        }
 
-        a {
-            color: black;
-            font-size: 20px;
-            margin-top: -13px;
+        .pict{
+            width: 40px;
+        }
+
+        #newsletter {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
             display: block;
-          }
+            margin: 5% 6% 7% 21%;
 
-        img{
-        width:40px;
+
+            a {
+                color: black;
+                font-size: 20px;
+                margin-top: -13px;
+                display: block;
+            }
+
+            img{
+            width:40px;
+            }
         }
-    }
-
-    #favoris {
-        text-align: center;
-        font-size: 25px;
-        font-weight: bold;
-        display: block;
-        margin: 5% 6% 7% 21%;
-
-        a{
-            color: black;
-            font-size: 20px;
-            margin-top: -13px;
-            display: block;
-        }
-
-        img{
-        width:60px;
-        }
-    }
 
     #connexion button{
         background-color: $sandy;
@@ -96,6 +219,26 @@ header{
         }
     }
 }
+}
+
+
+// #favoris {
+//     text-align: center;
+//     font-size: 25px;
+//     font-weight: bold;
+//     display: block;
+//     margin: 5% 6% 7% 21%;
+
+//     a{
+//         color: black;
+//         font-size: 20px;
+//         margin-top: -13px;
+//         display: block;
+//     }
+
+//     img{
+//     width:60px;
+//     }
 
 #fav{
     text-align: center;
@@ -107,6 +250,7 @@ header{
     -moz-box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
     box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
 }
+
 
 .subheader{
     display:inline;

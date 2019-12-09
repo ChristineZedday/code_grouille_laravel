@@ -1,12 +1,16 @@
 $sandy : sandybrown;
 $white : #D3E5E2;
 
+.welcomedash{
+    text-align: center;
+    font-size: 4em;
+}
+
 .grid{
     display: grid;
     grid-template-columns:1fr 1fr 1fr;
     grid-column-gap: 10px;
     grid-row-gap: 15px;
-    margin-top: 50px;
     margin-bottom: 50px;
 
     a{

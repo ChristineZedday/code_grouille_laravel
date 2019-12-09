@@ -3,6 +3,8 @@ require('./wysiwyg');
 var button =  document.getElementById("connectmembre");
 var modal =  document.getElementById("membre");
 var close =  document.getElementById("close");
+var burger =  document.getElementById("burger");
+var menudiv =  document.getElementById("hiddenheader");
 
 button.addEventListener("click", function(e){
     e.preventDefault();
@@ -16,8 +18,23 @@ close.addEventListener("click", function(e){
 
 window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+    modal.style.display = "none";
     }
+
+
+function toggleMenu() {
+        if(menudiv.style.display == "block") {
+            menudiv.style.display = "none";
+        }
+        else {
+            menudiv.style.display = "block";
+        }
+    }
+
+burger.addEventListener("click", function(e){
+    toggleMenu();
+    });
+
 }
 
 

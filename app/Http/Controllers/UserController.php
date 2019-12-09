@@ -47,8 +47,8 @@ class UserController extends Controller
 public function deconnexion()
 {
     auth()->logout();
-
     return redirect('/');
 }
+
 
 }
