@@ -12,7 +12,8 @@ class MentionsTableSeeder extends Seeder
     public function run()
     {
         DB::table('mentions')->insert([
-            'texte_mentions' => "mentions légales du site",
+            'texte_mentions' => "mentions légales de merde",
             ]);
+
     }
 }

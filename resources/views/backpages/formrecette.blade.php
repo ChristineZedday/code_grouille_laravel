@@ -55,7 +55,7 @@
 
         <div class='form-group'>
             <label><p>Difficulte recette</p></label>
-            <select class="form-control" value="{{$recette->difficulte_recette}}" name="difficulte_recette">
+            <select class="form-control" value="{{$recette->difficulte_recette}}" name="difficulte_recette" required>
                 <option value="1">1-Facile</option>
                 <option value="2">2-Moyen</option>
                 <option value="3">3-Expert</option>
@@ -64,7 +64,7 @@
 
         <div class='form-group'>
             <label><p>Appetance recette</p></label>
-            <select class="form-control" value="{{$recette->appetance_recette}}" name="appetance_recette">
+            <select class="form-control" value="{{$recette->appetance_recette}}" name="appetance_recette" required>
                     <option value="1">1-Entomophage Débutant</option>
                     <option value="2">2-Entomophage Moyen</option>
                     <option value="3">3-Entomophage Confirmé</option>
@@ -85,7 +85,8 @@
         <div class='form-group'>
             <label><h3>Déroulé</h3></label>
             <div class="YSeditor">
-                <textarea rows="20" cols="100" class="form-control"  @error('deroule_recette') is-invalid @enderror value="@isset($recette){{$recette->deroule_recette}}@else{{ old('deroule_recette') }}@endisset" name="deroule_recette"></textarea>
+                <textarea rows="20" cols="100" class="form-control" @error('deroule_recette') is-invalid @enderror name="deroule_recette" required>@isset($recette)
+                    {{$recette->deroule_recette}}@else{{ old('deroule_recette') }}@endisset</textarea>
             </div>
 
             @error('deroule_recette')
@@ -95,8 +96,7 @@
             @enderror
         </div>
 
-        <input type="submit" id='cancel' value='Annuler' >
-        <input type="submit" id='submit' value='Enregistrer' >
+         <input type="submit" id='submit' value='Enregistrer' >
 
 
     </form>
