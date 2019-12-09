@@ -309,35 +309,6 @@ input:not([type=submit]) {
   margin-bottom: 10px;
 }
 
-#insectesfront {
-  margin-top: 10%;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-  margin-bottom: 150px;
-}
-
-#insectesfront figure {
-  text-align: center;
-}
-
-#insectesfront figure p {
-  max-width: 70%;
-  font-size: 14px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-#insectesfront img {
-  max-width: 250px;
-}
-
-#insectes {
-  margin-top: 5%;
-  min-height: 90vh;
-}
-
 footer {
   display: -webkit-box;
   display: flex;
@@ -1215,6 +1186,69 @@ div[contenteditable] img {
   margin-bottom: 25px;
   margin-left: auto;
   margin-right: auto;
+}
+
+#about {
+  display: block;
+}
+
+#about .fullwidth {
+  width: 100%;
+  left: 0;
+  margin-top: 80px;
+}
+
+#insectesfront {
+  margin-top: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 150px;
+}
+
+#insectesfront figure {
+  text-align: center;
+}
+
+#insectesfront figure p {
+  max-width: 70%;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#insectesfront img {
+  max-width: 250px;
+}
+
+#insectes {
+  margin-top: 5%;
+  min-height: 90vh;
+}
+
+#partners {
+  margin-top: 10%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 150px;
+}
+
+#partners figure {
+  text-align: center;
+}
+
+#partners figure p {
+  max-width: 70%;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#partners figure img {
+  max-width: 250px;
 }
 
 * {

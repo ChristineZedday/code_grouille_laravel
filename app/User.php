@@ -39,17 +39,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Recette() 
+    public function Recette()
     {
         return $this->hasMany('App\Recette');
     }
 
 
-    public function commentaire_Recette() 
+    public function commentaire_Recette()
     {
         return $this->hasMany('App\commentaireRecette');
     }
 
-    
-    
+        /**
+     * Get the column name for the "remember me" token.
+     *
+     * @return string
+     */
+    public function getRememberTokenName()
+    {
+        return '';
+    }
+
+
+
 }

@@ -30,6 +30,8 @@ Route::post('/verification', 'UserController@verify') ->name('verify');
 
 Route::post('/registration', 'UserController@store') ->name('youpi');
 
+Route::get('/deconnexion', 'UserController@deconnexion') ->name('disconnect');
+
 Route::post('/back', 'BackController@index')->name('back');
 
 Route::get('/apropos', function () {

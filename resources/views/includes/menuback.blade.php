@@ -18,6 +18,6 @@
 
 
 <div id='backtofront'>
-    <button id='tofront'><a href="#">Back to front</a></button>
-    <button id='disconnect'><a href="#">Disconnect</a></button>
+    <button id='tofront'><a href="/home">Back to front</a></button>
+    <button id='disconnect'><a href="/deconnexion">Disconnect</a></button>
 </div>
