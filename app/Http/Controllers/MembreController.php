@@ -26,7 +26,7 @@ class MembreController extends Controller
 
        return view('backpages.backMembres',['users' => $users]);
     }
-   
+
 
     /**
      * Show the form for creating a new resource.
@@ -109,7 +109,6 @@ class MembreController extends Controller
         $validated = $request->validate([
             'name' => 'string|required',
             'email' => 'required',
-            'password_user' =>  'required',
             'role' =>  'required',
          ]);
 
@@ -123,8 +122,8 @@ class MembreController extends Controller
         }
     }
 
-    
-  
+
+
 
     /**
      * Remove the specified resource from storage.
@@ -140,11 +139,11 @@ class MembreController extends Controller
         {
             $recette->SetUserId();
             $recette->save();
-            
+
         }
 
         if ($user && $user->delete()) {
-           
+
             return redirect()->action('MembreController@index');
         }
     }
