@@ -38,23 +38,23 @@
         @enderror
 
     </div>
+    @if (isset($user))
 
+    @else
     <div class='form-group'>
     <label><h3>Mot de passe</h3></label>
-    <input type="texte" class="form-control" @error('password') is-invalid @enderror value="@isset($user){{$user->password}}@else{{ old('password') }}@endisset" name="password" required>
+    <input type="password" class="form-control" @error('password') is-invalid @enderror value="@isset($user){{$user->password}}@else \" @endisset" name="password" required>
 
         @error('password')
         <div class="invalid-feedback">
             {{ $message }}
         </div>
         @enderror
-
     </div>
-
 
     <div class='form-group'>
     <label><h3>Confirmation du mot de passe</h3></label>
-    <input type="texte" class="form-control" @error('password') is-invalid @enderror value="@isset($user){{$user->password}}@else{{ old('password') }}@endisset" name="password_confirmation" required>
+    <input type="password" class="form-control" @error('password') is-invalid @enderror value="@isset($user){{$user->password}}@else  \"  @endisset" name="password_confirmation" required>
 
         @error('password')
         <div class="invalid-feedback">
@@ -63,11 +63,13 @@
         @enderror
 
     </div>
+    @endif
+
      <div class='form-group'>
             <label><p>Rôle</p></label>
             <select class="form-control"  name="role" required>
-                <option value="utilisateur">Utilisateur</option>
-                <option value="admin">Administrateur</option>
+                <option value="utilisateur" @isset($user) @if($user->role=="utilisateur") selected @else "" @endif @endisset>Utilisateur</option>
+                <option value="admin" @isset($user) @if($user->role=="admin") selected @else "" @endif @endisset>Administrateur</option>
             </select>
         </div>
 

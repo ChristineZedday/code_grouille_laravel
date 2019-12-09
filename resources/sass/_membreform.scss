@@ -62,7 +62,11 @@ h2{
     background-color: black;
     color: white;
 	font-family:  'Shadows Into Light', cursive;
-	font-size: 15px;
+    font-size: 15px;
+    display: block;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: auto;
 }
 
 input:not([type="submit"]){

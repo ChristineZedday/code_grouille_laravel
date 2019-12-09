@@ -111,45 +111,6 @@ header #connexion button a {
   padding: 5px;
 }
 
-footer {
-  display: -webkit-box;
-  display: flex;
-  border-top: solid 4px sandybrown;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-footer ul {
-  width: 36vh;
-  font-size: 20px;
-  text-decoration: none;
-  padding: 20px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  list-style: none;
-  font-weight: bold;
-}
-
-footer ul li {
-  list-style: none;
-}
-
-footer ul li a {
-  color: sandybrown;
-  text-decoration: none;
-  font-size: 15px;
-}
-
-footer ul li a:hover {
-  font-style: italic;
-}
-
-footer #adress {
-  position: fixed;
-  right: 30px;
-  margin: 30px;
-}
-
 /* ============================CONNECT============================= */
 
 #membre {
@@ -211,13 +172,17 @@ h2 {
   margin-bottom: 10px;
 }
 
-#submit, #cancel {
+#submit {
   border-radius: 20px;
   padding: 13px;
   background-color: black;
   color: white;
   font-family: "Shadows Into Light", cursive;
   font-size: 15px;
+  display: block;
+  margin-left: auto;
+  margin-top: 10px;
+  margin-right: auto;
 }
 
 input:not([type=submit]) {
@@ -266,6 +231,7 @@ input:not([type=submit]) {
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 50px;
   min-height: 54vh;
 }
 
@@ -349,6 +315,18 @@ input:not([type=submit]) {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+  margin-bottom: 150px;
+}
+
+#insectesfront figure {
+  text-align: center;
+}
+
+#insectesfront figure p {
+  max-width: 70%;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #insectesfront img {
@@ -401,13 +379,34 @@ footer ul li a:hover {
   font-style: italic;
 }
 
+footer #adress {
+  right: 30px;
+  margin: 30px;
+  margin-top: 1%;
+}
+
 footer #menufooter {
   width: 30%;
   margin-left: 15%;
 }
 
-footer #adress {
-  margin-top: 1%;
+#backtofront {
+  text-align: center;
+  bottom: 8%;
+  position: fixed;
+}
+
+#backtofront button {
+  margin-left: 22px;
+  margin-top: 127px;
+  background-color: white;
+  padding: 10px;
+}
+
+#backtofront button a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 #backleft {
@@ -455,6 +454,7 @@ footer #adress {
 
 #backright .intit a h2 {
   margin: 5%;
+  font-size: 1.5em;
 }
 
 #backright .intit a:hover {

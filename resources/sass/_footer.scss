@@ -25,30 +25,35 @@ footer {
             list-style: none;
             font-weight: bold;
 
-        li {
-            list-style: none;
+            li {
+                list-style: none;
 
-            a {
-                color: black;
-                text-decoration: underline;
-                cursor: pointer;
-                font-size: 15px;
-            }
+                a {
+                    color: black;
+                    text-decoration: underline;
+                    cursor: pointer;
+                    font-size: 15px;
+                }
 
-            a:hover {
-                font-style: italic;
+                a:hover {
+                    font-style: italic;
+                }
             }
+        }
+
+
+        #adress{
+        right: 30px;
+        margin: 30px;
+        margin-top: 1%;
+        }
+
+        #menufooter{
+            width: 30%;
+            margin-left: 15%;
         }
     }
 
 
-  #menufooter{
-      width: 30%;
-      margin-left: 15%;
-  }
 
-  #adress{
-      margin-top: 1%;
-  }
 
-}
