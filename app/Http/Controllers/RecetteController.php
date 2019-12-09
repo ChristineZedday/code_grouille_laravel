@@ -30,7 +30,7 @@ class RecetteController extends Controller
        return view('backpages.backrecettes',['recettes' => $recettes]);
     }
 
-   
+
 
     /**
      * Show the form for creating a new resource.
@@ -50,20 +50,20 @@ class RecetteController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([           
-            'titre_recette' => 'string',
-            'description_recette' => 'string',
+        $validated = $request->validate([
+            'titre_recette' => 'string|required',
+            'description_recette' => 'string|required',
             'temps_preparation_recette' =>  'integer',
             'temps_cuisson_recette' =>  'integer',
-            'difficulte_recette' =>  'string',
-            'appetence_recette' =>  'string',
-            'deroule_recette' =>  'string',
+            'difficulte_recette' =>  'string|required',
+            'appetence_recette' =>  'string|required',
+            'deroule_recette' =>  'string|required',
             'portion_recette' =>  'integer',
             'user_id' => 'integer',
         ]);
 
 
-       
+
         // $validated['description_recette'] = str_replace("\n", "<br>", $validated['description_recette']);
         // $validated['deroule_recette'] = str_replace("\n", "<br>", $validated['deroule_recette']);
         $newRecette = new Recette;
