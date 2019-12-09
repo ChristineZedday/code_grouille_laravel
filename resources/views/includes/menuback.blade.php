@@ -15,3 +15,9 @@
 
     </ul>
 </nav>
+
+
+<div id='backtofront'>
+    <button id='tofront'><a href="/home">Back to front</a></button>
+    <button id='disconnect'><a href="/deconnexion">Disconnect</a></button>
+</div>

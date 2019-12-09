@@ -17,7 +17,7 @@ class UserController extends Controller
             if ($user->role="admin"){
             return view('backpages.back');
             }
-            else 
+            else
             {  return view('membres.dashboard'); }
         }
         else { return view('pages.registration');}
@@ -42,6 +42,13 @@ class UserController extends Controller
         session()->flash('alert-class',"alert-success");
         return view('membres.dashboard');
     }
+}
+
+public function deconnexion()
+{
+    auth()->logout();
+
+    return redirect('/');
 }
 
 }

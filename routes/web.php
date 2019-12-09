@@ -30,6 +30,8 @@ Route::post('/verification', 'UserController@verify') ->name('verify');
 
 Route::post('/registration', 'UserController@store') ->name('youpi');
 
+Route::get('/deconnexion', 'UserController@deconnexion') ->name('disconnect');
+
 Route::post('/back', 'BackController@index')->name('back');
 
 Route::get('/apropos', function () {
@@ -41,9 +43,13 @@ Route::get('/insectes', function () {
 Route::get('/recettes', function () {
     return view('pages.recettes');
 });
-Route::get('/actus', function () {
-    return view('pages.actus');
-});
+
+Route::get('/actus', 'ShowActus@index')->name('actus');
+
+// Route::get('/actus', function () {
+//     return view('pages.actus');
+// });
+
 Route::get('/FAQ', function () {
     return view('pages.FAQ');
 });
