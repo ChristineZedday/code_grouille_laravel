@@ -68,56 +68,77 @@ class ActuController extends Controller
 
         if ($newactu->save()) {
 
+            $chemin_dossier=public_path('') .'/img/';
+
             if (isset($_FILES['image1']['name']))
             {
                 $uploaded = $_FILES['image1']['name'];
-                $extension = Image::fichier_type($uploaded); //fonction statique du model Image
 
-                if($extension=="jpg" ||
-                    $extension=="png" ||
-                    $extension=="gif")
-                    {
+                if (file_exists ($chemin_dossier.$uploaded ) )
+                {
+                     //chercher dans la base et ajouter actu_id
+                     $id = DB::table('images')->where('chemin_image', '$uploaded')->value(id);
+                     $image = Image::find($id);
+                     $image->actu_id = $actu->id;
+
+                }
+
+                else{
+                    $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+
+                    if($extension=="jpg" ||
+                        $extension=="png" ||
+                        $extension=="gif")
+                        {
 
 
+                            if(is_uploaded_file($_FILES['image1']['tmp_name']))
+                                        {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
+                                            {   $image = New Image;
+                                                $image->chemin_image =  $uploaded;
+                                                $image->actu_id = $newactu->id;
+                                                $image->save();
+                                            }
 
-
-                        $chemin_dossier=public_path('') .'/img/';
-                        if(is_uploaded_file($_FILES['image1']['tmp_name']))
-                                    {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
-                                        {   $image = New Image;
-                                            $image->chemin_image =  $uploaded;
-                                            $image->actu_id = $newactu->id;
-                                            $image->save();
                                         }
+                        }
+                     }
+            }
+            if (file_exists ($chemin_dossier.$uploaded ) )
+            {
+                 //chercher dans la base et ajouter actu_id
+                 $id = DB::table('images')->where('chemin_image', '$uploaded')->value(id);
+                 $image = Image::find($id);
+                 $image->actu_id = $actu->id;
 
-                                     }
-                   }
             }
 
-            if (isset($_FILES['image2']['name']))
-            {
-                $uploaded = $_FILES['image2']['name'];
-                $extension = Image::fichier_type($uploaded); //fonction statique du model Image
-
-                if($extension=="jpg" ||
-                    $extension=="png" ||
-                    $extension=="gif")
+            else{
+                    if (isset($_FILES['image2']['name']))
                     {
+                        $uploaded = $_FILES['image2']['name'];
+                        $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+
+                        if($extension=="jpg" ||
+                            $extension=="png" ||
+                            $extension=="gif")
+                            {
 
 
 
 
-                        $chemin_dossier=public_path('') .'/img/';
-                        if(is_uploaded_file($_FILES['image2']['tmp_name']))
-                                    {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$uploaded))
-                                        {   $image = New Image;
-                                            $image->chemin_image =  $uploaded;
-                                            $image->actu_id = $newactu->id;
-                                            $image->save();
-                                        }
+                                $chemin_dossier=public_path('') .'/img/';
+                                if(is_uploaded_file($_FILES['image2']['tmp_name']))
+                                            {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$uploaded))
+                                                {   $image = New Image;
+                                                    $image->chemin_image =  $uploaded;
+                                                    $image->actu_id = $newactu->id;
+                                                    $image->save();
+                                                }
 
-                                     }
-                   }
+                                            }
+                        }
+                    }
             }
 
             $request->session()->flash('status',"actu enregistré avec succès");
@@ -187,19 +208,24 @@ class ActuController extends Controller
         $actu->fill($validated);
 
        $images = $actu->image()->get();
+
+
        foreach ($images as $image)
             {
-                if (isset($request['"suppr".$image->id']) )
+
+
+
+                if (isset($_POST['suppr'.$image->id]))
                 {
 
+                    if (isset($image->insecte_id) || isset($image->recette_id))
+                    {
+                        $image->actu_id = null;
+                    }
+                     else{
+                    $image->delete(); //enlève de la base mais supprime pas fichier, faire une f pour ça ds Image
+                }
 
-                       if ($image->recette_id == null && $image->insecte_id == null)
-                            { //supprimer le fichier!
-                            $image->delete(); //enlève de la base mais supprime pas fichier, faire une f pour ça ds Image
-                            }
-                            else{
-                                $image->actu_id = null;
-                            }
 
                 }
 
