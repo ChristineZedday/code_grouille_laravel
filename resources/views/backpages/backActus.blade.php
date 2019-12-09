@@ -31,7 +31,7 @@
 @foreach ($actus as $actu)
     <tr>
         <td class="align-middle"> {{ $actu->titre_actu }}</td>
-        <td class="align-middle">{{$actu->resume_actu}}</td>
+        <td class="align-middle"><?php echo ($actu->resume_actu) ?></td>
 
         <td  class="align-middle">
         <button><a href="{{route('actu.show',$actu->id)}}" >Voir</a></button>

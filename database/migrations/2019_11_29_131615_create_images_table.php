@@ -17,12 +17,12 @@ class CreateImagesTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('chemin_image');
-            $table->bigInteger('recette_id')->unsigned();
-            $table->foreign('recette_id')->references('id')->on('recettes')->nullable;
-            $table->bigInteger('actu_id')->unsigned();
-            $table->foreign('actu_id')->references('id')->on('actus')->nullable;
-            $table->bigInteger('insecte_id')->unsigned();
-            $table->foreign('insecte_id')->references('id')->on('insectes')->nullable;
+            $table->bigInteger('recette_id')->unsigned()->nullable();
+            $table->foreign('recette_id')->references('id')->on('recettes');
+            $table->bigInteger('actu_id')->unsigned()->nullable();
+            $table->foreign('actu_id')->references('id')->on('actus');
+            $table->bigInteger('insecte_id')->unsigned()->nullable();
+            $table->foreign('insecte_id')->references('id')->on('insectes');
 
         });
     }

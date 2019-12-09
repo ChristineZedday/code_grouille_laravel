@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RecettesTableSeeder::class);
         $this->call(Ingredients_RecettesTableSeeder::class);
         $this->call(Commentaires_RecettesTableSeeder::class);
+        $this->call(ActusTableSeeder::class);
+        $this->call(ImagesTableSeeder::class);
 
     }
 }

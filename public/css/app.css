@@ -211,7 +211,7 @@ h2 {
   margin-bottom: 10px;
 }
 
-#submit {
+#submit, #cancel {
   border-radius: 20px;
   padding: 13px;
   background-color: black;

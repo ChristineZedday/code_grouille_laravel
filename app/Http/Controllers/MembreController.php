@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Recettes;
+
 
 class MembreController extends Controller
 {
@@ -24,7 +26,7 @@ class MembreController extends Controller
 
        return view('backpages.backMembres',['users' => $users]);
     }
-   
+
 
     /**
      * Show the form for creating a new resource.
@@ -92,7 +94,7 @@ class MembreController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('backpages.formMembres', ['user' => $user]);
+        return view('backpages.formMembre', ['user' => $user]);
     }
 
     /**
@@ -105,10 +107,9 @@ class MembreController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'name_user' => 'string|required',
-            'email_user' => 'required',
-            'password_user' =>  'required',
-            'role_user' =>  'required',
+            'name' => 'string|required',
+            'email' => 'required',
+            'role' =>  'required',
          ]);
 
         $user = User::find($id);
@@ -121,6 +122,9 @@ class MembreController extends Controller
         }
     }
 
+
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -130,6 +134,13 @@ class MembreController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
+        $recettes = $user->recette()->get();
+        foreach ($recettes as $recette)
+        {
+            $recette->SetUserId();
+            $recette->save();
+
+        }
 
         if ($user && $user->delete()) {
 

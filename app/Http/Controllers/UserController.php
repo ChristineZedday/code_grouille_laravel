@@ -13,7 +13,12 @@ class UserController extends Controller
    {
     if (Auth::attempt(['email' => $request->email, 'password' => $request->password]))
         {
-            return view('membres.dashboard');
+            $user = Auth::user();
+            if ($user->role="admin"){
+            return view('backpages.back');
+            }
+            else 
+            {  return view('membres.dashboard'); }
         }
         else { return view('pages.registration');}
     }
@@ -29,7 +34,7 @@ class UserController extends Controller
 
     $user = new User;
     $user->fill($validated);
-    $user->role = null;
+    $user->role = "utilisateur";
     $user->password = bcrypt($user->password);
 
     if ($user->save()) {
