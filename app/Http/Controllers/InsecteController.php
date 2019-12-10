@@ -73,7 +73,7 @@ class InsecteController extends Controller
                 if (file_exists ($chemin_dossier.$uploaded ) )
                 {
                      //chercher dans la base et ajouter insecte_id
-                     $id = DB::table('images')->where('chemin_image', '$uploaded')->value(id);
+                     $id = DB::table('images')->where('chemin_image', '$uploaded')->value('id');
                      $image = Image::find($id);
                      $image->insecte_id = $insecte->id;
 
@@ -107,7 +107,7 @@ class InsecteController extends Controller
                         if (file_exists ($chemin_dossier.$uploaded ) )
                         {
                             //chercher dans la base et ajouter insecte_id
-                            $id = DB::table('images')->where('chemin_image', '$uploaded')->value(id);
+                            $id = DB::table('images')->where('chemin_image', '$uploaded')->value('id');
                             $image = Image::find($id);
                             $image->insecte_id = $insecte->id;
 

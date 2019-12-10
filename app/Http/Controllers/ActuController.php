@@ -77,7 +77,7 @@ class ActuController extends Controller
                 if (file_exists ($chemin_dossier.$uploaded ) )
                 {
                      //chercher dans la base et ajouter actu_id
-                     $id = DB::table('images')->where('chemin_image', '$uploaded')->value(id);
+                     $id = DB::table('images')->where('chemin_image', '$uploaded')->value('id');
                      $image = Image::find($id);
                      $image->actu_id = $actu->id;
 
@@ -111,7 +111,7 @@ class ActuController extends Controller
                         if (file_exists ($chemin_dossier.$uploaded ) )
                         {
                             //chercher dans la base et ajouter actu_id
-                            $id = DB::table('images')->where('chemin_image', '$uploaded')->value(id);
+                            $id = DB::table('images')->where('chemin_image', '$uploaded')->value('id');
                             $image = Image::find($id);
                             $image->actu_id = $actu->id;
 
