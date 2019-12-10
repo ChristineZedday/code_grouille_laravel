@@ -106,10 +106,7 @@ class CommentaireController extends Controller
 
 
         $validated = $request->validate([
-            'nom_commentaire' => 'string|required',
-            'nom_latin_commentaire' => 'string|required',
-            'ordre_commentaire' =>  'string|required',
-            'description_commentaire' =>  'required',
+            'texte' => 'string|required',
 
         ]);
 

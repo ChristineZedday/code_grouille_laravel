@@ -51,8 +51,6 @@
 </tbody>
 </table>
 
-@else
-<p> Aucun commentaire </p>
 @endif
 </section>
 @endsection
