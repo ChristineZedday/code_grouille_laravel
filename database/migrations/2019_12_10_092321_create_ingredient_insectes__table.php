@@ -18,8 +18,8 @@ class CreateIngredientInsectesTable extends Migration
             $table->timestamps();
             $table->bigInteger('insecte_id')->unsigned();
             $table->bigInteger('ingredient_id')->unsigned();
-            $table->foreign('insecte_id')->references('id')->on('insectes');
-            $table->foreign('ingredient_id')->references('id')->on('ingredients');
+            $table->foreign('insecte_id')->references('id')->on('insectes') ->onDelete('cascade');;
+            $table->foreign('ingredient_id')->references('id')->on('ingredients') ->onDelete('cascade');;
         });
     }
 

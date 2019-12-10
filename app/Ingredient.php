@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Ingredient extends Model
 {
 
-    protected $fillable = ['nom_ingredient', 'insecte_id'];
+    protected $fillable = ['nom_ingredient'];
 
     public function IngredientRecette()
     {
@@ -15,8 +15,8 @@ class Ingredient extends Model
     }
 
 
-    public function Insecte()
+    public function IngredientInsecte()
     {
-        return $this->belongsTo('App\Insecte');
+        return $this->hasOne('App\IngredientInsecte');
     }
 }
