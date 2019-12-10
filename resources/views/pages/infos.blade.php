@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
+Affiche les infos statiques
 
-Mentions leégales
 
 
 @endsection

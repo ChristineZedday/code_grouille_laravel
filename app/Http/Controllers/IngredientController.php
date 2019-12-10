@@ -115,7 +115,20 @@ class IngredientController extends Controller
     {
         $insectes = Insecte::All();
         $ingredient = Ingredient::find($id);
+
+
+        if (isset($ingredient->IngredientInsecte))
+        {
+
+            $insecteId = $ingredient->IngredientInsecte->insecte_id;
+           
+            return view('backpages.formingredient',[ 'ingredient' => $ingredient,  'insectes' => $insectes, 'insecteId' =>$insecteId]);
+        }
+
+        else
+        {
         return view('backpages.formingredient',[ 'ingredient' => $ingredient,  'insectes' => $insectes]);
+    }
     }
 
     /**
@@ -130,7 +143,7 @@ class IngredientController extends Controller
 
 
         $validated = $request->validate([
-        'insecte_id' => 'integer',
+
         'nom_ingredient' => 'string|required' ]);
 
 
@@ -139,6 +152,15 @@ class IngredientController extends Controller
         $ingredient->fill($validated);
 
         if ($ingredient->save()) {
+        /*    if ($request->input('insecte_id'))
+            {
+                $ingins = new IngredientInsecte();
+                $ingins->ingredient_id = $newIngredient->id;
+                $ingins->insecte_id = $request->input('insecte_id');
+                $ingins->save();
+            }
+*/
+
             $request->session()->flash('status',"ingredient enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('IngredientController@index');

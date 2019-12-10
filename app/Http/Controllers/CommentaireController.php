@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\CommentaireRecette;
+//appeler le modèle
 
 class CommentaireController extends Controller
 {
@@ -19,47 +21,14 @@ class CommentaireController extends Controller
      */
     public function index(Request $request)
     {
-        $commentaires = Commentaire::all();
+        $commentaires = CommentaireRecette::all();
 
 
 
        return view('backpages.backCommentaires',['commentaires' => $commentaires]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('backpages.formcommentaire');
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'texte' => 'string|required',
-
-        ]);
-
-
-        $newCommentaire = new Commentaire;
-        $newCommentaire->fill($validated);
-
-
-        if ($newCommentaire->save()) {
-            $request->session()->flash('status',"commentaire enregistré avec succès");
-            $request->session()->flash('alert-class',"alert-success");
-            return redirect()->action('CommentaireController@index');
-        }
-    }
 
     /**
      * Display the specified resource.
@@ -69,7 +38,7 @@ class CommentaireController extends Controller
      */
     public function show($id)
     {
-        $commentaire = Commentaire::find($id);
+        $commentaire =CommentaireRecette::find($id);
 
         if (!$commentaire) {
 
@@ -90,7 +59,7 @@ class CommentaireController extends Controller
      */
     public function edit($id)
     {
-        $commentaire = Commentaire::find($id);
+        $commentaire = CommentaireRecette::find($id);
         return view('backpages.formcommentaire', ['commentaire' => $commentaire]);
     }
 
@@ -110,7 +79,7 @@ class CommentaireController extends Controller
 
         ]);
 
-        $commentaire = Commentaire::find($id);
+        $commentaire = CommentaireRecette::find($id);
         $commentaire->fill($validated);
 
         if ($commentaire->save()) {
@@ -128,7 +97,7 @@ class CommentaireController extends Controller
      */
     public function destroy($id)
     {
-        $commentaire = Commentaire::find($id);
+        $commentaire = CommentaireRecette::find($id);
 
         if ($commentaire && $commentaire->delete()) {
 
