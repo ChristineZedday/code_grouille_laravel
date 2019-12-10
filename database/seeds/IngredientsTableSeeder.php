@@ -34,31 +34,6 @@ class IngredientsTableSeeder extends Seeder
 
 
 
-                DB::table('ingredients')->insert([
-                    'nom_ingredient'=> ' en poudre',
-                    'insecte_id' => '1',
-                ]);
-
-
-                DB::table('ingredients')->insert([
-                    'nom_ingredient'=> ' en poudre',
-                    'insecte_id' => '1',
-                ]);
-
-                DB::table('ingredients')->insert([
-                    'nom_ingredient'=> ' entier',
-                    'insecte_id' => '1',
-                ]);
-
-                DB::table('ingredients')->insert([
-                    'nom_ingredient'=> ' en poudre',
-                    'insecte_id' => '2',
-                ]);
-
-                DB::table('ingredients')->insert([
-                    'nom_ingredient'=> ' entier',
-                    'insecte_id' => '2',
-                ]);
 
         }
 

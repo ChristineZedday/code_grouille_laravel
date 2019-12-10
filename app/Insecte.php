@@ -8,12 +8,12 @@ class Insecte extends Model
 {
     protected $fillable = ['nom_insecte', 'nom_latin_insecte','ordre_insecte', 'description_insecte'];
 
-    public function Ingredient() 
+    public function Ingredient()
     {
-        return $this->hasMany('App\Ingredient');
+        return $this->hasMany('App\IngredientInsecte');
     }
 
-    public function Image() 
+    public function Image()
     {
         return $this->hasMany('App\Image');
     }

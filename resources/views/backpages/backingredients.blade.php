@@ -48,8 +48,7 @@
         </tbody>
                         </table>
 
-    @else
-              <P>  Aucun ingredient enregistré! </P>
+    
     @endif
 
     </section>
