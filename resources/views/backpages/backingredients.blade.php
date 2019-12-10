@@ -18,7 +18,7 @@
     <table >
                     <thead >
                         <tr>
-                            <th>Nom de l'insecte</th>
+
                             <th>Nom de l'ingredient</th>
                             <th>Actions</th>
                         </tr>
@@ -30,7 +30,7 @@
 
 
                     <tr>
-                                <td class="align-middle">  @isset($ingredient->insecte) {{$ingredient->insecte->nom_insecte}} @else &nbsp; @endisset  </td>
+                                
                                 <td class="align-middle"> {{$ingredient->nom_ingredient}} </td>
 
                                 <td  class="align-middle"> <a href="{{route('ingredient.show',$ingredient->id)}}" >Voir</a>
@@ -48,7 +48,7 @@
         </tbody>
                         </table>
 
-    
+
     @endif
 
     </section>

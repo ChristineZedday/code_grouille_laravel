@@ -21,10 +21,10 @@
     <div class='form-group'>
     <label><h3>Nom de l'insecte</h3></label>
     <select class="form-control"  name="insecte_id">
-            <option>Aucun ou sélectionnez:</option>
+            <option value="">Aucun ou sélectionnez:</option>
         @foreach ($insectes as $insecte)
             @isset($ingredient)
-            <option value="{{$insecte->id  }}" > {{$insecte->nom_insecte }}
+    <option value="{{$insecte->id  }}" @if(isset($insecteId) && ($insecteId == $insecte->id)) selected @else "" @endif> {{$insecte->nom_insecte }}
                 </option>
             @else
             <option value="{{$insecte->id }}" >{{$insecte->nom_insecte}}
