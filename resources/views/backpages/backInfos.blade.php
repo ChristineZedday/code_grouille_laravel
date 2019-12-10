@@ -21,9 +21,9 @@
 <table >
     <thead >
         <tr>
-            <th>Commentaire</th>
-            <th>Recette</th>
-            <th>Auteur</th>
+            <th>Titre</th>
+            <th>Texte</th>
+            <th>E-mail</th>
             <th>Date d'enregistrement</th>
             <th>Action</th>
         </tr>
@@ -31,18 +31,18 @@
 
     </thead>
 <tbody>
-@foreach ($commentaires as $commentaire_recette)
+@foreach ($infos as $info)
     <tr>
-        <td class="align-middle"> {{ $commentaire_recette->texte }}</td>
-        <td class="align-middle"> {{ $commentaire_recette->recette->titre_recette }}</td>
-        <td class="align-middle"> {{ $commentaire_recette->user->name }}</td>
-        <td class="align-middle"> {{  date('d/m/Y', strtotime($commentaire_recette->created_at)) }}</td>
+        <td class="align-middle"> {{ $info->titre }}</td>
+        <td class="align-middle"> {{ $info->texte }}</td>
+        <td class="align-middle"> {{ $info->email }}</td>
+        <td class="align-middle"> {{  date('d/m/Y', strtotime($info->created_at)) }}</td>
         <td  class="align-middle">
-        <button><a href="{{route('commentaire.edit',$commentaire_recette->id)}}">Modifier</a></button>
-        <form action="@isset($commentaire){{route('commentaire.destroy', $commentaire_recette->id)}}@endisset" method="POST">
+        <button><a href="{{route('info.edit',$info->id)}}">Modifier</a></button>
+        <form action="@isset($info){{route('info.destroy', $info->id)}}@endisset" method="DELETE">
             @csrf
-            @method('POST')
-            <button type="submit" method="POST">Supprimer</button></td>
+            @method('DELETE')
+            <button type="submit">Supprimer</button></td>
         </form>
     </tr>
  @endforeach

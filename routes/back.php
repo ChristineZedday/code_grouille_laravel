@@ -56,14 +56,10 @@ Route::put('/back/membres/update/{id}', 'MembreController@update')->name('membre
 Route::post('/back/membres/store/', 'MembreController@store')->name('membre.store');
 Route::delete('/back/membres/{id}/destroy', 'MembreController@destroy')->name('membre.destroy');
 
-Route::get('/back/mentions', 'MentionController@index')->name('mentions');
-Route::get('/back/mentions/edit/{id}', 'MentionController@edit')->name('mention.edit');
-Route::post('/back/mentions/update/{id}', 'MentionController@update')->name('mention.update');
-
 Route::get('/back/commentaires', 'CommentaireController@index')->name('commentaires');
 Route::get('/back/commentaires/edit/{id}', 'CommentaireController@edit')->name('commentaire.edit');
 Route::post('/back/commentaires/update/{id}', 'CommentaireController@update')->name('commentaire.update');
-Route::post('/back/commentaires/{id}/destroy', 'CommentaireController@destroy')->name('commentaire.destroy');
+Route::delete('/back/commentaires/{id}/destroy', 'CommentaireController@destroy')->name('commentaire.destroy');
 
 Route::get('/back/infos', 'InfoController@index')->name('infos');
 Route::get('/back/infos/show/{id}', 'InfoController@show')->name('info.show');
