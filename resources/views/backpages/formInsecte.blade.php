@@ -4,7 +4,7 @@
 
 <div id='forminsecte'>
 
-    <form action="@isset($insecte){{route('insecte.update', $insecte->id)}}@else{{route('insecte.store')}}@endisset" method="POST">
+    <form enctype="multipart/form-data" action="@isset($insecte){{route('insecte.update', $insecte->id)}}@else{{route('insecte.store')}}@endisset" method="POST">
 						@csrf
 						@isset($insecte) @method('PUT') @endisset
       <img class='pict' id='close' src="{{asset('img/picto/cross.png')}}"/>

@@ -9,17 +9,22 @@ class Image extends Model
 {
     public function Recette()
     {
-    return $this->belongsTo('App\Recette');
+    return $this->hasOne('App\ImageRecette');
     }
 
     public function Actu()
     {
-    return $this->belongsTo('App\Actu');
+    return $this->hasOne('App\ImageActu');
     }
 
     public function Insecte()
     {
-    return $this->belongsTo('App\Insecte');
+    return $this->hasOne('App\ImageInsecte');
+    }
+
+    public function Info()
+    {
+    return $this->hasOne('App\ImageInfo');
     }
 
     public static function fichier_type($uploadedFile)   //static: appelée ailleurs sans instanciation

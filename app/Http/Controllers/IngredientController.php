@@ -117,11 +117,11 @@ class IngredientController extends Controller
         $ingredient = Ingredient::find($id);
 
 
-        if (isset($ingredient->IngredientInsecte))
+        if (isset($ingredient->Insecte))
         {
 
-            $insecteId = $ingredient->IngredientInsecte->insecte_id;
-           
+            $insecteId = $ingredient->Insecte->insecte_id;
+
             return view('backpages.formingredient',[ 'ingredient' => $ingredient,  'insectes' => $insectes, 'insecteId' =>$insecteId]);
         }
 
@@ -152,14 +152,8 @@ class IngredientController extends Controller
         $ingredient->fill($validated);
 
         if ($ingredient->save()) {
-        /*    if ($request->input('insecte_id'))
-            {
-                $ingins = new IngredientInsecte();
-                $ingins->ingredient_id = $newIngredient->id;
-                $ingins->insecte_id = $request->input('insecte_id');
-                $ingins->save();
-            }
-*/
+
+           //faudra voir si on peut changer l'insecte de l'ingrédient?
 
             $request->session()->flash('status',"ingredient enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");

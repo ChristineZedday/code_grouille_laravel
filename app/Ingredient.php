@@ -9,13 +9,13 @@ class Ingredient extends Model
 
     protected $fillable = ['nom_ingredient'];
 
-    public function IngredientRecette()
+    public function Recette()
     {
     return $this->hasMany('App\IngredientRecette');
     }
 
 
-    public function IngredientInsecte()
+    public function Insecte()
     {
         return $this->hasOne('App\IngredientInsecte');
     }

@@ -15,7 +15,7 @@ class Insecte extends Model
 
     public function Image()
     {
-        return $this->hasMany('App\Image');
+        return $this->hasMany('App\ImageInsecte');
     }
 
 }

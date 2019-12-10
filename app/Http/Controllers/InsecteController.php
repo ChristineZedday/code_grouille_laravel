@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Insecte;
-Use App\Image;
+Use App\ImageInsecte;
+use App\Image;
 
 class InsecteController extends Controller
 {
@@ -68,14 +69,21 @@ class InsecteController extends Controller
 
             if (isset($_FILES['image1']['name']))
             {
+
                 $uploaded = $_FILES['image1']['name'];
+
+
+
 
                 if (file_exists ($chemin_dossier.$uploaded ) )
                 {
                      //chercher dans la base et ajouter insecte_id
-                     $id = DB::table('images')->where('chemin_image', '$uploaded')->value('id');
-                     $image = Image::find($id);
-                     $image->insecte_id = $insecte->id;
+                     $id = Images::where('chemin_image', '$uploaded')->first()->id;
+
+                     $imgins = new ImageInsecte();
+                     $imgins->image_id = $id;
+                     $imgins->insecte_id = $newInsecte->id;
+                     $imgins->save();
 
                 }
 
@@ -92,8 +100,15 @@ class InsecteController extends Controller
                                         {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
                                             {   $image = New Image;
                                                 $image->chemin_image =  $uploaded;
-                                                $image->insecte_id = $newinsecte->id;
+
                                                 $image->save();
+
+                                                $imgins = new ImageInsecte();
+                                                $imgins->image_id = $image->id;
+                                                $imgins->insecte_id = $newInsecte->id;
+                                                $imgins->save();
+
+
                                             }
 
                                         }
@@ -107,10 +122,10 @@ class InsecteController extends Controller
                         if (file_exists ($chemin_dossier.$uploaded ) )
                         {
                             //chercher dans la base et ajouter insecte_id
-                            $id = DB::table('images')->where('chemin_image', '$uploaded')->value('id');
-                            $image = Image::find($id);
-                            $image->insecte_id = $insecte->id;
-
+                            $imgins = new ImageInsecte();
+                            $imgins->image_id = $id;
+                            $imgins->insecte_id = $newInsecte->id;
+                            $imgins->save();
                         }
 
                         else{
@@ -130,10 +145,15 @@ class InsecteController extends Controller
                                             $chemin_dossier=public_path('') .'/img/';
                                             if(is_uploaded_file($_FILES['image2']['tmp_name']))
                                                         {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$uploaded))
-                                                            {   $image = New Image;
+                                                            {    $image = New Image;
                                                                 $image->chemin_image =  $uploaded;
-                                                                $image->insecte_id = $newinsecte->id;
+
                                                                 $image->save();
+
+                                                                $imgins = new ImageInsecte();
+                                                                $imgins->image_id = $image->id;
+                                                                $imgins->insecte_id = $newInsecte->id;
+                                                                $imgins->save();
                                                             }
 
                                                         }
@@ -217,68 +237,108 @@ class InsecteController extends Controller
                  if (isset($_POST['suppr'.$image->id]))
                  {
 
-                     if (isset($image->actu_id) || isset($image->recette_id))
-                     {
-                         $image->insecte_id = null;
-                     }
-                      else{
-                     $image->delete(); //enlève de la base mais supprime pas fichier, faire une f pour ça ds Image
+                    //supprimer l'association image/insecte
+                    $imid = DB::table('image_insectes')->where('image_id', '$image->id')->value('id');
+                    $imins = ImageInsecte::find($imid);
+                    $imins->delete();
+
+                    //on ne supprime pas l'image ici, prévoir un back images pour
                  }
 
 
-                 }
 
              }
 
          if (isset($_FILES['image1']['name']))
          {
-             $uploaded = $_FILES['image1']['name'];
-             $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+            $uploaded = $_FILES['image1']['name'];
 
-             if($extension=="jpg" ||
-                 $extension=="png" ||
-                 $extension=="gif")
-                 {
+            if (file_exists ($chemin_dossier.$uploaded ) )
+                {
+                    //chercher dans la base et ajouter insecte_id
+                    $id = DB::table('images')->where('chemin_image', '$uploaded')->value('id');
+
+                    $imgins = new ImageInsecte();
+                    $imgins->image_id = $id;
+                    $imgins->insecte_id = $insecte->id;
+                    $imgins->save();
+
+
+                }
+                else{
+                $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+
+                if($extension=="jpg" ||
+                    $extension=="png" ||
+                    $extension=="gif")
+                    {
 
 
 
 
-                     $chemin_dossier=public_path('') .'/img/';
-                     if(is_uploaded_file($_FILES['image1']['tmp_name']))
-                                 {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
-                                     {   $image = New Image;
-                                         $image->chemin_image =  $uploaded;
-                                         $image->insecte_id = $insecte->id;
-                                         $image->save();
-                                     }
+                        $chemin_dossier=public_path('') .'/img/';
+                        if(is_uploaded_file($_FILES['image1']['tmp_name']))
+                                    {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
+                                        {
+                                            $image = New Image;
+                                            $image->chemin_image =  $uploaded;
 
-                                  }
+                                            $image->save();
+
+                                            $imgins = new ImageInsecte();
+                                            $imgins->image_id = $image->id;
+                                            $imgins->insecte_id = $insecte->id;
+                                            $imgins->save();
+                                        }
+
+                                    }
+                    }
                 }
          }
-
          if (isset($_FILES['image2']['name']))
          {
-             $uploaded = $_FILES['image2']['name'];
-             $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+            $uploaded = $_FILES['image2']['name'];
 
-             if($extension=="jpg" ||
-                 $extension=="png" ||
-                 $extension=="gif")
-                 {
+            if (file_exists ($chemin_dossier.$uploaded ) )
+                {
+                    //chercher dans la base et ajouter insecte_id
+                    $id = DB::table('images')->where('chemin_image', '$uploaded')->value('id');
+
+                    $imgins = new ImageInsecte();
+                    $imgins->image_id = $id;
+                    $imgins->insecte_id = $insecte->id;
+                    $imgins->save();
+
+
+                }
+                else{
+                $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+
+                if($extension=="jpg" ||
+                    $extension=="png" ||
+                    $extension=="gif")
+                    {
 
 
 
 
-                     $chemin_dossier=public_path('') .'/img/';
-                     if(is_uploaded_file($_FILES['image2']['tmp_name']))
-                                 {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$uploaded))
-                                     {   $image = New Image;
-                                         $image->chemin_image =  $uploaded;
-                                         $image->insecte_id = $insecte->id;
-                                         $image->save();
-                                     }
+                        $chemin_dossier=public_path('') .'/img/';
+                        if(is_uploaded_file($_FILES['image2']['tmp_name']))
+                                    {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$uploaded))
+                                        {
+                                            $image = New Image;
+                                            $image->chemin_image =  $uploaded;
 
-                                  }
+                                            $image->save();
+
+                                            $imgins = new ImageInsecte();
+                                            $imgins->image_id = $image->id;
+                                            $imgins->insecte_id = $insecte->id;
+                                            $imgins->save();
+                                        }
+
+                                    }
+                    }
                 }
          }
 
