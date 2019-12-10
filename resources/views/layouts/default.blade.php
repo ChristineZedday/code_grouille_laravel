@@ -15,11 +15,10 @@
 <div class="container">
 
     <h1>Grouille !</h1>
-    @isset({{ Auth::user()}})
+ @if(Auth::user())
     <h2 class='welcome'>Bienvenue {{ Auth::user()->name }} !</h2>
-    @endisset
-    
-    <header>
+    @endif
+ <header>
         @include('includes.header')
     </header>
 
