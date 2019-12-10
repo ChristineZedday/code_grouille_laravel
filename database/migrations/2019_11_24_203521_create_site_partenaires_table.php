@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSitesPartenairesTable extends Migration
+class CreateSitePartenairesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSitesPartenairesTable extends Migration
      */
     public function up()
     {
-        Schema::create('sites_partenaires', function (Blueprint $table) {
+        Schema::create('site_partenaires', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nom_partenaire');
             $table->string('url')->unique();
@@ -29,7 +29,7 @@ class CreateSitesPartenairesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sites_partenaires');
+        Schema::dropIfExists('site_partenaires');
     }
 }
 

@@ -4,14 +4,8 @@
 <div class='boxconnect'>
 <h2>Connexion</h2>
 
-<<<<<<< HEAD
 <form method="POST" action="{{route('verify')}}">
                @csrf
-=======
-                <div class="card-body">
-                    <form method="POST" action="{{ route('verify') }}">
-                        @csrf
->>>>>>> f83bcf12696e4c6edc08b2c1ed4f882c3c49ef26
 
                      <label for="email">{{ __('E-Mail Address') }}</label>
                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

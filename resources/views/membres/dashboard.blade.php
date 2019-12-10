@@ -1,8 +1,9 @@
 @extends('layouts.default')
 
 @section('content')
-
+@if( Auth::user())
 <h2 class='welcomedash'>Bienvenue {{ Auth::user()->name }} !</h2>
+@endif
 
 <div class='grid'>
     <a class='linkdash' href='/postrecette'><img class='dashpict' src='./img/picto/arrow.png'/><h3>Poster une recette</h3></a>

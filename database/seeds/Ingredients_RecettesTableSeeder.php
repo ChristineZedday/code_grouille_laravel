@@ -11,7 +11,7 @@ class Ingredients_RecettesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('ingredients_recettes')->insert([
+        DB::table('ingredient_recettes')->insert([
             'quantite' => "1",
             'unite_id' => "1",
             'ingredient_id' => "1",
