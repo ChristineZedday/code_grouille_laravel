@@ -7,6 +7,12 @@
 @include('includes.menu')
 
 
+<h1 id='title'>Grouille</h1>
+@if(Auth::user())
+<h2 class='welcome'>Bienvenue {{ Auth::user()->name }}</h2>
+@endif
+
+
 <div id="right">
     <div id='reseaux'>
         <a href="" target='blank'><img class='pict' src="./img/picto/youtube.png"/></a>

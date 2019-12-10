@@ -6,23 +6,6 @@ $border : solid 4px $sandy;
     width: 40px;
   }
 
-h1{
-    font-size: 55px;
-    color: sandybrown;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.welcome{
-    font-size: 30px;
-    color: white;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    background-color: cadetblue;
-}
 
 // ================================ MOBILE =======================================
 
@@ -30,6 +13,32 @@ h1{
 
     header{
         display:none;
+    }
+
+    #title{
+        display: none;
+    }
+
+    #titlemob{
+        font-size: 54px;
+        color: black;
+        position: absolute;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        top: 0;
+        z-index: 9;
+    }
+
+    .welcome{
+        font-size: 30px;
+        color: white;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        top:0;
     }
 
     #burger{
@@ -51,6 +60,7 @@ h1{
         position: fixed;
         top:0;
         display: none;
+        z-index: 99;
 
         #right {
             right: 0;
@@ -131,26 +141,30 @@ h1{
 
 @media screen and (min-width: 800px) {
 
-    h1{
-        font-size: 7vw;
+    #titlemob{
+       display: none;
+    }
+
+
+    #title{
+        font-size: 100px;
         color: $sandy;
         position: absolute;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
-        top: -20px;
+        top: 40px;
     }
 
     .welcome{
-        font-size: 3vw;
+        font-size: 30px;
         color: white;
-        position: absolute;
         text-align: center;
         margin-left: auto;
         margin-right: auto;
         width: 100%;
-        margin-top: 8%;
+        top:0;
     }
 
     #hiddenheader{
@@ -160,6 +174,12 @@ h1{
     #burger{
             display: none;
         }
+
+header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
 
     header section{
         display: -webkit-box;
@@ -220,6 +240,7 @@ h1{
     }
 }
 }
+
 
 
 // #favoris {

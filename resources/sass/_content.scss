@@ -1,38 +1,68 @@
+
+
 @media screen and (max-width: 800px) {
 
-.container{
-    padding-top: 70px;
 
-#content{
+.titreintro{
+    color: white;
+    font-size: 18vw;
+    width:100%;
+    text-align: center;
+}
+
+.introsub{
+    color: white;
+    font-size: 7vw;
+    width:100%;
+    text-align: center;
+}
+
+.home{
+    margin-top:100vh;
+}
+
+
+.content{
     margin-bottom: 100px;
 
     article{
         max-width: 85%;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 15%;
+        text-align: center;
 
         .lineleft{
-            width: 100%;
-            max-height: 110px;
+            width: 100px;
+            height:20px;
         }
 
         .lineright{
-            width: 100%;
-            max-height: 110px;
+            width: 100px;
+            height:20px;
         }
 
         h2{
-            font-size: 3em;
+            font-size: 4em;
             line-height: 100%;
+            text-align: center;
+            width: 100%;
+            margin: 20px;
+        }
+
+        .subarticle{
+            margin-bottom:20px;
         }
 
         .imgarticle{
-            width: 73%;
-            margin-left: 22%;
+            width: 70%;
+            margin-bottom: 15%;
+            margin-left: auto;
+            max-width: 95%;
         }
 
         .articleb{
-            text-align: right;
+            margin:20px;
 
             .imgarticleb{
                 width: 73%;
@@ -40,38 +70,36 @@
             }
         }
     }
-}
+    }
 
+    // ============================ HOME===============================//
 
         #recettes{
+            text-align: center;
 
             .lineleft{
-                width: 50%;
-                height: 200px;
-                float: left;
+                width: 100px;
+                height:20px;
             }
 
             h2{
                 font-size: 5em;
-                width: 50%;
-                float: left;
+                width: 100%;
+                text-align: center;
             }
 
             #suggestions{
                 width: 100%;
                 margin: 0 auto;
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                grid-gap: 10px;
-                grid-auto-rows: minmax(100px, auto);
 
                 .recettehome{
                     padding:10%;
                 }
 
                 .imgrecette{
-                    width: 100%;
+                    max-width: 100%;
                     max-height: 340px;
+                    margin-bottom: 15px;
                 }
 
                 h3{
@@ -80,17 +108,71 @@
                 }
             }
         }
+
+
+
+    // ============================ ABOUT ===============================
+
+    #about{
+        display: block;
+        margin-top:10vh;
+
+        .fullwidth{
+        width: 100%;
+        left: 0;
+        margin-top: 80px;
+        }
+
+        .title{
+            margin-top:3%;
+        }
+
+        .imgarticle{
+            padding: 15px;
+        }
+
+        .lineleft{
+            margin-top: 25%;
+        }
     }
 }
 
 
 @media screen and (min-width: 800px) {
-    #content{
-        max-width: 1000px;
+
+    .titreintro{
+        color: white;
+        font-size: 10em;
+        width:100%;
+        text-align: center;
+    }
+
+    .introsub{
+        color: white;
+        font-size: 3em;
+        width:100%;
+        text-align: center;
+        margin-top:-50px;
+    }
+
+
+    #intro img{
+        width:100%;
+    }
+
+    .home{
+
+        .imgarticle{
+            width:70% !important;
+            margin-left:20%;
+        }
+    }
+
+    .content{
+        max-width: 80%;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 8%;
-        margin-top: 8%;
         min-height: 54vh;
 
         article{
@@ -102,26 +184,30 @@
             grid-auto-rows: minmax(100px, auto);
 
             .lineleft{
-                width: 88%;
-                max-height: 200px;
-                margin-left: 13%;
+                width: 100px;
+                height:20px;
             }
 
             .lineright{
-                width: 88%;
-                max-height: 200px;
+                width: 100px;
+                height:20px;
                 float: right;
             }
 
             h2{
                 font-size: 5em;
                 line-height: 100%;
+                text-align: center;
             }
 
             .imgarticle{
-                width: 73%;
-                margin-left: 22%;
+                width: 100%;
             }
+
+            .subarticle{
+                margin-bottom: 20px;
+                }
+
 
             .articleb{
                 text-align: right;
@@ -131,14 +217,15 @@
                     margin-left: 2%;
                 }
             }
-    }
+        }
 
+// ============================ HOME===============================//
 
             #recettes{
 
                 .lineleft{
-                    width: 50%;
-                    height: 200px;
+                    width: 100px;
+                    height: 20px;
                     float: left;
                 }
 
@@ -146,6 +233,7 @@
                     font-size: 5em;
                     width: 50%;
                     float: left;
+                    text-align: center;
                 }
 
                 #suggestions{
@@ -158,11 +246,12 @@
 
                     .recettehome{
                         padding:10%;
+                        text-align: center;
                     }
 
                     .imgrecette{
-                        width: 100%;
                         max-height: 340px;
+                        margin-bottom: 15px;
                     }
 
                     h3{
@@ -172,4 +261,27 @@
                 }
             }
         }
+
+// ============================ ABOUT===============================//
+
+    #about{
+        display: block;
+
+        .fullwidth{
+        width: 100%;
+        left: 0;
+        margin-top: 80px;
+        }
+
+        .title{
+            margin-top:3%;
+            text-align: left !important;
+            font-size:5vw;
+        }
+
+        .imgarticle{
+            padding: 15px;
+        }
+
     }
+}

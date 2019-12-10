@@ -1,0 +1,131 @@
+@media screen and (max-width: 800px) {
+
+#intro{
+    position: absolute;
+    width: 100%;
+    background-image:url("../img/intro.jpg");
+    background-attachment: fixed;
+    background-size:cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+
+#apropos{
+    width: 100%;
+    background-image:url("../img/about.jpg");
+    background-attachment: fixed;
+    background-size:cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+#about2{
+    width: 100%;
+    background-image:url("../img/about3.jpg");
+    background-size:cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+
+#insecteintro{
+    width: 100%;
+    background-image:url("../img/scorpion.jpg");
+    background-size:cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+}
+
+@media screen and (min-width: 800px) {
+
+#intro{
+    width: 100%;
+    background-image:url("../img/intro.jpg");
+    background-attachment: fixed;
+    background-size:cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    margin-top:10vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+#apropos{
+    width: 100%;
+    background-image:url("../img/about.jpg");
+    background-attachment: fixed;
+    background-size:cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    margin-top:10vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+#about2{
+    width: 100%;
+    background-image:url("../img/about3.jpg");
+    background-attachment: fixed;
+    background-size:cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 50vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+#insecteintro{
+    width: 100%;
+    background-image:url("../img/scorpion.jpg");
+    background-size:cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    height: 100vh;
+    padding-top: 50vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+}
+
+

@@ -1,7 +1,5 @@
 @media screen and (max-width: 800px) {
 footer {
-    display: -webkit-box;
-    display: flex;
     border-top: solid 4px sandybrown;
     background-color: $blue;
     width:100%;
@@ -10,14 +8,20 @@ footer {
     -moz-box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
     box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
 
+    .contentfoot{
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+
         h1{
             font-size: 5vw;
-            width: 30%;
+            text-align: center;
             position: relative;
+            color: white;
+            font-size: 45px;
         }
 
         ul {
-            width: 36vh;
             font-size: 20px;
             text-decoration: none;
             padding: 20px;
@@ -25,6 +29,7 @@ footer {
             letter-spacing: 2px;
             list-style: none;
             font-weight: bold;
+            text-align: center;
 
             li {
                 list-style: none;
@@ -45,21 +50,20 @@ footer {
 
         #adress{
         right: 30px;
-        margin: 30px;
-        margin-top: 1%;
+        padding: 30px;
+        text-align: center;
         }
 
         #menufooter{
             width: 100%;
+            text-align: center;
         }
     }
 }
-
+}
 
 @media screen and (min-width: 800px) {
 footer {
-    display: -webkit-box;
-    display: flex;
     border-top: solid 4px sandybrown;
     background-color: $blue;
     width:100%;
@@ -68,15 +72,22 @@ footer {
     -moz-box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
     box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
 
+    .contentfoot{
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+
         h1{
-            font-size: 7vw;
-            width: 300px;
-            float: left;
+            font-size: 6vw;
             position: relative;
+            top: 0;
         }
 
         ul {
-            width: 36vh;
             font-size: 20px;
             text-decoration: none;
             padding: 20px;
@@ -103,13 +114,11 @@ footer {
 
 
         #adress{
-        right: 30px;
-        margin: 30px;
-        margin-top: 1%;
+        margin: 15px;
+        text-align: right;
         }
-
     }
 }
-
+}
 
 
