@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCommentairesRecettesTable extends Migration
+class CreateCommentaireRecettesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateCommentairesRecettesTable extends Migration
      */
     public function up()
     {
-        Schema::create('commentaires_recettes', function (Blueprint $table) {
+        Schema::create('commentaire_recettes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->text('texte');
@@ -32,6 +32,6 @@ class CreateCommentairesRecettesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('commentaires_recettes');
+        Schema::dropIfExists('commentaire_recettes');
     }
 }

@@ -61,9 +61,6 @@ Route::get('/back/mentions/edit/{id}', 'MentionController@edit')->name('mention.
 Route::post('/back/mentions/update/{id}', 'MentionController@update')->name('mention.update');
 
 Route::get('/back/commentaires', 'CommentaireController@index')->name('commentaires');
-Route::get('/back/commentaires/show/{id}', 'CommentaireController@show')->name('commentaire.show');
 Route::get('/back/commentaires/edit/{id}', 'CommentaireController@edit')->name('commentaire.edit');
-Route::get('/back/commentaires/create', 'CommentaireController@create')->name('commentaire.create');
-Route::put('/back/commentaires/update/{id}', 'CommentaireController@update')->name('commentaire.update');
-Route::post('/back/commentaires/store/', 'CommentaireController@store')->name('commentaire.store');
-Route::delete('/back/commentaires/{id}/destroy', 'CommentaireController@destroy')->name('commentaire.destroy');
+Route::post('/back/commentaires/update/{id}', 'CommentaireController@update')->name('commentaire.update');
+Route::post('/back/commentaires/{id}/destroy', 'CommentaireController@destroy')->name('commentaire.destroy');
