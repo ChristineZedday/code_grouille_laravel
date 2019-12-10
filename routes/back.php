@@ -64,3 +64,11 @@ Route::get('/back/commentaires', 'CommentaireController@index')->name('commentai
 Route::get('/back/commentaires/edit/{id}', 'CommentaireController@edit')->name('commentaire.edit');
 Route::post('/back/commentaires/update/{id}', 'CommentaireController@update')->name('commentaire.update');
 Route::post('/back/commentaires/{id}/destroy', 'CommentaireController@destroy')->name('commentaire.destroy');
+
+Route::get('/back/infos', 'InfoController@index')->name('infos');
+Route::get('/back/infos/show/{id}', 'InfoController@show')->name('info.show');
+Route::get('/back/infos/edit/{id}', 'InfoController@edit')->name('info.edit');
+Route::get('/back/infos/create', 'InfoController@create')->name('info.create');
+Route::put('/back/infos/update/{id}', 'InfoController@update')->name('info.update');
+Route::post('/back/infos/store/', 'InfoController@store')->name('info.store');
+Route::delete('/back/infos/{id}/destroy', 'InfoController@destroy')->name('info.destroy');

@@ -1,0 +1,55 @@
+@extends('../layouts/backlayout')
+
+@section('content')
+
+
+
+
+<section id='infosback' class='content'>
+
+    <div class='intit'>
+        <h1>Gestion des Infos </h1>
+
+    </div>
+
+@if (session('status'))
+<div class="alert {{ session('alert-class') }}" role="alert">
+    {{ session('status') }}
+</div>
+@endif
+
+<table >
+    <thead >
+        <tr>
+            <th>Commentaire</th>
+            <th>Recette</th>
+            <th>Auteur</th>
+            <th>Date d'enregistrement</th>
+            <th>Action</th>
+        </tr>
+
+
+    </thead>
+<tbody>
+@foreach ($commentaires as $commentaire_recette)
+    <tr>
+        <td class="align-middle"> {{ $commentaire_recette->texte }}</td>
+        <td class="align-middle"> {{ $commentaire_recette->recette->titre_recette }}</td>
+        <td class="align-middle"> {{ $commentaire_recette->user->name }}</td>
+        <td class="align-middle"> {{  date('d/m/Y', strtotime($commentaire_recette->created_at)) }}</td>
+        <td  class="align-middle">
+        <button><a href="{{route('commentaire.edit',$commentaire_recette->id)}}">Modifier</a></button>
+        <form action="@isset($commentaire){{route('commentaire.destroy', $commentaire_recette->id)}}@endisset" method="POST">
+            @csrf
+            @method('POST')
+            <button type="submit" method="POST">Supprimer</button></td>
+        </form>
+    </tr>
+ @endforeach
+</tbody>
+</table>
+
+
+</section>
+@endsection
+
