@@ -4,27 +4,35 @@
   width: 40px;
 }
 
-h1 {
-  font-size: 55px;
-  color: sandybrown;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.welcome {
-  font-size: 30px;
-  color: white;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  background-color: cadetblue;
-}
-
 @media screen and (max-width: 800px) {
   header {
     display: none;
+  }
+
+  #title {
+    display: none;
+  }
+
+  #titlemob {
+    font-size: 54px;
+    color: black;
+    position: absolute;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    top: 0;
+    z-index: 9;
+  }
+
+  .welcome {
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    top: 0;
   }
 
   #burger {
@@ -46,6 +54,7 @@ h1 {
     position: fixed;
     top: 0;
     display: none;
+    z-index: 99;
   }
 
   #hiddenheader #right {
@@ -124,26 +133,29 @@ h1 {
 }
 
 @media screen and (min-width: 800px) {
-  h1 {
-    font-size: 7vw;
+  #titlemob {
+    display: none;
+  }
+
+  #title {
+    font-size: 100px;
     color: sandybrown;
     position: absolute;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    top: -20px;
+    top: 40px;
   }
 
   .welcome {
-    font-size: 3vw;
+    font-size: 30px;
     color: white;
-    position: absolute;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     width: 100%;
-    margin-top: 8%;
+    top: 0;
   }
 
   #hiddenheader {
@@ -152,6 +164,12 @@ h1 {
 
   #burger {
     display: none;
+  }
+
+  header {
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 
   header section {
@@ -325,9 +343,10 @@ input:not([type=submit]) {
   text-align: center;
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 800px) {
   #menu {
     z-index: 9999;
+    text-align: center;
   }
 
   #menu span {
@@ -361,7 +380,7 @@ input:not([type=submit]) {
   }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 800px) {
   #menu {
     position: absolute;
     z-index: 9999;
@@ -375,7 +394,7 @@ input:not([type=submit]) {
   }
 
   #menu ul {
-    font-size: 20px;
+    font-size: 18px;
     text-decoration: none;
     padding: 20px;
     text-transform: uppercase;
@@ -399,96 +418,167 @@ input:not([type=submit]) {
 }
 
 @media screen and (max-width: 800px) {
-  .container {
-    padding-top: 70px;
+  .titreintro {
+    color: white;
+    font-size: 18vw;
+    width: 100%;
+    text-align: center;
   }
 
-  .container #content {
+  .introsub {
+    color: white;
+    font-size: 7vw;
+    width: 100%;
+    text-align: center;
+  }
+
+  .home {
+    margin-top: 100vh;
+  }
+
+  .content {
     margin-bottom: 100px;
   }
 
-  .container #content article {
+  .content article {
     max-width: 85%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 15%;
+    text-align: center;
   }
 
-  .container #content article .lineleft {
-    width: 100%;
-    max-height: 110px;
+  .content article .lineleft {
+    width: 100px;
+    height: 20px;
   }
 
-  .container #content article .lineright {
-    width: 100%;
-    max-height: 110px;
+  .content article .lineright {
+    width: 100px;
+    height: 20px;
   }
 
-  .container #content article h2 {
-    font-size: 3em;
+  .content article h2 {
+    font-size: 4em;
     line-height: 100%;
+    text-align: center;
+    width: 100%;
+    margin: 20px;
   }
 
-  .container #content article .imgarticle {
-    width: 73%;
-    margin-left: 22%;
+  .content article .subarticle {
+    margin-bottom: 20px;
   }
 
-  .container #content article .articleb {
-    text-align: right;
+  .content article .imgarticle {
+    width: 70%;
+    margin-bottom: 15%;
+    margin-left: auto;
+    max-width: 95%;
   }
 
-  .container #content article .articleb .imgarticleb {
+  .content article .articleb {
+    margin: 20px;
+  }
+
+  .content article .articleb .imgarticleb {
     width: 73%;
     margin-left: 2%;
   }
 
-  .container #recettes .lineleft {
-    width: 50%;
-    height: 200px;
-    float: left;
+  #recettes {
+    text-align: center;
   }
 
-  .container #recettes h2 {
+  #recettes .lineleft {
+    width: 100px;
+    height: 20px;
+  }
+
+  #recettes h2 {
     font-size: 5em;
-    width: 50%;
-    float: left;
+    width: 100%;
+    text-align: center;
   }
 
-  .container #recettes #suggestions {
+  #recettes #suggestions {
     width: 100%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
   }
 
-  .container #recettes #suggestions .recettehome {
+  #recettes #suggestions .recettehome {
     padding: 10%;
   }
 
-  .container #recettes #suggestions .imgrecette {
-    width: 100%;
+  #recettes #suggestions .imgrecette {
+    max-width: 100%;
     max-height: 340px;
+    margin-bottom: 15px;
   }
 
-  .container #recettes #suggestions h3 {
+  #recettes #suggestions h3 {
     font-size: 2em;
     margin-bottom: 10px;
+  }
+
+  #about {
+    display: block;
+    margin-top: 10vh;
+  }
+
+  #about .fullwidth {
+    width: 100%;
+    left: 0;
+    margin-top: 80px;
+  }
+
+  #about .title {
+    margin-top: 3%;
+  }
+
+  #about .imgarticle {
+    padding: 15px;
+  }
+
+  #about .lineleft {
+    margin-top: 25%;
   }
 }
 
 @media screen and (min-width: 800px) {
-  #content {
-    max-width: 1000px;
+  .titreintro {
+    color: white;
+    font-size: 10em;
+    width: 100%;
+    text-align: center;
+  }
+
+  .introsub {
+    color: white;
+    font-size: 3em;
+    width: 100%;
+    text-align: center;
+    margin-top: -50px;
+  }
+
+  #intro img {
+    width: 100%;
+  }
+
+  .home .imgarticle {
+    width: 70% !important;
+    margin-left: 20%;
+  }
+
+  .content {
+    max-width: 80%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 8%;
-    margin-top: 8%;
     min-height: 54vh;
   }
 
-  #content article {
+  .content article {
     padding-top: 14%;
     margin: 0 auto;
     display: grid;
@@ -497,50 +587,54 @@ input:not([type=submit]) {
     grid-auto-rows: minmax(100px, auto);
   }
 
-  #content article .lineleft {
-    width: 88%;
-    max-height: 200px;
-    margin-left: 13%;
+  .content article .lineleft {
+    width: 100px;
+    height: 20px;
   }
 
-  #content article .lineright {
-    width: 88%;
-    max-height: 200px;
+  .content article .lineright {
+    width: 100px;
+    height: 20px;
     float: right;
   }
 
-  #content article h2 {
+  .content article h2 {
     font-size: 5em;
     line-height: 100%;
+    text-align: center;
   }
 
-  #content article .imgarticle {
-    width: 73%;
-    margin-left: 22%;
+  .content article .imgarticle {
+    width: 100%;
   }
 
-  #content article .articleb {
+  .content article .subarticle {
+    margin-bottom: 20px;
+  }
+
+  .content article .articleb {
     text-align: right;
   }
 
-  #content article .articleb .imgarticleb {
+  .content article .articleb .imgarticleb {
     width: 73%;
     margin-left: 2%;
   }
 
-  #content #recettes .lineleft {
-    width: 50%;
-    height: 200px;
+  .content #recettes .lineleft {
+    width: 100px;
+    height: 20px;
     float: left;
   }
 
-  #content #recettes h2 {
+  .content #recettes h2 {
     font-size: 5em;
     width: 50%;
     float: left;
+    text-align: center;
   }
 
-  #content #recettes #suggestions {
+  .content #recettes #suggestions {
     width: 100%;
     margin: 0 auto;
     display: grid;
@@ -549,25 +643,44 @@ input:not([type=submit]) {
     grid-auto-rows: minmax(100px, auto);
   }
 
-  #content #recettes #suggestions .recettehome {
+  .content #recettes #suggestions .recettehome {
     padding: 10%;
+    text-align: center;
   }
 
-  #content #recettes #suggestions .imgrecette {
-    width: 100%;
+  .content #recettes #suggestions .imgrecette {
     max-height: 340px;
+    margin-bottom: 15px;
   }
 
-  #content #recettes #suggestions h3 {
+  .content #recettes #suggestions h3 {
     font-size: 2em;
     margin-bottom: 10px;
+  }
+
+  #about {
+    display: block;
+  }
+
+  #about .fullwidth {
+    width: 100%;
+    left: 0;
+    margin-top: 80px;
+  }
+
+  #about .title {
+    margin-top: 3%;
+    text-align: left !important;
+    font-size: 5vw;
+  }
+
+  #about .imgarticle {
+    padding: 15px;
   }
 }
 
 @media screen and (max-width: 800px) {
   footer {
-    display: -webkit-box;
-    display: flex;
     border-top: solid 4px sandybrown;
     background-color: cadetblue;
     width: 100%;
@@ -575,14 +688,21 @@ input:not([type=submit]) {
     box-shadow: 0px -5px 30px -2px rgba(0, 0, 0, 0.75);
   }
 
-  footer h1 {
-    font-size: 5vw;
-    width: 30%;
-    position: relative;
+  footer .contentfoot {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  footer ul {
-    width: 36vh;
+  footer .contentfoot h1 {
+    font-size: 5vw;
+    text-align: center;
+    position: relative;
+    color: white;
+    font-size: 45px;
+  }
+
+  footer .contentfoot ul {
     font-size: 20px;
     text-decoration: none;
     padding: 20px;
@@ -590,38 +710,38 @@ input:not([type=submit]) {
     letter-spacing: 2px;
     list-style: none;
     font-weight: bold;
+    text-align: center;
   }
 
-  footer ul li {
+  footer .contentfoot ul li {
     list-style: none;
   }
 
-  footer ul li a {
+  footer .contentfoot ul li a {
     color: black;
     text-decoration: underline;
     cursor: pointer;
     font-size: 15px;
   }
 
-  footer ul li a:hover {
+  footer .contentfoot ul li a:hover {
     font-style: italic;
   }
 
-  footer #adress {
+  footer .contentfoot #adress {
     right: 30px;
-    margin: 30px;
-    margin-top: 1%;
+    padding: 30px;
+    text-align: center;
   }
 
-  footer #menufooter {
+  footer .contentfoot #menufooter {
     width: 100%;
+    text-align: center;
   }
 }
 
 @media screen and (min-width: 800px) {
   footer {
-    display: -webkit-box;
-    display: flex;
     border-top: solid 4px sandybrown;
     background-color: cadetblue;
     width: 100%;
@@ -629,15 +749,23 @@ input:not([type=submit]) {
     box-shadow: 0px -5px 30px -2px rgba(0, 0, 0, 0.75);
   }
 
-  footer h1 {
-    font-size: 7vw;
-    width: 300px;
-    float: left;
-    position: relative;
+  footer .contentfoot {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
   }
 
-  footer ul {
-    width: 36vh;
+  footer .contentfoot h1 {
+    font-size: 6vw;
+    position: relative;
+    top: 0;
+  }
+
+  footer .contentfoot ul {
     font-size: 20px;
     text-decoration: none;
     padding: 20px;
@@ -647,25 +775,24 @@ input:not([type=submit]) {
     font-weight: bold;
   }
 
-  footer ul li {
+  footer .contentfoot ul li {
     list-style: none;
   }
 
-  footer ul li a {
+  footer .contentfoot ul li a {
     color: black;
     text-decoration: underline;
     cursor: pointer;
     font-size: 15px;
   }
 
-  footer ul li a:hover {
+  footer .contentfoot ul li a:hover {
     font-style: italic;
   }
 
-  footer #adress {
-    right: 30px;
-    margin: 30px;
-    margin-top: 1%;
+  footer .contentfoot #adress {
+    margin: 15px;
+    text-align: right;
   }
 }
 
@@ -1501,16 +1628,6 @@ div[contenteditable] img {
 }
 
 @media screen and (max-width: 800px) {
-  #about {
-    display: block;
-  }
-
-  #about .fullwidth {
-    width: 100%;
-    left: 0;
-    margin-top: 80px;
-  }
-
   #insectesfront {
     margin-top: 10%;
     grid-template-columns: repeat(3, 1fr);
@@ -1565,16 +1682,6 @@ div[contenteditable] img {
 }
 
 @media screen and (min-width: 800px) {
-  #about {
-    display: block;
-  }
-
-  #about .fullwidth {
-    width: 100%;
-    left: 0;
-    margin-top: 80px;
-  }
-
   #insectesfront {
     margin-top: 10%;
     display: grid;
@@ -1626,6 +1733,131 @@ div[contenteditable] img {
 
   #partners figure img {
     max-width: 250px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #intro {
+    position: absolute;
+    width: 100%;
+    background-image: url(/images/intro.jpg?1dc98f0b5081ae020e8b03fe7d6cfb74);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+  }
+
+  #intro img {
+    width: 100%;
+  }
+
+  #apropos {
+    width: 100%;
+    background-image: url(/images/about.jpg?1cc2aaff9b94d239f523c450ebcbda86);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+  }
+
+  #apropos img {
+    width: 100%;
+  }
+
+  #about2 {
+    width: 100%;
+    background-image: url(/images/about3.jpg?72b7690fff1ef4b2b15dc59c2e9baba8);
+    background-size: cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+  }
+
+  #about2 img {
+    width: 100%;
+  }
+
+  #insecteintro {
+    width: 100%;
+    background-image: url(/images/scorpion.jpg?d2f995c906508af009e23ff2e848ad84);
+    background-size: cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+  }
+
+  #insecteintro img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #intro {
+    width: 100%;
+    background-image: url(/images/intro.jpg?1dc98f0b5081ae020e8b03fe7d6cfb74);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    margin-top: 10vh;
+    top: 0;
+  }
+
+  #intro img {
+    width: 100%;
+  }
+
+  #apropos {
+    width: 100%;
+    background-image: url(/images/about.jpg?1cc2aaff9b94d239f523c450ebcbda86);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    margin-top: 10vh;
+    top: 0;
+  }
+
+  #apropos img {
+    width: 100%;
+  }
+
+  #about2 {
+    width: 100%;
+    background-image: url(/images/about3.jpg?72b7690fff1ef4b2b15dc59c2e9baba8);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 50vh;
+    top: 0;
+  }
+
+  #about2 img {
+    width: 100%;
+  }
+
+  #insecteintro {
+    width: 100%;
+    background-image: url(/images/scorpion.jpg?d2f995c906508af009e23ff2e848ad84);
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    height: 100vh;
+    padding-top: 50vh;
+    top: 0;
+  }
+
+  #insecteintro img {
+    width: 100%;
   }
 }
 

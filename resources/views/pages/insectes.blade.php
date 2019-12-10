@@ -1,5 +1,19 @@
 @extends('layouts.default')
+
+<h1 id='titlemob'>Grouille</h1>
+
+@section('background')
+
+<div id='insecteintro'>
+    <h2 class='titreintro'>Mais d'abord...</h2>
+    <h3 class='introsub'>On se renseigne !</h3>
+</div>
+
+@endsection
+
+
 @section('content')
+
     <section id='insectesfront'>
 
         <figure>

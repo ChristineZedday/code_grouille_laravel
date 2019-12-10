@@ -12,19 +12,19 @@
         @include('includes.header')
 </div>
 
+<div class='background'>
+    @yield('background')
+</div>
+
+
 <div class="container">
 
-    <h1>Grouille !</h1>
- @if(Auth::user())
-    <h2 class='welcome'>Bienvenue {{ Auth::user()->name }} !</h2>
-    @endif
- <header>
+    <header>
         @include('includes.header')
     </header>
 
-
-    <div id="content">
-            @yield('content')
+    <div class='content'>
+     @yield('content')
     </div>
 
     <footer>

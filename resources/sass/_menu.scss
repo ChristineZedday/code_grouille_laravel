@@ -1,6 +1,7 @@
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 800px) {
 #menu{
     z-index: 9999;
+    text-align: center;
 
     span{
         margin-top: 20px;
@@ -34,7 +35,7 @@
 }
 }
 
-@media screen and (min-width: 640px) {
+@media screen and (min-width: 800px) {
 #menu{
     position: absolute;
     z-index: 9999;
@@ -47,7 +48,7 @@
     }
 
     ul{
-        font-size: 20px;
+        font-size: 18px;
         text-decoration: none;
         padding: 20px;
         text-transform: uppercase;
