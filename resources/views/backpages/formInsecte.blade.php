@@ -4,7 +4,7 @@
 
 <div id='forminsecte'>
 
-    <form action="@isset($insecte){{route('insecte.update', $insecte->id)}}@else{{route('insecte.store')}}@endisset" method="POST">
+    <form enctype="multipart/form-data" action="@isset($insecte){{route('insecte.update', $insecte->id)}}@else{{route('insecte.store')}}@endisset" method="POST">
 						@csrf
 						@isset($insecte) @method('PUT') @endisset
       <img class='pict' id='close' src="{{asset('img/picto/cross.png')}}"/>
@@ -76,14 +76,10 @@
 
 
 <div class='form-group'>
-<label>Image 1 (optionnelle)</label>
+<label>Image  (optionnelle)</label>
 <input id="image1" type="file" name="image1" value="" />
 </div>
 
-<div class='form-group'>
-<label>Image 2 (optionnelle)</label>
-<input id="image2" type="file" name="image2" value="" />
-</div>
 
     <input type="submit" id='submit' value='Enregistrer' >
 
