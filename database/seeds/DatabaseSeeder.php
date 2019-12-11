@@ -15,11 +15,11 @@ class DatabaseSeeder extends Seeder
         $this->call(ImagesTableSeeder::class);
         $this->call(InsectesTableSeeder::class);
         $this->call(UnitesTableSeeder::class);
-        $this->call(Sites_PartenairesTableSeeder::class);
+        $this->call(PartenairesTableSeeder::class);
         $this->call(IngredientsTableSeeder::class);
         $this->call(RecettesTableSeeder::class);
-        $this->call(Ingredients_RecettesTableSeeder::class);
-        $this->call(Commentaire_RecettesTableSeeder::class);
+
+        $this->call(CommentairesTableSeeder::class);
         $this->call(ActusTableSeeder::class);
         $this->call(InfosTableSeeder::class);
 

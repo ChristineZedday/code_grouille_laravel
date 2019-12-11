@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Image;
 
 class ImagesTableSeeder extends Seeder
 {
@@ -14,14 +15,17 @@ class ImagesTableSeeder extends Seeder
         $chemin_dossier=public_path('') .'/img/';
         $images = scandir($chemin_dossier);
 
+
+
         foreach ($images as $image)
         {
+            $extension = Image::fichier_type($image);
+            if ($extension == "jpg" || $extension == "png" || $extension == "gif")
 
-
-       DB::table('images')->insert([
+     {  DB::table('images')->insert([
             'chemin_image' => $image
 
-        ]);
+        ]);}
 
         }
     }

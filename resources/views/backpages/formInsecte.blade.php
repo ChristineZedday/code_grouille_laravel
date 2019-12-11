@@ -68,7 +68,7 @@
     @isset($insecte)
     <div>
     @foreach ($images as $image)
-        <img src="{{URL::asset('/img/'.$image->chemin_image)}}" width:50px height:50px/>
+        <img src="{{asset('/img/'.$image->chemin_image)}}" width:50px height:50px/>
         <input type="checkbox" id="suppr" name="{{'suppr'.$image->id}}" value= "{{$image->id}}" /> <label for="suppr">Supprimer l'image {{$image->id}}</label>
     @endforeach
     </div>

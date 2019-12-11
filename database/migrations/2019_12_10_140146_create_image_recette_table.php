@@ -13,12 +13,15 @@ class CreateImageRecetteTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_recettes', function (Blueprint $table) {
+        Schema::create('image_recette', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
 
-            $table->bigInteger('recette_id')->unsigned();
-            $table->foreign('recette_id')->references('id')->on('recettes');
+            $table->bigInteger('recette_id')->unsigned()->nullable();
+            $table->foreign('recette_id')->references('id')->on('recettes')->onDelete('set null');
+
+            $table->bigInteger('image_id')->unsigned()->nullable();
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('set null');
         });
     }
 
@@ -29,6 +32,6 @@ class CreateImageRecetteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_recettes');
+        Schema::dropIfExists('image_recette');
     }
 }

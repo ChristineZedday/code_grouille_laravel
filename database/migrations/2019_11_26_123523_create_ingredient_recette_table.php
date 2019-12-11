@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIngredientRecettesTable extends Migration
+class CreateIngredientRecetteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateIngredientRecettesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ingredient_recettes', function (Blueprint $table) {
+        Schema::create('ingredient_recette', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->smallInteger('quantite');
