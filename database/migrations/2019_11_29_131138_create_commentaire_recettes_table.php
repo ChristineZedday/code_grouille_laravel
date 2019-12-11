@@ -19,8 +19,8 @@ class CreateCommentaireRecettesTable extends Migration
             $table->text('texte');
             $table->bigInteger('recette_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
-            $table->foreign('recette_id')->references('id')->on('recettes')->onDelete('cascade') ->onUpdate('cascade');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade') ->onUpdate('cascade');
+            $table->foreign('recette_id')->references('id')->on('recettes');
+            $table->foreign('user_id')->references('id')->on('users');
 
         });
     }
