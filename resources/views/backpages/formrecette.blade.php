@@ -31,6 +31,14 @@
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
+{{--
+        <div class='form-group'>
+            <label><h3>Ingredients</h3></label>
+
+            @foreach ($ingredients as $ingredient)
+            <input type="text" class="form-control"value="@isset($recette){{$recette->ingredient_recette}}@endisset" name='ingredient_recette[]' required>
+            @endforeach
+        </div> --}}
 
         <div class='form-group'>
             <label><p>Temps de préparation en minutes</p></label>
@@ -55,7 +63,7 @@
 
         <div class='form-group'>
             <label><p>Difficulte recette</p></label>
-            <select class="form-control" value="{{$recette->difficulte_recette}}" name="difficulte_recette" required>
+            <select class="form-control" value="@isset($recette){{$recette->difficulte_recette}}@endisset" name="difficulte_recette" required>
                 <option value="1">1-Facile</option>
                 <option value="2">2-Moyen</option>
                 <option value="3">3-Expert</option>
@@ -64,7 +72,7 @@
 
         <div class='form-group'>
             <label><p>Appetance recette</p></label>
-            <select class="form-control" value="{{$recette->appetance_recette}}" name="appetance_recette" required>
+            <select class="form-control" value="@isset($recette){{$recette->appetance_recette}}@endisset" name="appetance_recette" required>
                     <option value="1">1-Entomophage Débutant</option>
                     <option value="2">2-Entomophage Moyen</option>
                     <option value="3">3-Entomophage Confirmé</option>
