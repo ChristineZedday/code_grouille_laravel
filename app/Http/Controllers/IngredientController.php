@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
-use App\IngredientInsecte;
 use App\Insecte;
 use App\Ingredient;
 
@@ -72,10 +71,10 @@ class IngredientController extends Controller
 
             if ($request->input('insecte_id'))
             {
-                $ingins = new IngredientInsecte();
-                $ingins->ingredient_id = $newIngredient->id;
-                $ingins->insecte_id = $request->input('insecte_id');
-                $ingins->save();
+                $id = $request->insecte_id;
+                
+                
+                $newIngredient->Insecte()->attach($id);
             }
 
 
@@ -120,7 +119,7 @@ class IngredientController extends Controller
         if (isset($ingredient->Insecte))
         {
 
-            $insecteId = $ingredient->Insecte->insecte_id;
+            $insecteId = $ingredient->Insecte[0]->id;
 
             return view('backpages.formingredient',[ 'ingredient' => $ingredient,  'insectes' => $insectes, 'insecteId' =>$insecteId]);
         }

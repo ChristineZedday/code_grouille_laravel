@@ -17,9 +17,9 @@ class CreateIngredientInsecteTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->bigInteger('insecte_id')->unsigned()->nullable();
-            $table->bigInteger('ingredient_id')->unsigned();
+            $table->bigInteger('ingredient_id')->unsigned()->nullable();
             $table->foreign('insecte_id')->references('id')->on('insectes')->onDelete('set null');
-            $table->foreign('ingredient_id')->references('id')->on('ingredients');
+            $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('set null');
         });
     }
 
