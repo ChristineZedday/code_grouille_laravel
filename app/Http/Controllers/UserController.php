@@ -14,15 +14,16 @@ class UserController extends Controller
     if (Auth::attempt(['email' => $request->email, 'password' => $request->password]))
         {
             $user = Auth::user();
-            if ($user->role="admin"){
-            return view('backpages.back');
+            if ($user->role == "admin"){
+                return view('backpages.back');
             }
-            else
-            {  return view('membres.dashboard'); }
+            else{
+                return view('membres.dashboard');
+            }
+        } else {
+                return view('pages.registration');
         }
-        else { return view('pages.registration');}
     }
-
 
    public function store(Request $request)
    {
@@ -42,13 +43,12 @@ class UserController extends Controller
         session()->flash('alert-class',"alert-success");
         return view('membres.dashboard');
     }
-}
+    }
 
-public function deconnexion()
-{
-    auth()->logout();
-    return redirect('/');
-}
-
+    public function deconnexion()
+    {
+        auth()->logout();
+        return redirect('/');
+    }
 
 }
