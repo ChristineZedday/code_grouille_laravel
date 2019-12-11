@@ -183,10 +183,19 @@
     width: 100%;
   }
 
+  header section {
+    display: -webkit-box;
+    border-bottom: solid 4px sandybrown;
+    background-color: cadetblue;
+    min-height: 200px;
+  }
+
   header section #right {
     padding: 35px;
     text-align: center;
     z-index: 9999;
+    position: absolute;
+    right: 0;
   }
 
   header section #reseaux {
@@ -233,7 +242,7 @@
     font-weight: bold;
   }
 
-  #fav {
+  header #fav {
     text-align: center;
     background-color: black;
     width: 100%;
@@ -241,17 +250,17 @@
     border-bottom: solid 4px sandybrown;
     box-shadow: 6px 14px 36px -12px rgba(0, 0, 0, 0.66);
   }
-}
 
-.subheader {
-  display: inline;
-  text-align: center;
-}
+  .subheader {
+    display: inline;
+    text-align: center;
+  }
 
-.subheader a {
-  color: white;
-  text-decoration: none;
-  padding: 5px;
+  .subheader a {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+  }
 }
 
 /* ============================CONNECT============================= */
@@ -421,29 +430,29 @@
     width: 100%;
   }
 
-  section {
+  .header section {
     display: -webkit-box;
     border-bottom: solid 4px sandybrown;
     background-color: cadetblue;
     min-height: 200px;
   }
 
-  section #right {
+  .header section #right {
     right: 0;
     position: absolute;
     padding: 35px;
     z-index: 9999;
   }
 
-  section #reseaux {
+  .header section #reseaux {
     padding: 10px;
   }
 
-  section .pict {
+  .header section .pict {
     width: 40px;
   }
 
-  section #newsletter {
+  .header section #newsletter {
     text-align: center;
     font-size: 25px;
     font-weight: bold;
@@ -451,18 +460,18 @@
     margin: 5% 6% 7% 21%;
   }
 
-  section #newsletter a {
+  .header section #newsletter a {
     color: black;
     font-size: 20px;
     margin-top: -13px;
     display: block;
   }
 
-  section #newsletter img {
+  .header section #newsletter img {
     width: 40px;
   }
 
-  section #connexion button {
+  .header section #connexion button {
     background-color: sandybrown;
     border: none;
     border-radius: 15px;
@@ -472,7 +481,7 @@
     margin: 4px;
   }
 
-  section #connexion button a {
+  .header section #connexion button a {
     color: white;
     font-style: oblique;
     text-decoration: underline;
@@ -837,9 +846,9 @@
   }
 
   .content article h2 {
-    font-size: 5em;
+    font-size: 3em;
     line-height: 100%;
-    text-align: center;
+    margin-bottom: 40px;
   }
 
   .content article .imgarticle {
@@ -1178,27 +1187,41 @@
   text-decoration: none;
 }
 
-#forminsecte form {
+.backform {
+  text-align: center;
+  margin-top: 6%;
+  margin-bottom: 6%;
+}
+
+.backform form {
   width: 70vw;
   margin: 5%;
 }
 
-#forminsecte form h2 {
+.backform form h2 {
   font-size: 33px;
   margin-bottom: 20px;
 }
 
-#forminsecte form input {
+.backform form input {
   text-align: left;
 }
 
-#forminsecte form textarea {
+.backform form textarea {
   max-width: 56vw;
   border-radius: 10px;
   width: 80%;
   border-style: inset;
   border-width: 2px;
   border-color: initial;
+}
+
+.backform form .YSeditor {
+  width: 80%;
+  font-size: 0.85rem;
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*********************************************************************************************************/
@@ -1879,20 +1902,6 @@ div[contenteditable] img {
 .grid a img {
   width: 100px;
   height: 100px;
-}
-
-#formrecette {
-  text-align: center;
-  margin-top: 6%;
-  margin-bottom: 6%;
-}
-
-#formrecette .YSeditor {
-  width: 80%;
-  font-size: 0.85rem;
-  margin-bottom: 25px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 @media screen and (max-width: 800px) {
