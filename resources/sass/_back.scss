@@ -143,7 +143,10 @@ $white : #D3E5E2;
 
         }
 
-#forminsecte{
+.backform{
+    text-align: center;
+    margin-top: 6%;
+    margin-bottom: 6%;
 
     form{
         width: 70vw;
@@ -166,5 +169,15 @@ $white : #D3E5E2;
             border-width: 2px;
             border-color: initial;
         }
+
+        .YSeditor {
+            width: 80%;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+            margin-left: auto;
+            margin-right: auto;
+        }
     }
 }
+
+
