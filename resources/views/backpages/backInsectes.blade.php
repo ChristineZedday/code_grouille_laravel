@@ -2,10 +2,7 @@
 
 @section('content')
 
-
-
-
-<section id='insectesback' class='content'>
+<div id='insectesback' class='content'>
 
     <div class='intit'>
         <h1>Gestion des insectes </h1>
@@ -50,7 +47,7 @@
 @else
 <p>  Aucun insecte enregistré! </p>
 @endif
-</section>
+</div>
 @endsection
 
 

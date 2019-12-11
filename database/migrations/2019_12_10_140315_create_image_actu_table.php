@@ -18,7 +18,7 @@ class CreateImageActuTable extends Migration
             $table->timestamps();
 
             $table->bigInteger('actu_id')->unsigned();
-            $table->foreign('actu_id')->references('id')->on('actus')->onDelete('cascade') ->onUpdate('cascade');
+            $table->foreign('actu_id')->references('id')->on('actus');
         });
     }
 

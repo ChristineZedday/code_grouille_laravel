@@ -63,15 +63,15 @@ $border : solid 4px $sandy;
         z-index: 99;
 
         #right {
-            right: 0;
+            width:100%;
             text-align: center;
+            top: 177px;
 
             #connexion{
                 width: 100%;
                 height: 70px;
                 display: flex;
                 justify-content: center;
-
 
                 button{
                     background-color: $sandy;
@@ -137,6 +137,19 @@ $border : solid 4px $sandy;
             }
         }
     }
+
+    #fav{
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        background-color: black;
+        width: 100%;
+        border-bottom: solid 4px sandybrown;
+        -webkit-box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
+        -moz-box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
+        box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
+    }
+
 }
 
 @media screen and (min-width: 800px) {
@@ -182,16 +195,15 @@ header{
 }
 
     header section{
-        display: -webkit-box;
-        border-bottom: solid 4px $sandy;
-        background-color: $blue;
-        min-height: 200px;
+        // display: -webkit-box;
+        // border-bottom: solid 4px $sandy;
+        // background-color: $blue;
+        // min-height: 200px;
 
         #right {
-            right: 0;
-            position: absolute;
             padding: 35px;
-            text-align: center;
+        text-align: center;
+        z-index: 9999;
         }
 
         #reseaux{
@@ -239,6 +251,18 @@ header{
         }
     }
 }
+
+#fav{
+    text-align: center;
+    background-color: black;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: solid 4px sandybrown;
+    -webkit-box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
+    -moz-box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
+    box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
+}
+
 }
 
 
@@ -261,16 +285,6 @@ header{
 //     width:60px;
 //     }
 
-#fav{
-    text-align: center;
-    background-color: black;
-    width: 100%;
-    padding-bottom: 10px;
-    border-bottom: solid 4px sandybrown;
-    -webkit-box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
-    -moz-box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
-    box-shadow: 6px 14px 36px -12px rgba(0,0,0,0.66);
-}
 
 
 .subheader{

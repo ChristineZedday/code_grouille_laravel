@@ -2,14 +2,10 @@
 
 @section('content')
 
-
-
-
-<section id='commentairesback' class='content'>
+<div id='commentairesback' class='content'>
 
     <div class='intit'>
         <h1>Gestion des Commentaires </h1>
-
     </div>
 
 @if (session('status'))
@@ -49,6 +45,6 @@
             </table>
 
         @endif
-</section>
+        </div>
 @endsection
 

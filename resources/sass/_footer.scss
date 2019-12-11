@@ -1,4 +1,8 @@
 @media screen and (max-width: 800px) {
+.fixed{
+    bottom: 0;
+}
+
 footer {
     border-top: solid 4px sandybrown;
     background-color: $blue;
@@ -7,6 +11,7 @@ footer {
     -webkit-box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
     box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
+    bottom: 0;
 
     .contentfoot{
         max-width: 80%;
@@ -63,6 +68,11 @@ footer {
 }
 
 @media screen and (min-width: 800px) {
+.fixed{
+    position: fixed;
+    bottom: 0;
+}
+
 footer {
     border-top: solid 4px sandybrown;
     background-color: $blue;
@@ -71,6 +81,7 @@ footer {
     -webkit-box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
     box-shadow: 0px -5px 30px -2px rgba(0,0,0,0.75);
+    bottom: 0;
 
     .contentfoot{
         max-width: 80%;

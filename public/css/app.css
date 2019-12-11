@@ -58,8 +58,9 @@
   }
 
   #hiddenheader #right {
-    right: 0;
+    width: 100%;
     text-align: center;
+    top: 177px;
   }
 
   #hiddenheader #right #connexion {
@@ -130,6 +131,16 @@
   #hiddenheader #favoris img {
     width: 60px;
   }
+
+  #fav {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    background-color: black;
+    width: 100%;
+    border-bottom: solid 4px sandybrown;
+    box-shadow: 6px 14px 36px -12px rgba(0, 0, 0, 0.66);
+  }
 }
 
 @media screen and (min-width: 800px) {
@@ -172,18 +183,10 @@
     width: 100%;
   }
 
-  header section {
-    display: -webkit-box;
-    border-bottom: solid 4px sandybrown;
-    background-color: cadetblue;
-    min-height: 200px;
-  }
-
   header section #right {
-    right: 0;
-    position: absolute;
     padding: 35px;
     text-align: center;
+    z-index: 9999;
   }
 
   header section #reseaux {
@@ -229,15 +232,15 @@
     text-decoration: underline;
     font-weight: bold;
   }
-}
 
-#fav {
-  text-align: center;
-  background-color: black;
-  width: 100%;
-  padding-bottom: 10px;
-  border-bottom: solid 4px sandybrown;
-  box-shadow: 6px 14px 36px -12px rgba(0, 0, 0, 0.66);
+  #fav {
+    text-align: center;
+    background-color: black;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: solid 4px sandybrown;
+    box-shadow: 6px 14px 36px -12px rgba(0, 0, 0, 0.66);
+  }
 }
 
 .subheader {
@@ -253,100 +256,335 @@
 
 /* ============================CONNECT============================= */
 
-#membre {
-  background-color: #000000ad;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-  width: 100%;
-  position: absolute;
-  height: 100%;
-  z-index: 4;
-  display: none;
+@media screen and (max-width: 800px) {
+  .header {
+    display: none;
+  }
+
+  section #right {
+    right: 0;
+    position: absolute;
+    padding: 35px;
+    text-align: center;
+  }
+
+  section #reseaux {
+    padding: 10px;
+  }
+
+  section .pict {
+    width: 40px;
+  }
+
+  section #newsletter {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    display: block;
+    margin: 5% 6% 7% 21%;
+  }
+
+  section #newsletter a {
+    color: black;
+    font-size: 20px;
+    margin-top: -13px;
+    display: block;
+  }
+
+  section #newsletter img {
+    width: 40px;
+  }
+
+  section #connexion button {
+    background-color: sandybrown;
+    border: none;
+    border-radius: 15px;
+    padding: 6px;
+    float: left;
+    width: 100%;
+    margin: 4px;
+  }
+
+  section #connexion button a {
+    color: white;
+    font-style: oblique;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  #membre {
+    background-color: #000000ad;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: 4;
+    display: none;
+  }
+
+  #register {
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    text-align: center;
+    width: 80%;
+    height: 100%;
+    z-index: 4;
+    margin-top: 30%;
+  }
+
+  .boxconnectpage {
+    width: 80vh;
+    border: 4px solid;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .login {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    margin-top: 20%;
+  }
+
+  .boxconnect {
+    width: 80vh;
+    border: 4px solid;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+  }
+
+  .boxconnect label {
+    width: 100%;
+    display: block;
+  }
+
+  .boxconnect img {
+    cursor: pointer;
+    width: 40px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  #membre h2 {
+    font-size: 40px;
+  }
+
+  .form {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #submit {
+    border-radius: 20px;
+    padding: 13px;
+    background-color: black;
+    color: white;
+    font-family: "Shadows Into Light", cursive;
+    font-size: 15px;
+    display: block;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: auto;
+  }
+
+  input:not([type=submit]) {
+    border-radius: 10px;
+    width: 80%;
+    height: 36px;
+    text-align: center;
+  }
 }
 
-#register {
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  z-index: 4;
-  margin-top: 6%;
-}
+/* ============================CONNECT============================= */
 
-.boxconnectpage {
-  width: 80vh;
-  border: 4px solid;
-  border-radius: 20px;
-  background-color: white;
-  text-align: center;
-  padding: 40px;
-  margin-left: auto;
-  margin-right: auto;
-}
+@media screen and (min-width: 800px) {
+  .header {
+    width: 100%;
+  }
 
-.boxconnect {
-  width: 80vh;
-  border: 4px solid;
-  border-radius: 20px;
-  background-color: white;
-  text-align: center;
-  padding: 40px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  section {
+    display: -webkit-box;
+    border-bottom: solid 4px sandybrown;
+    background-color: cadetblue;
+    min-height: 200px;
+  }
 
-.boxconnect label {
-  width: 100%;
-  display: block;
-}
+  section #right {
+    right: 0;
+    position: absolute;
+    padding: 35px;
+    z-index: 9999;
+  }
 
-.boxconnect img {
-  cursor: pointer;
-  width: 40px;
-}
+  section #reseaux {
+    padding: 10px;
+  }
 
-h2 {
-  font-size: 40px;
-}
+  section .pict {
+    width: 40px;
+  }
 
-#membre h2 {
-  font-size: 40px;
-}
+  section #newsletter {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    display: block;
+    margin: 5% 6% 7% 21%;
+  }
 
-.form {
-  width: 100%;
-  margin-bottom: 10px;
-}
+  section #newsletter a {
+    color: black;
+    font-size: 20px;
+    margin-top: -13px;
+    display: block;
+  }
 
-#submit {
-  border-radius: 20px;
-  padding: 13px;
-  background-color: black;
-  color: white;
-  font-family: "Shadows Into Light", cursive;
-  font-size: 15px;
-  display: block;
-  margin-left: auto;
-  margin-top: 10px;
-  margin-right: auto;
-}
+  section #newsletter img {
+    width: 40px;
+  }
 
-input:not([type=submit]) {
-  border-radius: 10px;
-  width: 80%;
-  height: 36px;
-  text-align: center;
+  section #connexion button {
+    background-color: sandybrown;
+    border: none;
+    border-radius: 15px;
+    padding: 6px;
+    float: left;
+    width: 100%;
+    margin: 4px;
+  }
+
+  section #connexion button a {
+    color: white;
+    font-style: oblique;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  #membre {
+    background-color: #000000ad;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    z-index: 4;
+    display: none;
+  }
+
+  #register {
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    z-index: 4;
+  }
+
+  .boxconnectpage {
+    width: 80vh;
+    border: 4px solid;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .login {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+            align-items: center;
+    margin-top: 20%;
+  }
+
+  .boxconnect {
+    width: 80vh;
+    border: 4px solid;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+  }
+
+  .boxconnect label {
+    width: 100%;
+    display: block;
+  }
+
+  .boxconnect img {
+    cursor: pointer;
+    width: 40px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  #membre h2 {
+    font-size: 40px;
+  }
+
+  .form {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #submit {
+    border-radius: 20px;
+    padding: 13px;
+    background-color: black;
+    color: white;
+    font-family: "Shadows Into Light", cursive;
+    font-size: 15px;
+    display: block;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: auto;
+  }
+
+  input:not([type=submit]) {
+    border-radius: 10px;
+    width: 80%;
+    height: 36px;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 800px) {
   #menu {
     z-index: 9999;
     text-align: center;
+    width: 100%;
   }
 
   #menu span {
@@ -384,6 +622,7 @@ input:not([type=submit]) {
   #menu {
     position: absolute;
     z-index: 9999;
+    width: 100%;
   }
 
   #menu span {
@@ -575,7 +814,6 @@ input:not([type=submit]) {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 8%;
-    min-height: 54vh;
   }
 
   .content article {
@@ -680,12 +918,17 @@ input:not([type=submit]) {
 }
 
 @media screen and (max-width: 800px) {
+  .fixed {
+    bottom: 0;
+  }
+
   footer {
     border-top: solid 4px sandybrown;
     background-color: cadetblue;
     width: 100%;
     bottom: 0;
     box-shadow: 0px -5px 30px -2px rgba(0, 0, 0, 0.75);
+    bottom: 0;
   }
 
   footer .contentfoot {
@@ -741,12 +984,18 @@ input:not([type=submit]) {
 }
 
 @media screen and (min-width: 800px) {
+  .fixed {
+    position: fixed;
+    bottom: 0;
+  }
+
   footer {
     border-top: solid 4px sandybrown;
     background-color: cadetblue;
     width: 100%;
     bottom: 0;
     box-shadow: 0px -5px 30px -2px rgba(0, 0, 0, 0.75);
+    bottom: 0;
   }
 
   footer .contentfoot {
@@ -796,9 +1045,37 @@ input:not([type=submit]) {
   }
 }
 
+.headerback {
+  top: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#backleft {
+  width: 25%;
+  float: left;
+  background-color: sandybrown;
+  left: 0;
+}
+
+#backleft #menuback ul {
+  padding: 40px;
+}
+
+#backleft #menuback ul li {
+  list-style: none;
+}
+
+#backleft #menuback ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
 #backtofront {
   text-align: center;
   bottom: 8%;
+  left: 2%;
   position: fixed;
 }
 
@@ -815,30 +1092,22 @@ input:not([type=submit]) {
   font-weight: bold;
 }
 
-#backleft {
-  width: 20%;
-  height: 100vh;
-  float: left;
-  background-color: sandybrown;
-  left: 0;
-}
-
 #backright {
   float: right;
   background-color: #D3E5E2;
-  width: 80%;
-  height: 100vh;
+  width: 75%;
+  min-height: 100vh;
 }
 
 #backright .intit {
   width: 100%;
-  background-color: black;
   height: 150px;
 }
 
 #backright .intit h1 {
   float: left;
-  color: #D3E5E2;
+  text-decoration: underline;
+  color: sandybrown;
   padding: 3%;
   font-size: 40px;
 }
@@ -876,9 +1145,8 @@ input:not([type=submit]) {
 }
 
 #backright table {
-  margin: 5%;
   border: solid 2px black;
-  width: 90%;
+  width: 100%;
 }
 
 #backright table thead {

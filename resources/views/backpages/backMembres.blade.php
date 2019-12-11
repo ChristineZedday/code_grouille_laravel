@@ -1,7 +1,7 @@
 @extends('../layouts/backlayout')
 @section('content')
 
-<section id='backmembres' class='content'>
+<div id='backmembres' class='content'>
 
     <div class='intit'>
         <h1>Gestion des membres </h1>
@@ -48,7 +48,7 @@
             <p>  Aucune membre enregistré ! </p>
     @endif
 
-    </section>
+</div>
 
 
 @endsection
