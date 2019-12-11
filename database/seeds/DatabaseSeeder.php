@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(Ingredients_RecettesTableSeeder::class);
         $this->call(Commentaire_RecettesTableSeeder::class);
         $this->call(ActusTableSeeder::class);
-        $this->call(MentionsTableSeeder::class);
         $this->call(InfosTableSeeder::class);
 
 
