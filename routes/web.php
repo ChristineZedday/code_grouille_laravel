@@ -46,7 +46,9 @@ Route::get('/recettes', function () {
     return view('pages.recettes');
 });
 
-Route::get('/actus', 'ShowActus@index')->name('actus');
+Route::get('/actus', 'frontActuController@index')->name('actus');
+
+Route::get('/recettes', 'frontRecetteController@index')->name('recettes');
 
 // Route::get('/actus', function () {
 //     return view('pages.actus');
