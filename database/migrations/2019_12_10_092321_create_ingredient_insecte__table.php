@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIngredientInsectesTable extends Migration
+class CreateIngredientInsecteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateIngredientInsectesTable extends Migration
      */
     public function up()
     {
-        Schema::create('ingredient_insectes', function (Blueprint $table) {
+        Schema::create('ingredient_insecte', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
-            $table->bigInteger('insecte_id')->unsigned();
+            $table->bigInteger('insecte_id')->unsigned()->nullable();
             $table->bigInteger('ingredient_id')->unsigned();
-            $table->foreign('insecte_id')->references('id')->on('insectes');
+            $table->foreign('insecte_id')->references('id')->on('insectes')->onDelete('set null');
             $table->foreign('ingredient_id')->references('id')->on('ingredients');
         });
     }
@@ -30,6 +30,6 @@ class CreateIngredientInsectesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ingredient_insectes');
+        Schema::dropIfExists('ingredient_insecte');
     }
 }

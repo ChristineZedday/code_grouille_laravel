@@ -32,6 +32,27 @@ class UsersTableSeeder extends Seeder
                 'role' => "admin",
 
             ]);
+            DB::table('users')->insert([
+                'name' => "Henri Fabre",
+                'email' => "hfabre@ciel.fr",
+                'password' => bcrypt ("123456789"),
+                'role' => "utilisateur",
+
+            ]);
+            DB::table('users')->insert([
+                'name' => "Curieuse",
+                'email' => "cunegonde@free.fr",
+                'password' => bcrypt ("123456789"),
+                'role' => "utilisateur",
+
+            ]);
+            DB::table('users')->insert([
+                'name' => "Mangetout",
+                'email' => "miam@naclou.ma",
+                'password' => bcrypt ("123456789"),
+                'role' => "utilisateur",
+
+            ]);
         }
 
 }

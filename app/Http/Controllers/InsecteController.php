@@ -90,13 +90,12 @@ class InsecteController extends Controller
                                 $image = new Image(); //on rentre le fichier dans la table image
                                 $image->chemin_image = $uploaded;
                                 $image->save();
-                                $imid = $image->id;
-                            }
-                        $imgins = new ImageInsecte(); //on rentre id image ds la table pivot
-                        $imgins->image_id = $imid;
-                        $imgins->insecte_id = $newInsecte->id;
-                        $imgins->save();
 
+                            }
+
+
+
+                        $newInsecte->Image()->attach($image->id);
                 }
 
                 else{ //une image qui vient de l'extérieur (pas dans public)
@@ -115,10 +114,7 @@ class InsecteController extends Controller
 
                                                 $image->save();
 
-                                                $imgins = new ImageInsecte();
-                                                $imgins->image_id = $image->id;
-                                                $imgins->insecte_id = $newInsecte->id;
-                                                $imgins->save();
+                                                $newinsecte->Image()->attach($image->id);
 
 
                                             }
@@ -151,19 +147,19 @@ class InsecteController extends Controller
             return redirect()->action('InsecteController@index');
         }
 
-        $imgins = $insecte->Image()->get();
-        $images = [];
-        $i = 0;
-        foreach ($imgins as $imgin)
+        $images = $insecte->Image;
+
+        if (isset($images))
         {
-            $images[$i]= $imgin->Image;
-            $i++;
-
-        }
-
             return view('backpages.showInsecte',[
                 'insecte'=> $insecte, 'images' =>$images,
             ]);
+        }
+        else{
+            return view('backpages.showInsecte',[
+                'insecte'=> $insecte,
+            ]);
+        }
 
     }
 
@@ -176,15 +172,8 @@ class InsecteController extends Controller
     public function edit($id)
     {
         $insecte = Insecte::find($id);
-        $imgins = $insecte->Image()->get();
-        $images = [];
-        $i = 0;
-        foreach ($imgins as $imgin)
-        {
-            $images[$i]= $imgin->Image;
-            $i++;
+        $images = $insecte->Image;
 
-        }
         return view('backpages.forminsecte', ['insecte' => $insecte,
         'images' =>$images]);
     }
@@ -211,7 +200,7 @@ class InsecteController extends Controller
         $insecte = Insecte::find($id);
         $insecte->fill($validated);
 
-        $imgins = $insecte->Image()->get();
+        $imgins = $insecte->Image;
 
 
 
@@ -224,7 +213,7 @@ class InsecteController extends Controller
                  {
 
                     //supprimer l'association image/insecte
-                   
+
                    $insecte->Image()->detach($imgin->id);
 
 
@@ -254,12 +243,9 @@ class InsecteController extends Controller
                         $image = new Image(); //on rentre le fichier dans la table image
                         $image->chemin_image = $uploaded;
                         $image->save();
-                        $imid = $image->id;
+
                     }
-                $imgins = new ImageInsecte(); //on rentre id image ds la table pivot
-                $imgins->image_id = $imid;
-                $imgins->insecte_id = $insecte->id;
-                $imgins->save();
+                    $insecte->Image()->attach($image->id);
 
                 }
                 else{
@@ -281,11 +267,7 @@ class InsecteController extends Controller
                                             $image->chemin_image =  $uploaded;
 
                                             $image->save();
-
-                                            $imgins = new ImageInsecte();
-                                            $imgins->image_id = $image->id;
-                                            $imgins->insecte_id = $insecte->id;
-                                            $imgins->save();
+                                            $insecte->Image()->attach($image->id);
                                         }
 
                                     }

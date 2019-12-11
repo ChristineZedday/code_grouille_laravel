@@ -13,15 +13,15 @@ class CreateImageInsecteTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_insectes', function (Blueprint $table) {
+        Schema::create('image_insecte', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
 
-            $table->bigInteger('image_id')->unsigned();
-            $table->foreign('image_id')->references('id')->on('insectes');
+            $table->bigInteger('image_id')->unsigned()->nullable();
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('set null');
 
-            $table->bigInteger('insecte_id')->unsigned();
-            $table->foreign('insecte_id')->references('id')->on('insectes');
+            $table->bigInteger('insecte_id')->unsigned()->nullable();
+            $table->foreign('insecte_id')->references('id')->on('insectes')->onDelete('set null');
 
         });
     }
@@ -33,6 +33,6 @@ class CreateImageInsecteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_insectes');
+        Schema::dropIfExists('image_insecte');
     }
 }

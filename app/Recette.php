@@ -13,19 +13,19 @@ class Recette extends Model {
         return $this->belongsTo('App\User');
     }
 
-    public function IngredientRecette()
+    public function Ingredient()
     {
-        return $this->hasMany('App\IngredientRecette');
+        return $this->belongsTomany('App\Ingredient');
     }
 
-    public function CommentaireRecette()
+    public function Commentaire()
     {
-        return $this->hasMany('App\CommentaireRecette');
+        return $this->hasMany('App\Commentaire');
     }
 
     public function ImageRecette()
     {
-        return $this->hasMany('App\ImageRecette');
+        return $this->belongsTo('App\Image');
     }
 
     public function SetUserId()

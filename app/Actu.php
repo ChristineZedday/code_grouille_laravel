@@ -12,7 +12,7 @@ class Actu extends Model
 
     public function Image()
     {
-    return $this->hasMany('App\Image');
+    return $this->belongstoMany('App\Image');
     }
 
     public function Commentaire()

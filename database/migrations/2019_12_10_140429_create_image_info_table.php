@@ -13,12 +13,15 @@ class CreateImageInfoTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_infos', function (Blueprint $table) {
+        Schema::create('image_info', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
 
-            $table->bigInteger('info_id')->unsigned();
-            $table->foreign('info_id')->references('id')->on('infos');
+            $table->bigInteger('info_id')->unsigned()->nullable();
+            $table->foreign('info_id')->references('id')->on('infos')->onDelete('set null');
+
+            $table->bigInteger('image_id')->unsigned()->nullable();
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('set null');
         });
     }
 
@@ -29,6 +32,6 @@ class CreateImageInfoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_infos');
+        Schema::dropIfExists('image_info');
     }
 }

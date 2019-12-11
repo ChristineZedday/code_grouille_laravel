@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CommentaireRecette extends Model
+class Commentaire extends Model
 {
     protected $fillable = ['texte'];
 
