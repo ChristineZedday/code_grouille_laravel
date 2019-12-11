@@ -9,7 +9,7 @@ class frontInfoController extends Controller
 {
     public function showmention($id)
     {
-        // $mention = Info[1];
+        $mentions = Info[1];
 
         return view('pages.mentions');
     }
