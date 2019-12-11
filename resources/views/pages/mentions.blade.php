@@ -6,6 +6,6 @@
 
 <h1>Mentions légales</h1>
 
-<?php echo $mentions) ?>
+{{ $mentions->texte }}
 
 @endsection
