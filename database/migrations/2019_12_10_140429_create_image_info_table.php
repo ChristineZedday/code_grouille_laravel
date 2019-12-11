@@ -18,7 +18,7 @@ class CreateImageInfoTable extends Migration
             $table->timestamps();
 
             $table->bigInteger('info_id')->unsigned();
-            $table->foreign('info_id')->references('id')->on('infos')->onDelete('cascade') ->onUpdate('cascade');
+            $table->foreign('info_id')->references('id')->on('infos');
         });
     }
 

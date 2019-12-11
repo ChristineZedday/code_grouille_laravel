@@ -18,11 +18,11 @@ class CreateIngredientRecettesTable extends Migration
             $table->timestamps();
             $table->smallInteger('quantite');
             $table->bigInteger('unite_id')->unsigned();
-            $table->foreign('unite_id')->references('id')->on('unites')->onDelete('cascade') ->onUpdate('cascade');
+            $table->foreign('unite_id')->references('id')->on('unites');
             $table->bigInteger('ingredient_id')->unsigned();
-            $table->foreign('ingredient_id')->references('id')->on('ingredients')->onDelete('cascade') ->onUpdate('cascade');
+            $table->foreign('ingredient_id')->references('id')->on('ingredients');
             $table->bigInteger('recette_id')->unsigned();
-            $table->foreign('recette_id')->references('id')->on('recettes')->onDelete('cascade') ->onUpdate('cascade');
+            $table->foreign('recette_id')->references('id')->on('recettes');
         });
     }
 

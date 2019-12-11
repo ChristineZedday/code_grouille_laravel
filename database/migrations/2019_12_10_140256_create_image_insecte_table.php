@@ -18,10 +18,10 @@ class CreateImageInsecteTable extends Migration
             $table->timestamps();
 
             $table->bigInteger('image_id')->unsigned();
-            $table->foreign('image_id')->references('id')->on('insectes')->onDelete('cascade') ->onUpdate('cascade');
+            $table->foreign('image_id')->references('id')->on('insectes');
 
             $table->bigInteger('insecte_id')->unsigned();
-            $table->foreign('insecte_id')->references('id')->on('insectes')->onDelete('cascade') ->onUpdate('cascade');
+            $table->foreign('insecte_id')->references('id')->on('insectes');
 
         });
     }

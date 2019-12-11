@@ -155,8 +155,9 @@ class InsecteController extends Controller
         $i = 0;
         foreach ($imgins as $imgin)
         {
-            $images[$i]= $imgin->Image();
+            $images[$i]= $imgin->Image;
             $i++;
+
         }
 
             return view('backpages.showInsecte',[
@@ -174,7 +175,15 @@ class InsecteController extends Controller
     public function edit($id)
     {
         $insecte = Insecte::find($id);
-        $images = $insecte->Image()->get();
+        $imgins = $insecte->Image()->get();
+        $images = [];
+        $i = 0;
+        foreach ($imgins as $imgin)
+        {
+            $images[$i]= $imgin->Image;
+            $i++;
+
+        }
         return view('backpages.forminsecte', ['insecte' => $insecte,
         'images' =>$images]);
     }
@@ -201,21 +210,22 @@ class InsecteController extends Controller
         $insecte = Insecte::find($id);
         $insecte->fill($validated);
 
-        $images = $insecte->Image()->get();
+        $imgins = $insecte->Image()->get();
 
 
-        foreach ($images as $image)
+
+        foreach ($imgins as $imgin)
              {
 
 
 
-                 if (isset($_POST['suppr'.$image->id]))
+                 if (isset($_POST['suppr'.$imgin->id])) //ce sont les imgins qui ont été transmises dans le form, ce sont bien elles qu'on doit effacer
                  {
 
                     //supprimer l'association image/insecte
-                    $imins = ImageInsecte::where('image_id', $image->id)->where('insecte_id', $id);
 
-                    $imins->delete();
+                   $insecte->Image()->detach($imgin->id);
+
 
                     //on ne supprime pas l'image ici, prévoir un back images pour
                  }
@@ -299,6 +309,8 @@ class InsecteController extends Controller
     public function destroy($id)
     {
         $insecte = Insecte::find($id);
+
+        $insecte->Image()->detach();
 
         if ($insecte && $insecte->delete()) {
 
