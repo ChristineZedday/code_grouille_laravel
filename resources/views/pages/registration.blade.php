@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.connect')
 
 @section('content')
 
@@ -43,5 +43,6 @@
                 </button>
         </form>
 </div>
+
 @endsection
 

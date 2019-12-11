@@ -42,13 +42,12 @@ Route::get('/apropos', function () {
 Route::get('/insectes', function () {
     return view('pages.insectes');
 });
-Route::get('/recettes', function () {
-    return view('pages.recettes');
-});
 
 Route::get('/actus', 'frontActuController@index')->name('actus');
 
 Route::get('/recettes', 'frontRecetteController@index')->name('recettes');
+
+Route::get('/recettes/show/{id}', 'frontRecetteController@show')->name('recette');
 
 // Route::get('/actus', function () {
 //     return view('pages.actus');

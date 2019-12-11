@@ -1,9 +1,42 @@
 $sandy : sandybrown;
 $white : #D3E5E2;
 
+.headerback{
+    top: 0;
+    width: 100%;
+    text-align: center;
+}
+
+
+#backleft{
+    width: 25%;
+    float: left;
+    background-color: $sandy;
+    left: 0;
+
+    #menuback{
+
+        ul{
+            padding:40px;
+
+            li{
+                list-style: none;
+
+                a{
+                    text-decoration: none;
+                    font-size: 20px;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+
 #backtofront{
     text-align: center;
     bottom: 8%;
+    left:2%;
     position: fixed;
 
     button{
@@ -20,28 +53,22 @@ $white : #D3E5E2;
     }
 }
 
-#backleft{
-    width: 20%;
-    height: 100vh;
-    float: left;
-    background-color: $sandy;
-    left: 0;
-}
+
 
 #backright{
     float:right;
     background-color: $white;
-    width:80%;
-    height: 100vh;
+    width:75%;
+    min-height: 100vh;
 
         .intit{
             width:100%;
-            background-color: black;
             height:150px;
 
                 h1{
                     float: left;
-                    color: $white;
+                    text-decoration: underline;
+                    color: sandybrown;
                     padding: 3%;
                     font-size: 40px;
                 }
@@ -80,9 +107,8 @@ $white : #D3E5E2;
             }
 
             table{
-                margin: 5%;
                 border: solid 2px black;
-                width: 90%;
+                width: 100%;
 
                 thead{
                     width: 100%;

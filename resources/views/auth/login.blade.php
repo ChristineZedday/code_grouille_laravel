@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.connect')
 
 @section('content')
 <div class='boxconnect'>
@@ -45,4 +45,5 @@
                        @endif
            </form>
 </div>
+
 @endsection

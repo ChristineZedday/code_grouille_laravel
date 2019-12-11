@@ -1,7 +1,7 @@
 @extends('../layouts/backlayout')
 @section('content')
 
-<section id='recettes' class='content'>
+<div id='recettesback' class='content'>
 
     <div class='intit'>
           <h1>Gestion des recettes </h1>
@@ -52,7 +52,7 @@
 
     @endif
 
-    </section>
+</div>
 
 
 @endsection

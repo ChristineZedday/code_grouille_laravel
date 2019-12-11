@@ -2,10 +2,7 @@
 
 @section('content')
 
-
-
-
-<section id='actusback' class='content'>
+<div id='actusback' class='content'>
 
     <div class='intit'>
         <h1>Gestion des Actualités </h1>
@@ -48,6 +45,7 @@
 
 
 @endif
-</section>
+</div>
+
 @endsection
 

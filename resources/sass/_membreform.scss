@@ -1,5 +1,65 @@
 /* ============================CONNECT============================= */
 
+@media screen and (max-width: 800px) {
+.header{
+    display: none;
+}
+
+    section{
+
+        #right {
+            right: 0;
+            position: absolute;
+            padding: 35px;
+            text-align: center;
+        }
+
+        #reseaux{
+            padding:10px;
+        }
+
+        .pict{
+            width: 40px;
+        }
+
+        #newsletter {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            display: block;
+            margin: 5% 6% 7% 21%;
+
+
+            a {
+                color: black;
+                font-size: 20px;
+                margin-top: -13px;
+                display: block;
+            }
+
+            img{
+            width:40px;
+            }
+        }
+
+    #connexion button{
+        background-color: $sandy;
+        border: none;
+        border-radius: 15px;
+        padding: 6px;
+        float: left;
+        width: 100%;
+        margin: 4px;
+
+        a{
+            color:white;
+            font-style: oblique;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    }
+}
+
 #membre{
 	background-color: #000000ad;
     justify-content: center;
@@ -15,10 +75,10 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 100%;
+    width: 80%;
     height: 100%;
     z-index: 4;
-    margin-top: 6%;
+    margin-top: 30%;
 }
 
 .boxconnectpage{
@@ -32,6 +92,13 @@
     margin-right: auto;
 }
 
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+}
+
 .boxconnect{
     width: 80vh;
     border: 4px solid;
@@ -41,6 +108,7 @@
     padding: 40px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5%;
 
     label{
     width: 100%;
@@ -84,4 +152,166 @@ input:not([type="submit"]){
     width: 80%;
     height: 36px;
     text-align: center;
+}
+}
+
+
+/* ============================CONNECT============================= */
+
+@media screen and (min-width: 800px) {
+.header{
+    width: 100%;
+}
+
+    section{
+        display: -webkit-box;
+        border-bottom: solid 4px $sandy;
+        background-color: $blue;
+        min-height: 200px;
+
+        #right {
+            right: 0;
+            position: absolute;
+            padding: 35px;
+            z-index: 9999;
+        }
+
+        #reseaux{
+            padding:10px;
+        }
+
+        .pict{
+            width: 40px;
+        }
+
+        #newsletter {
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            display: block;
+            margin: 5% 6% 7% 21%;
+
+
+            a {
+                color: black;
+                font-size: 20px;
+                margin-top: -13px;
+                display: block;
+            }
+
+            img{
+            width:40px;
+            }
+        }
+
+    #connexion button{
+        background-color: $sandy;
+        border: none;
+        border-radius: 15px;
+        padding: 6px;
+        float: left;
+        width: 100%;
+        margin: 4px;
+
+        a{
+            color:white;
+            font-style: oblique;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+    }
+}
+
+#membre{
+	background-color: #000000ad;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    height: 100%;
+	z-index: 4;
+	display: none;
+}
+
+#register{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    z-index: 4;
+}
+
+.boxconnectpage{
+    width: 80vh;
+    border: 4px solid;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+}
+
+.boxconnect{
+    width: 80vh;
+    border: 4px solid;
+    border-radius: 20px;
+    background-color: white;
+    text-align: center;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+
+    label{
+    width: 100%;
+    display: block;
+    }
+
+    img{
+    cursor:pointer;
+    width: 40px;
+    }
+}
+
+h2{
+    font-size: 40px;
+}
+
+#membre h2{
+	font-size: 40px;
+}
+
+.form{
+	width:100%;
+	margin-bottom:10px;
+}
+
+#submit{
+	border-radius: 20px;
+    padding: 13px;
+    background-color: black;
+    color: white;
+	font-family:  'Shadows Into Light', cursive;
+    font-size: 15px;
+    display: block;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: auto;
+}
+
+input:not([type="submit"]){
+	border-radius: 10px;
+    width: 80%;
+    height: 36px;
+    text-align: center;
+}
 }
