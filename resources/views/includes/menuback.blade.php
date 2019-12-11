@@ -16,7 +16,6 @@
         <li><a href='/back/partenaires'>Partenaires</a></li>
 
     </span>
-
     </ul>
 </nav>
 

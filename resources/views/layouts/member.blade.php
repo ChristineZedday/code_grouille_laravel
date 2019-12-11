@@ -12,19 +12,19 @@
         @include('includes.header')
 </div>
 
-<div class="container">
+<div class="container membre">
 
     <div class='header'>
         @include('includes.header')
     </div>
 
     <div class='content'>
-     @yield('content')
+         @yield('content')
     </div>
 
-    <footer class='fixed'>
-        @include('includes.footer')
-    </footer>
+<footer>
+    @include('includes.footer')
+</footer>
 
 </div>
 

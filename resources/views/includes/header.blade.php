@@ -9,7 +9,7 @@
 
 <h1 id='title'>Grouille</h1>
 @if(Auth::user())
-<h2 class='welcome'>Bienvenue {{ Auth::user()->name }}</h2>
+<a  class='welcome' href="/membre"><h2>Bienvenue {{ Auth::user()->name }}</h2></a>
 @endif
 
 

@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.member')
 
 @section('content')
 
@@ -8,7 +8,7 @@
         @csrf
         @isset($recette) @method('PUT') @endisset
 
-        <h2>Création d'une recette</h2>
+        <h2 class='membertitle'>Création d'une recette</h2>
 
         <div class='form-group'>
             <label><h3>Titre de la recette</h3></label>
