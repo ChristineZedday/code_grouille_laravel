@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Recette;
+use App\IngredientRecette;
+use App\Ingredient;
 use App\User;
 
 
@@ -39,7 +41,8 @@ class RecetteController extends Controller
      */
     public function create()
     {
-        return view('backpages.formrecette');
+        $ingredients = Ingredient::All();
+        return view('backpages.formrecette', ['ingredients' => $ingredients]);
     }
 
     /**
@@ -71,6 +74,16 @@ class RecetteController extends Controller
 
 
         if ($newRecette->save()) {
+
+            if ($request->input('ingredient_id'))
+
+            {
+                $recing = new IngredientRecette();
+                $recing->recette_id = $newRecette->id;
+                $recing->ingredient_id = $request->input('ingredient_id');
+                $recing->save();
+            }
+
             $request->session()->flash('status',"recette enregistrée avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('RecetteController@index');
@@ -106,8 +119,23 @@ class RecetteController extends Controller
      */
     public function edit($id)
     {
+        $ingredients = Ingredient::all();
         $recette = Recette::find($id);
-        return view('backpages.formrecette', ['recette' => $recette]);
+
+        if (isset($recette->Ingredient))
+        {
+            $ingredientId = $recette->Ingredient->ingredient_id;
+
+            return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'ingredientId' =>$ingredientId]);
+
+        }
+
+            else
+
+        {
+                return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients]);
+        }
+
     }
 
     /**

@@ -1795,6 +1795,48 @@ div[contenteditable] img {
   #insecteintro img {
     width: 100%;
   }
+
+  #actusintro {
+    width: 100%;
+    background-image: url(/images/manif2.jpg?4776302c5847e4cd97f05cec2f709eb0);
+    background-size: cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+  }
+
+  #actusintro img {
+    width: 100%;
+  }
+
+  #recettesintro {
+    width: 100%;
+    background-image: url(/images/brochettes.jpg?7c4e07592744f6cdc7915053d938f09a);
+    background-size: cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+  }
+
+  #recettesintro img {
+    width: 100%;
+  }
+
+  #partnerintro {
+    width: 100%;
+    background-image: url(/images/brochettes.jpg?7c4e07592744f6cdc7915053d938f09a);
+    background-size: cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+  }
+
+  #partnerintro img {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 800px) {
@@ -1857,6 +1899,51 @@ div[contenteditable] img {
   }
 
   #insecteintro img {
+    width: 100%;
+  }
+
+  #actusintro {
+    width: 100%;
+    background-image: url(/images/manif2.jpg?4776302c5847e4cd97f05cec2f709eb0);
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    height: 100vh;
+    padding-top: 50vh;
+    top: 0;
+  }
+
+  #actusintro img {
+    width: 100%;
+  }
+
+  #recettesintro {
+    width: 100%;
+    background-image: url(/images/brochettes.jpg?7c4e07592744f6cdc7915053d938f09a);
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    height: 100vh;
+    padding-top: 50vh;
+    top: 0;
+  }
+
+  #recettesintro img {
+    width: 100%;
+  }
+
+  #partnerintro {
+    width: 100%;
+    background-image: url(/images/sushi.jpg?2ce8c65c64724449f4fc880c44a90bd2);
+    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    height: 100vh;
+    padding-top: 50vh;
+    top: 0;
+  }
+
+  #partnerintro img {
     width: 100%;
   }
 }

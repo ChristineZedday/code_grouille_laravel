@@ -37,7 +37,7 @@
         <td  class="align-middle">
         <button><a href="{{route('insecte.show',$insecte->id)}}" >Voir</a></button>
         <button><a href="{{route('insecte.edit',$insecte->id)}}">Modifier</a></button>
-        <form action="@isset($insecte){{route('insecte.destroy', $insecte->id)}}@endisset" method="POST">
+        <form action="{{route('insecte.destroy', $insecte->id)}}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit" onclick="confirmation()">Supprimer</button></td>

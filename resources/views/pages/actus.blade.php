@@ -1,4 +1,16 @@
 @extends('layouts.default')
+
+<h1 id='titlemob'>Grouille</h1>
+
+@section('background')
+
+<div id='actusintro'>
+    <h2 class='titreintro'>Action, réaction</h2>
+    <h3 class='introsub'>La lutte continue</h3>
+</div>
+
+@endsection
+
 @section('content')
 
 

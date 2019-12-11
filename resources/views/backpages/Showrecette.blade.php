@@ -9,6 +9,9 @@
         <h2>Description</h2>
             <p>{{$recette->description_recette}}</p>
 
+        <h2>Ingrédients</h2>
+        <p></p>
+
         <h3>Temps de préparation</h3>
             <p>{{$recette->temps_preparation_recette}} minutes </p>
 
@@ -23,14 +26,13 @@
 
         <h3>Appétance</h3>
             <p>{{$recette->appetence_recette}}</p>
-            
+
         <h3>Déroulé</h3>
-            <p>{{$recette->deroule_recette}}</p>  
+            <p>{{$recette->deroule_recette}}</p>
     </section>
 
-    
+
     <button type="submit" class="retour arriere"> <a href='recettes'>Retouner à la page des recettes </a></button>
     <button type="submit" class="retour arriere"> <a href='/edit{$recette->id}'>Modifier cette recette </a></button>
-    <button type="submit" class="retour arriere"> <a href='recettes.destroy'>Supprimer cette recette </a></button>
 
 @endsection

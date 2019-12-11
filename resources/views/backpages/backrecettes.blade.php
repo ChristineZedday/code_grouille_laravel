@@ -37,19 +37,19 @@
             <td class="align-middle">
                 <button><a href="{{route('recette.show',$recette->id)}}" >Voir</a></button>
                 <button><a href="{{route('recette.edit',$recette->id)}}">Modifier</a></button>
-                    <form action="@isset($recette){{route('recette.destroy', $recette->id)}}@endisset" method="POST">
+                    <form action="{{route('recette.destroy', $recette->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" onclick="confirmation()">Supprimer</button>
                     </form>
-            </td>    
+            </td>
         </tr>
     @endforeach
     </tbody>
 </table>
 
-    @else
-            <p>  Aucune recette enregistrée ! </p>
+
+
     @endif
 
     </section>

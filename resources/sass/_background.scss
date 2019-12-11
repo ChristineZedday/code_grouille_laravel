@@ -60,6 +60,48 @@
     width:100%;
     }
 }
+
+#actusintro{
+    width: 100%;
+    background-image:url("../img/manif2.jpg");
+    background-size:cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+#recettesintro{
+    width: 100%;
+    background-image:url("../img/brochettes.jpg");
+    background-size:cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+#partnerintro{
+    width: 100%;
+    background-image:url("../img/brochettes.jpg");
+    background-size:cover;
+    background-position: center bottom;
+    height: 90vh;
+    padding-top: 30vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
 }
 
 @media screen and (min-width: 800px) {
@@ -114,6 +156,51 @@
 #insecteintro{
     width: 100%;
     background-image:url("../img/scorpion.jpg");
+    background-size:cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    height: 100vh;
+    padding-top: 50vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+#actusintro{
+    width: 100%;
+    background-image:url("../img/manif2.jpg");
+    background-size:cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    height: 100vh;
+    padding-top: 50vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+#recettesintro{
+    width: 100%;
+    background-image:url("../img/brochettes.jpg");
+    background-size:cover;
+    background-position: center bottom;
+    background-attachment: fixed;
+    height: 100vh;
+    padding-top: 50vh;
+    top: 0;
+
+    img{
+    width:100%;
+    }
+}
+
+#partnerintro{
+    width: 100%;
+    background-image:url("../img/sushi.jpg");
     background-size:cover;
     background-position: center bottom;
     background-attachment: fixed;

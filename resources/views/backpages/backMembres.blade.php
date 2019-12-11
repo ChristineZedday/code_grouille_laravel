@@ -33,12 +33,12 @@
             <td class="align-middle">
                 <button><a href="{{route('membre.show',$user->id)}}" >Voir</a></button>
                 <button><a href="{{route('membre.edit',$user->id)}}">Modifier</a></button>
-                    <form action="@isset($user){{route('membre.destroy', $user->id)}}@endisset" method="POST">
+                    <form action="{{route('membre.destroy', $user->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" >Supprimer</button>
                     </form>
-            </td>    
+            </td>
         </tr>
     @endforeach
     </tbody>
