@@ -13,6 +13,6 @@ class ImageInfo extends Model
 
     public function Image()
     {
-        return $this->belongsTo('App\Imagee');
+        return $this->belongsTo('App\Image');
     }
 }
