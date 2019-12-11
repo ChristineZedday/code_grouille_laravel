@@ -39,7 +39,7 @@
         <td class="align-middle"> {{  date('d/m/Y', strtotime($info->created_at)) }}</td>
         <td  class="align-middle">
         <button><a href="{{route('info.edit',$info->id)}}">Modifier</a></button>
-        <form action="@isset($info){{route('info.destroy', $info->id)}}@endisset" method="DELETE">
+        <form action="{{route('info.destroy', $info->id)}}" method="DELETE">
             @csrf
             @method('DELETE')
             <button type="submit">Supprimer</button></td>

@@ -36,7 +36,7 @@
         <td  class="align-middle">
         <button><a href="{{route('actu.show',$actu->id)}}" >Voir</a></button>
         <button><a href="{{route('actu.edit',$actu->id)}}">Modifier</a></button>
-        <form action="@isset($actu){{route('actu.destroy', $actu->id)}}@endisset" method="POST">
+        <form action="{{route('actu.destroy', $actu->id)}}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit">Supprimer</button></td>
@@ -46,8 +46,7 @@
 </tbody>
 </table>
 
-@else
-<p>  Aucune actu enregistrée! </p>
+
 @endif
 </section>
 @endsection
