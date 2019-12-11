@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Insecte;
@@ -223,7 +224,7 @@ class InsecteController extends Controller
                  {
 
                     //supprimer l'association image/insecte
-
+                   
                    $insecte->Image()->detach($imgin->id);
 
 

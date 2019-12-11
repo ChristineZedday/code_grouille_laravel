@@ -11,28 +11,18 @@ class ImagesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('images')->insert([
-            'chemin_image' => "img1.jpg",
-            'insecte_id'  => "1"
-        ]);
-        DB::table('images')->insert([
-            'chemin_image' => "img2.jpg",
-            'insecte_id'  => "2"
+        $chemin_dossier=public_path('') .'/img/';
+        $images = scandir($chemin_dossier);
+
+        foreach ($images as $image)
+        {
+
+
+       DB::table('images')->insert([
+            'chemin_image' => $image
+
         ]);
 
-        DB::table('images')->insert([
-            'chemin_image' => "img3.jpg",
-            'insecte_id'  => "3"
-        ]);
-
-        DB::table('images')->insert([
-            'chemin_image' => "sugg1.jpg",
-            'recette_id'  => "1"
-        ]);
-        DB::table('images')->insert([
-            'chemin_image' => "sugg2.jpg",
-            'actu_id'  => "1"
-        ]);
-
+        }
     }
 }
