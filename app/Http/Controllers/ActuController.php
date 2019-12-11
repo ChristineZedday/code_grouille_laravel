@@ -24,12 +24,7 @@ class ActuController extends Controller
      */
     public function index(Request $request)
     {
-
-
-        $actus = Actu::all();
-
-
-
+       $actus = Actu::all();
        return view('backpages.backActus',['actus' => $actus]);
     }
 
