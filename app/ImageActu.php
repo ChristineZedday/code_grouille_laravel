@@ -10,4 +10,9 @@ class ImageActu extends Model
     {
         return $this->belongsTo('App\Actu');
     }
+
+    public function Image()
+    {
+        return $this->belongsTo('App\Imagee');
+    }
 }

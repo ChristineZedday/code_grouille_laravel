@@ -150,10 +150,19 @@ class InsecteController extends Controller
             return redirect()->action('InsecteController@index');
         }
 
+        $imgins = $insecte->Image()->get();
+        $images = [];
+        $i = 0;
+        foreach ($imgins as $imgin)
+        {
+            $images[$i]= $imgin->Image();
+            $i++;
+        }
 
-        return view('backpages.showInsecte',[
-            'insecte'=> $insecte, 'images' => $insecte->Image()->get(),
-        ]);
+            return view('backpages.showInsecte',[
+                'insecte'=> $insecte, 'images' =>$images,
+            ]);
+
     }
 
     /**

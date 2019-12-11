@@ -10,4 +10,9 @@ class ImageRecette extends Model
     {
         return $this->belongsTo('App\Recette');
     }
+
+    public function Image()
+    {
+        return $this->belongsTo('App\Imagee');
+    }
 }
