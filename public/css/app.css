@@ -176,7 +176,7 @@
     position: absolute;
     width: 100%;
     top: 0;
-    z-index: 99999;
+    z-index: 94;
   }
 
   #hiddenheader {
@@ -640,8 +640,7 @@
 @media screen and (min-width: 800px) {
   #menu {
     position: absolute;
-    z-index: 9999;
-    width: 100%;
+    z-index: 99;
   }
 
   #menu span {
