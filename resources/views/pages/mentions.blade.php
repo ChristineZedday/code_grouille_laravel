@@ -1,7 +1,11 @@
 @extends('layouts.default')
+
+
+
 @section('content')
 
-Mentions leégales
+<h1 id='titlemob'>Mentions légales</h1>
+
 
 
 @endsection
