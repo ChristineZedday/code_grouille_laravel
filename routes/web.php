@@ -10,9 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'HomeController@lastactu');
 
 Route::get('/home', function () {
     return view('pages.home');
@@ -43,13 +41,15 @@ Route::get('/insectes', function () {
 
 Route::get('/actus', 'frontActuController@index')->name('actus');
 
+Route::get('/actus/show/{id}', 'frontActuController@show')->name('actu.show');
+
 Route::get('/insectes', 'frontInsecteController@index')->name('insectes');
 
 Route::get('/insectes/show/{id}', 'frontInsecteController@show')->name('insecte.show');
 
 Route::get('/recettes', 'frontRecetteController@index')->name('recettes');
 
-Route::get('/recettes/show/{id}', 'frontRecetteController@show')->name('recette');
+Route::get('/recettes/show/{id}', 'frontRecetteController@show')->name('recette.show');
 
 Route::get('/mentions', 'frontInfoController@showmentions');
 
@@ -91,5 +91,3 @@ Route::get('/postrecette', function () {
 
 //Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
-//remplacera la première route qd homeController sera fonctionnel

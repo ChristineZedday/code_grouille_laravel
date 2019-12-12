@@ -6,7 +6,7 @@
 
 <body>
 
-<a id='burger'><img class='pict' src='./img/picto/hamburger.png'/></a>
+<a id='burger'><img class='pict' src='/img/picto/hamburger.png'/></a>
 
 <div id='hiddenheader'>
         @include('includes.header')

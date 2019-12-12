@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Actu;
@@ -57,11 +58,11 @@ class ActuController extends Controller
         ]);
 
 
-        $newactu = new Actu;
-        $newactu->fill($validated);
+        $newActu = new Actu;
+        $newActu->fill($validated);
 
 
-        if ($newactu->save()) {
+        if ($newActu->save()) {
 
             $chemin_dossier=public_path('') .'/img/';
 
@@ -71,15 +72,25 @@ class ActuController extends Controller
 
                 if (file_exists ($chemin_dossier.$uploaded ) )
                 {
-                     //chercher dans la base et ajouter actu_id
-                     $id = DB::table('images')->where('chemin_image', '$uploaded')->value('id');
-                     $image = Image::find($id);
-                     $image->actu_id = $actu->id;
+                     //chercher dans la base, le mettre ds images si pas encore, et ajouter actu_id dans la table pivot
 
+                     $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
+                            if (isset($image))
+                            {
+                                $imid = $image->id;
+
+                            }
+                            else{
+                                $image = new Image(); //on rentre le fichier dans la table image
+                                $image->chemin_image = $uploaded;
+                                $image->save();
+
+                            }
+                            $newActu->Image()->attach($image->id);
                 }
 
                 else{
-                    $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+                    $extension = Image::fichier_type($uploaded);
 
                     if($extension=="jpg" ||
                         $extension=="png" ||
@@ -93,6 +104,8 @@ class ActuController extends Controller
                                                 $image->chemin_image =  $uploaded;
                                                 $image->actu_id = $newactu->id;
                                                 $image->save();
+
+                                                $newActu->Image()->attach($image->id);
                                             }
 
                                         }
@@ -100,46 +113,7 @@ class ActuController extends Controller
                      } //fin else: file existe pas
             } // fin on a uploadé image 1
 
-            if (isset($_FILES['image2']['name']))
-                {
-                    $uploaded = $_FILES['image2']['name'];
-                        if (file_exists ($chemin_dossier.$uploaded ) )
-                        {
-                            //chercher dans la base et ajouter actu_id
-                            $id = DB::table('images')->where('chemin_image', '$uploaded')->value('id');
-                            $image = Image::find($id);
-                            $image->actu_id = $actu->id;
 
-                        }
-
-                        else{
-
-                                {
-
-                                    $extension = Image::fichier_type($uploaded); //fonction statique du model Image
-
-                                    if($extension=="jpg" ||
-                                        $extension=="png" ||
-                                        $extension=="gif")
-                                        {
-
-
-
-
-                                            $chemin_dossier=public_path('') .'/img/';
-                                            if(is_uploaded_file($_FILES['image2']['tmp_name']))
-                                                        {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$uploaded))
-                                                            {   $image = New Image;
-                                                                $image->chemin_image =  $uploaded;
-                                                                $image->actu_id = $newactu->id;
-                                                                $image->save();
-                                                            }
-
-                                                        }
-                                    }
-                                }
-                        }
-                }
 
             $request->session()->flash('status',"actu enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
@@ -218,7 +192,7 @@ class ActuController extends Controller
                 if (isset($_POST['suppr'.$image->id]))
                 {
 
-                    if (isset($image->insecte_id) || isset($image->recette_id))
+                    if (isset($image->actu_id) || isset($image->recette_id))
                     {
                         $image->actu_id = null;
                     }

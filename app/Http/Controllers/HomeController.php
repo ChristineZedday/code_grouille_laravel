@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Actu;
+use App\Recette;
+
 
 class HomeController extends Controller
 {
@@ -28,10 +31,10 @@ class HomeController extends Controller
 
     public function lastactu()
     {
-        // $lastactu = Actu::orderBy('created_at', 'desc')->get();
-        // return view('pages.home');
-        $lastactu = DB::table('actus')
-        ->latest();
+        $lastactu = Actu::orderBy('created_at', 'desc')->first();
+        $lastrecettes = Recette::orderBy('created_at', 'desc')->take(3)->get();
+             // $lastactu = Actu::lastest();
+        return view('pages.home', ['lastactu'=> $lastactu, 'lastrecettes' => $lastrecettes ]);
     }
 
 }

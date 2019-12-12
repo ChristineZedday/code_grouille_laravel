@@ -651,7 +651,7 @@
   }
 
   #menu ul {
-    font-size: 18px;
+    font-size: 22px;
     text-decoration: none;
     padding: 20px;
     text-transform: uppercase;
@@ -695,6 +695,22 @@
 
   .content {
     margin-bottom: 100px;
+  }
+
+  .content .recetteline {
+    margin-bottom: 5%;
+  }
+
+  .content .recetteline img {
+    width: 100px;
+    height: 20px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .content .recetteline a {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .content article {
@@ -832,6 +848,23 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 8%;
+    margin-top: 8%;
+  }
+
+  .content .recetteline {
+    margin-bottom: 5%;
+  }
+
+  .content .recetteline img {
+    width: 100px;
+    height: 20px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
+  .content .recetteline a {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .content article {
@@ -940,6 +973,10 @@
     bottom: 0;
   }
 
+  .float {
+    float: left;
+  }
+
   footer {
     border-top: solid 4px sandybrown;
     background-color: cadetblue;
@@ -1005,6 +1042,10 @@
   .fixed {
     position: fixed;
     bottom: 0;
+  }
+
+  .float {
+    float: left;
   }
 
   footer {
@@ -2009,6 +2050,11 @@ div[contenteditable] img {
     text-align: center;
   }
 
+  #insectesfront figure a {
+    text-decoration: none;
+    color: black;
+  }
+
   #insectesfront figure p {
     max-width: 70%;
     font-size: 14px;
@@ -2038,6 +2084,11 @@ div[contenteditable] img {
     text-align: center;
   }
 
+  #partners figure a {
+    text-decoration: none;
+    color: black;
+  }
+
   #partners figure p {
     max-width: 70%;
     font-size: 14px;
@@ -2062,6 +2113,11 @@ div[contenteditable] img {
 
   #insectesfront figure {
     text-align: center;
+  }
+
+  #insectesfront figure a {
+    text-decoration: none;
+    color: black;
   }
 
   #insectesfront figure p {
@@ -2317,26 +2373,75 @@ div[contenteditable] img {
   }
 }
 
-#insectesview {
-  padding-top: 5%;
+@media screen and (max-width: 800px) {
+  .single {
+    float: left;
+    height: auto;
+    position: inherit;
+  }
+
+  .single #insectesview {
+    padding-top: 20%;
+  }
+
+  .single #insectesview .imgsingle {
+    float: left;
+    width: 100%;
+    padding: 15%;
+  }
+
+  .single #insectesview .imgsingle img {
+    width: 100%;
+  }
+
+  .single #insectesview .infosingle {
+    float: left;
+    width: 100%;
+    margin-top: 5%;
+    padding: 13%;
+  }
+
+  .single #insectesview .infosingle img {
+    width: 100px;
+    height: 20px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
 }
 
-#insectesview .imgsingle {
-  float: left;
-  width: 40%;
-}
+@media screen and (min-width: 800px) {
+  .single {
+    float: left;
+    height: auto;
+    position: inherit;
+    margin-left: 8%;
+  }
 
-#insectesview .infosingle {
-  float: left;
-  width: 60%;
-  margin-top: 5%;
-}
+  .single #insectesview {
+    padding-top: 5%;
+  }
 
-#insectesview .infosingle img {
-  width: 100px;
-  height: 20px;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  .single #insectesview .imgsingle {
+    float: left;
+    width: 40%;
+  }
+
+  .single #insectesview .imgsingle img {
+    width: 100%;
+  }
+
+  .single #insectesview .infosingle {
+    float: left;
+    width: 60%;
+    margin-top: 5%;
+  }
+
+  .single #insectesview .infosingle img {
+    width: 100px;
+    height: 20px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
 }
 
 * {

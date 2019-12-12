@@ -3,27 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use Illuminate\Support\Facades\Auth;
-// use App\Http\Middleware\Admin;
 use App\Recette;
-use App\User;
-
+Use App\ImageRecette;
+use App\Image;
 
 class frontRecetteController extends Controller
 
 {
-
-    public function __construct()
-    {
-      // $this->middleware('auth');
-       //$this->middleware('admin');
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
        $recettes = Recette::all();
@@ -43,12 +29,26 @@ class frontRecetteController extends Controller
 
         if (!$recette) {
 
-            return redirect()->action('frontRecetteController@index');
+            return redirect()->action('RecetteController@index');
         }
 
+        $images = $recette->Image;
 
-        return view('pages.recettes',[
-            'recette'=> $recette,
-        ]);
+        if (isset($images))
+        {
+            return view('pages.recettesolo',[
+                'recette'=> $recette, 'images' =>$images,
+            ]);
+        }
+        else{
+            return view('pages.recettesolo',[
+                'recette'=> $recette,
+            ]);
+        }
+
     }
+
 }
+
+
+
