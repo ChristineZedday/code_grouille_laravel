@@ -70,22 +70,6 @@ class IngredientController extends Controller
         if ($newIngredient->save()) {
 
 
-      /*      if ($request->input('insecte_id'))
-            {
-<<<<<<< HEAD
-                $ingins = new IngredientInsecte();
-                $ingins->ingredient_id = $newIngredient->id;
-                $ingins->insecte_id = $request->input('insecte_id');
-                $ingins->save();
-            }*/
-=======
-                $id = $request->insecte_id;
-
-
-                $newIngredient->Insecte()->attach($id);
-            }
->>>>>>> be7df055de20d85e89ab9da85c41bfe7e80be1d9
-
 
             $request->session()->flash('status',"ingrédient enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
@@ -162,7 +146,7 @@ class IngredientController extends Controller
 
         if ($ingredient->save()) {
 
-           //faudra voir si on peut changer l'insecte de l'ingrédient?
+        
 
             $request->session()->flash('status',"ingredient enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
