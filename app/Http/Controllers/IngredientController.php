@@ -80,8 +80,8 @@ class IngredientController extends Controller
             }*/
 =======
                 $id = $request->insecte_id;
-                
-                
+
+
                 $newIngredient->Insecte()->attach($id);
             }
 >>>>>>> be7df055de20d85e89ab9da85c41bfe7e80be1d9
@@ -128,11 +128,7 @@ class IngredientController extends Controller
         if (isset($ingredient->Insecte))
         {
 
-<<<<<<< HEAD
             $insecteId = $ingredient->Insecte->id;
-=======
-            $insecteId = $ingredient->Insecte[0]->id;
->>>>>>> be7df055de20d85e89ab9da85c41bfe7e80be1d9
 
             return view('backpages.formingredient',[ 'ingredient' => $ingredient,  'insectes' => $insectes, 'insecteId' =>$insecteId]);
         }
