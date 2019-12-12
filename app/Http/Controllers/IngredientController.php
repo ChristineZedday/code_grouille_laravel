@@ -57,14 +57,17 @@ class IngredientController extends Controller
         $validated = $request->validate([
 
             'nom_ingredient' => 'string|required',
-            'insecte_id' => 'integer'
+
 
          ]);
 
-
-
         $newIngredient = new Ingredient;
         $newIngredient->fill($validated);
+
+        if ($request->input('insecte_id'))
+        {
+            $newIngredient->insecte_id = $request['insecte_id'];
+        }
 
 
         if ($newIngredient->save()) {
@@ -112,7 +115,7 @@ class IngredientController extends Controller
         if (isset($ingredient->Insecte))
         {
 
-            $insecteId = $ingredient->Insecte->id;
+            $insecteId = $ingredient->insecte_id;
 
             return view('backpages.formingredient',[ 'ingredient' => $ingredient,  'insectes' => $insectes, 'insecteId' =>$insecteId]);
         }
@@ -137,16 +140,23 @@ class IngredientController extends Controller
         $validated = $request->validate([
 
         'nom_ingredient' => 'string|required',
-        'insecte_id' => 'integer' ]);
+         ]);
 
 
 
         $ingredient = Ingredient::find($id);
         $ingredient->fill($validated);
 
+        if ($request->input('insecte_id'))
+        {
+            $ingredient->insecte_id = $_POST['insecte_id'];
+
+        }
+
+
         if ($ingredient->save()) {
 
-        
+
 
             $request->session()->flash('status',"ingredient enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");

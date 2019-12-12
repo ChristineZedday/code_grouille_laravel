@@ -11,12 +11,12 @@ class Ingredient extends Model
 
     public function Recette()
     {
-    return $this->belongsToMany('App\Recette');
+    return $this->hasMany('App\Recette');
     }
 
 
     public function Insecte()
     {
-        return $this->belongsToMany('App\Insecte');
+        return $this->BelongsTo('App\Insecte');
     }
 }
