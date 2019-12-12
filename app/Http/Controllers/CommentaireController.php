@@ -60,7 +60,7 @@ class CommentaireController extends Controller
     public function edit($id)
     {
         $commentaire = Commentaire::find($id);
-        return view('backpages.formcommentaire', ['commentaire' => $commentaire]);
+        return view('backpages.formcommentaire', ['commentaire' => $commentaire, 'user' => $commentaire->user]);
     }
 
     /**
