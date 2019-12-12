@@ -55,43 +55,47 @@ class RecetteController extends Controller
     public function store(Request $request)
     {
 
-        dd($request->except(['_token', 'ingredient']));
+       
         $validated =  $request->validate([
             'titre_recette' => 'string|required',
             'description_recette' => 'string|required',
-            'temps_preparation_recette' =>  'integer',
-            'temps_cuisson_recette' =>  'integer',
-            'difficulte_recette' =>  'integer|required',
-            'appetence_recette' =>  'integer|required',
-            'deroule_recette' =>  'string|required',
-            'portion_recette' =>  'integer'
+           'temps_preparation_recette' =>  'integer',
+           'temps_cuisson_recette' =>  'integer',
+          'difficulte_recette' =>  'string|required',
+          'appetence_recette' =>  'string|required',
+           'deroule_recette' =>  'string|required',
+         'portion_recette' =>  'integer'
         ]);
 
-            dd($request->get('ingredient'));
+           
 
 
         $newRecette = new Recette;
         $newRecette->fill($validated);
+
+     
+
 
         $user = Auth::user();
         if (isset($user)) {
             $newRecette ->user_id = $user->id;
         }
 
+        dd ($request->get('ingredient'));
 
         //ici chercher les ingrédients dans le form
 
-        foreach ($request->get('ingredient') as $value)
-        {
-            $newRecette->ingredient()->attach($value);
-        }
+        // foreach ($request->get('ingredient') as $value)
+        // {
+        //   //  $newRecette->ingredient()->attach($value->id);
+        // }
 
         if ($newRecette->save()) {
             //une fois la recette sauvée donc a id on lui attache ingrédients et image
-            foreach ($ingredients as $ingredient)
-            {
-                $newRecette->Ingredient()->attach($ingredient->id);
-            }
+            // foreach ($ingredients as $ingredient)
+            // {
+            //     $newRecette->Ingredient()->attach($ingredient->id);
+            // }
 
             //pour l'image, une à création possibilité d'en rajouter avec modifier
 
