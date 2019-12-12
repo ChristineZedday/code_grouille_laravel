@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Recette;
-use App\IngredientRecette;
+use App\Commentaire;
 use App\Ingredient;
 use App\User;
+use Illuminate\Support\Facades\Validator;
 
 
 class RecetteController extends Controller
@@ -42,7 +43,7 @@ class RecetteController extends Controller
     public function create()
     {
         $ingredients = Ingredient::All();
-        return view('backpages.formrecette', ['ingredients' => $ingredients]);
+        return view('backpages.formrecette', ['ingredients' => $ingredients]); //pour gérer l'autocomplétion
     }
 
     /**
@@ -53,7 +54,9 @@ class RecetteController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
+
+
+        $validated =  $request->validate([
             'titre_recette' => 'string|required',
             'description_recette' => 'string|required',
             'temps_preparation_recette' =>  'integer',
@@ -62,27 +65,95 @@ class RecetteController extends Controller
             'appetence_recette' =>  'string|required',
             'deroule_recette' =>  'string|required',
             'portion_recette' =>  'integer',
-            'user_id' => 'integer',
+
         ]);
 
 
 
-        // $validated['description_recette'] = str_replace("\n", "<br>", $validated['description_recette']);
-        // $validated['deroule_recette'] = str_replace("\n", "<br>", $validated['deroule_recette']);
+
         $newRecette = new Recette;
         $newRecette->fill($validated);
 
+        $user = Auth::user();
+        if (isset($user)) {
+            $newRecette ->user_id = $user->id;
+        }
+
+
+        //ici chercher les ingrédients dans le form
+
+        foreach ($request->get('ingredient') as $value)
+        {
+            $newRecette->ingredient()->attach($value);
+        }
 
         if ($newRecette->save()) {
-
-            if ($request->input('ingredient_id'))
-
+            //une fois la recette sauvée donc a id on lui attache ingrédients et image
+            foreach ($ingredients as $ingredient)
             {
-                $recing = new IngredientRecette();
-                $recing->recette_id = $newRecette->id;
-                $recing->ingredient_id = $request->input('ingredient_id');
-                $recing->save();
+                $newRecette->Ingredient()->attach($ingredient->id);
             }
+
+            //pour l'image, une à création possibilité d'en rajouter avec modifier
+
+            $chemin_dossier=public_path('') .'/img/';
+
+            if (isset($_FILES['image1']['name']))
+            {
+
+                $uploaded = $_FILES['image1']['name'];
+
+
+
+
+                if (file_exists ($chemin_dossier.$uploaded ) )
+                {
+                     //chercher dans la base, le mettre ds images si pas encore, et ajouter recette_id dans la table pivot
+
+                     $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
+                            if (isset($image))
+                            {
+                                $imid = $image->id;
+
+                            }
+                            else{
+                                $image = new Image(); //on rentre le fichier dans la table image
+                                $image->chemin_image = $uploaded;
+                                $image->save();
+
+                            }
+
+
+
+                        $newRecette->Image()->attach($image->id);
+                }
+
+                else{ //une image qui vient de l'extérieur (pas dans public)
+                    $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+
+                    if($extension=="jpg" ||
+                        $extension=="png" ||
+                        $extension=="gif")
+                        {
+
+
+                            if(is_uploaded_file($_FILES['image1']['tmp_name']))
+                                        {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
+                                            {   $image = New Image;
+                                                $image->chemin_image =  $uploaded;
+
+                                                $image->save();
+
+                                                $newRecette->Image()->attach($image->id);
+
+
+                                            }
+
+                                        }
+                        }
+                     } //fin else: file existe pas
+            } // fin on a uploadé image 1
+
 
             $request->session()->flash('status',"recette enregistrée avec succès");
             $request->session()->flash('alert-class',"alert-success");
@@ -100,6 +171,8 @@ class RecetteController extends Controller
     {
         $recette = Recette::find($id);
 
+        $commentaires = $recette->Commentaire->get();
+
         if (!$recette) {
 
             return redirect()->action('RecetteController@index');
@@ -107,7 +180,7 @@ class RecetteController extends Controller
 
 
         return view('backpages.showrecette',[
-            'recette'=> $recette,
+            'recette'=> $recette, 'commentaires'=>$commentaires
         ]);
     }
 
