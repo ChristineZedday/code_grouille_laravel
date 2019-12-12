@@ -15,7 +15,7 @@ class Recette extends Model {
 
     public function Ingredient()
     {
-        return $this->belongsTomany('App\Ingredient');
+        return $this->belongsToMany('App\Ingredient');
     }
 
     public function Commentaire()
@@ -23,9 +23,9 @@ class Recette extends Model {
         return $this->hasMany('App\Commentaire');
     }
 
-    public function ImageRecette()
+    public function Image()
     {
-        return $this->belongsTo('App\Image');
+        return $this->belongsToMany('App\Image');
     }
 
     public function SetUserId()
