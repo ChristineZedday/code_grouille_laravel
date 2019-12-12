@@ -114,7 +114,7 @@ class InsecteController extends Controller
 
                                                 $image->save();
 
-                                                $newinsecte->Image()->attach($image->id);
+                                                $newInsecte->Image()->attach($image->id);
 
 
                                             }

@@ -72,11 +72,19 @@ class IngredientController extends Controller
 
       /*      if ($request->input('insecte_id'))
             {
+<<<<<<< HEAD
                 $ingins = new IngredientInsecte();
                 $ingins->ingredient_id = $newIngredient->id;
                 $ingins->insecte_id = $request->input('insecte_id');
                 $ingins->save();
             }*/
+=======
+                $id = $request->insecte_id;
+                
+                
+                $newIngredient->Insecte()->attach($id);
+            }
+>>>>>>> be7df055de20d85e89ab9da85c41bfe7e80be1d9
 
 
             $request->session()->flash('status',"ingrédient enregistré avec succès");
@@ -120,7 +128,11 @@ class IngredientController extends Controller
         if (isset($ingredient->Insecte))
         {
 
+<<<<<<< HEAD
             $insecteId = $ingredient->Insecte->id;
+=======
+            $insecteId = $ingredient->Insecte[0]->id;
+>>>>>>> be7df055de20d85e89ab9da85c41bfe7e80be1d9
 
             return view('backpages.formingredient',[ 'ingredient' => $ingredient,  'insectes' => $insectes, 'insecteId' =>$insecteId]);
         }
