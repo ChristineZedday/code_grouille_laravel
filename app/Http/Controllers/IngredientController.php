@@ -140,12 +140,19 @@ class IngredientController extends Controller
         $validated = $request->validate([
 
         'nom_ingredient' => 'string|required',
-        'insecte_id' => 'integer' ]);
+         ]);
 
 
 
         $ingredient = Ingredient::find($id);
         $ingredient->fill($validated);
+
+        if ($request->input('insecte_id'))
+        {
+            $ingredient->insecte_id = $_POST['insecte_id'];
+
+        }
+
 
         if ($ingredient->save()) {
 
