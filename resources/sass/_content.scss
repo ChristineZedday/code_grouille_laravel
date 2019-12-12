@@ -31,10 +31,18 @@
     .recetteline{
         margin-bottom: 5%;
 
+        img{
+            width: 100px;
+            height: 20px;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
         a{
             margin-top:20px;
             margin-bottom:20px;
         }
+
     }
 
     //_____________________________________________________END RECETTES_______________________________________________________
@@ -194,20 +202,19 @@
 
   // ____________________________________________________RECETTES_________________________________________________________
 
-        .recetteline{
+    .recetteline{
+        margin-bottom: 5%;
+
+        img{
+            width: 100px;
+            height: 20px;
+            margin-top: 5%;
             margin-bottom: 5%;
+        }
 
-            a{
-                margin-top:20px;
-                margin-bottom:20px;
-
-
-            img{
-                width: 100px;
-                height: 20px;
-                margin-top: 5%;
-                margin-bottom: 5%;
-            }
+        a{
+            margin-top:20px;
+            margin-bottom:20px;
         }
     }
   // ____________________________________________________RECETTES_________________________________________________________
