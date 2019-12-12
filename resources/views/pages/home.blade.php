@@ -20,7 +20,7 @@
         <img class='imgarticle' src="../img/img1.jpg"/>
         <div class='article'>
             <h3 class='subarticle'>titre 1</h3>
-            <p>{{$lastactu->texte}} </p>
+            {{-- <p>{{$lastactu->texte}} </p> --}}
             <a hre=''>Read more</a>
         </div>
     </article>

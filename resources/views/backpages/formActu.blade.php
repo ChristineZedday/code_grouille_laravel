@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class='backform'>
+<div class='backform content'>
 
     <form action="@isset($actu){{route('actu.update', $actu->id)}}@else{{route('actu.store')}}@endisset" method="POST" enctype="multipart/form-data">
 						@csrf

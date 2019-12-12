@@ -1,0 +1,20 @@
+#insectesview{
+    padding-top: 5%;
+
+    .imgsingle{
+        float:left;
+        width:40%;
+    }
+    .infosingle{
+        float:left;
+        width:60%;
+        margin-top: 5%;
+
+        img{
+            width: 100px;
+            height: 20px;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+    }
+}

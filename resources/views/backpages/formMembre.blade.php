@@ -2,12 +2,11 @@
 
 @section('content')
 
-<div id='formMembre'>
+<div id='formMembre' class='content'>
 
     <form action="@isset($user){{route('membre.update', $user->id)}}@else{{route('membre.store')}}@endisset" method="POST">
 						@csrf
 						@isset($user) @method('PUT') @endisset
-      <img class='pict' id='close' src="{{asset('img/picto/cross.png')}}"/>
         @if (isset($user))
             <h2>Modification d'un membre</h2>
         @else

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id='forminfo'>
+<div id='forminfo' class='content'>
 
     <form action="@isset($info){{route('info.update', $info->id)}}@else{{route('info.store')}}@endisset" method="POST">
 						@csrf
