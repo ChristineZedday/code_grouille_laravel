@@ -13,7 +13,6 @@
         <li><a href='/back/membres'>Gestion des Membres</a></li>
         <li><a href='/back/infos'>A propos</a></li>
         <li><a href='/back/infos'>Mentions légales</a></li>
-        <li><a href='/back/partenaires'>Partenaires</a></li>
 
     </span>
     </ul>

@@ -3,6 +3,10 @@
     bottom: 0;
 }
 
+.float{
+    float:left;
+}
+
 footer {
     border-top: solid 4px sandybrown;
     background-color: $blue;
@@ -71,6 +75,10 @@ footer {
 .fixed{
     position: fixed;
     bottom: 0;
+}
+
+.float{
+    float:left;
 }
 
 footer {

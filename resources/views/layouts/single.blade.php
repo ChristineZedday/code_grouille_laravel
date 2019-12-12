@@ -18,11 +18,11 @@
         @include('includes.header')
     </div>
 
-    <div class='content'>
-     @yield('content')
+    <div class='content single'>
+         @yield('content')
     </div>
 
-    <footer class='fixed'>
+    <footer class='float'>
         @include('includes.footer')
     </footer>
 

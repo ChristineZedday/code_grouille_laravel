@@ -105,7 +105,6 @@ class RecetteController extends Controller
             return redirect()->action('RecetteController@index');
         }
 
-
         return view('backpages.showrecette',[
             'recette'=> $recette,
         ]);

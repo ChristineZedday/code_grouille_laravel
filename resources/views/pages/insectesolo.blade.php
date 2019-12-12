@@ -1,5 +1,6 @@
-@extends('layouts.connect')
-hhhééééé
+@extends('layouts.single')
+
+<h1 id='titlemob'>Grouille</h1>
 
 @section('content')
     <section id='insectesview'>

@@ -28,25 +28,28 @@ class frontActuController extends Controller
        return view('pages.actus',['actus' => $actus]);
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        $actu = Actu::find($id);
+        $insecte = Actu::find($id);
 
-        if (!$actu) {
+        if (!$insecte) {
 
-            return redirect()->action('frontActuController@index');
+            return redirect()->action('InsecteController@index');
         }
 
+        $images = $insecte->Image;
 
-        return view('pages.actus',[
-            'actu'=> $actu, 'images' => $actu->image()->get(),
-        ]);
+        if (isset($images))
+        {
+            return view('pages.actusolo',[
+                'insecte'=> $insecte, 'images' =>$images,
+            ]);
+        }
+        else{
+            return view('pages.actusolo',[
+                'insecte'=> $insecte,
+            ]);
+        }
+
     }
 }
