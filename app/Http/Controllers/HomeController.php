@@ -25,4 +25,13 @@ class HomeController extends Controller
     {
         return view('pages.home');
     }
+
+    public function lastactu()
+    {
+        // $lastactu = Actu::orderBy('created_at', 'desc')->get();
+        // return view('pages.home');
+        $lastactu = DB::table('actus')
+        ->latest();
+    }
+
 }

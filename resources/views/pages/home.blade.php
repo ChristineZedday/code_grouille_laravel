@@ -20,7 +20,7 @@
         <img class='imgarticle' src="../img/img1.jpg"/>
         <div class='article'>
             <h3 class='subarticle'>titre 1</h3>
-            <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Curabitur aliquet quam id dui posuere blandit. Vivamus suscipit tortor eget felis porttitor volutpat. </p>
+            {{-- <p>{{$lastactu->texte}} </p> --}}
             <a hre=''>Read more</a>
         </div>
     </article>

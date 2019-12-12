@@ -132,36 +132,6 @@ class InsecteController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $insecte = Insecte::find($id);
-
-        if (!$insecte) {
-
-            return redirect()->action('InsecteController@index');
-        }
-
-        $images = $insecte->Image;
-
-        if (isset($images))
-        {
-            return view('backpages.showInsecte',[
-                'insecte'=> $insecte, 'images' =>$images,
-            ]);
-        }
-        else{
-            return view('backpages.showInsecte',[
-                'insecte'=> $insecte,
-            ]);
-        }
-
-    }
 
     /**
      * Show the form for editing the specified resource.

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div id='formCommentaire'>
+<div id='formCommentaire' class='content'>
 
     <form action="@isset($commentaire){{route('commentaire.update', $commentaire->id)}}@else{{route('commentaire.store')}}@endisset" method="POST">
 						@csrf

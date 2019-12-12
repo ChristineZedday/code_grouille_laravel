@@ -1,17 +1,13 @@
 @extends('../layouts.backLayout')
 
 @section('content')
-<div class="container">
-	<div class="row justify-content-center">
-        <div class="col-md-12">
 
+<div class='content'>
 
 <form action="@isset($ingredient) {{route('ingredient.update', $ingredient->id)}}
                 @else {{route('ingredient.store')}} @endisset" method="POST">
 						@csrf
 						@isset($ingredient) @method('PUT') @endisset
-
-    <img class='pict' id='close' src="../img/picto/cross.png"/>
 
     @if (isset($ingredient))
 							<h2>Modification d'un ingrédient</h2>
