@@ -27,7 +27,7 @@
         <label><h4>Ingrédients de la recette</h4></label>
         @isset($recette)
             @foreach ($ingredients as $ingredient)
-            <input type="text" class="form-control"value="@isset($recette){{$recette->ingredient}}@endisset" name='ingredient[]' multiple="multiple" required>
+            <input type="text" class="form-control"value="@isset($recette){{$recette->Ingredient->nom_ingredient}}@endisset" name='ingredient[]' multiple="multiple" required>
             @endforeach
         @else
         <input type="text" class="form-control" @error ('ingredient') is-invalid @enderror name='ingredient[]' id='original' multiple="multiple" required>

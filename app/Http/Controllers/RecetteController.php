@@ -81,14 +81,27 @@ class RecetteController extends Controller
             $newRecette ->user_id = $user->id;
         }
 
-        dd ($request->get('ingredient'));
+        
 
         //ici chercher les ingrédients dans le form
 
-        // foreach ($request->get('ingredient') as $value)
-        // {
-        //   //  $newRecette->ingredient()->attach($value->id);
-        // }
+        $i =0;
+
+        foreach ($request->get('ingredient') as $value)
+        {
+            $nom_ingredient = $value[$i];
+            $i++;
+            $ingredient = Ingredient::where('nom_ingredient', $nom_ingredient)->first();
+            if (isset($ingredient))
+           {
+                $id = $ingredient->id;
+            $newRecette->ingredient()->attach($id);
+
+           }
+            else{
+                //créer l'élément!
+            }
+        }
 
         if ($newRecette->save()) {
             //une fois la recette sauvée donc a id on lui attache ingrédients et image
