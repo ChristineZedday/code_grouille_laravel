@@ -17,6 +17,6 @@ class Ingredient extends Model
 
     public function Insecte()
     {
-        return $this->hasOne('App\Insecte');
+        return $this->BelongsTo('App\Insecte');
     }
 }

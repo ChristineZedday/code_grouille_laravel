@@ -115,7 +115,7 @@ class IngredientController extends Controller
         if (isset($ingredient->Insecte))
         {
 
-            $insecteId = $ingredient->Insecte->id;
+            $insecteId = $ingredient->insecte_id;
 
             return view('backpages.formingredient',[ 'ingredient' => $ingredient,  'insectes' => $insectes, 'insecteId' =>$insecteId]);
         }
