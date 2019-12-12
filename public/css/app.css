@@ -701,6 +701,13 @@
     margin-bottom: 5%;
   }
 
+  .content .recetteline img {
+    width: 100px;
+    height: 20px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+
   .content .recetteline a {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -848,16 +855,16 @@
     margin-bottom: 5%;
   }
 
-  .content .recetteline a {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  .content .recetteline a img {
+  .content .recetteline img {
     width: 100px;
     height: 20px;
     margin-top: 5%;
     margin-bottom: 5%;
+  }
+
+  .content .recetteline a {
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .content article {
@@ -2043,6 +2050,11 @@ div[contenteditable] img {
     text-align: center;
   }
 
+  #insectesfront figure a {
+    text-decoration: none;
+    color: black;
+  }
+
   #insectesfront figure p {
     max-width: 70%;
     font-size: 14px;
@@ -2072,6 +2084,11 @@ div[contenteditable] img {
     text-align: center;
   }
 
+  #partners figure a {
+    text-decoration: none;
+    color: black;
+  }
+
   #partners figure p {
     max-width: 70%;
     font-size: 14px;
@@ -2096,6 +2113,11 @@ div[contenteditable] img {
 
   #insectesfront figure {
     text-align: center;
+  }
+
+  #insectesfront figure a {
+    text-decoration: none;
+    color: black;
   }
 
   #insectesfront figure p {
