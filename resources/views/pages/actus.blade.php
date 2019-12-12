@@ -25,8 +25,6 @@
             <a href=''>Read more</a>
         </div>
     </article>
-
-    </table>
     @endforeach
 
 @endsection

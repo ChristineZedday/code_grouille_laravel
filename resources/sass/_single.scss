@@ -1,0 +1,72 @@
+@media screen and (max-width: 800px) {
+    .single{
+        float: left;
+        height: auto;
+        position: inherit;
+
+
+        #insectesview{
+        padding-top: 20%;
+
+        .imgsingle{
+            float: left;
+            width: 100%;
+            padding: 15%;
+
+            img{
+                width:100%;
+            }
+        }
+
+        .infosingle{
+            float:left;
+            width:100%;
+            margin-top: 5%;
+            padding: 13%;
+
+            img{
+                width: 100px;
+                height: 20px;
+                margin-top: 5%;
+                margin-bottom: 5%;
+            }
+        }
+    }
+}
+}
+
+@media screen and (min-width: 800px) {
+
+    .single{
+        float: left;
+        height: auto;
+        position: inherit;
+        margin-left: 8%;
+
+        #insectesview{
+            padding-top: 5%;
+
+        .imgsingle{
+            float:left;
+            width:40%;
+
+            img{
+                width:100%;
+            }
+        }
+
+        .infosingle{
+            float:left;
+            width:60%;
+            margin-top: 5%;
+
+            img{
+                width: 100px;
+                height: 20px;
+                margin-top: 5%;
+                margin-bottom: 5%;
+            }
+        }
+    }
+}
+}

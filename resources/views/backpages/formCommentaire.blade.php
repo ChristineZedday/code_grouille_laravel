@@ -2,13 +2,13 @@
 
 @section('content')
 
-<div id='formCommentaire'>
+<div id='formCommentaire' class='content'>
 
     <form action="@isset($commentaire){{route('commentaire.update', $commentaire->id)}}@else{{route('commentaire.store')}}@endisset" method="POST">
 						@csrf
 						@isset($commentaire) @method('POST') @endisset
 
-        <h2>Modification d'un commentaire par le modérateur sur la recette :  {{ $commentaire->recette->titre_recette }} </h2>
+        <h3>Modification d'un commentaire de {{$user->name}} par le modérateur sur la recette :  {{ $commentaire->recette->titre_recette }} </h3>
                         <img class='pict' id='close' src="{{asset('img/picto/cross.png')}}"/>
 
 
@@ -16,7 +16,7 @@
 
             <div class="YSeditor">
                 <textarea rows="20" cols="100" class="form-control" @error('texte') is-invalid @enderror name="texte" required>@isset($commentaire)
-                {{$commentaire->texte}}@else{{ old('texte') }}@endisset</textarea>
+                {!!$commentaire->texte!!}@else{{ old('texte') }}@endisset</textarea>
             </div>
 
             @error('texte')

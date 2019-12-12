@@ -15,13 +15,14 @@
 
 
     @foreach($recettes as $recettes)
-    <article>
+    <div class='recetteline'>
         <img class='lineleft' src="../img/picto/line.png"/>
-        <h2 class='title'>{{ $recettes->titre_recette }}</h2>
+        <a href="{{route('recette.show',$recettes->id)}}">
+            <h2 class='title'>{{ $recettes->titre_recette }}</h2>
+        </a>
         <p><?php echo ($recettes->description_recette) ?></p>
         <img class='imgarticle' src="{{ $recettes->img_recette }}"/>
-        <button><a href="{{route('recette.show',$recette->id)}}" >Voir</a></button>
-    </article>
+    </div>
     @endforeach
 
 @endsection

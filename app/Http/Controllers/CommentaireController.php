@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\CommentaireRecette;
+use App\Commentaire;
 //appeler le modèle
 
 class CommentaireController extends Controller
@@ -21,7 +21,7 @@ class CommentaireController extends Controller
      */
     public function index(Request $request)
     {
-        $commentaires = CommentaireRecette::all();
+        $commentaires = Commentaire::all();
 
 
 
@@ -38,7 +38,7 @@ class CommentaireController extends Controller
      */
     public function show($id)
     {
-        $commentaire =CommentaireRecette::find($id);
+        $commentaire =Commentaire::find($id);
 
         if (!$commentaire) {
 
@@ -59,8 +59,8 @@ class CommentaireController extends Controller
      */
     public function edit($id)
     {
-        $commentaire = CommentaireRecette::find($id);
-        return view('backpages.formcommentaire', ['commentaire' => $commentaire]);
+        $commentaire = Commentaire::find($id);
+        return view('backpages.formcommentaire', ['commentaire' => $commentaire, 'user' => $commentaire->user]);
     }
 
     /**
@@ -79,7 +79,7 @@ class CommentaireController extends Controller
 
         ]);
 
-        $commentaire = CommentaireRecette::find($id);
+        $commentaire = Commentaire::find($id);
         $commentaire->fill($validated);
 
         if ($commentaire->save()) {

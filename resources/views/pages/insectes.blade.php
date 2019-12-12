@@ -16,12 +16,36 @@
 
     <section id='insectesfront'>
 
-        <figure>
-            <img src="../img/1.png"/>
-            <h3>Insecte 1</h3>
-            <p>Fuloriñ a ra peogwir ne fell ket d'ur gizennad blev reut plegañ hervez e c'hoant.</p>
-        </figure>
-        <figure>
+{{--
+         <a href=''>
+        <div class='imgsingle'>
+            @isset($images)
+            @foreach ($images as $image)
+                <img src="{{URL::asset('/img/'.$image->chemin_image)}}"/>
+            @endforeach
+        </div>
+        </a> --}}
+
+
+        @foreach($insectes as $insecte)
+            <figure><a href="{{route('insecte.show',$insecte->id)}}">
+                @php
+                    $images = $insecte->Image;
+                @endphp
+                @isset($images)
+                    @foreach ($images as $image)
+                        <img src="{{URL::asset('/img/'.$image->chemin_image)}}"/>
+                    @endforeach
+                @else
+                    <img src="/img/1.png"/>
+                @endisset
+                <h3 class='subarticle'>{{$insecte->nom_latin_insecte}}</h3>
+                <p>{{$insecte->ordre_insecte}}</p>
+            </a></figure>
+        @endforeach
+
+
+        {{-- <figure>
             <img src="../img/2.png"/>
             <h3>Insecte 1</h3>
             <p>Fuloriñ a ra peogwir ne fell ket d'ur gizennad blev reut plegañ hervez e c'hoant.</p>
@@ -46,7 +70,8 @@
             <img src="../img/6.png"/>
             <h3>Insecte 1</h3>
             <p>Fuloriñ a ra peogwir ne fell ket d'ur gizennad blev reut plegañ hervez e c'hoant.</p>
-        </figure>
+        </figure> --}}
 
     </section>
-    @endsection
+
+@endsection

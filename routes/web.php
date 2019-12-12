@@ -41,9 +41,15 @@ Route::get('/insectes', function () {
 
 Route::get('/actus', 'frontActuController@index')->name('actus');
 
+Route::get('/actus/show/{id}', 'frontActuController@show')->name('actu.show');
+
+Route::get('/insectes', 'frontInsecteController@index')->name('insectes');
+
+Route::get('/insectes/show/{id}', 'frontInsecteController@show')->name('insecte.show');
+
 Route::get('/recettes', 'frontRecetteController@index')->name('recettes');
 
-Route::get('/recettes/show/{id}', 'frontRecetteController@show')->name('recette');
+Route::get('/recettes/show/{id}', 'frontRecetteController@show')->name('recette.show');
 
 Route::get('/mentions', 'frontInfoController@showmentions');
 
@@ -80,6 +86,7 @@ Route::get('/favoris', function () {
 Route::get('/postrecette', function () {
     return view('membres.postrecette');
 });
+
 
 
 //Auth::routes();
