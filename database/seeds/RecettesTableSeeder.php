@@ -18,6 +18,8 @@ class RecettesTableSeeder extends Seeder
             'temps_cuisson_recette' => "0",
             'difficulte_recette' => "1",
             'appetence_recette' => "1",
+            'created_at' => "2019-12-12 13:55:26",
+            'updated_at' => "2019-12-12 13:55:26",
             'deroule_recette' => "10 g d’insectes déshydratés
             1 concombre
             Du fromage blanc
@@ -44,6 +46,8 @@ class RecettesTableSeeder extends Seeder
             'temps_cuisson_recette' => "30",
             'difficulte_recette' => "1",
             'appetence_recette' => "1",
+            'created_at' => "2019-12-12 13:55:26",
+            'updated_at' => "2019-12-12 13:55:26",
             'deroule_recette' => "un rouleau de pâte brisée
             10 g d’insectes déshydratés
             3 oeufs
@@ -68,6 +72,8 @@ class RecettesTableSeeder extends Seeder
                 'temps_cuisson_recette' => "10",
                 'difficulte_recette' => "1",
                 'appetence_recette' => "1",
+                'created_at' => "2019-12-12 13:55:26",
+                'updated_at' => "2019-12-12 13:55:26",
                 'deroule_recette' => "Pour les pommes
 
                 4 pommes

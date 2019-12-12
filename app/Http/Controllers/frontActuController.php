@@ -28,25 +28,4 @@ class frontActuController extends Controller
        return view('pages.actus',['actus' => $actus]);
     }
 
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $actu = Actu::find($id);
-
-        if (!$actu) {
-
-            return redirect()->action('frontActuController@index');
-        }
-
-
-        return view('pages.actus',[
-            'actu'=> $actu, 'images' => $actu->image()->get(),
-        ]);
-    }
 }

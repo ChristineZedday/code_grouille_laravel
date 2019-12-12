@@ -10,9 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'HomeController@lastactu');
 
 Route::get('/home', function () {
     return view('pages.home');
@@ -86,5 +84,3 @@ Route::get('/postrecette', function () {
 
 //Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
-//remplacera la première route qd homeController sera fonctionnel
