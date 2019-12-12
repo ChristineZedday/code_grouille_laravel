@@ -19,7 +19,6 @@
         <h2 class='title'>Dernière actu</h2>
         <img class='imgarticle' src="../img/img1.jpg"/>
         <div class='article'>
-<<<<<<< HEAD
             <h3 class='subarticle'>{{ $lastactu->titre_actu }}</h3>
             <p>{{ $lastactu->texte_actu }} </p>
 
@@ -27,13 +26,6 @@
 
 
             <a href='{{'actus'}}'>Voir d'autres actus</a>
-=======
-            <h3 class='subarticle'>titre 1</h3>
-            {{-- <p>{{$lastactu->texte}} </p> --}}
-            <a hre=''>Read more</a>
-        </div>
-    </article>
->>>>>>> d688893ce26e090a0a1cb5d772c8759530856813
 
         </div>
 
