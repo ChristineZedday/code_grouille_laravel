@@ -45,7 +45,7 @@ Route::get('/actus', 'frontActuController@index')->name('actus');
 
 Route::get('/insectes', 'frontInsecteController@index')->name('insectes');
 
-Route::get('/insectes/show/{id}', 'FrontInsecteController@show')->name('insecte.show');
+Route::get('/insectes/show/{id}', 'frontInsecteController@show')->name('insecte.show');
 
 Route::get('/recettes', 'frontRecetteController@index')->name('recettes');
 

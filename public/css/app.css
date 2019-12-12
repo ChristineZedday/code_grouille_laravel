@@ -2317,6 +2317,28 @@ div[contenteditable] img {
   }
 }
 
+#insectesview {
+  padding-top: 5%;
+}
+
+#insectesview .imgsingle {
+  float: left;
+  width: 40%;
+}
+
+#insectesview .infosingle {
+  float: left;
+  width: 60%;
+  margin-top: 5%;
+}
+
+#insectesview .infosingle img {
+  width: 100px;
+  height: 20px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
 * {
   margin: 0;
   padding: 0;

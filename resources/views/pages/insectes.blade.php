@@ -28,7 +28,7 @@
 
 
         @foreach($insectes as $insecte)
-            <figure>
+            <figure><a href="{{route('insecte.show',$insecte->id)}}">
                 @php
                     $images = $insecte->Image;
                 @endphp
@@ -41,8 +41,7 @@
                 @endisset
                 <h3 class='subarticle'>{{$insecte->nom_latin_insecte}}</h3>
                 <p>{{$insecte->ordre_insecte}}</p>
-                <button><a href="{{route('insecte.show',$insecte->id)}}">Voir</a></button>
-            </figure>
+            </a></figure>
         @endforeach
 
 

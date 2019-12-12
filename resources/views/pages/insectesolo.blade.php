@@ -1,4 +1,5 @@
 @extends('layouts.connect')
+hhhééééé
 
 @section('content')
     <section id='insectesview'>

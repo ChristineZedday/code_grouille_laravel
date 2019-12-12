@@ -1,4 +1,4 @@
-@extends('layouts.connect')
+{{-- @extends('layouts.connect')
 @section('content')
     <section id='insectesview'>
             <div class='imgsingle'>
@@ -16,4 +16,4 @@
                 <p><?php echo($insecte->description_insecte) ?></p>
             </div>
     </section>
-@endsection
+@endsection --}}
