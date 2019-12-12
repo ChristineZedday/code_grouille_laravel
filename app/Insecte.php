@@ -10,7 +10,7 @@ class Insecte extends Model
 
     public function Ingredient()
     {
-        return $this->belongsToMany('App\Ingredient');
+        return $this->hasMany('App\Ingredient');
     }
 
     public function Image()

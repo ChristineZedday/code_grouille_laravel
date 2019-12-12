@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
-use App\IngredientInsecte;
 use App\Insecte;
 use App\Ingredient;
 
@@ -58,6 +57,7 @@ class IngredientController extends Controller
         $validated = $request->validate([
 
             'nom_ingredient' => 'string|required',
+            'insecte_id' => 'integer'
 
          ]);
 
@@ -70,13 +70,13 @@ class IngredientController extends Controller
         if ($newIngredient->save()) {
 
 
-            if ($request->input('insecte_id'))
+      /*      if ($request->input('insecte_id'))
             {
                 $ingins = new IngredientInsecte();
                 $ingins->ingredient_id = $newIngredient->id;
                 $ingins->insecte_id = $request->input('insecte_id');
                 $ingins->save();
-            }
+            }*/
 
 
             $request->session()->flash('status',"ingrédient enregistré avec succès");
@@ -120,7 +120,7 @@ class IngredientController extends Controller
         if (isset($ingredient->Insecte))
         {
 
-            $insecteId = $ingredient->Insecte->insecte_id;
+            $insecteId = $ingredient->Insecte->id;
 
             return view('backpages.formingredient',[ 'ingredient' => $ingredient,  'insectes' => $insectes, 'insecteId' =>$insecteId]);
         }
@@ -144,7 +144,8 @@ class IngredientController extends Controller
 
         $validated = $request->validate([
 
-        'nom_ingredient' => 'string|required' ]);
+        'nom_ingredient' => 'string|required',
+        'insecte_id' => 'integer' ]);
 
 
 
