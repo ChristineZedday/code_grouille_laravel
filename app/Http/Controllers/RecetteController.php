@@ -55,20 +55,19 @@ class RecetteController extends Controller
     public function store(Request $request)
     {
 
-
+        dd($request->except(['_token', 'ingredient']));
         $validated =  $request->validate([
             'titre_recette' => 'string|required',
             'description_recette' => 'string|required',
             'temps_preparation_recette' =>  'integer',
             'temps_cuisson_recette' =>  'integer',
-            'difficulte_recette' =>  'string|required',
-            'appetence_recette' =>  'string|required',
+            'difficulte_recette' =>  'integer|required',
+            'appetence_recette' =>  'integer|required',
             'deroule_recette' =>  'string|required',
-            'portion_recette' =>  'integer',
-
+            'portion_recette' =>  'integer'
         ]);
 
-
+            dd($request->get('ingredient'));
 
 
         $newRecette = new Recette;

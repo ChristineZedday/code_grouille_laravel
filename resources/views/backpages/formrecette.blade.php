@@ -115,6 +115,11 @@
             @enderror
         </div>
 
+        <div class='form-group'>
+            <label>Image  (optionnelle)</label>
+            <input id="image1" type="file" name="image1" value="" />
+            </div>
+
          <input type="submit" id='submit' value='Enregistrer' >
 
 
