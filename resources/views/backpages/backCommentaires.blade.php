@@ -28,7 +28,7 @@
                 <tbody>
                 @foreach ($commentaires as $commentaire_recette)
                     <tr>
-                        <td class="align-middle"> {{ $commentaire_recette->texte }}</td>
+                        <td class="align-middle"> {!! $commentaire_recette->texte !!}</td>
                         <td class="align-middle"> {{ $commentaire_recette->recette->titre_recette }}</td>
                         <td class="align-middle"> {{ $commentaire_recette->user->name }}</td>
                         <td class="align-middle"> {{  date('d/m/Y', strtotime($commentaire_recette->created_at)) }}</td>

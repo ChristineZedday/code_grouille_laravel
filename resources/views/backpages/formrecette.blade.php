@@ -23,6 +23,24 @@
             @enderror
         </div>
 
+        <div class='form-group' id="ingredients">
+        <label><h4>Ingrédients de la recette</h4></label>
+        @isset($recette)
+            @foreach ($ingredients as $ingredient)
+            <input type="text" class="form-control"value="@isset($recette){{$recette->ingredient}}@endisset" name='ingredient[]' multiple="multiple" required>
+            @endforeach
+        @else
+        <input type="text" class="form-control" @error ('ingredient') is-invalid @enderror name='ingredient[]' id='original' multiple="multiple" required>
+        @error('titre_recette')
+        <div class="invalid-feedback">
+        {{ $message }}
+        </div>
+        <br/>
+        @enderror
+        </div>
+        <input type="button" value="Ajouter un ingrédient" onClick="ajoute()"/>
+
+        @endisset
 
         <div class='form-group'>
             <label><h4>Description de la recette</h4></label>
@@ -31,14 +49,7 @@
             <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
-{{--
-        <div class='form-group'>
-            <label><h3>Ingredients</h3></label>
 
-            @foreach ($ingredients as $ingredient)
-            <input type="text" class="form-control"value="@isset($recette){{$recette->ingredient_recette}}@endisset" name='ingredient_recette[]' required>
-            @endforeach
-        </div> --}}
 
         <div class='form-group'>
             <label><p>Temps de préparation en minutes</p></label>
@@ -93,7 +104,7 @@
         <div class='form-group'>
             <label><h3>Déroulé</h3></label>
             <div class="YSeditor">
-                <textarea rows="20" cols="100" class="form-control" @error('deroule_recette') is-invalid @enderror name="deroule_recette" required>@isset($recette)
+                <textarea rows="20" cols="100" class="form-control" @error('deroule_recette') is-invalid @enderror  name="deroule_recette" required>@isset($recette)
                     {{$recette->deroule_recette}}@else{{ old('deroule_recette') }}@endisset</textarea>
             </div>
 
@@ -109,4 +120,15 @@
 
     </form>
 </div>
+
+
+<script>
+function ajoute()
+{
+   var input = document.getElementById('original');
+   var newInput = input.cloneNode();
+   newInput.id = '';
+   input.parentElement.appendChild(newInput);
+}
+</script>
 @endsection
