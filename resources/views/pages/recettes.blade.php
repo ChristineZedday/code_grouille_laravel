@@ -17,7 +17,16 @@
 
 @foreach($recettes as $recettes)
     <div class='recetteline'>
-        <a id="addbookmark" class="empty" href="{{route('bookmarks',$bookmarks->id)}}" rel="sidebar" title="bookmark this page"></a>
+        @auth
+            @if (Auth::user()->hasBookmark($recettes->id))
+                <a id="addbookmark" class="full" href="" title="bookmark this page"></a>
+            @else
+                <a id="addbookmark" class="empty" href="" title="bookmark this page"></a>
+            @endif
+        @else
+            <a id="addbookmark" class="empty" href="" title="bookmark this page"></a>
+        @endauth
+
         <img class='lineleft' src="../img/picto/line.png"/>
         <a href="{{route('recette.show',$recettes->id)}}">
             <h2 class='title'>{{ $recettes->titre_recette }}</h2>

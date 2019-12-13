@@ -57,6 +57,8 @@ Route::get('/apropos', 'frontInfoController@showapropospara1');
 
 Route::get('/favoris', 'RecetteUserController@index')->name('bookmarks');
 
+// Route::get('/recettes', 'RecetteController@add_bookmark')->name('addbookmark');
+
 // Route::get('/favoris/show/{id}', 'RecetteUserController@show')->name('bookmark.show');
 
 // Route::get('/FAQ', function () {

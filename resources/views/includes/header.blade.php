@@ -1,6 +1,6 @@
-<div id='membre'>
+{{-- <div id='membre'>
     @include('includes.membreform')
-</div>
+</div> --}}
 
 <section>
 
