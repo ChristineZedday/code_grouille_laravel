@@ -56,6 +56,12 @@ Route::get('/mentions', 'frontInfoController@showmentions');
 Route::get('/apropos', 'frontInfoController@showapropospara1');
 
 Route::get('/favoris', 'RecetteUserController@index')->name('bookmarks');
+Route::get('/favoris/add/{id}', 'RecetteUserController@add')->name('add-bookmarks');
+Route::get('/favoris/remove/{id}', 'RecetteUserController@remove')->name('remove-bookmarks');
+
+// Route::get('/favoris', function () {
+//     return view('pages.favoris');
+// })->name('favoris');
 
 // Route::get('/recettes', 'RecetteController@add_bookmark')->name('addbookmark');
 
@@ -68,9 +74,8 @@ Route::get('/favoris', 'RecetteUserController@index')->name('bookmarks');
 //     return view('pages.partenaires');
 // });
 
-
-
 Route::get('/contact', 'ContactController@create');
+
 Route::post('/contact', 'ContactController@store')->name('contact.store');
 
 Route::get('/membre', function () {
@@ -83,8 +88,6 @@ Route::get('/comment', function () {
 Route::get('/postrecette', function () {
     return view('membres.postrecette');
 });
-
-
 
 //Auth::routes();
 

@@ -13,13 +13,37 @@ class RecetteUserController extends Controller
 
     public function index(Request $request)
     {
-       $user = Auth::user();
-       if ($user) {
-            $bookmarks = $user->bookmark;
-            dd($bookmarks);
-       }
-       return redirect('/login');
+        $user = Auth::user();
+        if  ($user){
+            $bookmarks = $user->bookmarks;
+            return view('pages.favoris', ['recettes' => $bookmarks]);
+
+        }else{
+            return redirect('/login');
+
+        }
     }
 
-    //    return view('pages.favoris',['bookmark' => $bookmarks]);
+    public function add(Request $request, $id)
+    {
+        $user = Auth::user();
+        if  ($user){
+            $user->bookmarks()->attach($id);
+            return back();
+        }else{
+            return redirect('/login');
+        }
+    }
+
+    public function remove(Request $request, $id)
+    {
+        $user = Auth::user();
+        if  ($user){
+            $user->bookmarks()->detach($id);
+            return back();
+        }else{
+            return redirect('/login');
+
+        }
+    }
 }
