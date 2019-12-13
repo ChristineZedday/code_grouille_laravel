@@ -20,11 +20,21 @@
 
     <div class='article'>
         <h4 class='subarticle'><?php echo ($recette->description_recette) ?></h4>
-        <h4 class='subarticle'><?php echo ($recette->temps_preparation_recette) ?></h4>
-        <h4 class='subarticle'><?php echo ($recette->temps_cuisson_recette) ?></h4>
-        <h4 class='subarticle'><?php echo ($recette->difficulte_recette) ?></h4>
-        <h4 class='subarticle'><?php echo ($recette->appetence_recette) ?></h4>
-        <h4 class='subarticle'><?php echo ($recette->portion_recette) ?></h4>
+        <h4 class='subarticle'>Ingrédients:</h4>
+        <div class='comrecette'>
+            @isset($ingredients)
+            @foreach ($ingredients as $ingredient)
+                <h4>{{$ingredient->nom_ingredient}}</h4>
+                <p>{{$ingredient->quantite}}&nbsp; {{$ingredient->Unite->nom_unite}} </p>
+            @endforeach
+            @endisset
+        </div>
+
+        <h4 class='subarticle'>Temps de préparation: <?php echo ($recette->temps_preparation_recette) ?>&nbsp; minutes</h4>
+        <h4 class='subarticle'>Temps de cuisson: <?php echo ($recette->temps_cuisson_recette) ?>&nbsp; minutes</h4>
+        <h4 class='subarticle'>Difficulté: <?php echo ($recette->difficulte_recette) ?></h4>
+        <h4 class='subarticle'>Appétence: <?php echo ($recette->appetence_recette) ?></h4>
+        <h4 class='subarticle'>Pour <?php echo ($recette->portion_recette) ?> personnes</h4>
         <p><?php echo ($recette->deroule_recette) ?></p>
     </div>
 
