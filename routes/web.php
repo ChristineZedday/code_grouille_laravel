@@ -55,6 +55,8 @@ Route::get('/mentions', 'frontInfoController@showmentions');
 
 Route::get('/apropos', 'frontInfoController@showapropospara1');
 
+Route::get('/confidentialite', 'frontInfoController@showpolitique');
+
 // Route::get('/actus', function () {
 //     return view('pages.actus');
 // });
