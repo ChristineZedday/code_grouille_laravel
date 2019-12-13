@@ -9,6 +9,7 @@ use App\Recette;
 use App\Commentaire;
 use App\Ingredient;
 use App\User;
+use App\Image;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -220,22 +221,24 @@ class RecetteController extends Controller
     public function edit($id)
     {
         $ingredients = Ingredient::all(); //tous les ingrédients de la table
+        $unites = Unite::all();//toutes les unités
 
         $recette = Recette::find($id);
-        $ingrecettes =  $recette->Ingredient()->get();      //les ingrédients de la recette
+        $ingrecettes =  $recette->Ingredient;    //les ingrédients de la recette
+        dd($recette->Ingredient) ;
 
         if (isset($recette->Ingredient))
         {
-            $ingredientId = $recette->Ingredient->ingredient_id;
 
-            return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'ingrecettes' =>$ingrecettes]);
+
+            return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'ingrecettes' =>$ingrecettes, 'unites' =>$unites]);
 
         }
 
             else
 
         {
-                return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients]);
+                return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'unites' =>$unites]);
         }
 
     }
@@ -263,6 +266,80 @@ class RecetteController extends Controller
 
         $recette = Recette::find($id);
         $recette->fill($validated);
+
+
+
+        //ici récupérer les ingrédients!!!
+        $images = $recette->Image;
+
+        foreach ($images as $image)
+             {
+
+
+
+                 if (isset($_POST['suppr'.$image->id]))
+                 {
+
+                    //supprimer l'association image/recette
+
+                   $recette->Image()->detach($image->id);
+
+
+                    //on ne supprime pas l'image ici, prévoir un back images pour
+                 }
+
+
+
+             }
+        $chemin_dossier=public_path('') .'/img/';
+
+         if (isset($_FILES['image1']['name']))
+         {
+            $uploaded = $_FILES['image1']['name'];
+
+            if (file_exists ($chemin_dossier.$uploaded ) )
+                {
+                    //chercher dans la base, le mettre ds images si pas encore, et ajouter insecte_id dans la table pivot
+
+                    $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
+                    if (!isset($image))
+                    {
+
+                        $image = new Image(); //on rentre le fichier dans la table image
+                        $image->chemin_image = $uploaded;
+                        $image->save();
+
+                    }
+                    $Recette->Image()->attach($image->id);
+
+                }
+                else{
+                $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+
+                if($extension=="jpg" ||
+                    $extension=="png" ||
+                    $extension=="gif")
+                    {
+
+
+
+
+                        $chemin_dossier=public_path('') .'/img/';
+                        if(is_uploaded_file($_FILES['image1']['tmp_name']))
+                                    {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
+                                        {
+                                            $image = New Image;
+                                            $image->chemin_image =  $uploaded;
+
+                                            $image->save();
+                                            $recette->Image()->attach($image->id);
+                                        }
+
+                                    }
+                    }
+                }
+         }
+
 
         if ($recette->save()) {
             $request->session()->flash('status',"recette mise à jour avec succès");

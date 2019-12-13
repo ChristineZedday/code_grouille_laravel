@@ -28,7 +28,13 @@
         @isset($recette)
             @foreach ($ingrecettes as $ingrecette)
             <div class='form-group'>
-            <input type="text" class="form-control"value="@isset($recette){{$ingrecette->nom_ingredient}}@endisset" name='ingredient[]' multiple="multiple" required>
+            <input type="text" class="form-control"value="{{$ingrecette->Ingredient->nom}}" name="{{$ingrecette->ingredient_id}}" multiple="multiple" required>
+            <input type="text" class= "form-control" value="{{$ingrecette->quantite}}" name="{{$ingrecette->quantite}}"  multiple="multiple" required>
+            <select class='form-control'  name="{{$ingrecette->unite}}"  multiple="multiple"  required>
+                @foreach ($unites as $unite)
+                <option value={{$unite->id}}>{{$unite->nom_unite}} </option>
+                @endforeach
+            </select>
             </div>
             @endforeach
         @else
