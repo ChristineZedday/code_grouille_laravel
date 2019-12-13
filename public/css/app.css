@@ -2546,6 +2546,18 @@ div[contenteditable] img {
   }
 }
 
+#contactform {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+#contactformlabel {
+  display: block;
+  background-color: black;
+}
+
 * {
   margin: 0;
   padding: 0;

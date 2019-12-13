@@ -33,7 +33,10 @@
             <div class='form-group'>
                 <label><h3>Texte à modifier</h3></label>
 
-                <input type="text" class="form-control" @error('texte') is-invalid @enderror value="{{$info->texte}}" name="texte">
+                <div class="YSeditor">
+                    <textarea rows="20" cols="100" class="form-control" @error('texte') is-invalid @enderror  name="texte">@isset($info)
+                        {{$info->texte}}@else{{ old('info->texte') }}@endisset</textarea>
+                </div>
 
                 @error('texte')
                 <div class="invalid-feedback">

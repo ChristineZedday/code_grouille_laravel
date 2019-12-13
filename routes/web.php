@@ -13,7 +13,7 @@
 Route::get('/', 'HomeController@lastactu');
 
 Route::get('/home', function () {
-    return view('pages.home');
+    return view('pages.home', 'HomeController@lastactu');
 });
 
 Route::get('/login', function(){
@@ -24,7 +24,7 @@ Route::get('/registration', function(){
     return view('pages.registration');
 })->name('registration');
 
-Route::post('/verification', 'UserController@verify') ->name('verify');
+Route::post('/verification', 'UserController@verify')->name('verify');
 
 Route::post('/dashboard', 'UserController@verify') ->name('todash');
 
@@ -68,10 +68,8 @@ Route::get('/favoris', 'RecetteUserController@index')->name('bookmarks');
 
 
 
-
-Route::get('/contact', function () {
-    return view('pages.contact');
-});
+Route::get('/contact', 'ContactController@create');
+Route::post('/contact', 'ContactController@store')->name('contact.store');
 
 Route::get('/membre', function () {
     return view('membres.dashboard');
