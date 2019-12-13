@@ -63,7 +63,11 @@ class User extends Authenticatable
     }
 
     public function bookmarks(){
-        return $this->belongsToMany('App\Recette','recette_user','user_id','recette_id')->where('is_active', 1);
+        return $this->belongsToMany('App\Recette','recette_user','user_id','recette_id');
+    }
+
+    public function hasBookmark($id){
+        return sizeof($this->belongsToMany('App\Recette','recette_user','user_id','recette_id')->where('recette_id', '=', $id)->get());
     }
 
 }

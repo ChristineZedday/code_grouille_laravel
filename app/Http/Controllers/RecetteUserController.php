@@ -20,5 +20,6 @@ class RecetteUserController extends Controller
        }
        return redirect('/login');
     }
-       return view('pages.actus',['actus' => $actus]);
+
+    //    return view('pages.favoris',['bookmark' => $bookmarks]);
 }
