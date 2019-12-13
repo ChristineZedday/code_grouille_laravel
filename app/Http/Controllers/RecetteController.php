@@ -21,11 +21,14 @@ class RecetteController extends Controller
        //$this->middleware('admin');
     }
 
-    /**
+    /*
+     *
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
      */
+
     public function index(Request $request)
     {
         $recettes = Recette::all();
@@ -55,7 +58,7 @@ class RecetteController extends Controller
     public function store(Request $request)
     {
 
-       
+
         $validated =  $request->validate([
             'titre_recette' => 'string|required',
             'description_recette' => 'string|required',
@@ -67,13 +70,13 @@ class RecetteController extends Controller
          'portion_recette' =>  'integer'
         ]);
 
-           
+
 
 
         $newRecette = new Recette;
         $newRecette->fill($validated);
 
-     
+
 
 
         $user = Auth::user();
@@ -81,7 +84,7 @@ class RecetteController extends Controller
             $newRecette ->user_id = $user->id;
         }
 
-        
+
 
         //ici chercher les ingrédients dans le form
 
@@ -272,4 +275,18 @@ class RecetteController extends Controller
             return redirect()->action('RecetteController@index');
         }
     }
+
+    public function add_bookmark(Recette $recette)
+    {
+        Auth::user()->bookmarks()->attach($recette->id);
+        return back();
+    }
+
+    public function remove_bookmark(Recette $recette)
+    {
+        Auth::user()->bookmarks()->detach($recette->id);
+        return back();
+    }
+
+
 }

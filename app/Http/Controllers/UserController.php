@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\User;
+use App\RecetteUser;
 
 class UserController extends Controller
 {
@@ -50,5 +51,10 @@ class UserController extends Controller
         auth()->logout();
         return redirect('/');
     }
+
+    public function liste_bookmarks(){
+        $bookmarks=auth()->user()->bookmarks();
+        return response()->json($bookmarks);
+        }
 
 }

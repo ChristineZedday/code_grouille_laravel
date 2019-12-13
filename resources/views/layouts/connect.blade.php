@@ -22,7 +22,7 @@
      @yield('content')
     </div>
 
-    <footer class='fixed'>
+    <footer>
         @include('includes.footer')
     </footer>
 

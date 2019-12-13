@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\RecetteUser;
 
 class User extends Authenticatable
 {
@@ -55,11 +56,14 @@ class User extends Authenticatable
      *
      * @return string
      */
+
     public function getRememberTokenName()
     {
         return '';
     }
 
-
+    public function bookmarks(){
+        return $this->belongsToMany('App\Recette','recette_user','user_id','recette_id')->where('is_active', 1);
+    }
 
 }

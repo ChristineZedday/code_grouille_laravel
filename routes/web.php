@@ -55,16 +55,16 @@ Route::get('/mentions', 'frontInfoController@showmentions');
 
 Route::get('/apropos', 'frontInfoController@showapropospara1');
 
-// Route::get('/actus', function () {
-//     return view('pages.actus');
-// });
+Route::get('/favoris', 'RecetteUserController@index')->name('bookmarks');
 
-Route::get('/FAQ', function () {
-    return view('pages.FAQ');
-});
-Route::get('/partenaires', function () {
-    return view('pages.partenaires');
-});
+// Route::get('/favoris/show/{id}', 'RecetteUserController@show')->name('bookmark.show');
+
+// Route::get('/FAQ', function () {
+//     return view('pages.FAQ');
+// });
+// Route::get('/partenaires', function () {
+//     return view('pages.partenaires');
+// });
 
 
 
@@ -79,9 +79,6 @@ Route::get('/membre', function () {
 
 Route::get('/comment', function () {
     return view('membres.comment');
-});
-Route::get('/favoris', function () {
-    return view('membres.favoris');
 });
 Route::get('/postrecette', function () {
     return view('membres.postrecette');
