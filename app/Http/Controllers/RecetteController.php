@@ -8,9 +8,7 @@ use App\Http\Middleware\Admin;
 use App\Recette;
 use App\Commentaire;
 use App\Ingredient;
-Use App\Unite;
 use App\User;
-use App\Image;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -23,11 +21,14 @@ class RecetteController extends Controller
        //$this->middleware('admin');
     }
 
-    /**
+    /*
+     *
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
      */
+
     public function index(Request $request)
     {
         $recettes = Recette::all();
@@ -45,9 +46,7 @@ class RecetteController extends Controller
     public function create()
     {
         $ingredients = Ingredient::All();
-        $unites = Unite::All();
-
-        return view('backpages.formrecette', ['ingredients' => $ingredients, 'unites' => $unites]); //pour gérer l'autocomplétion
+        return view('backpages.formrecette', ['ingredients' => $ingredients]); //pour gérer l'autocomplétion
     }
 
     /**
@@ -87,43 +86,32 @@ class RecetteController extends Controller
 
 
 
+        //ici chercher les ingrédients dans le form
 
+        $i =0;
+
+        foreach ($request->get('ingredient') as $value)
+        {
+            $nom_ingredient = $value[$i];
+            $i++;
+            $ingredient = Ingredient::where('nom_ingredient', $nom_ingredient)->first();
+            if (isset($ingredient))
+           {
+                $id = $ingredient->id;
+            $newRecette->ingredient()->attach($id);
+
+           }
+            else{
+                //créer l'élément!
+            }
+        }
 
         if ($newRecette->save()) {
             //une fois la recette sauvée donc a id on lui attache ingrédients et image
-
-            $i=0;
-            $ingredients = $request->get('ingredient');
-
-            $quantites = $request->get('quantite');
-
-            $unites = $request->get('unite_id');
-
-
-
-            for ($i=0; $i<sizeof($ingredients); $i++)
-            {
-
-                $nom = strtolower($ingredients[$i]);
-
-
-                $ingred = Ingredient::where('nom_ingredient', $nom)->first();
-
-
-
-                if (isset($ingred))
-
-               {
-
-                $id = $ingred->id;
-                $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
-
-               }
-                else{
-                    //créer l'élément!
-                    dd('pas encore');
-                }
-            }
+            // foreach ($ingredients as $ingredient)
+            // {
+            //     $newRecette->Ingredient()->attach($ingredient->id);
+            // }
 
             //pour l'image, une à création possibilité d'en rajouter avec modifier
 
@@ -142,9 +130,8 @@ class RecetteController extends Controller
                      //chercher dans la base, le mettre ds images si pas encore, et ajouter recette_id dans la table pivot
 
                      $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
-                            if (!isset($image))
+                            if (isset($image))
                             {
-
                                 $image = new Image(); //on rentre le fichier dans la table image
                                 $image->chemin_image = $uploaded;
                                 $image->save();
@@ -199,37 +186,17 @@ class RecetteController extends Controller
     {
         $recette = Recette::find($id);
 
+        $commentaires = $recette->Commentaire->get();
+
         if (!$recette) {
 
             return redirect()->action('RecetteController@index');
         }
 
-        $images = $recette->Image;
-
-        if (isset($images) && isset($commentaires))
-        {
-            return view('pages.recettesolo',[
-                'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires
-            ]);
-        }
-        elseif (isset($images)) {
-            return view('pages.recettesolo',[
-                'recette'=> $recette, 'images' =>$images,
-            ]);
-        }
-            elseif (isset($commentaires)) {
-                return view('pages.recettesolo',[
-                    'recette'=> $recette, 'commentaires' => $commentaires
-                ]);
-        }
-        else  {
-            return view('pages.recettesolo',[
-                'recette'=> $recette,
-            ]);
-         }
-
+        return view('backpages.showrecette',[
+            'recette'=> $recette, 'commentaires'=>$commentaires
+        ]);
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -303,10 +270,21 @@ class RecetteController extends Controller
 
         if ($recette && $recette->delete()) {
 
-            $recette->Image()->detach();
-            $recette->Ingredient()->detach();
-
             return redirect()->action('RecetteController@index');
         }
     }
+
+    public function add_bookmark(Recette $recette)
+    {
+        Auth::user()->bookmarks()->attach($recette->id);
+        return back();
+    }
+
+    public function remove_bookmark(Recette $recette)
+    {
+        Auth::user()->bookmarks()->detach($recette->id);
+        return back();
+    }
+
+
 }

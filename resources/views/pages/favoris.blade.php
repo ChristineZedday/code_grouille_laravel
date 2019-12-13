@@ -4,20 +4,20 @@
 
 @section('background')
 
-<div id='recettesintro'>
-    <h2 class='titreintro'>A table !</h2>
-    <h3 class='introsub'>...Surprenez vos amis</h3>
+<div id='actusintro'>
+    <h2 class='titreintro'>Action, réaction</h2>
+    <h3 class='introsub'>La lutte continue</h3>
 </div>
 
 @endsection
 
 @section('content')
 
-<div id='recetteliste'>
 
-@foreach($recettes as $recettes)
+    @foreach($bookmarks as $bookmarks)
+
+    @foreach($recettes as $recettes)
     <div class='recetteline'>
-        <a id="addbookmark" class="empty" href="{{route('bookmarks',$bookmarks->id)}}" rel="sidebar" title="bookmark this page"></a>
         <img class='lineleft' src="../img/picto/line.png"/>
         <a href="{{route('recette.show',$recettes->id)}}">
             <h2 class='title'>{{ $recettes->titre_recette }}</h2>
@@ -25,8 +25,8 @@
         <p><?php echo ($recettes->description_recette) ?></p>
         <img class='imgarticle' src="{{ $recettes->img_recette }}"/>
     </div>
-@endforeach
+    @endforeach
 
-</div>
+    @endforeach
 
 @endsection

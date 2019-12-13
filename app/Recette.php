@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use App\RecetteUser;
 
 class Recette extends Model {
 
@@ -31,6 +33,18 @@ class Recette extends Model {
     public function SetUserId()
     {
          $this->user_id = 1; //utilisateur anonyme
+    }
+
+    public function bookmarks(){
+
+    return $this->belongsToMany('App\Recette');
+
+    }
+
+    public function is_bookmarked(User $user){
+
+    return $this->bookmarks->contains($user);
+
     }
 
 }

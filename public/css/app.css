@@ -852,6 +852,24 @@
 }
 
 @media screen and (min-width: 800px) {
+  .empty {
+    background-image: url(/img/icons/star-empty-38.png);
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+    display: block;
+    float: right;
+  }
+
+  .full {
+    background-image: url(/img/icons/star-filled-38.png);
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+    display: block;
+    float: right;
+  }
+
   .titreintro {
     color: white;
     font-size: 10em;
@@ -2526,6 +2544,18 @@ div[contenteditable] img {
     margin-top: 5%;
     margin-bottom: 5%;
   }
+}
+
+#contactform {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+#contactformlabel {
+  display: block;
+  background-color: black;
 }
 
 * {

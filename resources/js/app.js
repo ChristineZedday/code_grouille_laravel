@@ -21,40 +21,32 @@ window.onclick = function(event) {
     modal.style.display = "none";
     }
 
+    function toggleMenu() {
+            if(menudiv.style.display == "block") {
+                menudiv.style.display = "none";
+            }
+            else {
+                menudiv.style.display = "block";
+            }
+        }
 
-function toggleMenu() {
-        if(menudiv.style.display == "block") {
-            menudiv.style.display = "none";
-        }
-        else {
-            menudiv.style.display = "block";
-        }
+    burger.addEventListener("click", function(e){
+        toggleMenu();
+        });
     }
 
-burger.addEventListener("click", function(e){
-    toggleMenu();
-    });
+var recettes = document.getElementById("recetteliste");
+var links = recettes.getElementsByTagName('a');
 
+function affFav(a) {
+    links.classList.replace("empty", "full");
 }
 
+links.addEventListener("click", function(e){
+    e.preventDefault();
+    for (var i = 0; i < links.length; i++) links[i].onclick = function() {
+        affFav(links[i]);
+    }
+});
 
-// var button2 =  document.getElementById("newmembre");
-// var modal2 =  document.getElementById("register");
-// var close2 =  document.getElementById("close2");
-
-// button2.addEventListener("click", function(e){
-//     e.preventDefault();
-//     modal2.style.display = "flex";
-//     });
-
-// close2.addEventListener("click", function(e){
-//     e.preventDefault();
-//     modal2.style.display = "none";
-//     });
-
-// window.onclick = function(event) {
-//     if (event.target == modal2) {
-//         modal2.style.display = "none";
-//     }
-// }
 
