@@ -46,9 +46,9 @@
         </div>
         <br/>
         @enderror
-
+    </div>
         <input type="button" value="Ajouter un ingrédient" onClick="ajoute()"/>
-        </div>
+
 
         @endisset
 
@@ -140,10 +140,10 @@
 <script>
 function ajoute()
 {
-   var input = document.getElementById('original');
-   var newInput = input.cloneNode();
-   newInput.id = '';
-   input.parentElement.appendChild(newInput);
+   var div = document.getElementById('original');
+   var newDiv = div.cloneNode();
+   newDiv.id = '';
+   div.parentElement.appendChild(newDiv);
 }
 </script>
 @endsection
