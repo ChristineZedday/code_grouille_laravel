@@ -10,6 +10,7 @@ use App\Commentaire;
 use App\Ingredient;
 Use App\Unite;
 use App\User;
+use App\Image;
 use Illuminate\Support\Facades\Validator;
 
 
