@@ -31,7 +31,7 @@
 @foreach ($infos as $info)
     <tr>
         <td class="align-middle"> {{ $info->titre }}</td>
-        <td class="align-middle"> {{ $info->texte }}</td>
+        <td class="align-middle"> {!! $info->texte !!}</td>
         <td class="align-middle"> {{ $info->email }}</td>
         <td class="align-middle"> {{  date('d/m/Y', strtotime($info->created_at)) }}</td>
         <td  class="align-middle">
