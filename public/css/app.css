@@ -750,6 +750,20 @@
     max-width: 95%;
   }
 
+  .content article .linkpage {
+    border-radius: 20px;
+    padding: 13px;
+    background-color: black;
+    color: white;
+    display: block;
+    margin-top: 10px;
+    width: 200px;
+  }
+
+  .content article .linkpage:hover {
+    background-color: cadetblue;
+  }
+
   .content article .articleb {
     margin: 20px;
   }
@@ -769,9 +783,10 @@
   }
 
   #recettes h2 {
-    font-size: 5em;
+    font-size: 3em;
     width: 100%;
     text-align: center;
+    min-height: 100px;
   }
 
   #recettes #suggestions {
@@ -783,6 +798,23 @@
     padding: 10%;
   }
 
+  #recettes #suggestions .recettehome a {
+    border-radius: 20px;
+    border: 3px solid sandybrown;
+    padding: 13px;
+    color: sandybrown;
+    display: block;
+    margin-top: 10px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #recettes #suggestions .recettehome p {
+    max-width: 100%;
+    min-height: 50px;
+  }
+
   #recettes #suggestions .imgrecette {
     max-width: 100%;
     max-height: 340px;
@@ -792,6 +824,7 @@
   #recettes #suggestions h3 {
     font-size: 2em;
     margin-bottom: 10px;
+    min-height: 100px;
   }
 
   #about {
@@ -874,6 +907,7 @@
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 10px;
     grid-auto-rows: minmax(100px, auto);
+    margin-bottom: 20%;
   }
 
   .content article .lineleft {
@@ -901,6 +935,21 @@
     margin-bottom: 20px;
   }
 
+  .content article .linkpage {
+    border-radius: 20px;
+    padding: 13px;
+    background-color: black;
+    color: white;
+    display: block;
+    margin-top: 10px;
+    width: 200px;
+    text-align: center;
+  }
+
+  .content article .linkpage:hover {
+    background-color: cadetblue;
+  }
+
   .content article .articleb {
     text-align: right;
   }
@@ -917,10 +966,27 @@
   }
 
   .content #recettes h2 {
-    font-size: 5em;
+    font-size: 3em;
     width: 50%;
     float: left;
     text-align: center;
+  }
+
+  .content #recettes .linkpage {
+    border-radius: 20px;
+    padding: 13px;
+    background-color: black;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: auto;
+    width: 200px;
+    text-align: center;
+  }
+
+  .content #recettes .linkpage:hover {
+    background-color: cadetblue;
   }
 
   .content #recettes #suggestions {
@@ -937,6 +1003,23 @@
     text-align: center;
   }
 
+  .content #recettes #suggestions .recettehome a {
+    border-radius: 20px;
+    border: 3px solid sandybrown;
+    padding: 13px;
+    color: sandybrown;
+    display: block;
+    margin-top: 10px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .content #recettes #suggestions .recettehome p {
+    max-width: 100%;
+    min-height: 50px;
+  }
+
   .content #recettes #suggestions .imgrecette {
     max-height: 340px;
     margin-bottom: 15px;
@@ -945,6 +1028,7 @@
   .content #recettes #suggestions h3 {
     font-size: 2em;
     margin-bottom: 10px;
+    min-height: 100px;
   }
 
   #about {
