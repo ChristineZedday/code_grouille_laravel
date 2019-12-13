@@ -30,9 +30,9 @@
             <div class='form-group'>
             <input type="text" class="form-control"value="{{$ingrecette->Ingredient->nom}}" name="{{$ingrecette->ingredient_id}}" multiple="multiple" required>
             <input type="text" class= "form-control" value="{{$ingrecette->quantite}}" name="{{$ingrecette->quantite}}"  multiple="multiple" required>
-            <select class='form-control'  name="{{$ingrecette->unite}}"  multiple="multiple"  required>
+            <select class='form-control'  name="{{$ingrecette->unite->id}}"  multiple="multiple"  required>
                 @foreach ($unites as $unite)
-                <option value={{$unite->id}}>{{$unite->nom_unite}} </option>
+                <option value={{$unite->id}} @if ($unite->id == $ingrecette->unite->id) "selected" @else "" @endif>{{$unite->nom_unite}} </option>
                 @endforeach
             </select>
             </div>

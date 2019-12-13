@@ -8,6 +8,7 @@ use App\Http\Middleware\Admin;
 use App\Recette;
 use App\Commentaire;
 use App\Ingredient;
+use App\Unite;
 use App\User;
 use App\Image;
 use Illuminate\Support\Facades\Validator;
@@ -46,8 +47,9 @@ class RecetteController extends Controller
      */
     public function create()
     {
-        $ingredients = Ingredient::All();
-        return view('backpages.formrecette', ['ingredients' => $ingredients]); //pour gérer l'autocomplétion
+        $ingredients = Ingredient::all(); //pour gérer l'autocomplétion
+        $unites = Unite::all();  //toutes les unités
+        return view('backpages.formrecette', ['ingredients' => $ingredients, 'unites' => $unites]);
     }
 
     /**
@@ -95,7 +97,9 @@ class RecetteController extends Controller
             $i=0;
             $ingredients = $request->get('ingredient');
 
+
             $quantites = $request->get('quantite');
+
 
             $unites = $request->get('unite_id');
 
@@ -109,12 +113,12 @@ class RecetteController extends Controller
 
                 $ingred = Ingredient::where('nom_ingredient', $nom)->first();
 
-                $id = $ingred->id;
+
 
                 if (isset($ingred))
 
                {
-
+                     $id = $ingred->id;
                     $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
 
                }
@@ -144,7 +148,7 @@ class RecetteController extends Controller
                      //chercher dans la base, le mettre ds images si pas encore, et ajouter recette_id dans la table pivot
 
                      $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
-                            if (isset($image))
+                            if (!isset($image))
                             {
                                 $image = new Image(); //on rentre le fichier dans la table image
                                 $image->chemin_image = $uploaded;
@@ -221,7 +225,9 @@ class RecetteController extends Controller
     public function edit($id)
     {
         $ingredients = Ingredient::all(); //tous les ingrédients de la table
-        $unites = Unite::all();//toutes les unités
+        $unites = Unite::all();  //toutes les unités
+
+        dd ($unites);
 
         $recette = Recette::find($id);
         $ingrecettes =  $recette->Ingredient;    //les ingrédients de la recette
