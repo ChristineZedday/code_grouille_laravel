@@ -4,7 +4,7 @@
             <div class='imgsingle'>
                 @isset($images)
                     @foreach ($images as $image)
-                        <img src="{{URL::asset('/img/'.$image->chemin_image)}}"/>
+                        <img src="{{asset('/img/'.$image->chemin_image)}}"/>
                     @endforeach
                 @endisset
             </div>

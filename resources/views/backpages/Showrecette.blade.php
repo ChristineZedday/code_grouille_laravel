@@ -19,7 +19,7 @@
             <p>{{$recette->temps_cuisson_recette}} minutes</p>
 
         <h3>Nombre de parts</h3>
-            <p>{{$recette->portion_recette}} minutes</p>
+            <p>{{$recette->portion_recette}} </p>
 
         <h3>Difficulté</h3>
             <p>{{$recette->difficulte_recette}}</p>
@@ -29,6 +29,15 @@
 
         <h3>Déroulé</h3>
             <p>{{$recette->deroule_recette}}</p>
+
+            <div class='imgsingle'>
+                    @isset($images)
+                        @foreach ($images as $image)
+                            <img src="{{asset('/img/'.$image->chemin_image)}}"/>
+                        @endforeach
+                    @endisset
+                </div>
+   
     </section>
 
 

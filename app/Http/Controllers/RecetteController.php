@@ -85,9 +85,7 @@ class RecetteController extends Controller
             $newRecette ->user_id = $user->id;
         }
 
-       // dd($request->get('ingredient'));
 
-        //ici chercher les ingrédients dans le form
 
 
 
@@ -111,13 +109,14 @@ class RecetteController extends Controller
 
                 $ingred = Ingredient::where('nom_ingredient', $nom)->first();
 
-                $id = $ingred->id;
+
 
                 if (isset($ingred))
 
                {
 
-                    $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+                $id = $ingred->id;
+                $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
 
                }
                 else{
@@ -203,17 +202,37 @@ class RecetteController extends Controller
     {
         $recette = Recette::find($id);
 
-        $commentaires = $recette->Commentaire->get();
-
         if (!$recette) {
 
             return redirect()->action('RecetteController@index');
         }
 
-        return view('backpages.showrecette',[
-            'recette'=> $recette, 'commentaires'=>$commentaires
-        ]);
+        $images = $recette->Image;
+
+        if (isset($images) && isset($commentaires))
+        {
+            return view('pages.recettesolo',[
+                'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires
+            ]);
+        }
+        elseif (isset($images)) {
+            return view('pages.recettesolo',[
+                'recette'=> $recette, 'images' =>$images,
+            ]);
+        }
+            elseif (isset($commentaires)) {
+                return view('pages.recettesolo',[
+                    'recette'=> $recette, 'commentaires' => $commentaires
+                ]);
+        }
+        else  {
+            return view('pages.recettesolo',[
+                'recette'=> $recette,
+            ]);
+         }
+
     }
+
 
     /**
      * Show the form for editing the specified resource.
