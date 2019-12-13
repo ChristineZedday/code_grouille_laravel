@@ -142,12 +142,9 @@ class RecetteController extends Controller
                      //chercher dans la base, le mettre ds images si pas encore, et ajouter recette_id dans la table pivot
 
                      $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
-                            if (isset($image))
+                            if (!isset($image))
                             {
-                                $imid = $image->id;
-
-                            }
-                            else{
+                               
                                 $image = new Image(); //on rentre le fichier dans la table image
                                 $image->chemin_image = $uploaded;
                                 $image->save();

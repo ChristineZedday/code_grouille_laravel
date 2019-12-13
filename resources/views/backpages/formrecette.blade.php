@@ -3,7 +3,7 @@
 
 
 <div class="backform" class='content'>
-    <form action="@isset($recette){{route('recette.update', $recette->id)}}@else{{route('recette.store')}}@endisset" method="POST">
+    <form enctype="multipart/form-data" action="@isset($recette){{route('recette.update', $recette->id)}}@else{{route('recette.store')}}@endisset" method="POST">
         @csrf
         @isset($recette) @method('PUT') @endisset
 
