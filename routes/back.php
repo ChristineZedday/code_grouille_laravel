@@ -65,4 +65,4 @@ Route::get('/back/infos/edit/{id}', 'InfoController@edit')->name('info.edit');
 Route::get('/back/infos/create', 'InfoController@create')->name('info.create');
 Route::put('/back/infos/update/{id}', 'InfoController@update')->name('info.update');
 Route::post('/back/infos/store/', 'InfoController@store')->name('info.store');
-Route::delete('/back/infos/{id}/destroy', 'InfoController@destroy')->name('info.destroy');
+

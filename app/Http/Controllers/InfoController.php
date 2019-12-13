@@ -106,7 +106,7 @@ class InfoController extends Controller
     {
         $validated = $request->validate([
             'titre' => 'string',
-            'texte' => 'text',
+            'texte' => 'string',
             'email' => 'string',
          ]);
 
@@ -129,13 +129,5 @@ class InfoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        $info = Info::find($id);
 
-        if ($info && $info->delete()) {
-
-            return redirect()->action('InfoController@index');
-        }
-    }
 }
