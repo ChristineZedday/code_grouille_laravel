@@ -144,7 +144,7 @@ class RecetteController extends Controller
                      $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
                             if (!isset($image))
                             {
-                               
+
                                 $image = new Image(); //on rentre le fichier dans la table image
                                 $image->chemin_image = $uploaded;
                                 $image->save();
@@ -239,14 +239,16 @@ class RecetteController extends Controller
      */
     public function edit($id)
     {
-        $ingredients = Ingredient::all();
+        $ingredients = Ingredient::all(); //tous les ingrédients de la table
+
         $recette = Recette::find($id);
+        $ingrecettes =  $recette->Ingredient()->get();      //les ingrédients de la recette
 
         if (isset($recette->Ingredient))
         {
             $ingredientId = $recette->Ingredient->ingredient_id;
 
-            return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'ingredientId' =>$ingredientId]);
+            return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'ingrecettes' =>$ingrecettes]);
 
         }
 
