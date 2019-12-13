@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Orangehill\Iseed\IseedServiceProvider\infos;
 
 class Info extends Model
 {

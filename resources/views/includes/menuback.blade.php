@@ -10,9 +10,9 @@
         <li><a href='/back/actus'>Actus</a></li>
         <li><a href='/back/insectes'>Liste des Insectes</a></li>
         <li><a href='/back/ingredients'>Liste des Ingrédients</a></li>
-        <li><a href='/back/membres'>Gestion des Membres</a></li>
-        <li><a href='/back/infos'>A propos</a></li>
-        <li><a href='/back/infos'>Mentions légales</a></li>
+        <li><a href='/back/membres'>Membres</a></li>
+        <li><a href='/back/infos'>Infos statiques</a></li>
+
 
     </span>
     </ul>
