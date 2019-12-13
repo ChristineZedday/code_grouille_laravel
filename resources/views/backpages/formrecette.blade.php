@@ -23,6 +23,8 @@
             @enderror
         </div>
 
+    
+
         <div class='form-group' id="ingredients">
         <label><h4>Ingrédients de la recette</h4></label>
         @isset($recette)
@@ -130,6 +132,16 @@
                 </div>
             @enderror
         </div>
+
+        @isset($recette)
+    <div>
+    @foreach ($images as $image)
+        <img src="{{asset('/img/'.$image->chemin_image)}}" />
+        <input type="checkbox" id="suppr" name="{{'suppr'.$image->id}}" value= "{{$image->id}}" /> <label for="suppr">Supprimer l'image {{$image->id}}</label>
+    @endforeach
+    </div>
+@endisset
+
 
         <div class='form-group'>
             <label>Image  (optionnelle)</label>

@@ -124,7 +124,10 @@ class RecetteController extends Controller
                }
                 else{
                     //créer l'élément!
-                    dd('pas encore');
+                    $ingredient = new Ingredient;
+                    $ingredient->nom_ingredient = $nom;
+                    $ingredient->quantite = $quantites[$i];
+                    $ingredient->Unite()->attach($unites[$i]);
                 }
             }
 
@@ -231,20 +234,21 @@ class RecetteController extends Controller
 
         $recette = Recette::find($id);
         $ingrecettes =  $recette->Ingredient;    //les ingrédients de la recette
+        $images = $recette->Image;
 
 
         if (isset($recette->Ingredient))
         {
 
 
-            return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'ingrecettes' =>$ingrecettes, 'unites' =>$unites]);
+            return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'ingrecettes' =>$ingrecettes, 'unites' =>$unites, 'images' => $images]);
 
         }
 
             else
 
         {
-                return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'unites' =>$unites]);
+                return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'unites' =>$unites, 'images' => $images]);
         }
 
     }
@@ -316,7 +320,7 @@ class RecetteController extends Controller
                         $image->save();
 
                     }
-                    $Recette->Image()->attach($image->id);
+                    $recette->Image()->attach($image->id);
 
                 }
                 else{

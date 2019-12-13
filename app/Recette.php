@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\RecetteUser;
+use Orangehill\IseedServiceProvider\recettes;
 
 class Recette extends Model {
 
