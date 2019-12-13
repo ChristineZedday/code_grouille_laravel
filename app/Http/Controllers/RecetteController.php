@@ -8,6 +8,7 @@ use App\Http\Middleware\Admin;
 use App\Recette;
 use App\Commentaire;
 use App\Ingredient;
+Use App\Unite;
 use App\User;
 use Illuminate\Support\Facades\Validator;
 
@@ -43,7 +44,9 @@ class RecetteController extends Controller
     public function create()
     {
         $ingredients = Ingredient::All();
-        return view('backpages.formrecette', ['ingredients' => $ingredients]); //pour gérer l'autocomplétion
+        $unites = Unite::All();
+
+        return view('backpages.formrecette', ['ingredients' => $ingredients, 'unites' => $unites]); //pour gérer l'autocomplétion
     }
 
     /**
@@ -55,7 +58,7 @@ class RecetteController extends Controller
     public function store(Request $request)
     {
 
-       
+
         $validated =  $request->validate([
             'titre_recette' => 'string|required',
             'description_recette' => 'string|required',
@@ -67,13 +70,13 @@ class RecetteController extends Controller
          'portion_recette' =>  'integer'
         ]);
 
-           
+
 
 
         $newRecette = new Recette;
         $newRecette->fill($validated);
 
-     
+
 
 
         $user = Auth::user();
@@ -81,34 +84,46 @@ class RecetteController extends Controller
             $newRecette ->user_id = $user->id;
         }
 
-        
+       // dd($request->get('ingredient'));
 
         //ici chercher les ingrédients dans le form
 
-        $i =0;
 
-        foreach ($request->get('ingredient') as $value)
-        {
-            $nom_ingredient = $value[$i];
-            $i++;
-            $ingredient = Ingredient::where('nom_ingredient', $nom_ingredient)->first();
-            if (isset($ingredient))
-           {
-                $id = $ingredient->id;
-            $newRecette->ingredient()->attach($id);
-
-           }
-            else{
-                //créer l'élément!
-            }
-        }
 
         if ($newRecette->save()) {
             //une fois la recette sauvée donc a id on lui attache ingrédients et image
-            // foreach ($ingredients as $ingredient)
-            // {
-            //     $newRecette->Ingredient()->attach($ingredient->id);
-            // }
+
+            $i=0;
+            $ingredients = $request->get('ingredient');
+
+            $quantites = $request->get('quantite');
+
+            $unites = $request->get('unite_id');
+
+
+
+            for ($i=0; $i<sizeof($ingredients); $i++)
+            {
+
+                $nom = strtolower($ingredients[$i]);
+
+
+                $ingred = Ingredient::where('nom_ingredient', $nom)->first();
+
+                $id = $ingred->id;
+
+                if (isset($ingred))
+
+               {
+
+                    $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+
+               }
+                else{
+                    //créer l'élément!
+                    dd('pas encore');
+                }
+            }
 
             //pour l'image, une à création possibilité d'en rajouter avec modifier
 
@@ -268,6 +283,9 @@ class RecetteController extends Controller
         $recette = Recette::find($id);
 
         if ($recette && $recette->delete()) {
+
+            $recette->Image()->detach();
+            $recette->Ingredient()->detach();
 
             return redirect()->action('RecetteController@index');
         }

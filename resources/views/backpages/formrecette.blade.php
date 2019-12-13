@@ -27,18 +27,28 @@
         <label><h4>Ingrédients de la recette</h4></label>
         @isset($recette)
             @foreach ($ingredients as $ingredient)
+            <div class='form-group'>
             <input type="text" class="form-control"value="@isset($recette){{$recette->Ingredient->nom_ingredient}}@endisset" name='ingredient[]' multiple="multiple" required>
+            </div>
             @endforeach
         @else
-        <input type="text" class="form-control" @error ('ingredient') is-invalid @enderror name='ingredient[]' id='original' multiple="multiple" required>
-        @error('titre_recette')
+        <div class='form-group' id='original'>
+        <input type="text" class="form-control" @error ('ingredient[]') is-invalid @enderror name='ingredient[]'  multiple="multiple" required>
+        <input type="text" class= "form-control" @error ('quantite[]') is-invalid @enderror name='quantite[]'  multiple="multiple" required>
+        <select class='form-control'  name="unite_id[]" multiple="multiple"  required>
+            @foreach ($unites as $unite)
+            <option value={{$unite->id}}>{{$unite->nom_unite}} </option>
+            @endforeach
+        </select>
+        @error('ingredient_recette')
         <div class="invalid-feedback">
         {{ $message }}
         </div>
         <br/>
         @enderror
-        </div>
+
         <input type="button" value="Ajouter un ingrédient" onClick="ajoute()"/>
+        </div>
 
         @endisset
 
