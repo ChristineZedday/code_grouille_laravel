@@ -2,7 +2,6 @@
 
 @media screen and (max-width: 800px) {
 
-
 .titreintro{
     color: white;
     font-size: 18vw;
@@ -83,6 +82,20 @@
             max-width: 95%;
         }
 
+        .linkpage{
+            border-radius: 20px;
+            padding: 13px;
+            background-color: black;
+            color: white;
+            display: block;
+            margin-top: 10px;
+            width:200px;
+            }
+
+        .linkpage:hover{
+            background-color: cadetblue;
+        }
+
         .articleb{
             margin:20px;
 
@@ -105,10 +118,12 @@
             }
 
             h2{
-                font-size: 5em;
+                font-size: 3em;
                 width: 100%;
                 text-align: center;
+                min-height: 100px;
             }
+
 
             #suggestions{
                 width: 100%;
@@ -116,6 +131,23 @@
 
                 .recettehome{
                     padding:10%;
+
+                    a{
+                        border-radius: 20px;
+                        border:3px solid sandybrown;
+                        padding: 13px;
+                        color: sandybrown;
+                        display: block;
+                        margin-top: 10px;
+                        width:200px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+
+                    p{
+                    max-width: 100%;
+                    min-height: 50px;
+                    }
                 }
 
                 .imgrecette{
@@ -127,6 +159,7 @@
                 h3{
                     font-size: 2em;
                     margin-bottom: 10px;
+                    min-height:100px;
                 }
             }
         }
@@ -219,6 +252,8 @@
     }
   // ____________________________________________________RECETTES_________________________________________________________
 
+
+
         article{
             padding-top: 14%;
             margin: 0 auto;
@@ -226,6 +261,7 @@
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 10px;
             grid-auto-rows: minmax(100px, auto);
+            margin-bottom: 20%;
 
             .lineleft{
                 width: 100px;
@@ -252,6 +288,20 @@
                 margin-bottom: 20px;
                 }
 
+            .linkpage{
+                border-radius: 20px;
+                padding: 13px;
+                background-color: black;
+                color: white;
+                display: block;
+                margin-top: 10px;
+                width:200px;
+                text-align: center;
+                }
+
+                .linkpage:hover{
+                    background-color: cadetblue;
+                }
 
             .articleb{
                 text-align: right;
@@ -274,10 +324,27 @@
                 }
 
                 h2{
-                    font-size: 5em;
+                    font-size: 3em;
                     width: 50%;
                     float: left;
                     text-align: center;
+                }
+
+                .linkpage{
+                    border-radius: 20px;
+                    padding: 13px;
+                    background-color: black;
+                    color: white;
+                    display: block;
+                    margin-left: auto;
+                    margin-top: 10px;
+                    margin-right: auto;
+                    width:200px;
+                    text-align: center;
+                    }
+
+                .linkpage:hover{
+                    background-color: cadetblue;
                 }
 
                 #suggestions{
@@ -291,6 +358,23 @@
                     .recettehome{
                         padding:10%;
                         text-align: center;
+
+                        a{
+                            border-radius: 20px;
+                            border:3px solid sandybrown;
+                            padding: 13px;
+                            color: sandybrown;
+                            display: block;
+                            margin-top: 10px;
+                            width:200px;
+                            margin-left: auto;
+                            margin-right: auto;
+                        }
+
+                        p{
+                            max-width: 100%;
+                            min-height: 50px;
+                            }
                     }
 
                     .imgrecette{
@@ -301,6 +385,7 @@
                     h3{
                         font-size: 2em;
                         margin-bottom: 10px;
+                        min-height:100px;
                     }
                 }
             }

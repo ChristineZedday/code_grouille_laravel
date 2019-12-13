@@ -12,7 +12,12 @@ class UnitesTableSeeder extends Seeder
     public function run()
     {
         DB::table('unites')->insert([
-            'nom_unite' => "pincée",
+            'nom_unite' => "pièce(s)",
+        ]);
+
+
+        DB::table('unites')->insert([
+            'nom_unite' => "pincée(s)",
         ]);
 
         DB::table('unites')->insert([

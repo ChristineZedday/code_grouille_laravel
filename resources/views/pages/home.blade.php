@@ -21,32 +21,25 @@
         <div class='article'>
             <h3 class='subarticle'>{{ $lastactu->titre_actu }}</h3>
             <p>{{ $lastactu->texte_actu }} </p>
-
             <br/>
-
-
-            <a href='{{'actus'}}'>Voir d'autres actus</a>
-
+            <a class='linkpage' href='{{'actus'}}'>Voir d'autres actus</a>
         </div>
-
     </article>
 
     <div id='recettes'>
         <img class='lineleft' src="../img/picto/line.png"/>
         <h2 class='title'>Nos dernières recettes</h2>
-        @foreach($lastrecettes as $lastrecettes)
-            <h3 class='subarticle'>{{ $lastrecettes->titre_recette }}</h3>
-            <div id='suggestions'>
+        <div id='suggestions'>
+            @foreach($lastrecettes as $lastrecettes)
                     <div class='recettehome'>
-                        <img class='imgrecette' src="../img/sugg2.jpg"/>
-                        <p class='subarticle'>{{ $lastrecettes->description_recette }}</p>
-
-                        <a href='{{'recette'}}'>Consulter cette recette</a>
-                    </div>
-            </div>
-        @endforeach
-
-        <a href='{{'recettes'}}'>Voir d'autres recettes</a>
+                        <h3 class='subarticle'>{{ $lastrecettes->titre_recette }}</h3>
+                            <img class='imgrecette' src="../img/sugg2.jpg"/>
+                            <p class='subarticle'>{{ $lastrecettes->description_recette }}</p>
+                            <a class='linkrecette' href='{{route('recette.show',$lastrecettes->id)}}'>Consulter cette recette</a>
+                        </div>
+            @endforeach
+        </div>
+        <a class='linkpage' href='{{'recettes'}}'>Voir d'autres recettes</a>
     </div>
 
 </div>
