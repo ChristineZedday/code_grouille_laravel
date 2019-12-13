@@ -26,9 +26,9 @@
         <div class='form-group' id="ingredients">
         <label><h4>Ingrédients de la recette</h4></label>
         @isset($recette)
-            @foreach ($ingredients as $ingredient)
+            @foreach ($ingrecettes as $ingrecette)
             <div class='form-group'>
-            <input type="text" class="form-control"value="@isset($recette){{$recette->Ingredient->nom_ingredient}}@endisset" name='ingredient[]' multiple="multiple" required>
+            <input type="text" class="form-control"value="@isset($recette){{$ingrecette->nom_ingredient}}@endisset" name='ingredient[]' multiple="multiple" required>
             </div>
             @endforeach
         @else
@@ -40,7 +40,7 @@
             <option value={{$unite->id}}>{{$unite->nom_unite}} </option>
             @endforeach
         </select>
-        @error('ingredient_recette')
+        @error('ingredient[]')
         <div class="invalid-feedback">
         {{ $message }}
         </div>

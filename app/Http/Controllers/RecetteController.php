@@ -88,30 +88,43 @@ class RecetteController extends Controller
 
         //ici chercher les ingrédients dans le form
 
-        $i =0;
-
-        foreach ($request->get('ingredient') as $value)
-        {
-            $nom_ingredient = $value[$i];
-            $i++;
-            $ingredient = Ingredient::where('nom_ingredient', $nom_ingredient)->first();
-            if (isset($ingredient))
-           {
-                $id = $ingredient->id;
-            $newRecette->ingredient()->attach($id);
-
-           }
-            else{
-                //créer l'élément!
-            }
-        }
-
         if ($newRecette->save()) {
             //une fois la recette sauvée donc a id on lui attache ingrédients et image
-            // foreach ($ingredients as $ingredient)
-            // {
-            //     $newRecette->Ingredient()->attach($ingredient->id);
-            // }
+
+            $i=0;
+            $ingredients = $request->get('ingredient');
+
+            $quantites = $request->get('quantite');
+
+            $unites = $request->get('unite_id');
+
+
+
+            for ($i=0; $i<sizeof($ingredients); $i++)
+            {
+
+                $nom = strtolower($ingredients[$i]);
+
+
+                $ingred = Ingredient::where('nom_ingredient', $nom)->first();
+
+                $id = $ingred->id;
+
+                if (isset($ingred))
+
+               {
+
+                    $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+
+               }
+                else{
+                    //créer l'élément!
+                    dd('pas encore');
+                }
+            }
+
+
+
 
             //pour l'image, une à création possibilité d'en rajouter avec modifier
 
@@ -132,10 +145,6 @@ class RecetteController extends Controller
                      $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
                             if (isset($image))
                             {
-                                $imid = $image->id;
-
-                            }
-                            else{
                                 $image = new Image(); //on rentre le fichier dans la table image
                                 $image->chemin_image = $uploaded;
                                 $image->save();
@@ -210,14 +219,16 @@ class RecetteController extends Controller
      */
     public function edit($id)
     {
-        $ingredients = Ingredient::all();
+        $ingredients = Ingredient::all(); //tous les ingrédients de la table
+
         $recette = Recette::find($id);
+        $ingrecettes =  $recette->Ingredient()->get();      //les ingrédients de la recette
 
         if (isset($recette->Ingredient))
         {
             $ingredientId = $recette->Ingredient->ingredient_id;
 
-            return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'ingredientId' =>$ingredientId]);
+            return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'ingrecettes' =>$ingrecettes]);
 
         }
 
@@ -272,19 +283,24 @@ class RecetteController extends Controller
 
         if ($recette && $recette->delete()) {
 
+            $recette->Image()->detach();
+            $recette->Ingredient()->detach();
+
             return redirect()->action('RecetteController@index');
         }
     }
 
     public function add_bookmark(Recette $recette)
     {
-        Auth::user()->bookmarks()->attach($recette->id);
+        $user = Auth::user();
+        $user->bookmarks()->attach($recette->id);
         return back();
     }
 
     public function remove_bookmark(Recette $recette)
     {
-        Auth::user()->bookmarks()->detach($recette->id);
+        $user = Auth::user();
+        $user->bookmarks()->detach($recette->id);
         return back();
     }
 
