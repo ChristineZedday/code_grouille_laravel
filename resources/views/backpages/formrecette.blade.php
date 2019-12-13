@@ -3,7 +3,7 @@
 
 
 <div class="backform" class='content'>
-    <form action="@isset($recette){{route('recette.update', $recette->id)}}@else{{route('recette.store')}}@endisset" method="POST">
+    <form enctype="multipart/form-data" action="@isset($recette){{route('recette.update', $recette->id)}}@else{{route('recette.store')}}@endisset" method="POST">
         @csrf
         @isset($recette) @method('PUT') @endisset
 
@@ -26,9 +26,15 @@
         <div class='form-group' id="ingredients">
         <label><h4>Ingrédients de la recette</h4></label>
         @isset($recette)
-            @foreach ($ingredients as $ingredient)
+            @foreach ($ingrecettes as $ingrecette)
             <div class='form-group'>
-            <input type="text" class="form-control"value="@isset($recette){{$recette->Ingredient->nom_ingredient}}@endisset" name='ingredient[]' multiple="multiple" required>
+            <input type="text" class="form-control"value="{{$ingrecette->Ingredient->nom}}" name="{{$ingrecette->ingredient_id}}" multiple="multiple" required>
+            <input type="text" class= "form-control" value="{{$ingrecette->quantite}}" name="{{$ingrecette->quantite}}"  multiple="multiple" required>
+            <select class='form-control'  name="{{$ingrecette->unite->id}}"  multiple="multiple"  required>
+                @foreach ($unites as $unite)
+                <option value={{$unite->id}} @if ($unite->id == $ingrecette->unite->id) "selected" @else "" @endif>{{$unite->nom_unite}} </option>
+                @endforeach
+            </select>
             </div>
             @endforeach
         @else
@@ -40,15 +46,15 @@
             <option value={{$unite->id}}>{{$unite->nom_unite}} </option>
             @endforeach
         </select>
-        @error('ingredient_recette')
+        @error('ingredient[]')
         <div class="invalid-feedback">
         {{ $message }}
         </div>
         <br/>
         @enderror
-
+    </div>
         <input type="button" value="Ajouter un ingrédient" onClick="ajoute()"/>
-        </div>
+
 
         @endisset
 
@@ -140,10 +146,10 @@
 <script>
 function ajoute()
 {
-   var input = document.getElementById('original');
-   var newInput = input.cloneNode();
-   newInput.id = '';
-   input.parentElement.appendChild(newInput);
+   var div = document.getElementById('original');
+   var newDiv = div.cloneNode();
+   newDiv.id = '';
+   div.parentElement.appendChild(newDiv);
 }
 </script>
 @endsection
