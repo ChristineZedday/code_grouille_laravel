@@ -227,11 +227,11 @@ class RecetteController extends Controller
         $ingredients = Ingredient::all(); //tous les ingrédients de la table
         $unites = Unite::all();  //toutes les unités
 
-        dd ($unites);
+
 
         $recette = Recette::find($id);
         $ingrecettes =  $recette->Ingredient;    //les ingrédients de la recette
-        dd($recette->Ingredient) ;
+
 
         if (isset($recette->Ingredient))
         {
