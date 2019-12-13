@@ -19,9 +19,9 @@
     <div class='recetteline'>
         @auth
             @if (Auth::user()->hasBookmark($recettes->id))
-                <a id="addbookmark" class="full" href="" title="bookmark this page"></a>
+                <a id="addbookmark" class="full" href="{{route('remove-bookmarks', $recettes->id)}}" title="bookmark this page"></a>
             @else
-                <a id="addbookmark" class="empty" href="" title="bookmark this page"></a>
+                <a id="addbookmark" class="empty" href="{{route('add-bookmarks', $recettes->id)}}" title="bookmark this page"></a>
             @endif
         @else
             <a id="addbookmark" class="empty" href="" title="bookmark this page"></a>

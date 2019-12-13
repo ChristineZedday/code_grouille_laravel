@@ -387,5 +387,4 @@ class RecetteController extends Controller
         return back();
     }
 
-
 }
