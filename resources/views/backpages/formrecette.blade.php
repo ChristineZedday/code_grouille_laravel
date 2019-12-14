@@ -30,13 +30,10 @@
         @isset($recette)
             @foreach ($ingrecettes as $ingrecette)
             <div class='form-group'>
-            <input type="text" class="form-control"value="{{$ingrecette->Ingredient->nom}}" name="{{$ingrecette->ingredient_id}}" multiple="multiple" required>
-            <input type="text" class= "form-control" value="{{$ingrecette->quantite}}" name="{{$ingrecette->quantite}}"  multiple="multiple" required>
-            <select class='form-control'  name="{{$ingrecette->unite->id}}"  multiple="multiple"  required>
-                @foreach ($unites as $unite)
-                <option value={{$unite->id}} @if ($unite->id == $ingrecette->unite->id) "selected" @else "" @endif>{{$unite->nom_unite}} </option>
-                @endforeach
-            </select>
+            <span class="ingredient">{{$ingrecette->nom_ingredient}}</span>
+            <span class="ingredient">{{$ingrecette->quantite}}</span>
+            <span class="unite">{{$ingrecette->nom_unite}}</span>
+           
             </div>
             @endforeach
         @else
@@ -55,10 +52,9 @@
         <br/>
         @enderror -->
     </div>
-        <input type="button" value="Ajouter un ingrédient" onClick="ajoute()"/>
-
-
+       
         @endisset
+        <input type="button" value="Ajouter un ingrédient" onClick="ajoute()"/>
 
         <div class='form-group'>
             <label><h4>Description de la recette</h4></label>
@@ -164,6 +160,7 @@ function ajoute()
    var newDiv = div.cloneNode();
    newDiv.id = '';
    div.parentElement.appendChild(newDiv);
+  
 }
 </script>
 @endsection
