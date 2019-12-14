@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\RecetteUser;
+use App\RecetteIngredient;
 use Orangehill\IseedServiceProvider\recettes;
 
 class Recette extends Model {
@@ -18,7 +19,7 @@ class Recette extends Model {
 
     public function Ingredient()
     {
-        return $this->belongsToMany('App\Ingredient');
+        return $this->belongsToMany('App\Ingredient')->withPivot('quantite', 'unite_id');
     }
 
     public function Commentaire()

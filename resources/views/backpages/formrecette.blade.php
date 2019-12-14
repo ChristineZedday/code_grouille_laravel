@@ -28,11 +28,14 @@
         <div class='form-group' id="ingredients">
         <label><h4>Ingrédients de la recette</h4></label>
         @isset($recette)
+       
             @foreach ($ingrecettes as $ingrecette)
             <div class='form-group'>
             <span class="ingredient">{{$ingrecette->nom_ingredient}}</span>
+            <?php dd ($ingrecette)?>
             <span class="ingredient">{{$ingrecette->quantite}}</span>
             <span class="unite">{{$ingrecette->nom_unite}}</span>
+            <input type="checkbox" name="{{'suppring'.$ingrecette->Ingredient->id}}" id="suppring"/> Supprimer l'ingrédient {{$ingrecette->Ingredient->id}}
            
             </div>
             @endforeach
