@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Orangehill\IseedServiceProvider\actus;
 
 class Actu extends Model
 {

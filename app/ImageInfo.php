@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Orangehill\IseedServiceProvider\image_info;
 
 class ImageInfo extends Model
 {

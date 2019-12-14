@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Orangehill\IseedServiceProvider\commentaires;
 
 class Commentaire extends Model
 {

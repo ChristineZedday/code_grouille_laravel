@@ -21,9 +21,22 @@ class InfosTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'created_at' => NULL,
-                'updated_at' => '2019-12-13 11:31:14',
+                'updated_at' => '2019-12-14 21:12:17',
                 'titre' => 'Mentions légales',
-                'texte' => 'Le site internet www.grouille.fr est réalisé par Christine, Nathalie et Muriel&nbsp;<p>Hébergement&nbsp;</p>
+                'texte' => 'Le site internet www.grouille.fr est réalisé par Christine, Nathalie et Muriel&nbsp;<p>Ce site est celui de l\'association loi 1901: Grouille</p>
+<p>Siret: 012345678910</p>
+<p>Présidente: Lucie Guerzillon</p>
+<p>Adresse: 26, rue des Coccinelles 56335 Montegrillon</p>
+<p>
+<br>
+</p>
+<p>Avoir un compte sur le site web n\'implique pas d\'être membre de l\'association Grouille et vice-versa. Le compte utilisateur permet de poster des recettes, et des commentaires sur les recettes.</p>
+<p>
+<br>
+</p>
+<p>
+<br>
+<p>Hébergement&nbsp;</p>
 <p>OVH
 SAS au capital de 10 000 000 €&nbsp;</p>
 <p>&nbsp;RCS Roubaix – Tourcoing 424 761 419 00045&nbsp;</p>
@@ -43,7 +56,7 @@ N° TVA : FR 22 424 761 419&nbsp;</p>
 La présente politique de confidentialité s\'applique au site  www.grouille.fr et a pour but d’exposer aux utilisateurs du site la manière dont sont collectées et traitées leurs données à caractère personnel.
 
 - Doivent être considérées comme données personnelles toutes les données étant susceptibles d’identifier un utilisateur.
-Il s’agit notamment du prénom, du nom, du téléphone, de l’adresse e-mail et de la localisation de l’utilisateur via son adresse IP&nbsp;</p>
+Il s’agit notamment du prénom, du nom, du téléphone, de l’adresse e-mail et de la localisation de l’utilisateur via son adresse IP, cette dernière uniquement à des fins de statistiques.&nbsp;</p>
 <p>
 <br>
 </p>
@@ -51,19 +64,23 @@ Il s’agit notamment du prénom, du nom, du téléphone, de l’adresse e-mail 
 <span style="font-size: 0.85rem;">ARTICLE 2 : DONNÉES À CARACTÈRE PERSONNEL COLLECTÉES ET TRAITÉES SUR LE SITE</span>
 </h4>
 <p>Les données à caractère personnel collectées sur le site  www.grouille.fr sont les suivantes :&nbsp;</p>
-<p>Prénom – Nom –  Adresse de messagerie – Téléphone&nbsp;</p>
 <p>
-<strong>Les recettes et les commentaires postés sur ce site ne sont pas des données personnelles et deviennent la propriété du site un fois qu\'elles ont été postées.&nbsp;</strong>
+<strong>Inscription au site par le formulaire de création de compte</strong>:</p>
+<p>Nom et/ou prénom ou pseudonyme et adresse de messagerie</p>
+<p>Ces données sont supprimées après 3 ans sans activité sur notre site.</p>
+<p>
+<strong>Formulaire de demande de contact:</strong>
 </p>
+<p>Prénom – Nom –  Adresse de messagerie – Téléphone&nbsp;</p>
+<p>Ces données sont supprimées lorsque l\'objectif du contact est atteint ou lors du nettoyage annuel de la messagerie.</p>
 <p>
 <br>
 </p>
 <p>
-Ces données sont collectées lorsque l’utilisateur  :&nbsp;</p>
-<p>&nbsp;- Adhère à l\'association via le formulaire de création de compte
-
-ou&nbsp;</p>
-<p>&nbsp;- Effectue une demande de contact via le formulaire, « Demande de contact »&nbsp;</p>
+<strong>Les recettes et les commentaires postés sur ce site ne sont pas des données personnelles et deviennent la propriété du site un fois qu\'elles ont été postées.&nbsp;</strong>
+</p>
+<p>Les membres peuvent modifier ou supprimer leurs commentaires tant qu\'ils sont inscrits en tant que membres du site.</p>
+<p>A la suppression du compte, les commentaires et recettes du membre sont anonymisées en vertu du droit à l\'oubli.</p>
 <p>
 <br>
 </p>
@@ -80,7 +97,7 @@ Les données à caractère personnel collectées par le site ne sont transmises 
 <h4>ARTICLE 3 :&nbsp;<span style="font-size: 0.85rem;">RESPONSABLE DU TRAITEMENT DES DONNÉES ET DÉLÉGUÉ À LA PROTECTION DES DONNÉES</span>
 </h4>
 <p>
-<span style="font-size: 0.85rem;">Le responsable du traitement des données à caractère personnel est : Muriel GUILLOU.
+<span style="font-size: 0.85rem;">Le responsable du traitement des données à caractère personnel est : Lucie Guerzillon.
 
 Elle peut être contacté de la manière suivante :
 
@@ -96,7 +113,7 @@ De plus, le responsable du traitement des données s’engage à notifier l’ut
 
 Dans le cas où l’intégrité, la confidentialité ou la sécurité des données à caractère personnel de l’utilisateur est compromise, le responsable du traitement s’engage à informer l’utilisateur par tout moyen.
 
-Par ailleurs, l’utilisateur est informé que la personne suivante a été nommée Délégué à la Protection des Données : Muriel GUILLOU.
+Par ailleurs, l’utilisateur est informé que la personne suivante a été nommée Délégué à la Protection des Données : Lucie Guerzillon.
 
 Le rôle du Délégué à la Protection des Données et de s’assurer la bonne mise en oeuvre des dispositions nationales et supranationales relatives à la collecte et au traitement des données à caractère personnel. Il est parfois appelé DPO (pour Data Protection Officer).
 
@@ -108,7 +125,7 @@ Tél. + 33 683 148 847 ou contact@grouille.fr&nbsp;</span>
 <br>ARTICLE 4 : DROITS DE L’UTILISATEUR&nbsp;</h4>
 <p>Conformément à la réglementation concernant le traitement des données à caractère personnel, l’utilisateur possède les droits ci-après énumérés.
 
-Afin que le responsable du traitement des données fasse droit à sa demande, l’utilisateur est tenu de lui communiquer : ses prénom et nom ainsi que son adresse e-mail.
+Afin que le responsable du traitement des données fasse droit à sa demande, l’utilisateur est tenu de lui communiquer : ses prénom et nom (ou pseudonyme) ainsi que son adresse e-mail.
 
 Le responsable du traitement des données est tenu de répondre à l’utilisateur dans un délai de 30 (trente) jours maximum.
 
@@ -173,6 +190,7 @@ Mis à jour le 18 août 2019.&nbsp;</p>
 
 </p>
 <p>
+</p>
 </p>',
                 'email' => NULL,
             ),
@@ -183,24 +201,27 @@ Mis à jour le 18 août 2019.&nbsp;</p>
                 'updated_at' => NULL,
                 'titre' => 'L\'association Grouille',
                 'texte' => 'L\'association "Grouille" a été fondée en 2012 par un collectif de personnes, aimant les insectes et se sentant très concernées par la préservation des ressources naturelles de notre planète. 
-                Faisant face à une prochaine crise alimentaire que nos dirigeants estiment arriver d’ici à l’horizon 2030, il devient urgent d\'envisager de s\'alimenter autrement. 
-                Les insectes sont là à notre portée, pourquoi ne pas en profiter ? Découvrez dans notre page "Insectes" les insectes comestibles et apprenez à les reconnaitre.
-                
-                ',
+Faisant face à une prochaine crise alimentaire que nos dirigeants estiment arriver d’ici à l’horizon 2030, il devient urgent d\'envisager de s\'alimenter autrement. 
+Les insectes sont là à notre portée, pourquoi ne pas en profiter ? Découvrez dans notre page "Insectes" les insectes comestibles et apprenez à les reconnaitre.
+
+',
                 'email' => NULL,
             ),
             2 => 
             array (
                 'id' => 3,
                 'created_at' => NULL,
-                'updated_at' => NULL,
+                'updated_at' => '2019-12-14 20:52:49',
                 'titre' => 'Les insectes sont nos amis',
                 'texte' => 'Dans notre association, nous aimons les insectes y compris dans notre assiette. L\'objectif de notre association est de promouvoir les insectes souvent mal connus ou mal aimés.
-                Ces derniers sont généralement considérés comme des animaux nuisibles qu\'on cherche à éliminer par tous les moyens et notamment en utilisant des pesticides.
-                Mais beaucoup d\'insectes sont comestibles et très riches en protéines. Ce serait dommage de ne pas en profiter. Nous vous proposons sur ce site des recettes à base d\'insectes faciles à préparer.',
+Ces derniers sont généralement considérés comme des animaux nuisibles qu\'on cherche à éliminer par tous les moyens et notamment en utilisant des pesticides.
+Mais beaucoup d\'insectes sont comestibles et très riches en protéines. Ce serait dommage de ne pas en profiter. Nous vous proposons sur ce site des recettes à base d\'insectes faciles à préparer.<p>Et ensuite, vous ne direz plus jamais: "Quand je vois un six-pattes, je sors mon six-coups"!<br>
+<p>
+<br>
+</p>
+</p>',
                 'email' => 'NULL',
             ),
-
             3 => 
             array (
                 'id' => 4,
