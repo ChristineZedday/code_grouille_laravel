@@ -31,10 +31,20 @@ class HomeController extends Controller
 
     public function lastactu()
     {
+        $editoactu = Actu::find(4);
         $lastactu = Actu::orderBy('created_at', 'desc')->first();
         $lastrecettes = Recette::orderBy('created_at', 'desc')->take(3)->get();
              // $lastactu = Actu::lastest();
-        return view('pages.home', ['lastactu'=> $lastactu, 'lastrecettes' => $lastrecettes ]);
+        return view('pages.home', ['lastactu'=> $lastactu, 'lastrecettes' => $lastrecettes, 'editoactu' => $editoactu, ]);
+    }
+
+
+    public function showapropospara1()
+    {
+        $apropospara1 = Info::find(2);
+        $apropospara2 = Info::find(3);
+
+        return view('pages.apropos', ['apropospara1' => $apropospara1, 'apropospara2' => $apropospara2]);
     }
 
 }
