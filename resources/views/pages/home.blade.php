@@ -16,14 +16,14 @@
 <div class='home'>
 
     <article>       
-        <img class='imgarticle' src="../img/LuluGerzillon-AlliasPascaleLaCigale.jpg"/>
+        <img class='imgarticle' src="{{asset('/img/LuluGerzillon-AlliasPascaleLaCigale.jpg')}}"/>
         <div class='article'>
         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
         <h2 class='title'>Edito</h2>        
             <h3 class='subarticle'>{{ $editoactu->titre_actu }}</h3>
             <p>{{ $editoactu->texte_actu }} </p>
             <br/>
-            <a class='linkpage' href='{{'apropos'}}'>Découvrir notre asso</a>           
+            <a class='linkpage' href='{{route('apropos)'}}'>Découvrir notre asso</a>           
         </div>
        
     </article>
@@ -36,7 +36,7 @@
             <br/>
             <a class='linkpage' href='{{'actus'}}'>Voir d'autres actus</a>
         </div>
-        <img class='imgarticle' src="../img/actu_grouille_insecte-au-chocolat-noel-9c0354.jpg"/>
+        <img class='imgarticle' src="{{asset('/img/actu_grouille_insecte-au-chocolat-noel-9c0354.jpg')}}"/>
     </article>
 
     <div id='recettes'>
@@ -46,7 +46,7 @@
             @foreach($lastrecettes as $lastrecette)
                     <div class='recettehome'>
                         <h3 class='subarticle'>{{ $lastrecette->titre_recette }}</h3>
-                            <img class='imgrecette' src="../img/sugg2.jpg"/>
+                            <img class='imgrecette' src="{{asset('/img/sugg2.jpg')}}"/>
                             <p class='subarticle'>{{ $lastrecette->description_recette }}</p>
                             <a class='linkrecette' href='{{route('recette.show',$lastrecette->id)}}'>Consulter cette recette</a>
                         </div>
