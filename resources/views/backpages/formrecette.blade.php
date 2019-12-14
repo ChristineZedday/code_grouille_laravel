@@ -32,10 +32,12 @@
             @foreach ($ingrecettes as $ingrecette)
             <div class='form-group'>
             <span class="ingredient">{{$ingrecette->nom_ingredient}}</span>
-            <?php dd ($ingrecette)?>
-            <span class="ingredient">{{$ingrecette->quantite}}</span>
-            <span class="unite">{{$ingrecette->nom_unite}}</span>
-            <input type="checkbox" name="{{'suppring'.$ingrecette->Ingredient->id}}" id="suppring"/> Supprimer l'ingrédient {{$ingrecette->Ingredient->id}}
+            <span class="ingredient">{{$ingrecette->pivot->quantite}}</span>
+            <span>   <?php 
+            // $unite = App\Unite::find($ingrecette->pivot->unite_id)->first();
+            //    echo $unite->nom_unite;   
+               ?></span>
+            <input type="checkbox" name="{{'suppring'.$ingrecette->Ingredient->id}}" id="suppring"/>  <label for="suppring">Supprimer l'ingrédient {{$ingrecette->Ingredient->id}}</label>
            
             </div>
             @endforeach

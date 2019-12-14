@@ -22,6 +22,8 @@ class Recette extends Model {
         return $this->belongsToMany('App\Ingredient')->withPivot('quantite', 'unite_id');
     }
 
+    
+
     public function Commentaire()
     {
         return $this->hasMany('App\Commentaire');

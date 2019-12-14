@@ -26,14 +26,19 @@
             @if(!empty($ingredients))
             @foreach ($ingredients as $ingredient)
            
-                <span>{{$ingredient->nom_ingredient}}</span>
+         <div>       <span>{{$ingredient->nom_ingredient}}</span>
                 <span>{{$ingredient->pivot->quantite}}</span>
-            <span>   <?php $unite = App\Unite::find($ingredient->pivot->unite_id)->first();
-               echo $unite->nom_unite;   ?></span>
-                
+                <span>
+                <?php 
+                $idu = $ingredient->pivot->unite_id;
+                $unite =  DB::table('unites')->where('id', $idu)->first();
+                echo $unite->nom_unite;
+                 ?>
+               </span>
+          </div>      
             @endforeach
             @endif
-        </div>
+        </div><br/>
 
         <h4 class='subarticle'>Temps de préparation: <?php echo ($recette->temps_preparation_recette) ?>&nbsp; minutes</h4>
         <h4 class='subarticle'>Temps de cuisson: <?php echo ($recette->temps_cuisson_recette) ?>&nbsp; minutes</h4>

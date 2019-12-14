@@ -24,10 +24,4 @@ class Ingredient extends Model
    
 
 
-//     public function Unite()
-//     {
-//         return $this->hasManyThrough('App\Unite', 'App\IngredientRecette')->withPivot('unite_id');
-        
-//     }
-
 }

@@ -12,4 +12,10 @@ class Unite extends Model
         return $this->belongsToMany('App\Ingredient');
     }
 
+    public function Ingunit()
+    {
+
+        return $this->hasManyThrough('App\Ingredient', 'App\IngredientRecette');
+    }
+   
 }
