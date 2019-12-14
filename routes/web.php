@@ -78,7 +78,7 @@ Route::get('/contact', 'ContactController@create')->name('contact');
 
 Route::post('/contact', 'ContactController@store')->name('contact.store');
 
-Route::post('/recette.comment {id}', 'frontRecetteController@comment')->name('commenter');
+Route::post('/recette/commenter/ {id}', 'frontRecetteController@comment')->name('commenter');
 
 Route::get('/membre', function () {
     return view('membres.dashboard');
