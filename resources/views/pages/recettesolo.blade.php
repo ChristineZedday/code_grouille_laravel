@@ -27,8 +27,17 @@
             @foreach ($ingredients as $ingredient)
            
                 <h4>{{$ingredient->nom_ingredient}}</h4>
-                <p>{{$ingredient->quantite}}&nbsp; 
-                {{$ingredient->nom_unite}} 
+                <?php
+                // dd ($ingredient->Recette()->pivot->quantite);
+                //  echo $ingredient->pivot->quantite;
+                ?>
+       
+                <?php
+                // dd ($ingredient);
+                // $unite = App\Unite::find($ingredient->unite_id)->first();
+                // dd (unite);
+                // echo $unite->nom_unite;
+                ?>
                 </p>
             @endforeach
             @endif

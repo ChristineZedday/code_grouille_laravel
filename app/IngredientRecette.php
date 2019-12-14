@@ -16,6 +16,8 @@ class IngredientRecette extends Model
         return $this->belongsTo('App\Ingredient');
     }
 
+
+
     public function Unite()
     {
         return $this->belongsTo('App\Unite');
