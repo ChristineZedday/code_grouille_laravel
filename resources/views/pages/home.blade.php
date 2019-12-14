@@ -23,7 +23,7 @@
             <h3 class='subarticle'>{{ $editoactu->titre_actu }}</h3>
             <p>{{ $editoactu->texte_actu }} </p>
             <br/>
-            <a class='linkpage' href='{{route('apropos)'}}'>Découvrir notre asso</a>           
+            <a class='linkpage' href='{{route('apropos')}}'>Découvrir notre asso</a>           
         </div>
        
     </article>
