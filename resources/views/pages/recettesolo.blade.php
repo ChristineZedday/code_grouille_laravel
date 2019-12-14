@@ -11,23 +11,28 @@
     </div>
 
     <div class='imgsinglerecette'>
-        @isset($images)
+        @if(!empty($images))
         @foreach ($images as $image)
             <img src="{{asset('/img/'.$image->chemin_image)}}"/>
         @endforeach
-        @endisset
+        @endif
     </div>
 
     <div class='article'>
         <h4 class='subarticle'><?php echo ($recette->description_recette) ?></h4>
         <h4 class='subarticle'>Ingrédients:</h4>
         <div class='ingredients'>
-            @isset($ingredients)
+        <?php  $ingredients = $recette->Ingredient; 
+         ?>
+            @if(!empty($ingredients))
             @foreach ($ingredients as $ingredient)
+         
                 <h4>{{$ingredient->nom_ingredient}}</h4>
-                <p>{{$ingredient->quantite}}&nbsp; {{$ingredient->Unite->nom_unite}} </p>
+                <p>{{$ingredient->quantite}}&nbsp; 
+                {{$ingredient->Unite->nom_unite}} 
+                </p>
             @endforeach
-            @endisset
+            @endif
         </div>
 
         <h4 class='subarticle'>Temps de préparation: <?php echo ($recette->temps_preparation_recette) ?>&nbsp; minutes</h4>

@@ -47,7 +47,7 @@ class RecetteController extends Controller
      */
     public function create()
     {
-        $ingredients = Ingredient::all(); //pour gérer l'autocomplétion
+        $ingredients = Ingredient::all(); //pour gérer l'autocomplétion plus tard
         $unites = Unite::all();  //toutes les unités
         return view('backpages.formrecette', ['ingredients' => $ingredients, 'unites' => $unites]);
     }
@@ -280,6 +280,43 @@ class RecetteController extends Controller
 
 
         //ici récupérer les ingrédients!!!
+        $i=0;
+            $ingredients = $request->get('ingredient');
+
+
+            $quantites = $request->get('quantite');
+
+
+            $unites = $request->get('unite_id');
+
+
+
+            for ($i=0; $i<sizeof($ingredients); $i++)
+            {
+
+                $nom = strtolower($ingredients[$i]);
+
+
+                $ingred = Ingredient::where('nom_ingredient', $nom)->first();
+
+
+
+                if (isset($ingred))
+
+               {
+                     $id = $ingred->id;
+                    $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+
+               }
+                else{
+                    //créer l'élément!
+                    $ingredient = new Ingredient;
+                    $ingredient->nom_ingredient = $nom;
+                    $ingredient->quantite = $quantites[$i];
+                    $ingredient->Unite()->attach($unites[$i]);
+                }
+            }
+
         $images = $recette->Image;
 
         foreach ($images as $image)

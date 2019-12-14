@@ -41,19 +41,19 @@
             @endforeach
         @else
         <div class='form-group' id='original'>
-        <input type="text" class="form-control" @error ('ingredient[]') is-invalid @enderror name='ingredient[]'  multiple="multiple" required>
-        <input type="text" class= "form-control" @error ('quantite[]') is-invalid @enderror name='quantite[]'  multiple="multiple" required>
+        <input type="text" class="form-control"  name='ingredient[]'  multiple="multiple" required>
+        <input type="text" class= "form-control" name='quantite[]'  multiple="multiple" required>
         <select class='form-control'  name="unite_id[]" multiple="multiple"  required>
             @foreach ($unites as $unite)
             <option value={{$unite->id}}>{{$unite->nom_unite}} </option>
             @endforeach
         </select>
-        @error('ingredient[]')
+        <!-- @error('ingredient[]')
         <div class="invalid-feedback">
         {{ $message }}
         </div>
         <br/>
-        @enderror
+        @enderror -->
     </div>
         <input type="button" value="Ajouter un ingrédient" onClick="ajoute()"/>
 
@@ -158,7 +158,9 @@
 <script>
 function ajoute()
 {
+   
    var div = document.getElementById('original');
+   
    var newDiv = div.cloneNode();
    newDiv.id = '';
    div.parentElement.appendChild(newDiv);
