@@ -182,14 +182,46 @@ Mis à jour le 18 août 2019.&nbsp;</p>
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'titre' => 'L\'association Grouille',
-                'texte' => 'Dans notre association, nous aimons les insectes y compris dans notre assiette. L\'ojectif de notre association est de promouvoir les insectes souvent mal connus ou mal aimés.
-Ces derniers sont généralement considérés comme des animaux nuisibles qu\'on cherche à éliminer par tous les moyens et notamment en utilisant des pesticides.
-Mais beaucoup d\'insectes sont comestibles et sont très riches en protéines. Ce serait dommage de ne pas en profiter.',
+                'texte' => 'L\'association "Grouille" a été fondée en 2012 par un collectif de personnes, aimant les insectes et se sentant très concernées par la préservation des ressources naturelles de notre planète. 
+                Faisant face à une prochaine crise alimentaire que nos dirigeants estiment arriver d’ici à l’horizon 2030, il devient urgent d\'envisager de s\'alimenter autrement. 
+                Les insectes sont là à notre portée, pourquoi ne pas en profiter ? Découvrez dans notre page "Insectes" les insectes comestibles et apprenez à les reconnaitre.
+                
+                ',
                 'email' => NULL,
             ),
             2 => 
             array (
                 'id' => 3,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'titre' => 'Les insectes sont nos amis',
+                'texte' => 'Dans notre association, nous aimons les insectes y compris dans notre assiette. L\'objectif de notre association est de promouvoir les insectes souvent mal connus ou mal aimés.
+                Ces derniers sont généralement considérés comme des animaux nuisibles qu\'on cherche à éliminer par tous les moyens et notamment en utilisant des pesticides.
+                Mais beaucoup d\'insectes sont comestibles et très riches en protéines. Ce serait dommage de ne pas en profiter. Nous vous proposons sur ce site des recettes à base d\'insectes faciles à préparer.',
+                'email' => 'NULL',
+            ),
+
+            3 => 
+            array (
+                'id' => 4,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'titre' => 'e-mail Asso',
+                'texte' => NULL,
+                'email' => 'contact@grouille.fr',
+            ),
+            4 => 
+            array (
+                'id' => 5,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+                'titre' => 'e-mail Asso',
+                'texte' => NULL,
+                'email' => 'webmaster@grouille.fr',
+            ),
+            5 => 
+            array (
+                'id' => 6,
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'titre' => 'e-mail Asso',
