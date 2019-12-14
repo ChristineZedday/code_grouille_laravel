@@ -96,7 +96,7 @@
         </div>
 
         <div class='form-group'>
-            <label><p>Appetance recette</p></label>
+            <label><p>Appetence recette</p></label>
             <select class="form-control" value="@isset($recette){{$recette->appetence_recette}}@endisset" name="appetence_recette" required>
                     <option value="Entomophage Débutant">Entomophage Débutant</option>
                     <option value="Entomophage Moyen">Entomophage Moyen</option>
