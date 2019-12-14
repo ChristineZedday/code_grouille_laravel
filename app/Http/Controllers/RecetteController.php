@@ -207,16 +207,23 @@ class RecetteController extends Controller
     {
         $recette = Recette::find($id);
 
-        $commentaires = $recette->Commentaire->get();
-
         if (!$recette) {
 
             return redirect()->action('RecetteController@index');
         }
 
-        return view('backpages.showrecette',[
-            'recette'=> $recette, 'commentaires'=>$commentaires
-        ]);
+        $images = $recette->Image;
+        $commentaires = $recette->Commentaire;
+        $ingredients = $recette->Ingredient;
+
+       
+        {
+            return view('pages.recettesolo',[
+                'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires, 'ingredients' => $ingredients
+            ]);
+        }
+        
+
     }
 
     /**

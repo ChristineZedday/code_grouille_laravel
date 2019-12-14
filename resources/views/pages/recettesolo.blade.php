@@ -22,14 +22,13 @@
         <h4 class='subarticle'><?php echo ($recette->description_recette) ?></h4>
         <h4 class='subarticle'>Ingrédients:</h4>
         <div class='ingredients'>
-        <?php  $ingredients = $recette->Ingredient; 
-         ?>
+       
             @if(!empty($ingredients))
             @foreach ($ingredients as $ingredient)
-         
+           
                 <h4>{{$ingredient->nom_ingredient}}</h4>
                 <p>{{$ingredient->quantite}}&nbsp; 
-                {{$ingredient->Unite->nom_unite}} 
+                {{$ingredient->nom_unite}} 
                 </p>
             @endforeach
             @endif
@@ -44,12 +43,12 @@
     </div>
 
     <div class='comrecette'>
-            @isset($commentaires)
+            @if(!empty($commentaires))
             @foreach ($commentaires as $commentaire)
                 <h4>{{$commentaire->user->name}}</h4>
                 <p>{{$commentaire->texte}}</p>
             @endforeach
-            @endisset
+            @endif
         </div>
 </article>
 @endsection

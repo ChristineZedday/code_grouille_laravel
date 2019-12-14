@@ -33,28 +33,16 @@ class frontRecetteController extends Controller
         }
 
         $images = $recette->Image;
+        $commentaires = $recette->Commentaire;
+        $ingredients = $recette->Ingredient;
 
-        if (isset($images) && isset($commentaires))
+       
         {
             return view('pages.recettesolo',[
-                'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires
+                'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires, 'ingredients' => $ingredients
             ]);
         }
-        elseif (isset($images)) {
-            return view('pages.recettesolo',[
-                'recette'=> $recette, 'images' =>$images,
-            ]);
-        }
-            elseif (isset($commentaires)) {
-                return view('pages.recettesolo',[
-                    'recette'=> $recette, 'commentaires' => $commentaires
-                ]);
-        }
-        else  {
-            return view('pages.recettesolo',[
-                'recette'=> $recette,
-            ]);
-         }
+        
 
     }
 

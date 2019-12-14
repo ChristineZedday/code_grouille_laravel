@@ -159,7 +159,12 @@ function ajoute()
    
    var newDiv = div.cloneNode();
    newDiv.id = '';
+   @isset ($recette)
+   var par = document.getElementById('ingredients');
+   par.Element.appendChild(newDiv);
+   @else
    div.parentElement.appendChild(newDiv);
+   @endisset
   
 }
 </script>
