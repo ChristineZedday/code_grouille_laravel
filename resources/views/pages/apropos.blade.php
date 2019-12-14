@@ -17,16 +17,20 @@
 
     <section id='about'>
                 <article>
-                     <img class='imgarticle' src="../img/apropos-d0e5791126f8bf9de4a7c90d6ef9c19d.jpg"/>
-                     <div>
+                    <div>
                         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
                         <h2 class='title'>Qui sommes-nous</h2>
-                        </div>
-                     <img class='imgarticle' src="../img/about2.jpg"/>
-                     <div class='article'>
-                        <h3 class='subarticle'>{{ $apropospara1->titre }}</h3>
+                        <h2 class='subarticle'>{{ $apropospara1->titre }}</h2>
                         <p>{{ $apropospara1->texte }} </p>
-                        
+                    </div>
+                     <img class='imgarticle' src="../img/apropos-d0e5791126f8bf9de4a7c90d6ef9c19d.jpg"/>                                    
+                </article>
+                <article>                                                      
+                     <img class='imgarticle' src="../img/apropos-asso-grouille-71f544a244c701f479f1bd16c7d19d8f.jpg"/>
+                     <div class='article'>
+                        <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>                    
+                        <h2 class='subarticle'>{{ $apropospara2->titre }}</h2>
+                        <p>{{ $apropospara2->texte }} </p>                        
                     </div>
                 </article>
     <section>
