@@ -12,7 +12,7 @@ class Ingredient extends Model
 
     public function Recette()
     {
-    return $this->hasMany('App\Recette');
+    return $this->BelongsToMany('App\Recette')->withPivot('quantite');
     }
 
 
@@ -20,4 +20,14 @@ class Ingredient extends Model
     {
         return $this->BelongsTo('App\Insecte');
     }
+
+   
+
+
+//     public function Unite()
+//     {
+//         return $this->hasManyThrough('App\Unite', 'App\IngredientRecette')->withPivot('unite_id');
+        
+//     }
+
 }
