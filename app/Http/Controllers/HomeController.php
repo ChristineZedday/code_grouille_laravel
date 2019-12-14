@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Actu;
 use App\Recette;
+use App\info;
 
 
 class HomeController extends Controller

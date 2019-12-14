@@ -12,9 +12,9 @@
 */
 Route::get('/', 'HomeController@lastactu')->name('home');
 
-Route::get('/home', function () {
-    return view('pages.home', 'HomeController@lastactu');
-});
+// Route::get('/home', function () {
+//     return view('pages.home', 'HomeController@lastactu');
+// });
 
 Route::get('/login', function(){
     return view('auth.login');
