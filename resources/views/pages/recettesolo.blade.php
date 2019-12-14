@@ -21,7 +21,7 @@
     <div class='article'>
         <h4 class='subarticle'><?php echo ($recette->description_recette) ?></h4>
         <h4 class='subarticle'>Ingrédients:</h4>
-        <div class='comrecette'>
+        <div class='ingredients'>
             @isset($ingredients)
             @foreach ($ingredients as $ingredient)
                 <h4>{{$ingredient->nom_ingredient}}</h4>

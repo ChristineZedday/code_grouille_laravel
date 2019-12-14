@@ -7,7 +7,7 @@
 <form method="POST" action="{{route('verify')}}">
                @csrf
 
-                     <label for="email">{{ __('E-Mail Address') }}</label>
+                     <label for="email">{{ __('Adresse email') }}</label>
                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                        @error('email')
@@ -16,7 +16,7 @@
                            </span>
                        @enderror
 
-                   <label for="password">{{ __('Password') }}</label>
+                   <label for="password">{{ __('Mot de passe') }}</label>
                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                        @error('password')
@@ -29,19 +29,19 @@
                        <div class="form-check">
 
                            <label class="form-check-label" for="remember">
-                               {{ __('Remember Me') }}
+                               {{ __('Se souvenir de moi') }}
                            </label>
 
                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                        </div>
 
                        <button type="submit" class="btn btn-primary">
-                           {{ __('Login') }}
+                           {{ __('Se connecter') }}
                        </button>
 
                        @if (Route::has('password.request'))
                            <a class="btn btn-link" href="{{ route('password.request') }}">
-                               {{ __('Forgot Your Password?') }}
+                               {{ __('Mot de passe oublié?') }}
                            </a>
                        @endif
            </form>

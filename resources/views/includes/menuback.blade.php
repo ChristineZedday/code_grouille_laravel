@@ -2,16 +2,16 @@
 <nav id='menuback'>
     <ul>
 
-        <li><a href='/back/recettes'>Recettes</a></li>
-        <li><a href='/back/commentaires'>Commentaires Recettes</a></li>
+        <li><a href="{{route('tabrecettes')}}">Recettes</a></li>
+        <li><a href="{{route('tabcommentaires')}}">Commentaires Recettes</a></li>
 
 
     <span>
-        <li><a href='/back/actus'>Actus</a></li>
-        <li><a href='/back/insectes'>Liste des Insectes</a></li>
-        <li><a href='/back/ingredients'>Liste des Ingrédients</a></li>
-        <li><a href='/back/membres'>Membres</a></li>
-        <li><a href='/back/infos'>Infos statiques</a></li>
+        <li><a href="{{route('tabactus')}}">Actus</a></li>
+        <li><a href="{{route('tabinsectes')}}">Liste des Insectes</a></li>
+        <li><a href="{{route('tabingredients')}}">Liste des Ingrédients</a></li>
+        <li><a href="{{route('tabmembres')}}">Membres</a></li>
+        <li><a href="{{route('tabinfos')}}">Infos statiques</a></li>
 
 
     </span>
@@ -20,6 +20,6 @@
 
 
 <div id='backtofront'>
-    <button id='tofront'><a href="/home">Back to front</a></button>
-    <button id='disconnect'><a href="/deconnexion">Disconnect</a></button>
+    <button id='tofront'><a href="{{route('home')}}">Retour dans la zone publique</a></button>
+    <button id='disconnect'><a href="{{route('disconnect')}}">Se déconnecter</a></button>
 </div>
