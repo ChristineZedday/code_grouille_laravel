@@ -42,9 +42,24 @@ class frontRecetteController extends Controller
                 'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires, 'ingredients' => $ingredients
             ]);
         }
+    }
+
+    public function comment($id)
+        {
+            $user = Auth::user();
+            $recette = Recette::find($id);
+
+            $validated = $request->validate([
+                'texte' => 'string|required',]);
+
+            $commentaire= new Commentaire;
+            $commentaire->fill($validated); 
+            $recette->Commentaire()->attach($user->id, ['texte' => $commentaire->texte]);
+
+        }
         
 
-    }
+    
 
 }
 
