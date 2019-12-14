@@ -283,11 +283,18 @@ class RecetteController extends Controller
 
         $recette = Recette::find($id);
         $recette->fill($validated);
-//ici récupérer les ingrédients supprimés
+//ici récupérer les ingrédients supprimés:
+$ingredients = $recette->Ingredient;
 
+foreach ($ingredients as $ingredient)
+        {
 
-
-        //ici récupérer les ingrédients!!!
+            if (isset($_POST['suppring'.$ingredient->id]))
+            {
+                $recette->Ingredient()->detach($ingredient->id);
+            }
+        }
+        //ici récupérer les ingrédients ajoutes:
         $i=0;
             $ingredients = $request->get('ingredient');
 

@@ -34,8 +34,9 @@
             <span class="ingredient">{{$ingrecette->nom_ingredient}}</span>
             <span class="ingredient">{{$ingrecette->pivot->quantite}}</span>
             <span>   <?php 
-            // $unite = App\Unite::find($ingrecette->pivot->unite_id)->first();
-            //    echo $unite->nom_unite;   
+            $idu = $ingrecette->pivot->unite_id;
+            $unite =  DB::table('unites')->where('id', $idu)->first();
+            echo $unite->nom_unite;
                ?></span>
             <input type="checkbox" name="{{'suppring'.$ingrecette->Ingredient->id}}" id="suppring"/>  <label for="suppring">Supprimer l'ingrédient {{$ingrecette->Ingredient->id}}</label>
            
@@ -47,15 +48,10 @@
         <input type="text" class= "form-control" name='quantite[]'  multiple="multiple" required>
         <select class='form-control'  name="unite_id[]" multiple="multiple"  required>
             @foreach ($unites as $unite)
-            <option value={{$unite->id}}>{{$unite->nom_unite}} </option>
+            <option value="{{$unite->id}}"> {{$unite->nom_unite}} </option>
             @endforeach
         </select>
-        <!-- @error('ingredient[]')
-        <div class="invalid-feedback">
-        {{ $message }}
-        </div>
-        <br/>
-        @enderror -->
+     
     </div>
        
         @endisset
