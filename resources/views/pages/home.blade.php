@@ -15,7 +15,7 @@
 
 <div class='home'>
     <article>
-        <img class='lineleft' src="../img/picto/line.png"/>
+        <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
         <h2 class='title'>Dernière actu</h2>
         <img class='imgarticle' src="../img/img1.jpg"/>
         <div class='article'>
@@ -27,19 +27,19 @@
     </article>
 
     <div id='recettes'>
-        <img class='lineleft' src="../img/picto/line.png"/>
+        <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
         <h2 class='title'>Nos dernières recettes</h2>
         <div id='suggestions'>
-            @foreach($lastrecettes as $lastrecettes)
+            @foreach($lastrecettes as $lastrecette)
                     <div class='recettehome'>
-                        <h3 class='subarticle'>{{ $lastrecettes->titre_recette }}</h3>
+                        <h3 class='subarticle'>{{ $lastrecette->titre_recette }}</h3>
                             <img class='imgrecette' src="../img/sugg2.jpg"/>
-                            <p class='subarticle'>{{ $lastrecettes->description_recette }}</p>
-                            <a class='linkrecette' href='{{route('recette.show',$lastrecettes->id)}}'>Consulter cette recette</a>
+                            <p class='subarticle'>{{ $lastrecette->description_recette }}</p>
+                            <a class='linkrecette' href='{{route('recette.show',$lastrecette->id)}}'>Consulter cette recette</a>
                         </div>
             @endforeach
         </div>
-        <a class='linkpage' href='{{'recettes'}}'>Voir d'autres recettes</a>
+        <a class='linkpage' href="{{route('recettes')}}">Voir d'autres recettes</a>
     </div>
 
 </div>

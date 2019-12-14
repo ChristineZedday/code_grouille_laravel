@@ -7,7 +7,7 @@
     @foreach($recettes as $recettes)
 
         <div class='recetteline'>
-            <img class='lineleft' src="../img/picto/line.png"/>
+            <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
             <a href="{{route('recette.show',$recettes->id)}}">
                 <h2 class='title'>{{ $recettes->titre_recette }}</h2>
             </a>

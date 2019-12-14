@@ -39,7 +39,7 @@
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
  --}}
                 <button id='submit' type="submit" class="btn btn-primary">
-                    {{ __('Register') }}
+                   S'enregistrer
                 </button>
         </form>
 </div>

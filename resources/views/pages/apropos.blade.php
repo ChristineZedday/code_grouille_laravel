@@ -17,14 +17,14 @@
                 <article>
                      <img class='imgarticle' src="../img/about.jpg"/>
                      <div>
-                        <img class='lineleft' src="../img/picto/line.png"/>
+                        <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
                         <h2 class='title'>Qui sommes-nous</h2>
                         </div>
                      <img class='imgarticle' src="../img/about2.jpg"/>
                      <div class='article'>
                         <h3 class='subarticle'>{{ $apropospara1->titre }}</h3>
                         <p>{{ $apropospara1->texte }} </p>
-                        <a href=''>Read more</a>
+                        
                     </div>
                 </article>
     <section>

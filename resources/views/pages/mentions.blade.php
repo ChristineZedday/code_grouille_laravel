@@ -6,6 +6,6 @@
 
 <h1>Mentions légales</h1>
 
-{{ $mentions->texte }}
+{!! $mentions->texte !!}
 
 @endsection
