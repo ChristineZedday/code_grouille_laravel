@@ -283,10 +283,18 @@ class RecetteController extends Controller
 
         $recette = Recette::find($id);
         $recette->fill($validated);
+//ici récupérer les ingrédients supprimés:
+$ingredients = $recette->Ingredient;
 
+foreach ($ingredients as $ingredient)
+        {
 
-
-        //ici récupérer les ingrédients!!!
+            if (isset($_POST['suppring'.$ingredient->id]))
+            {
+                $recette->Ingredient()->detach($ingredient->id);
+            }
+        }
+        //ici récupérer les ingrédients ajoutes:
         $i=0;
             $ingredients = $request->get('ingredient');
 
@@ -296,8 +304,8 @@ class RecetteController extends Controller
 
             $unites = $request->get('unite_id');
 
-
-
+if (!empty($ingredients))
+{
             for ($i=0; $i<sizeof($ingredients); $i++)
             {
 
@@ -323,6 +331,7 @@ class RecetteController extends Controller
                     $ingredient->Unite()->attach($unites[$i]);
                 }
             }
+    }
 
         $images = $recette->Image;
 

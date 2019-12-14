@@ -28,11 +28,17 @@
         <div class='form-group' id="ingredients">
         <label><h4>Ingrédients de la recette</h4></label>
         @isset($recette)
+       
             @foreach ($ingrecettes as $ingrecette)
             <div class='form-group'>
             <span class="ingredient">{{$ingrecette->nom_ingredient}}</span>
-            <span class="ingredient">{{$ingrecette->quantite}}</span>
-            <span class="unite">{{$ingrecette->nom_unite}}</span>
+            <span class="ingredient">{{$ingrecette->pivot->quantite}}</span>
+            <span>   <?php 
+            $idu = $ingrecette->pivot->unite_id;
+            $unite =  DB::table('unites')->where('id', $idu)->first();
+            echo $unite->nom_unite;
+               ?></span>
+            <input type="checkbox" name="{{'suppring'.$ingrecette->Ingredient->id}}" id="suppring"/>  <label for="suppring">Supprimer l'ingrédient {{$ingrecette->Ingredient->id}}</label>
            
             </div>
             @endforeach
@@ -42,15 +48,10 @@
         <input type="text" class= "form-control" name='quantite[]'  multiple="multiple" required>
         <select class='form-control'  name="unite_id[]" multiple="multiple"  required>
             @foreach ($unites as $unite)
-            <option value={{$unite->id}}>{{$unite->nom_unite}} </option>
+            <option value="{{$unite->id}}"> {{$unite->nom_unite}} </option>
             @endforeach
         </select>
-        <!-- @error('ingredient[]')
-        <div class="invalid-feedback">
-        {{ $message }}
-        </div>
-        <br/>
-        @enderror -->
+     
     </div>
        
         @endisset
