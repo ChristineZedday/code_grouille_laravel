@@ -45,10 +45,10 @@
             </div>
             @endforeach
         @else
-        <div class='form-group' id="original">
-        <input type="text" class="form-control"  name='ingredient[]'  multiple="multiple" required>
-        <input type="text" class= "form-control" name='quantite[]'  multiple="multiple" required>
-        <select class='form-control'  name="unite_id[]" multiple="multiple"  required>
+        <div class='form-group' id="origine">
+        <input type="text" class="form-control"  name='ingredient[]' id="oring"  multiple="multiple" required>
+        <input type="text" class= "form-control" name='quantite[]'  id="oriq" multiple="multiple" required>
+        <select class='form-control'  name="unite_id[]" multiple="multiple" id="origine" required>
             @foreach ($unites as $unite)
             <option value="{{$unite->id}}"> {{$unite->nom_unite}} </option>
             @endforeach
@@ -158,11 +158,11 @@
 function ajoute()
 {
    
-   var div = document.getElementById('original');
-   alert(div);
-   var newDiv = div.cloneNode();
+   var div = document.getElementById('origine');
+  
+   var newDiv = div.cloneNode(true);
    newDiv.id = '';
-   alert(newDiv);
+ 
 
    @isset ($recette)
    var par = document.getElementById('ingredients');
