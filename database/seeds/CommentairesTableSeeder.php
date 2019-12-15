@@ -62,6 +62,24 @@ class CommentairesTableSeeder extends Seeder
                 'recette_id' => 2,
                 'user_id' => 3,
             ),
+            5 => 
+            array (
+                'id' => 11,
+                'created_at' => '2019-12-15 15:53:35',
+                'updated_at' => '2019-12-15 15:53:35',
+                'texte' => 'Avec quels insectes?',
+                'recette_id' => 1,
+                'user_id' => 3,
+            ),
+            6 => 
+            array (
+                'id' => 12,
+                'created_at' => '2019-12-15 18:40:12',
+                'updated_at' => '2019-12-15 18:52:49',
+                'texte' => 'accidentellement, les fourmis montaient sur la table du pt\'it dej',
+                'recette_id' => 5,
+                'user_id' => 3,
+            ),
         ));
         
         

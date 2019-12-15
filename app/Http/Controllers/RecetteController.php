@@ -80,8 +80,6 @@ class RecetteController extends Controller
         $newRecette->fill($validated);
 
 
-
-
         $user = Auth::user();
         if (isset($user)) {
             $newRecette ->user_id = $user->id;
@@ -338,8 +336,6 @@ if (!empty($ingredients))
         foreach ($images as $image)
              {
 
-
-
                  if (isset($_POST['suppr'.$image->id]))
                  {
 
@@ -350,8 +346,6 @@ if (!empty($ingredients))
 
                     //on ne supprime pas l'image ici, prévoir un back images pour
                  }
-
-
 
              }
         $chemin_dossier=public_path('') .'/img/';

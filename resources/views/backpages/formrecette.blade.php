@@ -45,7 +45,7 @@
             </div>
             @endforeach
         @else
-        <div class='form-group' id='original'>
+        <div class='form-group' id="original">
         <input type="text" class="form-control"  name='ingredient[]'  multiple="multiple" required>
         <input type="text" class= "form-control" name='quantite[]'  multiple="multiple" required>
         <select class='form-control'  name="unite_id[]" multiple="multiple"  required>
@@ -159,12 +159,15 @@ function ajoute()
 {
    
    var div = document.getElementById('original');
-   
+   alert(div);
    var newDiv = div.cloneNode();
    newDiv.id = '';
+   alert(newDiv);
+
    @isset ($recette)
    var par = document.getElementById('ingredients');
    par.Element.appendChild(newDiv);
+
    @else
    div.parentElement.appendChild(newDiv);
    @endisset

@@ -15,7 +15,7 @@ class Image extends Model
 
     public function Actu()
     {
-    return $this->belongsTo('App\ImageActu');
+    return $this->belongsTo('App\ActuImage');
     }
 
     public function Insecte()
