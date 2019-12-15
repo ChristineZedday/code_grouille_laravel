@@ -57,8 +57,11 @@ class frontRecetteController extends Controller
             $commentaire= new Commentaire;
             $commentaire->fill($validated); 
             $commentaire->user_id = $user;
+            $commentaire->recette_id = $recette;
             
-            $recette->Commentaire()->attach($commentaire->id, ['texte' => $commentaire->texte]);
+           $commentaire->save();
+
+           return redirect()->action('RecetteController@show');
 
         }
         

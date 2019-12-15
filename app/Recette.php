@@ -25,9 +25,9 @@ class Recette extends Model {
 
     
 
-    public function Commentaire()
+    public function Commentaire() //qd je veux les commentaires, c'est pas pivot, sinon j'ai les users
     {
-        return $this->belongsToMany('App\User', 'commentaires', 'recette_id', 'user_id');
+        return $this->HasMany('App\Commentaire');
         
     }
 

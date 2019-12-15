@@ -51,7 +51,9 @@
     <div class='comrecette'>
             @if(!empty($commentaires))
             @foreach ($commentaires as $commentaire)
-                <h4>{{$commentaire->user->name}}</h4>
+            
+                <h4>{{$commentaire->User->name}}</h4>
+              
                 <p>{{$commentaire->texte}}</p>
             @endforeach
             @endif
