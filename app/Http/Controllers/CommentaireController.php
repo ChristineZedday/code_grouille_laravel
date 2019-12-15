@@ -97,7 +97,7 @@ class CommentaireController extends Controller
      */
     public function destroy($id)
     {
-        $commentaire = CommentaireRecette::find($id);
+        $commentaire = Commentaire::find($id);
 
         if ($commentaire && $commentaire->delete()) {
 
