@@ -21,9 +21,9 @@ class InfosTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'created_at' => NULL,
-                'updated_at' => '2019-12-14 21:12:17',
+                'updated_at' => '2019-12-15 15:05:15',
                 'titre' => 'Mentions légales',
-                'texte' => 'Le site internet www.grouille.fr est réalisé par Christine, Nathalie et Muriel&nbsp;<p>Ce site est celui de l\'association loi 1901: Grouille</p>
+            'texte' => 'Le site internet www.grouille.fr est réalisé par Christine, Nathalie et Muriel&nbsp;<p>Ce site est celui de l\'association à but non lucratif (loi 1901): Grouille</p>
 <p>Siret: 012345678910</p>
 <p>Présidente: Lucie Guerzillon</p>
 <p>Adresse: 26, rue des Coccinelles 56335 Montegrillon</p>
@@ -36,6 +36,7 @@ class InfosTableSeeder extends Seeder
 </p>
 <p>
 <br>
+</p>
 <p>Hébergement&nbsp;</p>
 <p>OVH
 SAS au capital de 10 000 000 €&nbsp;</p>
@@ -81,6 +82,10 @@ Il s’agit notamment du prénom, du nom, du téléphone, de l’adresse e-mail 
 </p>
 <p>Les membres peuvent modifier ou supprimer leurs commentaires tant qu\'ils sont inscrits en tant que membres du site.</p>
 <p>A la suppression du compte, les commentaires et recettes du membre sont anonymisées en vertu du droit à l\'oubli.</p>
+<p>
+<br>
+</p>
+<p>Nous nous réservons le droit de modifier ou supprimer les recettes et les commentaires faisant doublon, contenant des données personnelles autres que le nom ou pseudo, ou ne respectant pas les lois en vigueur en France.</p>
 <p>
 <br>
 </p>
@@ -191,6 +196,7 @@ Mis à jour le 18 août 2019.&nbsp;</p>
 </p>
 <p>
 </p>
+<p>
 </p>',
                 'email' => NULL,
             ),
