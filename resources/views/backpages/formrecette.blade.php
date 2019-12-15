@@ -35,10 +35,12 @@
             <span class="ingredient">{{$ingrecette->pivot->quantite}}</span>
             <span>   <?php 
             $idu = $ingrecette->pivot->unite_id;
+            
             $unite =  DB::table('unites')->where('id', $idu)->first();
+           
             echo $unite->nom_unite;
                ?></span>
-            <input type="checkbox" name="{{'suppring'.$ingrecette->Ingredient->id}}" id="suppring"/>  <label for="suppring">Supprimer l'ingrédient {{$ingrecette->Ingredient->id}}</label>
+            <input type="checkbox" name="{{'suppring'.$ingrecette->id}}" id="suppring"/>  <label for="suppring">Supprimer l'ingrédient {{$ingrecette->id}}</label>
            
             </div>
             @endforeach
