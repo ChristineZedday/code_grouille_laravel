@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\RecetteUser;
 use App\RecetteIngredient;
+use App\Commentaire;
 use Orangehill\IseedServiceProvider\recettes;
 
 class Recette extends Model {
@@ -14,7 +15,7 @@ class Recette extends Model {
 
     public function User()
     {
-        return $this->belongsTo('App\User');
+        return $this->hasOne('App\User'); //n'a qu'un auteur
     }
 
     public function Ingredient()
@@ -26,7 +27,8 @@ class Recette extends Model {
 
     public function Commentaire()
     {
-        return $this->belongsToMany('App\Commentaire');
+        return $this->belongsToMany('App\User', 'commentaires', 'recette_id', 'user_id');
+        
     }
 
     public function Image()
