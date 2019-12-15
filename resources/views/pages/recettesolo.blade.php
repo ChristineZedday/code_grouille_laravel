@@ -51,15 +51,17 @@
     <div class='comrecette'>
             @if(!empty($commentaires))
             @foreach ($commentaires as $commentaire)
-            
+          
                 <h4>{{$commentaire->User->name}}</h4>
               
                 <p>{{$commentaire->texte}}</p>
+               
             @endforeach
             @endif
         </div>
         <p>Vous devez être inscrit pour poster un commentaire</p>
         @auth
+       
         <form action="{{route('commenter',[$recette->id])}}" method="POST">
 						@csrf
         <label for="texte">Commenter</label><input type="text" name="texte"/>

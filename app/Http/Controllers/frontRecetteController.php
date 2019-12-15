@@ -56,12 +56,18 @@ class frontRecetteController extends Controller
 
             $commentaire= new Commentaire;
             $commentaire->fill($validated); 
-            $commentaire->user_id = $user;
-            $commentaire->recette_id = $recette;
+            $commentaire->user_id = $user->id;
+            $commentaire->recette_id = $recette->id;
             
            $commentaire->save();
 
-           return redirect()->action('RecetteController@show');
+           $images = $recette->Image;
+           $commentaires = $recette->Commentaire;
+           $ingredients = $recette->Ingredient;
+
+           return view('pages.recettesolo',[
+            'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires, 'ingredients' => $ingredients
+        ]);
 
         }
         
