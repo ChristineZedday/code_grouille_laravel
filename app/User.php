@@ -41,11 +41,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Recette()
+    public function RecettePost()
     {
-        return $this->hasMany('App\Recette');
+        return $this->hasMany('App\Recette');//auteur
     }
 
+    public function RecetteCom() //recettes commentées
+    {
+        return $this->hasManyThrough('App\Recette', 'commentaires');
+    }
+
+   
 
     public function Commentaire()
     {

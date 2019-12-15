@@ -36,6 +36,7 @@ class frontRecetteController extends Controller
 
         $images = $recette->Image;
         $commentaires = $recette->Commentaire;
+       
         $ingredients = $recette->Ingredient;
 
        

@@ -3,10 +3,17 @@
 <h1 id='titlemob'>Grouille</h1>
 
 @section('content')
+
 <article>
     <div class='intitsinglerecette'>
         <img class='lineleft' src="../img/picto/line.png"/>
         <h2 class='title'>{{ $recette->titre_recette }}</h2>
+
+    </div>
+
+    <div class='intitsinglerecette'>
+        <img class='lineleft' src="../img/picto/line.png"/>
+        <h3 class='title'>Recette proposée par: {{ $recette->Auteur->name }}</h3>
 
     </div>
 
@@ -47,12 +54,12 @@
         <h4 class='subarticle'>Pour <?php echo ($recette->portion_recette) ?> personnes</h4>
         <p><?php echo ($recette->deroule_recette) ?></p>
     </div>
-
+   
     <div class='comrecette'>
             @if(!empty($commentaires))
             @foreach ($commentaires as $commentaire)
-          
-                <h4>{{$commentaire->User->name}}</h4>
+         
+                <h4>{{$commentaire->Commentateur->name}}</h4>
               
                 <p>{{$commentaire->texte}}</p>
                

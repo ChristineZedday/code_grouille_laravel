@@ -13,9 +13,9 @@ class Recette extends Model {
 
     protected $fillable = ['titre_recette', 'description_recette','temps_preparation_recette', 'temps_cuisson_recette', 'difficulte_recette', 'appetence_recette', 'deroule_recette', 'portion_recette', 'user_id' ];
 
-    public function User()
+    public function Auteur()
     {
-        return $this->hasOne('App\User'); //n'a qu'un auteur
+        return $this->BelongsTo('App\User', 'user_id'); //n'a qu'un auteur
     }
 
     public function Ingredient()
@@ -23,7 +23,10 @@ class Recette extends Model {
         return $this->belongsToMany('App\Ingredient')->withPivot('quantite', 'unite_id');
     }
 
-    
+    public function Commentateur() //les commentateurs en passant par les commentaires!
+    {
+        return $this->hasManyThrough('App\User', 'App\Commentaire');
+    }
 
     public function Commentaire() //qd je veux les commentaires, c'est pas pivot, sinon j'ai les users
     {

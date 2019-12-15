@@ -137,7 +137,7 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
 </p>
 </p>',
                 'portion_recette' => 30,
-                'user_id' => 3,
+                'user_id' => 7,
             ),
         ));
         

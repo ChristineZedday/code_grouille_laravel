@@ -32,7 +32,7 @@
             <td class="align-middle"> {{$recette->titre_recette}}</td>
             <td class="align-middle">{{$recette->temps_preparation_recette}}</td>
             <td class="align-middle">{{$recette->temps_cuisson_recette}}</td>
-            <td class="align-middle">{{$recette->user->name}}</td>
+            <td class="align-middle">{{$recette->Auteur->name}}</td>
             <td class="align-middle">{{$recette->portion_recette}}</td>
             <td class="align-middle">
                 <button><a href="{{route('recette.show',$recette->id)}}" >Voir</a></button>

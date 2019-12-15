@@ -8,16 +8,16 @@ use Orangehill\IseedServiceProvider\commentaires;
 class Commentaire extends Model
 {
     protected $table = 'commentaires';
-    protected $fillable = ['texte'];
+    protected $fillable = ['texte', 'user_id', 'recette_id'];
 
     public function Recette()
     {
     return $this->belongsTo('App\Recette');
     }
 
-    public function User()
+    public function Commentateur()
     {
-    return $this->belongsTo('App\User');
+    return $this->belongsTo('App\User', 'user_id');
     }
 
 
