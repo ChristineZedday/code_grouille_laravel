@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orangehill\IseedServiceProvider\image_actu;
+use Orangehill\IseedServiceProvider\actu_image;
 
 class ActuImage extends Model
 {
