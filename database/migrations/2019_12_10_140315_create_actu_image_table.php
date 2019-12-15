@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImageActuTable extends Migration
+class CreateActuImageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateImageActuTable extends Migration
      */
     public function up()
     {
-        Schema::create('image_actu', function (Blueprint $table) {
+        Schema::create('actu_image', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
 
@@ -32,6 +32,6 @@ class CreateImageActuTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('image_actu');
+        Schema::dropIfExists('actu_image');
     }
 }
