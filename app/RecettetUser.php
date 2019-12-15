@@ -3,11 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orangehill\IseedServiceProvider\favoris;
+use Orangehill\IseedServiceProvider\recette_user;
 
-class Favori extends Model
+class RecetteUser extends Model
 {
-    protected $table = 'favoris';
+   
     
     public function User() 
     {
