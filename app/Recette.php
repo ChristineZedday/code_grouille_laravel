@@ -26,7 +26,7 @@ class Recette extends Model {
 
     public function Commentaire()
     {
-        return $this->hasMany('App\Commentaire');
+        return $this->belongsToMany('App\Commentaire');
     }
 
     public function Image()

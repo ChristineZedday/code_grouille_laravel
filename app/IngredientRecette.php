@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Orangehill\IseedServiceProvider\ingredient_recette;
+//use Orangehill\IseedServiceProvider\ingredient_recette;
 
 class IngredientRecette extends Model
 {

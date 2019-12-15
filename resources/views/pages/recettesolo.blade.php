@@ -58,7 +58,7 @@
         </div>
         <p>Vous devez être inscrit pour poster un commentaire</p>
         @auth
-        <form action=" {{route('commenter',[$recette->id])}} method="POST">
+        <form action="{{route('commenter',[$recette->id])}}" method="POST">
 						@csrf
         <label for="texte">Commenter</label><input type="text" name="texte"/>
         <input type="submit" id='submit' value='poster' >

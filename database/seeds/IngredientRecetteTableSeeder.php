@@ -1,12 +1,14 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Recette;
+Use App\Ingredient;
 
 class IngredientRecetteTableSeeder extends Seeder
 {
 
     /**
-     * Auto generated seed file
+     * 
      *
      * @return void
      */
@@ -14,70 +16,19 @@ class IngredientRecetteTableSeeder extends Seeder
     {
         
 
-        \DB::table('ingredient_recette')->delete();
-        
-        \DB::table('ingredient_recette')->insert(array (
-            0 => 
-            array (
-                'id' => 1,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'quantite' => 4000,
-                'unite_id' => 1,
-                'ingredient_id' => 10,
-                'recette_id' => 5,
-            ),
-            1 => 
-            array (
-                'id' => 2,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'quantite' => 4,
-                'unite_id' => 4,
-                'ingredient_id' => 6,
-                'recette_id' => 5,
-            ),
-            2 => 
-            array (
-                'id' => 3,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'quantite' => 1,
-                'unite_id' => 1,
-                'ingredient_id' => 16,
-                'recette_id' => 1,
-            ),
-            3 => 
-            array (
-                'id' => 4,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'quantite' => 250,
-                'unite_id' => 3,
-                'ingredient_id' => 14,
-                'recette_id' => 1,
-            ),
-            4 => 
-            array (
-                'id' => 5,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'quantite' => 1,
-                'unite_id' => 1,
-                'ingredient_id' => 15,
-                'recette_id' => 1,
-            ),
-            5 => 
-            array (
-                'id' => 6,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'quantite' => 1,
-                'unite_id' => 1,
-                'ingredient_id' => 18,
-                'recette_id' => 1,
-            ),
-        ));
+     //DB::table('ingredient_recette')->delete();
+    $recette = Recette::find(5);
+    $recette->Ingredient()->attach(10, ['quantite' =>  4000 , 'unite_id' => 1]);
+    $recette->Ingredient()->attach(6, ['quantite' =>  4 , 'unite_id' => 4]);
+
+    $recette = Recette::find(1);
+    $recette->Ingredient()->attach(16, ['quantite' =>  1 , 'unite_id' => 1]);
+    $recette->Ingredient()->attach(14, ['quantite' =>  250 , 'unite_id' => 3]);
+    $recette->Ingredient()->attach(15, ['quantite' => 100 , 'unite_id' => 3]);
+    $recette->Ingredient()->attach(18, ['quantite' =>  1 , 'unite_id' => 1]);   
+          
+          
+       
         
         
     }

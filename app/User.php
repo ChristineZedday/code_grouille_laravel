@@ -47,9 +47,9 @@ class User extends Authenticatable
     }
 
 
-    public function commentaire_Recette()
+    public function Commentaire()
     {
-        return $this->hasMany('App\commentaireRecette');
+        return $this->belongsToMany('App\Commentaire');
     }
 
         /**

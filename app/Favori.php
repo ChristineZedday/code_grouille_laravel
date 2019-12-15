@@ -7,6 +7,8 @@ use Orangehill\IseedServiceProvider\favoris;
 
 class Favori extends Model
 {
+    protected $table = 'favoris';
+    
     public function User() 
     {
     return $this->belongsTo('App\User');

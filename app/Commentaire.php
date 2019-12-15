@@ -7,6 +7,7 @@ use Orangehill\IseedServiceProvider\commentaires;
 
 class Commentaire extends Model
 {
+    protected $table = 'commentaires';
     protected $fillable = ['texte'];
 
     public function Recette()

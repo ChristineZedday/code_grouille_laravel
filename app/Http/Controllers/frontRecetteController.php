@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Recette;
 Use App\ImageRecette;
 use App\Image;
+use App\commentaire;
+use Auth;
 
 class frontRecetteController extends Controller
 
@@ -44,7 +46,7 @@ class frontRecetteController extends Controller
         }
     }
 
-    public function comment($id)
+    public function comment(Request $request, $id)
         {
             $user = Auth::user();
             $recette = Recette::find($id);
