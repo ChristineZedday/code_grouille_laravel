@@ -310,7 +310,7 @@ if (!empty($ingredients))
 {
             for ($i=0; $i<sizeof($ingredients); $i++)
             {
-                    if (isset($ingredients[$i])   && isset($quantites[$i]) && isset($unites[$i]))
+                    if (isset($ingredients[$i]) && isset($quantites[$i]) && isset($unites[$i]))
                     {
                         
                         $nom = strtolower($ingredients[$i]);

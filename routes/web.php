@@ -34,6 +34,12 @@ Route::get('/deconnexion', 'UserController@deconnexion') ->name('disconnect');
 
 Route::post('/back', 'BackController@index')->name('back');
 
+Route::post('/membres/recettespost', 'frontRecetteController@store')->name('recette.post');
+
+Route::get('/membres/postrecette', 'frontRecetteController@create')->name('postrecette');
+
+
+
 
 // Route::get('/insectes', function () {
 //     return view('pages.insectes')->name('insectes');
@@ -94,9 +100,7 @@ Route::get('/membre', function () {
 
 Route::get('/comment', 'frontCommentController@index');
 
-Route::get('/postrecette', function () {
-    return view('membres.postrecette');
-});
+
 
 //Auth::routes();
 
