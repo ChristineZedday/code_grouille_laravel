@@ -310,31 +310,34 @@ if (!empty($ingredients))
 {
             for ($i=0; $i<sizeof($ingredients); $i++)
             {
-
-                $nom = strtolower($ingredients[$i]);
-
-
-                $ingred = Ingredient::where('nom_ingredient', $nom)->first();
-
+                    if (isset($ingredients[$i])   && isset($quantites[$i]) && isset($unites[$i]))
+                    {
+                        
+                        $nom = strtolower($ingredients[$i]);
 
 
-                if (isset($ingred))
+                    $ingred = Ingredient::where('nom_ingredient', $nom)->first();
 
-               {
-                     $id = $ingred->id;
-                   
 
-               }
-                else{
-                    //créer l'élément!
-                    $ingredient = new Ingredient;
-                    $ingredient->nom_ingredient = $nom;
-                   $ingredient->save();
-                   $id = $ingredient->id;
+
+                    if (isset($ingred))
+
+                {
+                        $id = $ingred->id;
+                    
 
                 }
-                $recette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+                    else{
+                        //créer l'élément!
+                        $ingredient = new Ingredient;
+                        $ingredient->nom_ingredient = $nom;
+                    $ingredient->save();
+                    $id = $ingredient->id;
 
+                    }
+                    $recette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+
+                }
             }
     }
 

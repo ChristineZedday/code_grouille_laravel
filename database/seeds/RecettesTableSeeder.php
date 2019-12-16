@@ -21,27 +21,25 @@ class RecettesTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'created_at' => '2019-12-12 13:55:26',
-                'updated_at' => '2019-12-12 13:55:26',
+                'updated_at' => '2019-12-16 19:57:30',
                 'titre_recette' => 'Amuse-bouches aux insectes',
                 'description_recette' => 'Délicieuse recette à partager sans modération pendant l\'apéro.',
                 'temps_preparation_recette' => 10,
                 'temps_cuisson_recette' => 0,
-                'difficulte_recette' => '1',
-                'appetence_recette' => '1',
+                'difficulte_recette' => 'Facile',
+                'appetence_recette' => 'Entomophage Débutant',
                 'deroule_recette' => '10 g d’insectes déshydratés
-1 concombre
-Du fromage blanc
-1 Tomate
-Olives noires
-Basilic
-Ail et fines herbes, Trancher le concombre en fine lamelles.
+
+Trancher le concombre en fine lamelles.
 Ecraser l’ail et l’incorporer au fromage blanc.
 Ajouter les fines herbes hachées au fromage blanc.
 Couper la tomate et les olives noires en petits cubes.
 Etaler du fromage blanc sur la tranche de concombre.
 Ajouter quelques cubes de tomates et d’olives noires.
 Déposer quelques insectes sur la préparation ainsi qu’une feuille de basilic.
-Déguster cette recette fraiche et légère.source http://www.mangeons-des-insectes.com/recettes/amuse-bouches-insectes',
+Déguster cette recette fraiche et légère.
+
+source http://www.mangeons-des-insectes.com/recettes/amuse-bouches-insectes',
                 'portion_recette' => 6,
                 'user_id' => 2,
             ),
@@ -49,13 +47,13 @@ Déguster cette recette fraiche et légère.source http://www.mangeons-des-insec
             array (
                 'id' => 2,
                 'created_at' => '2019-12-12 13:55:26',
-                'updated_at' => '2019-12-12 13:55:26',
+                'updated_at' => '2019-12-16 20:03:28',
                 'titre_recette' => 'Quiche aux ténébrions',
                 'description_recette' => 'Une quiche très facile à préparer',
                 'temps_preparation_recette' => 15,
                 'temps_cuisson_recette' => 30,
-                'difficulte_recette' => '1',
-                'appetence_recette' => '1',
+                'difficulte_recette' => 'Facile',
+                'appetence_recette' => 'Entomophage Débutant',
                 'deroule_recette' => 'un rouleau de pâte brisée
 10 g d’insectes déshydratés
 3 oeufs
@@ -174,6 +172,21 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
 </p>
 </p>',
                 'portion_recette' => 20,
+                'user_id' => 3,
+            ),
+            6 => 
+            array (
+                'id' => 10,
+                'created_at' => '2019-12-16 19:19:58',
+                'updated_at' => '2019-12-16 19:19:58',
+                'titre_recette' => 'Tarte aux pommes et aux ténébrions',
+                'description_recette' => 'dessert de saison',
+                'temps_preparation_recette' => 15,
+                'temps_cuisson_recette' => 35,
+                'difficulte_recette' => 'Facile',
+                'appetence_recette' => 'Entomophage Débutant',
+                'deroule_recette' => 'Comme la tarte aux pommes, mais on ajoute des ténébrions entre les lamelles de pomme.',
+                'portion_recette' => 6,
                 'user_id' => 3,
             ),
         ));
