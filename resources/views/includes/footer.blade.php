@@ -5,10 +5,11 @@
 <h1>Grouille !</h1>
 
 <div id='adress'>
-    <p>Adress line 1</p>
-    <p>Adress line 2</p>
-    <p>Adress line 3</p>
-    <p>Adress line 4</p>
+    <span></span>
+    <p><strong>Grouille</strong></p>
+    <p>26, rue des Coccinelles</p>
+    <p>56335 Montegrillon</p>
+
 </div>
 
 </div>

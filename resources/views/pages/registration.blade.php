@@ -3,7 +3,7 @@
 @section('content')
 
 <div id='register' class='boxconnect'>
-    <h1>Bienvenue, cher entomophage</h1>
+    <h1>Bienvenue, nouvel entomophage</h1>
              <form method="POST" action="{{ route('youpi') }}">
                 @csrf
 
@@ -34,13 +34,29 @@
                         <strong>{{ $message }}</strong>
                     </span>
                 @enderror
+
+
+
+                <div class="form-group row">
+
+                    <label for="password-confirm" class="">Confirmez</label>
+                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+
+                </div>
+                @error('password_confirmation')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
 {{--
-                <label for="password-confirm" class="">Confirmez</label>
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+
  --}}
                 <button id='submit' type="submit" class="btn btn-primary">
                    S'enregistrer
                 </button>
+
+                <input type="checkbox" name="CGUsite" checked="" required>
+                <label for="CGU">J'adhère aux conditions générales d'utilisation du site. </label>
         </form>
 </div>
 

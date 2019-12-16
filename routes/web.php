@@ -78,6 +78,14 @@ Route::get('/contact', 'ContactController@create')->name('contact');
 
 Route::post('/contact', 'ContactController@store')->name('contact.store');
 
+Route::get('/confidentialite', 'frontinfoController@showpolitique')->name('confidentialite');
+
+Route::get('/charte', function(){
+    return view('pages.charteCGU');
+})->name('charteCGU');
+
+
+
 Route::post('/recette/commenter/ {id}', 'frontRecetteController@comment')->name('commenter');
 
 Route::get('/membre', function () {

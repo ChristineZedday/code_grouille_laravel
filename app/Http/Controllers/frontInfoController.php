@@ -22,5 +22,12 @@ class frontInfoController extends Controller
         return view('pages.apropos', ['apropospara1' => $apropospara1, 'apropospara2' => $apropospara2]);
     }
 
-    
+    public function showpolitique()
+    {
+        $politique = Info::find(5);
+
+        return view('pages.confidentialite', ['politique' => $politique]);
+    }
+
+
 }

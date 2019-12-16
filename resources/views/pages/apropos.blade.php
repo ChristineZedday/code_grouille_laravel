@@ -7,7 +7,7 @@
 <div id='apropos'>
     <h2 class='titreintro'>Notre asso</h2>
     <br/>
-    <h2 class='introsub'>"Aime" les insectes</h2>
+    <h3 class='introsub'>"Aime" les insectes</h3>
 </div>
 
 @endsection
@@ -23,14 +23,14 @@
                         <h2 class='subarticle'>{!! $apropospara1->titre!!}</h2>
                         <p>{!! $apropospara1->texte!!} </p>
                     </div>
-                     <img class='imgarticle' src="{{asset('/img/apropos-d0e5791126f8bf9de4a7c90d6ef9c19d.jpg')}}"/>                                    
+                     <img class='imgarticle' src="{{asset('/img/apropos-d0e5791126f8bf9de4a7c90d6ef9c19d.jpg')}}"/>
                 </article>
-                <article>                                                      
+                <article>
                      <img class='imgarticle' src="{{asset('/img/apropos-asso-grouille-71f544a244c701f479f1bd16c7d19d8f.jpg')}}"/>
                      <div class='article'>
-                        <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>                    
+                        <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
                         <h2 class='subarticle'>{!! $apropospara2->titre !!}</h2>
-                        <p>{!! $apropospara2->texte !!} </p>                        
+                        <p>{!! $apropospara2->texte !!} </p>
                     </div>
                 </article>
     <section>

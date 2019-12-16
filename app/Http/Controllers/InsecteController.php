@@ -70,6 +70,7 @@ class InsecteController extends Controller
 
             if (isset($_FILES['image1']['name']))
             {
+               
 
                 $uploaded = $_FILES['image1']['name'];
 

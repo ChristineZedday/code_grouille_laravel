@@ -80,8 +80,6 @@ class RecetteController extends Controller
         $newRecette->fill($validated);
 
 
-
-
         $user = Auth::user();
         if (isset($user)) {
             $newRecette ->user_id = $user->id;
@@ -97,12 +95,9 @@ class RecetteController extends Controller
             $i=0;
             $ingredients = $request->get('ingredient');
 
-
             $quantites = $request->get('quantite');
 
-
-            $unites = $request->get('unite_id');
-
+            $unites = $request->get('unite');
 
 
             for ($i=0; $i<sizeof($ingredients); $i++)
@@ -110,24 +105,31 @@ class RecetteController extends Controller
 
                 $nom = strtolower($ingredients[$i]);
 
-
                 $ingred = Ingredient::where('nom_ingredient', $nom)->first();
-
-
 
                 if (isset($ingred))
 
                {
                      $id = $ingred->id;
-                    $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+
 
                }
                 else{
                     //créer l'élément!
+
                     $ingredient = new Ingredient;
+
                     $ingredient->nom_ingredient = $nom;
-                    $ingredient->quantite = $quantites[$i];
-                    $ingredient->Unite()->attach($unites[$i]);
+
+                    $ingredient->save(); //s'il a un insecte l'admin le liera
+
+                    $id = $ingredient->id;
+                }
+
+
+                    $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+
+
                 }
             }
 
@@ -195,7 +197,7 @@ class RecetteController extends Controller
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('RecetteController@index');
         }
-    }
+    
 
     /**
      * Display the specified resource.
@@ -216,13 +218,13 @@ class RecetteController extends Controller
         $commentaires = $recette->Commentaire;
         $ingredients = $recette->Ingredient;
 
-       
+
         {
             return view('pages.recettesolo',[
                 'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires, 'ingredients' => $ingredients
             ]);
         }
-        
+
 
     }
 
@@ -302,7 +304,7 @@ foreach ($ingredients as $ingredient)
             $quantites = $request->get('quantite');
 
 
-            $unites = $request->get('unite_id');
+            $unites = $request->get('unite');
 
 if (!empty($ingredients))
 {
@@ -338,8 +340,6 @@ if (!empty($ingredients))
         foreach ($images as $image)
              {
 
-
-
                  if (isset($_POST['suppr'.$image->id]))
                  {
 
@@ -350,8 +350,6 @@ if (!empty($ingredients))
 
                     //on ne supprime pas l'image ici, prévoir un back images pour
                  }
-
-
 
              }
         $chemin_dossier=public_path('') .'/img/';
