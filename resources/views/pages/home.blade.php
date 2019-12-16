@@ -26,7 +26,7 @@
             <a class='linkpage' href="{{route('apropos')}}">Découvrir notre asso</a>
         </div>
     </article>
-    
+
     <article>
         <div class='article'>
         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
@@ -48,8 +48,10 @@
                         <h3 class='subarticle'>{{ $lastrecette->titre_recette }}</h3>
                             <p class='subarticle'>{{ $lastrecette->description_recette }}</p>
                             <a class='linkrecette' href='{{route('recette.show',$lastrecette->id)}}'>Consulter cette recette</a>
-                            <img src="{{asset('/img/'.$image->chemin_image)}}"/>
-                        </div>
+                            <div>
+                            <img src='/img/home2.jpg'/>
+                            </div>
+                    </div>
             @endforeach
         </div>
         <a class='linkpage' href="{{route('recettes')}}">Voir d'autres recettes</a>
