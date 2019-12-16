@@ -143,15 +143,37 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
             array (
                 'id' => 7,
                 'created_at' => '2019-12-16 08:45:50',
-                'updated_at' => '2019-12-16 08:45:50',
+                'updated_at' => '2019-12-16 09:03:45',
                 'titre_recette' => 'Morue aux fraises et aux scarabées',
                 'description_recette' => 'miam recette de Gaston!',
                 'temps_preparation_recette' => 60,
                 'temps_cuisson_recette' => 20,
-                'difficulte_recette' => 'Moyen',
+                'difficulte_recette' => 'Facile',
                 'appetence_recette' => 'Entomophage Débutant',
                 'deroule_recette' => 'Demander à Gaston, je ne me rappelle plus.',
                 'portion_recette' => 1,
+                'user_id' => 3,
+            ),
+            5 => 
+            array (
+                'id' => 8,
+                'created_at' => '2019-12-16 09:28:09',
+                'updated_at' => '2019-12-16 09:28:09',
+                'titre_recette' => 'Grillons aux chocolat',
+                'description_recette' => 'Friandise de Noël',
+                'temps_preparation_recette' => 20,
+                'temps_cuisson_recette' => 10,
+                'difficulte_recette' => 'Facile',
+                'appetence_recette' => 'Entomophage Débutant',
+                'deroule_recette' => 'Faire fondre le chocolat<p>Faire griller les grillons</p>
+<p>Mouler des supports en chocolat&nbsp;</p>
+<p>Y poser les grillons grillés</p>
+<p>laisser sécher et déguster<br>
+<p>
+<br>
+</p>
+</p>',
+                'portion_recette' => 20,
                 'user_id' => 3,
             ),
         ));
