@@ -20,8 +20,8 @@
         <div class='article'>
         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
         <h2 class='title'>Edito</h2>
-            <h3 class='subarticle'>{{ $editoactu->titre_actu }}</h3>
-            <p>{{ $editoactu->texte_actu }} </p>
+            <h3 class='subarticle'>{!! $editoactu->titre_actu !!}</h3>
+            <p>{!! $editoactu->texte_actu !!} </p>
             <br/>
             <a class='linkpage' href="{{route('apropos')}}">Découvrir notre asso</a>
         </div>
@@ -32,9 +32,9 @@
         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
         <h2 class='title'>Dernière actu</h2>
             <h3 class='subarticle'>{{ $lastactu->titre_actu }}</h3>
-            <p>{{ $lastactu->texte_actu }} </p>
+            <p>{!! $lastactu->texte_actu !!} </p>
             <br/>
-            <a class='linkpage' href='{{'actus'}}'>Voir d'autres actus</a>
+            <a class='linkpage' href="{{route('actus')}}">Voir d'autres actus</a>
         </div>
         <img class='imgarticle' src="{{asset('/img/actu_grouille_insecte-au-chocolat-noel-9c0354.jpg')}}"/>
     </article>
