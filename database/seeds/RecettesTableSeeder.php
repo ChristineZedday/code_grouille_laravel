@@ -21,13 +21,13 @@ class RecettesTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'created_at' => '2019-12-12 13:55:26',
-                'updated_at' => '2019-12-12 13:55:26',
+                'updated_at' => '2019-12-16 14:58:07',
                 'titre_recette' => 'Amuse-bouches aux insectes',
                 'description_recette' => 'Délicieuse recette à partager sans modération pendant l\'apéro.',
                 'temps_preparation_recette' => 10,
                 'temps_cuisson_recette' => 0,
-                'difficulte_recette' => '1',
-                'appetence_recette' => '1',
+                'difficulte_recette' => 'Facile',
+                'appetence_recette' => 'Entomophage Débutant',
                 'deroule_recette' => '10 g d’insectes déshydratés
 1 concombre
 Du fromage blanc
@@ -49,13 +49,13 @@ Déguster cette recette fraiche et légère.source http://www.mangeons-des-insec
             array (
                 'id' => 2,
                 'created_at' => '2019-12-12 13:55:26',
-                'updated_at' => '2019-12-12 13:55:26',
+                'updated_at' => '2019-12-16 14:58:28',
                 'titre_recette' => 'Quiche aux ténébrions',
                 'description_recette' => 'Une quiche très facile à préparer',
                 'temps_preparation_recette' => 15,
                 'temps_cuisson_recette' => 30,
-                'difficulte_recette' => '1',
-                'appetence_recette' => '1',
+                'difficulte_recette' => 'Facile',
+                'appetence_recette' => 'Entomophage Débutant',
                 'deroule_recette' => 'un rouleau de pâte brisée
 10 g d’insectes déshydratés
 3 oeufs
@@ -75,13 +75,13 @@ Mettre au four',
             array (
                 'id' => 3,
                 'created_at' => '2019-12-12 13:55:26',
-                'updated_at' => '2019-12-12 13:55:26',
+                'updated_at' => '2019-12-16 14:58:59',
                 'titre_recette' => 'Verrines crumble',
                 'description_recette' => 'Un dessert gourmand facile à préparer',
                 'temps_preparation_recette' => 30,
                 'temps_cuisson_recette' => 10,
-                'difficulte_recette' => '1',
-                'appetence_recette' => '1',
+                'difficulte_recette' => 'Facile',
+                'appetence_recette' => 'Entomophage Débutant',
                 'deroule_recette' => 'Pour les pommes
 
 4 pommes
@@ -143,7 +143,7 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
             array (
                 'id' => 7,
                 'created_at' => '2019-12-16 08:45:50',
-                'updated_at' => '2019-12-16 09:03:45',
+                'updated_at' => '2019-12-16 14:59:54',
                 'titre_recette' => 'Morue aux fraises et aux scarabées',
                 'description_recette' => 'miam recette de Gaston!',
                 'temps_preparation_recette' => 60,
@@ -152,28 +152,6 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
                 'appetence_recette' => 'Entomophage Débutant',
                 'deroule_recette' => 'Demander à Gaston, je ne me rappelle plus.',
                 'portion_recette' => 1,
-                'user_id' => 3,
-            ),
-            5 => 
-            array (
-                'id' => 8,
-                'created_at' => '2019-12-16 09:28:09',
-                'updated_at' => '2019-12-16 09:28:09',
-                'titre_recette' => 'Grillons aux chocolat',
-                'description_recette' => 'Friandise de Noël',
-                'temps_preparation_recette' => 20,
-                'temps_cuisson_recette' => 10,
-                'difficulte_recette' => 'Facile',
-                'appetence_recette' => 'Entomophage Débutant',
-                'deroule_recette' => 'Faire fondre le chocolat<p>Faire griller les grillons</p>
-<p>Mouler des supports en chocolat&nbsp;</p>
-<p>Y poser les grillons grillés</p>
-<p>laisser sécher et déguster<br>
-<p>
-<br>
-</p>
-</p>',
-                'portion_recette' => 20,
                 'user_id' => 3,
             ),
         ));

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Actu;
 use App\Image;
+use App\ImageActu;
 
 class ActuController extends Controller
 {
@@ -153,11 +154,10 @@ class ActuController extends Controller
     public function edit($id)
     {
         $actu = Actu::find($id);
-        $images = $actu->image()->get();
+        $images = $actu->Image;
 
         return view('backpages.formactu', [
-            'actu'=> $actu, 'images' =>$images
-        ]);
+            'actu'=> $actu, 'images' =>$images ]);
     }
 
 
@@ -181,81 +181,74 @@ class ActuController extends Controller
         $actu = Actu::find($id);
         $actu->fill($validated);
 
-       $images = $actu->image()->get();
+       $images = $actu->Image;
 
 
        foreach ($images as $image)
             {
 
-
-
                 if (isset($_POST['suppr'.$image->id]))
                 {
 
-                    if (isset($image->actu_id) || isset($image->recette_id))
-                    {
-                        $image->actu_id = null;
-                    }
-                     else{
-                    $image->delete(); //enlève de la base mais supprime pas fichier, faire une f pour ça ds Image
-                }
-
+                    $actu->Image()->detach($images->id);
 
                 }
+
 
             }
 
-        if (isset($_FILES['image1']['name']))
-        {
-            $uploaded = $_FILES['image1']['name'];
-            $extension = Image::fichier_type($uploaded); //fonction statique du model Image
+            $chemin_dossier=public_path('') .'/img/';
 
-            if($extension=="jpg" ||
-                $extension=="png" ||
-                $extension=="gif")
-                {
+            if (isset($_FILES['image1']['name']))
+            {
+               $uploaded = $_FILES['image1']['name'];
 
+               if (file_exists ($chemin_dossier.$uploaded ) )
+                   {
+                       //chercher dans la base, le mettre ds images si pas encore, et ajouter actu_id dans la table pivot
 
+                       $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
+                       if (isset($image))
+                       {
+                           $imid = $image->id;
 
+                       }
+                       else{
+                           $image = new Image(); //on rentre le fichier dans la table image
+                           $image->chemin_image = $uploaded;
+                           $image->save();
 
-                    $chemin_dossier=public_path('') .'/img/';
-                    if(is_uploaded_file($_FILES['image1']['tmp_name']))
-                                {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
-                                    {   $image = New Image;
-                                        $image->chemin_image =  $uploaded;
-                                        $image->actu_id = $actu->id;
-                                        $image->save();
-                                    }
+                       }
+                       $actu->Image()->attach($image->id);
 
-                                 }
-               }
-        }
+                   }
+                   else{
+                   $extension = Image::fichier_type($uploaded); //fonction statique du model Image
 
-        if (isset($_FILES['image2']['name']))
-        {
-            $uploaded = $_FILES['image2']['name'];
-            $extension = Image::fichier_type($uploaded); //fonction statique du model Image
-
-            if($extension=="jpg" ||
-                $extension=="png" ||
-                $extension=="gif")
-                {
+                   if($extension=="jpg" ||
+                       $extension=="png" ||
+                       $extension=="gif")
+                       {
 
 
 
 
-                    $chemin_dossier=public_path('') .'/img/';
-                    if(is_uploaded_file($_FILES['image2']['tmp_name']))
-                                {  	if(copy($_FILES['image2']['tmp_name'], $chemin_dossier.$uploaded))
-                                    {   $image = New Image;
-                                        $image->chemin_image =  $uploaded;
-                                        $image->actu_id = $actu->id;
-                                        $image->save();
-                                    }
+                           $chemin_dossier=public_path('') .'/img/';
+                           if(is_uploaded_file($_FILES['image1']['tmp_name']))
+                                       {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
+                                           {
+                                               $image = New Image;
+                                               $image->chemin_image =  $uploaded;
 
-                                 }
-               }
-        }
+                                               $image->save();
+                                               $actu->Image()->attach($image->id);
+                                           }
+
+                                       }
+                       }
+                   }
+            }
+
 
         if ($actu->save()) {
             $request->session()->flash('status',"actu modifiée avec succès");

@@ -48,12 +48,12 @@ class ActusTableSeeder extends Seeder
             array (
                 'id' => 4,
                 'created_at' => '2019-12-09 13:55:26',
-                'updated_at' => '2019-12-09 13:55:26',
+                'updated_at' => '2019-12-16 15:49:56',
                 'texte_actu' => 'Notre association souhaite promouvoir les insectes et l\'alimentation à base d\'insecte. 
 Ne cherchez plus à vous débarasser des grillons, des vers de farine, des scarabés ou des fourmis en les écrasant 
 avec votre pied ou en les exterminant avec des produits chimiques. Ces derniers sont comestibles. Ce serait dommage de se priver de 
-cette source importante de protéines. Gôuter les, partagez vos recettes et parlez-en vos amis. Lucie Guerzillon ',
-                'titre_actu' => 'Les insectes à la une : Le mot de Lucie ',
+cette source importante de protéines. Gôuter les, partagez vos recettes et parlez-en vos amis. Lucie Guerzillon',
+                'titre_actu' => 'Les insectes à la une : Le mot de Lucie',
                 'resume_actu' => 'Les insectes souvent mal connus ou mal aimés sont mis en avant dans ce site. Apprenez à les connaitre pour mieux apprécier les "apprécier" !',
             ),
             4 => 
@@ -66,19 +66,6 @@ cette source importante de protéines. Gôuter les, partagez vos recettes et par
                 'resume_actu' => 'La parenté étant grande entre les insectes et les crustacés --les deux groupes appartiennent aux Arthropodes Antennates, donc les insectes sont plus proches des crustacés que des araignées qui sont des Arthropodes Chelicerates-- , les personnes allergiques aux crustacés doivent éviter les insectes et vice-versa. Quel dommage!<p>
 <br>
 </p>',
-            ),
-            5 => 
-            array (
-                'id' => 6,
-                'created_at' => '2019-12-16 10:12:12',
-                'updated_at' => '2019-12-16 10:15:11',
-            'texte_actu' => 'Nombreuses sont les femelles coccinelles à subir des agressions sexuelles de la part des mâles, même parfois d\'espèces différentes. Elles se plaignent en particulier des mâles qui leur sautent sur le dos alors qu\'elles viennent à peine de sortir d\'hibernation et que tout ce dont elles besoin à ce moment là est d\'un bon gueuleton de pucerons.<p>Et puis si ces dames ne sont pas contre la gaudriole une fois rassasiées, elles ont envie de choisir leur partenaire afin de filer le parfait amour et atteindre les noces d\'argent (1 heure) ou les noces d\'or (2 heures) avec l\'élu de leur cœur, avant de divorcer et de se trouver un nouveau chéri (la polyandrie favorise leur fertilité).</p>
-<p>
-<br>
-</p>
-<p>Source: la Hulotte n°108</p>',
-                'titre_actu' => '#MeToo chez les coccinelles!',
-            'resume_actu' => 'Les coccinelles rejoignent à leur tour le mouvement #MeToo. En effet, ces messieurs les coccinelles (coccineaux?) ont la drague vraiment, vraiment lourde.&nbsp;',
             ),
         ));
         
