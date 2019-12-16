@@ -1,54 +1,64 @@
-@extends('layouts.default')
+@extends('layouts.connect')
 
 @section('background')
 
-<div>
+
+<div id='insecteintro'>
     <h2 class='titreintro'>Nous contacter </h2>
 </div>
+
 
 @endsection
 
 @section('content')
 
-<div>
 
-    <form id="contactform" method="post" action="{{route('contact.store')}}">
+
+
+    <form id="contactform" class='boxconnect' method="post" action="{{route('contact.store')}}">
     @csrf
-        <div>
             <div id="contactformlabel">
 
-                <label>Nom</label>
-                <label>Prénom</label>
-                <label>Téléphone</label>
-                <label>E-Mail</label>
+                <label>Nom</label><input type="text" class="form-control @error('nom') is-invalid @enderror" name="nom" value="{{ old('nom') }}" required>
+                @error('nom')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
 
+                <label>Prénom</label><input type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}">
+                @error('prenom')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+
+                <label>Téléphone</label><input type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}">
+                @error('telephone')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+
+                <label>E-Mail</label><input type="text" name="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
+                @error('email')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
 
             </div>
 
-
-            <div>
-
-
-                <input type="text" name="nom">
-                <input type="text" name="prenom">
-                <input type="text" name="telephone">
-                <input type="text" name="email">
-
-            </div>
-
-        <div>
+        <div id="contactformtext">
 
             <label>Message</label>
 
-            <textarea type="text" name="message"></textarea>
+            <textarea type="text" name="message" cols="70" rows="10" class="btn btn-primary"></textarea>
 
         </div>
 
-        <button>Envoyer</button>
+        <button type="submit">Envoyer</button>
 
     </form>
-</div>
-
-
 
 @endsection
