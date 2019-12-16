@@ -57,7 +57,7 @@
     </div>
 
         @endisset
-        <input type="button" value="Ajouter un ingrédient" onClick="ajoute()"/>
+        <input type="button" value="Ajouter un ingrédient" onClick="ajoute()" />
 
         <div class='form-group'>
             <label><h4>Description de la recette</h4></label>
@@ -158,15 +158,8 @@
 function ajoute()
 {
     @isset($recette)
-   var div = document.getElementById('origine');
 
-   var newDiv = div.cloneNode(true);
-   newDiv.id = '';
-   newDiv.value ='';
-
-   @else
-
-   var newDiv = document.createElement('div');
+    var newDiv = document.createElement('div');
    var newInput = document.createElement('input');
    newInput.type ="text";
    newInput.class ="form-control" ;
@@ -185,16 +178,25 @@ function ajoute()
         @foreach ($unites as $unite)
         newoption = document.createElement('option');
         newoption.value ="{{$unite->id}}";
-        document.newInput2.appendChild(newoption);
-        textnode = document.createElement('textNode');
-        textNode.value ="{{$unite->nom_unite}}";
-        document.newInput2.appendChild(textnode);
+        newInput2.add(newoption);
+        option.text = {{$unite->nom_unite}};
+
         @endforeach
    document.newDiv.appendChild(newInput2);
 
+   @else
+
+
+
+   var div = document.querySelector('#origine');
+
+   var newDiv = div.cloneNode(true);
+   newDiv.id = '';
+   newDiv.value ='';
+
 
    @endisset
-   document.getElementById('ing').appendChild(newDiv);
+   document.querySelector('#ing').appendChild(newDiv);
 
 }
 </script>
