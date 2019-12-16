@@ -46,9 +46,9 @@
             @foreach($lastrecettes as $lastrecette)
                     <div class='recettehome'>
                         <h3 class='subarticle'>{{ $lastrecette->titre_recette }}</h3>
-                            <img class='imgrecette' src="{{asset('/img/sugg2.jpg')}}"/>
                             <p class='subarticle'>{{ $lastrecette->description_recette }}</p>
                             <a class='linkrecette' href='{{route('recette.show',$lastrecette->id)}}'>Consulter cette recette</a>
+                            <img src="{{asset('/img/'.$image->chemin_image)}}"/>
                         </div>
             @endforeach
         </div>
