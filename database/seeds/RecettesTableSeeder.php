@@ -139,6 +139,21 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
                 'portion_recette' => 30,
                 'user_id' => 7,
             ),
+            4 => 
+            array (
+                'id' => 7,
+                'created_at' => '2019-12-16 08:45:50',
+                'updated_at' => '2019-12-16 08:45:50',
+                'titre_recette' => 'Morue aux fraises et aux scarabées',
+                'description_recette' => 'miam recette de Gaston!',
+                'temps_preparation_recette' => 60,
+                'temps_cuisson_recette' => 20,
+                'difficulte_recette' => 'Moyen',
+                'appetence_recette' => 'Entomophage Débutant',
+                'deroule_recette' => 'Demander à Gaston, je ne me rappelle plus.',
+                'portion_recette' => 1,
+                'user_id' => 3,
+            ),
         ));
         
         
