@@ -38,13 +38,12 @@
 @media screen and (min-width: 800px) {
 
     .single{
-        float: left;
-        height: auto;
-        position: inherit;
-        margin-left: 8%;
+        width: 70vw;
+        margin-left: auto;
+        margin-right: auto;
 
         #insectesview{
-            padding-top: 5%;
+            // padding-top: 5%;
 
         .imgsingle{
             float:left;
@@ -68,5 +67,61 @@
             }
         }
     }
+
+    #recettesview{
+
+        .lineleft{
+            width: 100px;
+            height: 20px;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+        .titlerecette{
+            margin-bottom: 5%;;
+        }
+
+        .imgsingle{
+            float:left;
+            width:40%;
+
+            img{
+                width:100%;
+            }
+        }
+
+        .infosingle{
+            float:left;
+            width:60%;
+            padding: 3%;
+
+            img{
+                width: 100px;
+                height: 20px;
+                margin-top: 5%;
+                margin-bottom: 5%;
+            }
+        }
+
+    .comrecette{
+        background-color: lightgray;
+        padding: 17px;
+        width: 30%;
+        float: left;
+        margin-left: 3%;
+        margin-bottom: 5%;
+
+        .commenter{
+        border-top: 2px solid black;
+        padding-top: 2%;
+        margin-top: 5%;
+
+        #docom{
+            font-weight: bold;
+        }
+        }
+    }
+  }
 }
+
 }

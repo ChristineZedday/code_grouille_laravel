@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Actu;
 use App\Recette;
 use App\info;
+use App\Image;
+Use App\ImageRecette;
+
 
 
 class HomeController extends Controller

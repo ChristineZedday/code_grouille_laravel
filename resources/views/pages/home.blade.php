@@ -15,22 +15,22 @@
 
 <div class='home'>
 
-    <article>       
+    <article>
         <img class='imgarticle' src="{{asset('/img/LuluGerzillon-AlliasPascaleLaCigale.jpg')}}"/>
         <div class='article'>
         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
-        <h2 class='title'>Edito</h2>        
+        <h2 class='title'>Edito</h2>
             <h3 class='subarticle'>{{ $editoactu->titre_actu }}</h3>
             <p>{{ $editoactu->texte_actu }} </p>
             <br/>
-            <a class='linkpage' href="{{route('apropos')}}">Découvrir notre asso</a>           
+            <a class='linkpage' href="{{route('apropos')}}">Découvrir notre asso</a>
         </div>
-       
     </article>
-    <article>                  
+    
+    <article>
         <div class='article'>
         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
-        <h2 class='title'>Dernière actu</h2>    
+        <h2 class='title'>Dernière actu</h2>
             <h3 class='subarticle'>{{ $lastactu->titre_actu }}</h3>
             <p>{{ $lastactu->texte_actu }} </p>
             <br/>
@@ -46,9 +46,9 @@
             @foreach($lastrecettes as $lastrecette)
                     <div class='recettehome'>
                         <h3 class='subarticle'>{{ $lastrecette->titre_recette }}</h3>
-                            <img class='imgrecette' src="{{asset('/img/sugg2.jpg')}}"/>
                             <p class='subarticle'>{{ $lastrecette->description_recette }}</p>
                             <a class='linkrecette' href='{{route('recette.show',$lastrecette->id)}}'>Consulter cette recette</a>
+                            <img src="{{asset('/img/'.$image->chemin_image)}}"/>
                         </div>
             @endforeach
         </div>
