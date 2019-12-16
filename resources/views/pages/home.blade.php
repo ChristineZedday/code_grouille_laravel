@@ -15,22 +15,22 @@
 
 <div class='home'>
 
-    <article>       
+    <article>
         <img class='imgarticle' src="{{asset('/img/LuluGerzillon-AlliasPascaleLaCigale.jpg')}}"/>
         <div class='article'>
         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
-        <h2 class='title'>Edito</h2>        
+        <h2 class='title'>Edito</h2>
             <h3 class='subarticle'>{{ $editoactu->titre_actu }}</h3>
             <p>{{ $editoactu->texte_actu }} </p>
             <br/>
-            <a class='linkpage' href="{{route('apropos')}}">Découvrir notre asso</a>           
+            <a class='linkpage' href="{{route('apropos')}}">Découvrir notre asso</a>
         </div>
-       
     </article>
-    <article>                  
+    
+    <article>
         <div class='article'>
         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
-        <h2 class='title'>Dernière actu</h2>    
+        <h2 class='title'>Dernière actu</h2>
             <h3 class='subarticle'>{{ $lastactu->titre_actu }}</h3>
             <p>{{ $lastactu->texte_actu }} </p>
             <br/>

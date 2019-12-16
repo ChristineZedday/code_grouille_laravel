@@ -194,6 +194,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ==================================================================LARGE============================================================
 
 @media screen and (min-width: 800px) {
@@ -257,24 +270,58 @@
     .recetteline{
         margin-bottom: 5%;
 
-        img{
+        .lineleft{
             width: 100px;
             height: 20px;
             margin-top: 5%;
             margin-bottom: 5%;
         }
 
+        #recettedescr{
+            width: 80%;
+            border-radius: 16px;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+            grid-auto-rows: minmax(100px, auto);
+            grid-auto-flow: dense;
+
         a{
             margin-top:20px;
             margin-bottom:20px;
         }
+
+        img{
+            margin-top: 5%;
+            width: 30%;
+            border-radius: 16px;
+        }
+    }
     }
 
 
 
   // _____________________________________________________________________________________________________________
 
+  article:nth-child(2){
+    padding-top: 14%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
+    grid-auto-flow: dense;
+    margin-bottom: 5%;
+    text-align: right;
 
+    .article{
+        text-align: right;
+
+        .linkpage{
+            float: right;
+        }
+    }
+
+}
 
         article{
             padding-top: 14%;
@@ -283,7 +330,10 @@
             grid-template-columns: repeat(2, 1fr);
             grid-gap: 10px;
             grid-auto-rows: minmax(100px, auto);
-            margin-bottom: 20%;
+            grid-auto-flow: dense;
+            margin-bottom: 5%;
+
+
 
             .lineleft{
                 width: 100px;
@@ -300,6 +350,7 @@
                 font-size: 3em;
                 line-height: 100%;
                 margin-bottom: 40px;
+                margin-top: 8%;
             }
 
             .imgarticle{
@@ -338,6 +389,7 @@
 // ============================ HOME===============================//
 
             #recettes{
+                 margin-top: 15%;
 
                 .lineleft{
                     width: 100px;
@@ -350,6 +402,7 @@
                     width: 50%;
                     float: left;
                     text-align: center;
+                    margin-top: -30px;
                 }
 
                 .linkpage{
@@ -405,9 +458,9 @@
                     }
 
                     h3{
-                        font-size: 2em;
+                        font-size: 1.5em;
                         margin-bottom: 10px;
-                        min-height:100px;
+                        min-height: 66px;
                     }
                 }
             }
