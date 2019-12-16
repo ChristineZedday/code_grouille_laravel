@@ -40,10 +40,19 @@
 
             echo $unite->nom_unite;
                ?></span>
-            <input type="checkbox" name="{{'suppring'.$ingrecette->id}}" id="suppring"/>  <label for="suppring">Supprimer l'ingrédient {{$ingrecette->id}}</label>
 
+            <input type="checkbox" name="{{'suppring'.$ingrecette->id}}" id="suppring"/>  <label for="suppring">Supprimer l'ingrédient {{$ingrecette->id}}</label>
             </div>
             @endforeach
+            <div class='form-group' id="originem">
+                <input type="text" class="form-control"  name='ingredient[]'  multiple="multiple" >
+                <input type="text" class= "form-control" name='quantite[]'  multiple="multiple" >
+                <select class='form-control'  name="unite[]" multiple="multiple" >
+                    @foreach ($unites as $unite)
+                    <option value="{{$unite->id}}"> {{$unite->nom_unite}} </option>
+                    @endforeach
+                </select>
+            </div>
 
         @else
         <div class='form-group' id="origine">
@@ -157,45 +166,47 @@
 </div>
 
 
-<script>
+<script type="text/javascript" " charset="utf-8">
 function ajoute()
 {
 
 @isset($recette)
-    var newDiv = document.createElement('div');
-   var newInput = document.createElement('input');
-   newInput.type ="text";
-   newInput.class ="form-control" ;
-   newInput.name= 'ingredients[]' ;
-   newInput.multiple="multiple";
-   document.newDiv.appendChild(newInput);
-   newInput1.type ="text";
-   newInput1.class ="form-control" ;
-   newInput1.name= 'quantites[]' ;
-   newInput1.multiple="multiple";
-   document.newDiv.appendChild(newInput1);
-   newInput2.type ="select";
-   newInput2.class ="form-control" ;
-   newInput2.name= 'unites[]' ;
-   newInput2.multiple="multiple";
-        @foreach ($unites as $unite)
-        newoption = document.createElement('option');
-        newoption.value ="{{$unite->id}}";
-        newInput2.add(newoption);
-        option.text = {{$unite->nom_unite}};
+var div = document.querySelector('#originem');
 
-        @endforeach
-   document.newDiv.appendChild(newInput2);
+//     var newDiv = document.createElement('div');
+//    var newInput = document.createElement('input');
+//    newInput.type ="text";
+//    newInput.class ="form-control" ;
+//    newInput.name= 'ingredients[]' ;
+//    newInput.multiple="multiple";
+//    document.newDiv.appendChild(newInput);
+//    newInput1.type ="text";
+//    newInput1.class ="form-control" ;
+//    newInput1.name= 'quantites[]' ;
+//    newInput1.multiple="multiple";
+//    document.newDiv.appendChild(newInput1);
+//    newInput2.type ="select";
+//    newInput2.class ="form-control" ;
+//    newInput2.name= 'unites[]' ;
+//    newInput2.multiple="multiple";
+//         @foreach ($unites as $unite)
+//         newoption = document.createElement('option');
+//         newoption.value ="{{$unite->id}}";
+//         newInput2.add(newoption);
+//         option.text = {{$unite->nom_unite}};
+
+//         @endforeach
+//    document.newDiv.appendChild(newInput2);
 @else
 
 var div = document.querySelector('#origine');
-
+@endisset
 var newDiv = div.cloneNode(true);
 newDiv.id = '';
 newDiv.value ='';
 
 
-@endisset
+
 
    document.querySelector('#ing').appendChild(newDiv);
 
