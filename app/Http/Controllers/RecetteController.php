@@ -197,7 +197,7 @@ class RecetteController extends Controller
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('RecetteController@index');
         }
-    
+
 
     /**
      * Display the specified resource.
@@ -322,7 +322,7 @@ if (!empty($ingredients))
 
                {
                      $id = $ingred->id;
-                    $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+                    $recette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite' => $unites[$i]]);
 
                }
                 else{
@@ -330,8 +330,12 @@ if (!empty($ingredients))
                     $ingredient = new Ingredient;
                     $ingredient->nom_ingredient = $nom;
                     $ingredient->quantite = $quantites[$i];
-                    $ingredient->Unite()->attach($unites[$i]);
+                   $ingredient->save();
+                   $id = $ingredient->id;
+
                 }
+                $recette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite' => $unites[$i]]);
+
             }
     }
 
