@@ -67,6 +67,19 @@ cette source importante de protéines. Gôuter les, partagez vos recettes et par
 <br>
 </p>',
             ),
+            5 => 
+            array (
+                'id' => 6,
+                'created_at' => '2019-12-16 10:12:12',
+                'updated_at' => '2019-12-16 10:12:12',
+            'texte_actu' => 'Nombreuses sont les femelles coccinelles à subir des agressions sexuelles de la part des mâles, même parfois d\'espèces différentes. Elles se plaignent en particulier des mâles qui leur sautent sur le dos alors qu\'elles viennent à peine de sortir d\'hibernation et que tout ce dont elles besoin à ce moment là est d\'un bon gueuleton de pucerons.<p>Et puis si ces dames ne sont pas contre la gaudriole une fois rassasiées, elles ont envie de choisir leur partenaire afin de filer le parfait amour et atteindre les noces d\'argent (1 heure) ou les noces d\'or (2 heures) avec l\'élu de leur cœur, avant de divorcer et de se trouver un nouveau chéri (la polyandrie favorise leur fertilité).</p>
+<p>
+<br>
+</p>
+<p>Source: la Hulotte n°108</p>',
+                'titre_actu' => '#meToo chez les coccinelles!',
+            'resume_actu' => 'Les coccinelles rejoignent à leur tour le mouvement #MeToo. En effet, ces messieurs les coccinelles (coccineaux?) ont la drague vraiment, vraiment lourde.&nbsp;',
+            ),
         ));
         
         

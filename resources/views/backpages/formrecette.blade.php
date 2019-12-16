@@ -23,39 +23,39 @@
             @enderror
         </div>
 
-    
 
-        <div class='form-group' id="ingredients">
+
+        <div class='form-group' id="ing">
         <label><h4>Ingrédients de la recette</h4></label>
         @isset($recette)
-       
+
             @foreach ($ingrecettes as $ingrecette)
-            <div class='form-group'>
+            <div class='ingredients'>
             <span class="ingredient">{{$ingrecette->nom_ingredient}}</span>
-            <span class="ingredient">{{$ingrecette->pivot->quantite}}</span>
-            <span>   <?php 
+            <span class="quantite">{{$ingrecette->pivot->quantite}}</span>
+            <span>   <?php
             $idu = $ingrecette->pivot->unite_id;
-            
+
             $unite =  DB::table('unites')->where('id', $idu)->first();
-           
+
             echo $unite->nom_unite;
                ?></span>
             <input type="checkbox" name="{{'suppring'.$ingrecette->id}}" id="suppring"/>  <label for="suppring">Supprimer l'ingrédient {{$ingrecette->id}}</label>
-           
+
             </div>
             @endforeach
         @else
         <div class='form-group' id="origine">
-        <input type="text" class="form-control"  name='ingredient[]' id="oring"  multiple="multiple" required>
-        <input type="text" class= "form-control" name='quantite[]'  id="oriq" multiple="multiple" required>
-        <select class='form-control'  name="unite_id[]" multiple="multiple" id="origine" required>
+        <input type="text" class="form-control"  name='ingredient[]'  multiple="multiple" required>
+        <input type="text" class= "form-control" name='quantite[]'  multiple="multiple" required>
+        <select class='form-control'  name="unite_id[]" multiple="multiple"  required>
             @foreach ($unites as $unite)
             <option value="{{$unite->id}}"> {{$unite->nom_unite}} </option>
             @endforeach
         </select>
-     
+
     </div>
-       
+
         @endisset
         <input type="button" value="Ajouter un ingrédient" onClick="ajoute()"/>
 
@@ -157,21 +157,46 @@
 <script>
 function ajoute()
 {
-   
+    @isset($recette)
    var div = document.getElementById('origine');
-  
+
    var newDiv = div.cloneNode(true);
    newDiv.id = '';
- 
-
-   @isset ($recette)
-   var par = document.getElementById('ingredients');
-   par.Element.appendChild(newDiv);
+   newDiv.value ='';
 
    @else
-   div.parentElement.appendChild(newDiv);
+
+   var newDiv = document.createElement('div');
+   var newInput = document.createElement('input');
+   newInput.type ="text";
+   newInput.class ="form-control" ;
+   newInput.name= 'ingredient[]' ;
+   newInput.multiple="multiple";
+   document.newDiv.appendChild(newInput);
+   newInput1.type ="text";
+   newInput1.class ="form-control" ;
+   newInput1.name= 'quantite[]' ;
+   newInput1.multiple="multiple";
+   document.newDiv.appendChild(newInput1);
+   newInput2.type ="select";
+   newInput2.class ="form-control" ;
+   newInput2.name= 'unite[]' ;
+   newInput2.multiple="multiple";
+        @foreach ($unites as $unite)
+        newoption = document.createElement('option');
+        newoption.value ="{{$unite->id}}";
+        document.newInput2.appendChild(newoption);
+        textnode = document.createElement('textNode');
+        textNode.value ="{{$unite->nom_unite}}";
+        document.newInput2.appendChild(textnode);
+        @endforeach
+   document.newDiv.appendChild(newInput2);
+
+
    @endisset
-  
+   document.getElementById('ing').appendChild(newDiv);
+
 }
 </script>
+
 @endsection
