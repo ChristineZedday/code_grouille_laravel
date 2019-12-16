@@ -1225,11 +1225,12 @@
 
 #backleft #menuback ul li {
   list-style: none;
+  margin-bottom: 20px;
 }
 
 #backleft #menuback ul li a {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 25px;
   color: black;
 }
 
@@ -2282,7 +2283,7 @@ div[contenteditable] img {
 
   #apropos {
     width: 100%;
-    background-image: url(/images/about.jpg?1cc2aaff9b94d239f523c450ebcbda86);
+    background-image: url(/images/apropos-backgroundgrouille.jpg?a6f2f104d80d5b763693b396bf6b66b6);
     background-attachment: fixed;
     background-size: cover;
     background-position: center bottom;
@@ -2385,7 +2386,7 @@ div[contenteditable] img {
 
   #apropos {
     width: 100%;
-    background-image: url(/images/about.jpg?1cc2aaff9b94d239f523c450ebcbda86);
+    background-image: url(/images/apropos-backgroundgrouille.jpg?a6f2f104d80d5b763693b396bf6b66b6);
     background-attachment: fixed;
     background-size: cover;
     background-position: center bottom;

@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Commentaire;
+use App\User;
+
+use Auth;
 //appeler le modèle
 
-class CommentaireController extends Controller
+class frontCommentController extends Controller
 {
     public function __construct()
     {
@@ -21,11 +24,12 @@ class CommentaireController extends Controller
      */
     public function index(Request $request)
     {
-        $commentaires = Commentaire::all();
+    $user = Auth::User();
+    
+     $commentaires = $user->Commentaire;
 
 
-
-       return view('backpages.backCommentaires',['commentaires' => $commentaires]);
+       return view('membres.comment',['commentaires' => $commentaires]);
     }
 
 
@@ -60,7 +64,7 @@ class CommentaireController extends Controller
     public function edit($id)
     {
         $commentaire = Commentaire::find($id);
-        return view('backpages.formcommentaire', ['commentaire' => $commentaire, 'user' => $commentaire->Commentateur]);
+        return view('backpages.formcommentaire', ['commentaire' => $commentaire, 'user' => $commentaire->user]);
     }
 
     /**

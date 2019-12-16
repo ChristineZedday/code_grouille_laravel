@@ -47,7 +47,7 @@ class RecetteController extends Controller
      */
     public function create()
     {
-        $ingredients = Ingredient::all(); //pour gérer l'autocomplétion
+        $ingredients = Ingredient::all(); //pour gérer l'autocomplétion plus tard
         $unites = Unite::all();  //toutes les unités
         return view('backpages.formrecette', ['ingredients' => $ingredients, 'unites' => $unites]);
     }
@@ -78,8 +78,6 @@ class RecetteController extends Controller
 
         $newRecette = new Recette;
         $newRecette->fill($validated);
-
-
 
 
         $user = Auth::user();
@@ -124,7 +122,10 @@ class RecetteController extends Controller
                }
                 else{
                     //créer l'élément!
-                    dd('pas encore');
+                    $ingredient = new Ingredient;
+                    $ingredient->nom_ingredient = $nom;
+                    $ingredient->quantite = $quantites[$i];
+                    $ingredient->Unite()->attach($unites[$i]);
                 }
             }
 
@@ -204,16 +205,23 @@ class RecetteController extends Controller
     {
         $recette = Recette::find($id);
 
-        $commentaires = $recette->Commentaire->get();
-
         if (!$recette) {
 
             return redirect()->action('RecetteController@index');
         }
 
-        return view('backpages.showrecette',[
-            'recette'=> $recette, 'commentaires'=>$commentaires
-        ]);
+        $images = $recette->Image;
+        $commentaires = $recette->Commentaire;
+        $ingredients = $recette->Ingredient;
+
+       
+        {
+            return view('pages.recettesolo',[
+                'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires, 'ingredients' => $ingredients
+            ]);
+        }
+        
+
     }
 
     /**
@@ -231,20 +239,21 @@ class RecetteController extends Controller
 
         $recette = Recette::find($id);
         $ingrecettes =  $recette->Ingredient;    //les ingrédients de la recette
+        $images = $recette->Image;
 
 
         if (isset($recette->Ingredient))
         {
 
 
-            return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'ingrecettes' =>$ingrecettes, 'unites' =>$unites]);
+            return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'ingrecettes' =>$ingrecettes, 'unites' =>$unites, 'images' => $images]);
 
         }
 
             else
 
         {
-                return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'unites' =>$unites]);
+                return view('backpages.formrecette',[ 'recette' => $recette,'ingredients' => $ingredients, 'unites' =>$unites, 'images' => $images]);
         }
 
     }
@@ -272,16 +281,60 @@ class RecetteController extends Controller
 
         $recette = Recette::find($id);
         $recette->fill($validated);
+//ici récupérer les ingrédients supprimés:
+$ingredients = $recette->Ingredient;
+
+foreach ($ingredients as $ingredient)
+        {
+
+            if (isset($_POST['suppring'.$ingredient->id]))
+            {
+                $recette->Ingredient()->detach($ingredient->id);
+            }
+        }
+        //ici récupérer les ingrédients ajoutes:
+        $i=0;
+            $ingredients = $request->get('ingredient');
+
+
+            $quantites = $request->get('quantite');
+
+
+            $unites = $request->get('unite_id');
+
+if (!empty($ingredients))
+{
+            for ($i=0; $i<sizeof($ingredients); $i++)
+            {
+
+                $nom = strtolower($ingredients[$i]);
+
+
+                $ingred = Ingredient::where('nom_ingredient', $nom)->first();
 
 
 
-        //ici récupérer les ingrédients!!!
+                if (isset($ingred))
+
+               {
+                     $id = $ingred->id;
+                    $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+
+               }
+                else{
+                    //créer l'élément!
+                    $ingredient = new Ingredient;
+                    $ingredient->nom_ingredient = $nom;
+                    $ingredient->quantite = $quantites[$i];
+                    $ingredient->Unite()->attach($unites[$i]);
+                }
+            }
+    }
+
         $images = $recette->Image;
 
         foreach ($images as $image)
              {
-
-
 
                  if (isset($_POST['suppr'.$image->id]))
                  {
@@ -293,8 +346,6 @@ class RecetteController extends Controller
 
                     //on ne supprime pas l'image ici, prévoir un back images pour
                  }
-
-
 
              }
         $chemin_dossier=public_path('') .'/img/';
@@ -316,7 +367,7 @@ class RecetteController extends Controller
                         $image->save();
 
                     }
-                    $Recette->Image()->attach($image->id);
+                    $recette->Image()->attach($image->id);
 
                 }
                 else{

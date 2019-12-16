@@ -7,9 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Unite extends Model
 {
 
-    public function IngredientRecette() 
+    public function Ingredient() 
     {
-        return $this->hasMany('App\IngredientRecette');
+        return $this->belongsToMany('App\Ingredient');
     }
 
+   
+   
 }

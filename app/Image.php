@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Orangehill\IseedServiceProvider\images;
 
 class Image extends Model
 
@@ -14,7 +15,7 @@ class Image extends Model
 
     public function Actu()
     {
-    return $this->belongsTo('App\ImageActu');
+    return $this->belongsTo('App\ActuImage');
     }
 
     public function Insecte()

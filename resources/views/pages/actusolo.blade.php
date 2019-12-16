@@ -6,7 +6,7 @@
 
 <article>
     <div class='intitsinglerecette'>
-        <img class='lineleft' src="../img/picto/line.png"/>
+        <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
         <h2 class='title'>{{ $actus->titre_actu }}</h2>
     </div>
 

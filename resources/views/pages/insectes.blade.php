@@ -39,7 +39,8 @@
                 @else
                     <img src="/img/1.png"/>
                 @endisset
-                <h3 class='subarticle'>{{$insecte->nom_latin_insecte}}</h3>
+                <h3 class='subarticle'>{{$insecte->nom_insecte}}</h3>
+                <P>{{$insecte->nom_latin_insecte}}</P>
                 <p>{{$insecte->ordre_insecte}}</p>
             </a></figure>
         @endforeach

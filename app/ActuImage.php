@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Orangehill\IseedServiceProvider\actu_image;
 
-class ImageActu extends Model
+class ActuImage extends Model
 {
+    
+
     public function Actu()
     {
         return $this->belongsTo('App\Actu');

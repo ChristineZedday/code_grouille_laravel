@@ -15,24 +15,27 @@
 
 <div id='recetteliste'>
 
-@foreach($recettes as $recettes)
+@foreach($recettes as $recette)
     <div class='recetteline'>
         @auth
-            @if (Auth::user()->hasBookmark($recettes->id))
-                <a id="addbookmark" class="full" href="{{route('remove-bookmarks', $recettes->id)}}" title="bookmark this page"></a>
+            @if (Auth::user()->hasBookmark($recette->id))
+                <a id="addbookmark" class="full" href="{{route('remove-bookmarks', $recette->id)}}" title="bookmark this page"></a>
             @else
-                <a id="addbookmark" class="empty" href="{{route('add-bookmarks', $recettes->id)}}" title="bookmark this page"></a>
+                <a id="addbookmark" class="empty" href="{{route('add-bookmarks', $recette->id)}}" title="bookmark this page"></a>
             @endif
         @else
             <a id="addbookmark" class="empty" href="" title="bookmark this page"></a>
         @endauth
 
-        <img class='lineleft' src="../img/picto/line.png"/>
-        <a href="{{route('recette.show',$recettes->id)}}">
-            <h2 class='title'>{{ $recettes->titre_recette }}</h2>
+        <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
+        <a href="{{route('recette.show',$recette->id)}}">
+            <h2 class='title'>{{ $recette->titre_recette }}</h2>
         </a>
-        <p><?php echo ($recettes->description_recette) ?></p>
-        <img class='imgarticle' src="{{ $recettes->img_recette }}"/>
+        <p><?php echo ($recette->description_recette); 
+        $image = $recette->Image()->get()->first(); ?></p>
+        @isset($image)
+        <img class='imgarticle' src="{{asset('/img/'.$image->chemin_image)}}"/>
+        @endisset
     </div>
 @endforeach
 

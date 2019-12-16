@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Recette;
 Use App\ImageRecette;
 use App\Image;
+use App\commentaire;
+use Auth;
 
 class frontRecetteController extends Controller
 
@@ -33,30 +35,45 @@ class frontRecetteController extends Controller
         }
 
         $images = $recette->Image;
+        $commentaires = $recette->Commentaire;
+       
+        $ingredients = $recette->Ingredient;
 
-        if (isset($images) && isset($commentaires))
+       
         {
             return view('pages.recettesolo',[
-                'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires
+                'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires, 'ingredients' => $ingredients
             ]);
         }
-        elseif (isset($images)) {
-            return view('pages.recettesolo',[
-                'recette'=> $recette, 'images' =>$images,
-            ]);
-        }
-            elseif (isset($commentaires)) {
-                return view('pages.recettesolo',[
-                    'recette'=> $recette, 'commentaires' => $commentaires
-                ]);
-        }
-        else  {
-            return view('pages.recettesolo',[
-                'recette'=> $recette,
-            ]);
-         }
-
     }
+
+    public function comment(Request $request, $id)
+        {
+            $user = Auth::user();
+            $recette = Recette::find($id);
+
+            $validated = $request->validate([
+                'texte' => 'string|required',]);
+
+            $commentaire= new Commentaire;
+            $commentaire->fill($validated); 
+            $commentaire->user_id = $user->id;
+            $commentaire->recette_id = $recette->id;
+            
+           $commentaire->save();
+
+           $images = $recette->Image;
+           $commentaires = $recette->Commentaire;
+           $ingredients = $recette->Ingredient;
+
+           return view('pages.recettesolo',[
+            'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires, 'ingredients' => $ingredients
+        ]);
+
+        }
+        
+
+    
 
 }
 

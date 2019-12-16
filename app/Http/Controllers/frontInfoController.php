@@ -17,8 +17,9 @@ class frontInfoController extends Controller
     public function showapropospara1()
     {
         $apropospara1 = Info::find(2);
+        $apropospara2 = Info::find(3);
 
-        return view('pages.apropos', ['apropospara1' => $apropospara1]);
+        return view('pages.apropos', ['apropospara1' => $apropospara1, 'apropospara2' => $apropospara2]);
     }
 
     public function showpolitique()

@@ -10,11 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'HomeController@lastactu');
+Route::get('/', 'HomeController@lastactu')->name('home');
 
-Route::get('/home', function () {
-    return view('pages.home', 'HomeController@lastactu');
-});
+// Route::get('/home', function () {
+//     return view('pages.home', 'HomeController@lastactu');
+// });
 
 Route::get('/login', function(){
     return view('auth.login');
@@ -35,9 +35,9 @@ Route::get('/deconnexion', 'UserController@deconnexion') ->name('disconnect');
 Route::post('/back', 'BackController@index')->name('back');
 
 
-Route::get('/insectes', function () {
-    return view('pages.insectes');
-});
+// Route::get('/insectes', function () {
+//     return view('pages.insectes')->name('insectes');
+// });
 
 Route::get('/actus', 'frontActuController@index')->name('actus');
 
@@ -51,9 +51,9 @@ Route::get('/recettes', 'frontRecetteController@index')->name('recettes');
 
 Route::get('/recettes/show/{id}', 'frontRecetteController@show')->name('recette.show');
 
-Route::get('/mentions', 'frontInfoController@showmentions');
+Route::get('/mentions', 'frontInfoController@showmentions')->name('mentions');
 
-Route::get('/apropos', 'frontInfoController@showapropospara1');
+Route::get('/apropos', 'frontInfoController@showapropospara1')->name('apropos');
 
 Route::get('/favoris', 'RecetteUserController@index')->name('bookmarks');
 Route::get('/favoris/add/{id}', 'RecetteUserController@add')->name('add-bookmarks');
@@ -74,17 +74,18 @@ Route::get('/favoris/remove/{id}', 'RecetteUserController@remove')->name('remove
 //     return view('pages.partenaires');
 // });
 
-Route::get('/contact', 'ContactController@create');
+Route::get('/contact', 'ContactController@create')->name('contact');
 
 Route::post('/contact', 'ContactController@store')->name('contact.store');
+
+Route::post('/recette/commenter/ {id}', 'frontRecetteController@comment')->name('commenter');
 
 Route::get('/membre', function () {
     return view('membres.dashboard');
 })->name('dashboard');
 
-Route::get('/comment', function () {
-    return view('membres.comment');
-});
+Route::get('/comment', 'frontCommentController@index');
+
 Route::get('/postrecette', function () {
     return view('membres.postrecette');
 });

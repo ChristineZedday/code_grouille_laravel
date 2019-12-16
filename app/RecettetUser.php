@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Orangehill\IseedServiceProvider\recette_user;
 
-class Favori extends Model
+class RecetteUser extends Model
 {
+   
+    
     public function User() 
     {
     return $this->belongsTo('App\User');

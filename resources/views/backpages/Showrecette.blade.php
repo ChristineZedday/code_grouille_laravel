@@ -10,7 +10,14 @@
             <p>{{$recette->description_recette}}</p>
 
         <h2>Ingrédients</h2>
-        <p></p>
+        <div class='ingredients'>
+            @isset($ingredients)
+            @foreach ($ingredients as $ingredient)
+                <h4>{{$ingredient->nom_ingredient}}</h4>
+                <p>{{$ingredient->quantite}}&nbsp; {{$ingredient->Unite->nom_unite}} </p>
+            @endforeach
+            @endisset
+        </div>
 
         <h3>Temps de préparation</h3>
             <p>{{$recette->temps_preparation_recette}} minutes </p>
@@ -28,7 +35,7 @@
             <p>{{$recette->appetence_recette}}</p>
 
         <h3>Déroulé</h3>
-            <p>{{$recette->deroule_recette}}</p>
+            <p>{!!$recette->deroule_recette!!}</p>
 
             <div class='imgsingle'>
                     @isset($images)
@@ -37,6 +44,15 @@
                         @endforeach
                     @endisset
                 </div>
+
+                <div class='comrecette'>
+            @isset($commentaires)
+            @foreach ($commentaires as $commentaire)
+                <h4>{{$commentaire->user->name}}</h4>
+                <p>{{$commentaire->texte}}</p>
+            @endforeach
+            @endisset
+        </div>
    
     </section>
 

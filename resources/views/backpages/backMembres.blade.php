@@ -33,11 +33,13 @@
             <td class="align-middle">
                 <button><a href="{{route('membre.show',$user->id)}}" >Voir</a></button>
                 <button><a href="{{route('membre.edit',$user->id)}}">Modifier</a></button>
+                @if ($user->id != 1 && $user->role != "admin")
                     <form action="{{route('membre.destroy', $user->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit" >Supprimer</button>
                     </form>
+                @endif
             </td>
         </tr>
     @endforeach

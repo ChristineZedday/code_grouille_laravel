@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\RecetteUser;
+use Orangehill\IseedServiceProvider\users;
 
 class User extends Authenticatable
 {
@@ -40,15 +41,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function Recette()
+    public function RecettePost()
     {
-        return $this->hasMany('App\Recette');
+        return $this->hasMany('App\Recette');//auteur
     }
 
-
-    public function commentaire_Recette()
+    public function RecetteCom() //recettes commentées
     {
-        return $this->hasMany('App\commentaireRecette');
+        return $this->hasManyThrough('App\Recette', 'commentaires');
+    }
+
+   
+
+    public function Commentaire()
+    {
+        return $this->hasMany('App\Commentaire');
+        
     }
 
         /**

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Orangehill\IseedServiceProvider\ingredients;
 
 class Ingredient extends Model
 {
@@ -11,7 +12,7 @@ class Ingredient extends Model
 
     public function Recette()
     {
-    return $this->hasMany('App\Recette');
+    return $this->BelongsToMany('App\Recette');
     }
 
 
@@ -19,4 +20,8 @@ class Ingredient extends Model
     {
         return $this->BelongsTo('App\Insecte');
     }
+
+   
+
+
 }

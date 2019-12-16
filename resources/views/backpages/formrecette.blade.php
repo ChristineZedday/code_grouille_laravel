@@ -23,40 +23,41 @@
             @enderror
         </div>
 
+    
+
         <div class='form-group' id="ingredients">
         <label><h4>Ingrédients de la recette</h4></label>
         @isset($recette)
+       
             @foreach ($ingrecettes as $ingrecette)
             <div class='form-group'>
-            <input type="text" class="form-control"value="{{$ingrecette->Ingredient->nom}}" name="{{$ingrecette->ingredient_id}}" multiple="multiple" required>
-            <input type="text" class= "form-control" value="{{$ingrecette->quantite}}" name="{{$ingrecette->quantite}}"  multiple="multiple" required>
-            <select class='form-control'  name="{{$ingrecette->unite->id}}"  multiple="multiple"  required>
-                @foreach ($unites as $unite)
-                <option value={{$unite->id}} @if ($unite->id == $ingrecette->unite->id) "selected" @else "" @endif>{{$unite->nom_unite}} </option>
-                @endforeach
-            </select>
+            <span class="ingredient">{{$ingrecette->nom_ingredient}}</span>
+            <span class="ingredient">{{$ingrecette->pivot->quantite}}</span>
+            <span>   <?php 
+            $idu = $ingrecette->pivot->unite_id;
+            
+            $unite =  DB::table('unites')->where('id', $idu)->first();
+           
+            echo $unite->nom_unite;
+               ?></span>
+            <input type="checkbox" name="{{'suppring'.$ingrecette->id}}" id="suppring"/>  <label for="suppring">Supprimer l'ingrédient {{$ingrecette->id}}</label>
+           
             </div>
             @endforeach
         @else
-        <div class='form-group' id='original'>
-        <input type="text" class="form-control" @error ('ingredient[]') is-invalid @enderror name='ingredient[]'  multiple="multiple" required>
-        <input type="text" class= "form-control" @error ('quantite[]') is-invalid @enderror name='quantite[]'  multiple="multiple" required>
-        <select class='form-control'  name="unite_id[]" multiple="multiple"  required>
+        <div class='form-group' id="origine">
+        <input type="text" class="form-control"  name='ingredient[]' id="oring"  multiple="multiple" required>
+        <input type="text" class= "form-control" name='quantite[]'  id="oriq" multiple="multiple" required>
+        <select class='form-control'  name="unite_id[]" multiple="multiple" id="origine" required>
             @foreach ($unites as $unite)
-            <option value={{$unite->id}}>{{$unite->nom_unite}} </option>
+            <option value="{{$unite->id}}"> {{$unite->nom_unite}} </option>
             @endforeach
         </select>
-        @error('ingredient[]')
-        <div class="invalid-feedback">
-        {{ $message }}
-        </div>
-        <br/>
-        @enderror
+     
     </div>
-        <input type="button" value="Ajouter un ingrédient" onClick="ajoute()"/>
-
-
+       
         @endisset
+        <input type="button" value="Ajouter un ingrédient" onClick="ajoute()"/>
 
         <div class='form-group'>
             <label><h4>Description de la recette</h4></label>
@@ -98,7 +99,7 @@
         </div>
 
         <div class='form-group'>
-            <label><p>Appetance recette</p></label>
+            <label><p>Appetence recette</p></label>
             <select class="form-control" value="@isset($recette){{$recette->appetence_recette}}@endisset" name="appetence_recette" required>
                     <option value="Entomophage Débutant">Entomophage Débutant</option>
                     <option value="Entomophage Moyen">Entomophage Moyen</option>
@@ -131,6 +132,16 @@
             @enderror
         </div>
 
+        @isset($recette)
+    <div>
+    @foreach ($images as $image)
+        <img src="{{asset('/img/'.$image->chemin_image)}}" />
+        <input type="checkbox" id="suppr" name="{{'suppr'.$image->id}}" value= "{{$image->id}}" /> <label for="suppr">Supprimer l'image {{$image->id}}</label>
+    @endforeach
+    </div>
+@endisset
+
+
         <div class='form-group'>
             <label>Image  (optionnelle)</label>
             <input id="image1" type="file" name="image1" value="" />
@@ -146,10 +157,21 @@
 <script>
 function ajoute()
 {
-   var div = document.getElementById('original');
-   var newDiv = div.cloneNode();
+   
+   var div = document.getElementById('origine');
+  
+   var newDiv = div.cloneNode(true);
    newDiv.id = '';
+ 
+
+   @isset ($recette)
+   var par = document.getElementById('ingredients');
+   par.Element.appendChild(newDiv);
+
+   @else
    div.parentElement.appendChild(newDiv);
+   @endisset
+  
 }
 </script>
 @endsection
