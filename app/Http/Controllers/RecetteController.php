@@ -322,19 +322,18 @@ if (!empty($ingredients))
 
                {
                      $id = $ingred->id;
-                    $recette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite' => $unites[$i]]);
+                   
 
                }
                 else{
                     //créer l'élément!
                     $ingredient = new Ingredient;
                     $ingredient->nom_ingredient = $nom;
-                    $ingredient->quantite = $quantites[$i];
                    $ingredient->save();
                    $id = $ingredient->id;
 
                 }
-                $recette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite' => $unites[$i]]);
+                $recette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
 
             }
     }
