@@ -21,7 +21,11 @@ class Ingredient extends Model
         return $this->BelongsTo('App\Insecte');
     }
 
-   
+
+    // public function Unite()
+    // {
+    //     return $this->BelongsTo('App\Insecte');
+    // }
 
 
 }

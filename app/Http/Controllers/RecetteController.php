@@ -95,12 +95,9 @@ class RecetteController extends Controller
             $i=0;
             $ingredients = $request->get('ingredient');
 
-
             $quantites = $request->get('quantite');
 
-
             $unites = $request->get('unite');
-
 
 
             for ($i=0; $i<sizeof($ingredients); $i++)
@@ -108,24 +105,31 @@ class RecetteController extends Controller
 
                 $nom = strtolower($ingredients[$i]);
 
-
                 $ingred = Ingredient::where('nom_ingredient', $nom)->first();
-
-
 
                 if (isset($ingred))
 
                {
                      $id = $ingred->id;
-                    $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+
 
                }
                 else{
                     //créer l'élément!
+
                     $ingredient = new Ingredient;
+
                     $ingredient->nom_ingredient = $nom;
-                    $ingredient->quantite = $quantites[$i];
-                    $ingredient->Unite()->attach($unites[$i]);
+
+                    $ingredient->save(); //s'il a un insecte l'admin le liera
+
+                    $id = $ingredient->id;
+                }
+
+
+                    $newRecette->Ingredient()->attach($id, ['quantite' =>  $quantites[$i], 'unite_id' => $unites[$i]]);
+
+
                 }
             }
 
@@ -193,7 +197,7 @@ class RecetteController extends Controller
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('RecetteController@index');
         }
-    }
+    
 
     /**
      * Display the specified resource.
