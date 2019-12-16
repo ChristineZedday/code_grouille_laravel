@@ -26,6 +26,27 @@ class frontActuController extends Controller
     {
        $actus = Actu::all();
        return view('pages.actus',['actus' => $actus]);
+
+
+
+    }
+
+    public function show($id)
+    {
+        $actu = Actu::find($id);
+
+        if (!$actu) {
+
+            return redirect()->action('frontActuController@index');
+        }
+
+
+        return view('pages.actusolo',[
+            'actu'=> $actu, 'images' => $actu->image()->get(),
+        ]);
     }
 
 }
+
+
+

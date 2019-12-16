@@ -1,28 +1,19 @@
 @extends('layouts.single')
 
+
+@section('content')
 <h1 id='titlemob'>Grouille</h1>
 
-@foreach($actus as $actus)
-
 <article>
-    <div class='intitsinglerecette'>
-        <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
-        <h2 class='title'>{{ $actus->titre_actu }}</h2>
-    </div>
-
-    <div class='imgsinglerecette'>
+        <h3>{{$actu->titre_actu}}</h3>
+        <p><?php echo($actu->resume_actu) ?></p>
         @isset($images)
-        @foreach ($images as $image)
-            <img src="{{URL::asset('/img/'.$image->chemin_image)}}"/>
-        @endforeach
-    </div>
-
-    <div class='article'>
-        <h3 class='subarticle'><?php echo ($actus->resume_actu) ?></h3>
-        <p><?php echo ($actus->texte_actu) ?></p>
-        <a href=''>Read more</a>
-    </div>
-
+            @foreach ($images as $image)
+                <img src="{{URL::asset('/img/'.$image->chemin_image)}}"/>
+            @endforeach
+        @endisset
+        <h4>texte</h4>
+        <p><?php echo($actu->texte_actu) ?></p>
 </article>
 
-@endforeach
+@ensection
