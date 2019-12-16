@@ -3,8 +3,8 @@
 
 @section('content')
 
-<h1>Politique de confidentialié</h1>
+<h1>Politique de confidentialité</h1>
 
-{{ $politique->texte }}
+{!! $politique->texte !!}
 
 @endsection
