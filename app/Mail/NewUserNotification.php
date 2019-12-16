@@ -16,9 +16,10 @@ class NewUserNotification extends Mailable
      *
      * @return void
      */
-    public function __construct()
+
+    public function __construct(Array $contact)
     {
-        //
+        $this->contact = $contact;
     }
 
     /**
@@ -28,9 +29,12 @@ class NewUserNotification extends Mailable
      */
     public function build()
     {
-        return $this->from('example@example.com')
-        ->view('emails.newuser');
+        return $this->from('monsite@chezmoi.com')
+            ->view('emails.contact');
     }
-
-
 }
+
+
+
+
+
