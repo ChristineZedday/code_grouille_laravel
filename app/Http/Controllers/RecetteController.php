@@ -99,7 +99,7 @@ class RecetteController extends Controller
             $quantites = $request->get('quantite');
 
 
-            $unites = $request->get('unite_id');
+            $unites = $request->get('unite');
 
 
 
@@ -214,13 +214,13 @@ class RecetteController extends Controller
         $commentaires = $recette->Commentaire;
         $ingredients = $recette->Ingredient;
 
-       
+
         {
             return view('pages.recettesolo',[
                 'recette'=> $recette, 'images' =>$images, 'commentaires' => $commentaires, 'ingredients' => $ingredients
             ]);
         }
-        
+
 
     }
 
@@ -300,7 +300,7 @@ foreach ($ingredients as $ingredient)
             $quantites = $request->get('quantite');
 
 
-            $unites = $request->get('unite_id');
+            $unites = $request->get('unite');
 
 if (!empty($ingredients))
 {

@@ -48,7 +48,7 @@
         <div class='form-group' id="origine">
         <input type="text" class="form-control"  name='ingredient[]'  multiple="multiple" required>
         <input type="text" class= "form-control" name='quantite[]'  multiple="multiple" required>
-        <select class='form-control'  name="unite_id[]" multiple="multiple"  required>
+        <select class='form-control'  name="unite[]" multiple="multiple"  required>
             @foreach ($unites as $unite)
             <option value="{{$unite->id}}"> {{$unite->nom_unite}} </option>
             @endforeach
@@ -163,17 +163,17 @@ function ajoute()
    var newInput = document.createElement('input');
    newInput.type ="text";
    newInput.class ="form-control" ;
-   newInput.name= 'ingredient[]' ;
+   newInput.name= 'ingredients[]' ;
    newInput.multiple="multiple";
    document.newDiv.appendChild(newInput);
    newInput1.type ="text";
    newInput1.class ="form-control" ;
-   newInput1.name= 'quantite[]' ;
+   newInput1.name= 'quantites[]' ;
    newInput1.multiple="multiple";
    document.newDiv.appendChild(newInput1);
    newInput2.type ="select";
    newInput2.class ="form-control" ;
-   newInput2.name= 'unite[]' ;
+   newInput2.name= 'unites[]' ;
    newInput2.multiple="multiple";
         @foreach ($unites as $unite)
         newoption = document.createElement('option');
