@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class ImageRecetteTableSeeder extends Seeder
+class ActuImageTableSeeder extends Seeder
 {
 
     /**
@@ -14,56 +14,56 @@ class ImageRecetteTableSeeder extends Seeder
     {
         
 
-        \DB::table('image_recette')->delete();
+        \DB::table('actu_image')->delete();
         
-        \DB::table('image_recette')->insert(array (
+        \DB::table('actu_image')->insert(array (
             0 => 
             array (
                 'id' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'recette_id' => 5,
-                'image_id' => 19,
+                'actu_id' => NULL,
+                'image_id' => 67,
             ),
             1 => 
             array (
                 'id' => 2,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'recette_id' => 5,
-                'image_id' => 18,
+                'actu_id' => 1,
+                'image_id' => 68,
             ),
             2 => 
             array (
                 'id' => 3,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'recette_id' => 1,
-                'image_id' => 63,
+                'actu_id' => 1,
+                'image_id' => 69,
             ),
             3 => 
             array (
                 'id' => 4,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'recette_id' => 2,
-                'image_id' => 64,
+                'actu_id' => 2,
+                'image_id' => 70,
             ),
             4 => 
             array (
                 'id' => 5,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'recette_id' => 3,
-                'image_id' => 65,
+                'actu_id' => 4,
+                'image_id' => 71,
             ),
             5 => 
             array (
                 'id' => 6,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'recette_id' => 7,
-                'image_id' => 66,
+                'actu_id' => 5,
+                'image_id' => 72,
             ),
         ));
         

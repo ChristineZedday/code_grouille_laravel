@@ -12,16 +12,16 @@ class RecettesTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('recettes')->delete();
-        
+
         \DB::table('recettes')->insert(array (
-            0 => 
+            0 =>
             array (
                 'id' => 1,
                 'created_at' => '2019-12-12 13:55:26',
-                'updated_at' => '2019-12-16 19:57:30',
+                'updated_at' => '2019-12-16 14:58:07',
                 'titre_recette' => 'Amuse-bouches aux insectes',
                 'description_recette' => 'Délicieuse recette à partager sans modération pendant l\'apéro.',
                 'temps_preparation_recette' => 10,
@@ -43,7 +43,7 @@ source http://www.mangeons-des-insectes.com/recettes/amuse-bouches-insectes',
                 'portion_recette' => 6,
                 'user_id' => 2,
             ),
-            1 => 
+            1 =>
             array (
                 'id' => 2,
                 'created_at' => '2019-12-12 13:55:26',
@@ -69,17 +69,17 @@ Mettre au four',
                 'portion_recette' => 6,
                 'user_id' => 1,
             ),
-            2 => 
+            2 =>
             array (
                 'id' => 3,
                 'created_at' => '2019-12-12 13:55:26',
-                'updated_at' => '2019-12-12 13:55:26',
+                'updated_at' => '2019-12-16 14:58:59',
                 'titre_recette' => 'Verrines crumble',
                 'description_recette' => 'Un dessert gourmand facile à préparer',
                 'temps_preparation_recette' => 30,
                 'temps_cuisson_recette' => 10,
-                'difficulte_recette' => '1',
-                'appetence_recette' => '1',
+                'difficulte_recette' => 'Facile',
+                'appetence_recette' => 'Entomophage Débutant',
                 'deroule_recette' => 'Pour les pommes
 
 4 pommes
@@ -113,7 +113,7 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
                 'portion_recette' => 6,
                 'user_id' => 2,
             ),
-            3 => 
+            3 =>
             array (
                 'id' => 5,
                 'created_at' => '2019-12-13 19:58:22',
@@ -137,11 +137,11 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
                 'portion_recette' => 30,
                 'user_id' => 7,
             ),
-            4 => 
+            4 =>
             array (
                 'id' => 7,
                 'created_at' => '2019-12-16 08:45:50',
-                'updated_at' => '2019-12-16 09:03:45',
+                'updated_at' => '2019-12-16 14:59:54',
                 'titre_recette' => 'Morue aux fraises et aux scarabées',
                 'description_recette' => 'miam recette de Gaston!',
                 'temps_preparation_recette' => 60,
@@ -152,7 +152,9 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
                 'portion_recette' => 1,
                 'user_id' => 3,
             ),
-            5 => 
+<<<<<<< HEAD
+=======
+            5 =>
             array (
                 'id' => 8,
                 'created_at' => '2019-12-16 09:28:09',
@@ -174,7 +176,7 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
                 'portion_recette' => 20,
                 'user_id' => 3,
             ),
-            6 => 
+            6 =>
             array (
                 'id' => 10,
                 'created_at' => '2019-12-16 19:19:58',
@@ -189,8 +191,9 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
                 'portion_recette' => 6,
                 'user_id' => 3,
             ),
+>>>>>>> 2ac9c6e301cbbdd592b3661b65a56bf356ed3f6b
         ));
-        
-        
+
+
     }
 }

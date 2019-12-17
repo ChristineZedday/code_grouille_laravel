@@ -16,8 +16,5 @@ class Actu extends Model
     return $this->belongstoMany('App\Image');
     }
 
-    public function Commentaire()
-    {
-    return $this->hasMany('App\Commentaire');
-    }
+
 }

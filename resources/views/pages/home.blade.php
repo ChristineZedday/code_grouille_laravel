@@ -36,7 +36,7 @@
             <br/>
             <a class='linkpage' href="{{route('actus')}}">Voir d'autres actus</a>
         </div>
-        <img class='imgarticle' src="{{asset('/img/actu_grouille_insecte-au-chocolat-noel-9c0354.jpg')}}"/>
+        <img class='imgarticle' src="{{asset('/img/'.$image->chemin_image)}}"/>
     </article>
 
     <div id='recettes'>

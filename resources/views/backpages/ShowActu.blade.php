@@ -25,6 +25,7 @@
         @foreach ($images as $image)
             <img src="{{URL::asset('/img/'.$image->chemin_image)}}"/>
         @endforeach
+        @endisset
     </div>
 
     <div class='article'>

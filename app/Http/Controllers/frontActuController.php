@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Auth;
 use App\Actu;
 use App\Image;
+use App\ImageActu;
 
 class frontActuController extends Controller
 
@@ -42,7 +43,7 @@ class frontActuController extends Controller
 
 
         return view('pages.actusolo',[
-            'actu'=> $actu, 'images' => $actu->image()->get(),
+            'actu'=> $actu, 'images' => $actu->Image,
         ]);
     }
 
