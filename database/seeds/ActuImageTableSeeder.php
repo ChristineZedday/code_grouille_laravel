@@ -22,8 +22,13 @@ class ActuImageTableSeeder extends Seeder
                 'id' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
+<<<<<<< HEAD
                 'actu_id' => 1,
                 'image_id' => 67,
+=======
+                'actu_id' => 5,
+                'image_id' => 72,
+>>>>>>> 63bc4fe4a4ac584c16d31d451b812de6f59b0bd5
             ),
             1 => 
             array (
@@ -54,9 +59,17 @@ class ActuImageTableSeeder extends Seeder
                 'id' => 5,
                 'created_at' => NULL,
                 'updated_at' => NULL,
+<<<<<<< HEAD
                 'actu_id' => 5,
                 'image_id' => 71,
             ),
+=======
+                'actu_id' => 4,
+                'image_id' => 71,
+            ),
+          
+     
+>>>>>>> 63bc4fe4a4ac584c16d31d451b812de6f59b0bd5
         ));
         
         

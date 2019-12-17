@@ -34,9 +34,9 @@ Route::get('/deconnexion', 'UserController@deconnexion') ->name('disconnect');
 
 Route::post('/back', 'BackController@index')->name('back');
 
-Route::post('/membres/recettespost', 'frontRecetteController@store')->name('recette.post');
+Route::post('/membres/recettes/post', 'frontRecetteController@store')->name('recette.post');
 
-Route::get('/membres/postrecette', 'frontRecetteController@create')->name('postrecette');
+Route::get('/membres/recette/form', 'frontRecetteController@create')->name('recette.form');
 
 
 
@@ -98,7 +98,7 @@ Route::get('/membre', function () {
     return view('membres.dashboard');
 })->name('dashboard');
 
-Route::get('/comment', 'frontCommentController@index');
+Route::get('/comment', 'frontCommentController@index')->name('membres.comment');
 
 
 

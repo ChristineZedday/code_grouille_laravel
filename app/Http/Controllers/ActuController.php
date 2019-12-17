@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Actu;
 use App\Image;
-use App\ImageActu;
+use App\ActuImage;
 
 class ActuController extends Controller
 {
@@ -141,7 +141,7 @@ class ActuController extends Controller
 
 
         return view('backpages.showActu',[
-            'actu'=> $actu, 'images' => $actu->image()->get(),
+            'actu'=> $actu, 'images' => $actu->Image ,
         ]);
     }
 
