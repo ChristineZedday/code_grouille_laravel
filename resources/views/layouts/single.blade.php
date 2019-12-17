@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html  lang="fr">
 <html>
     <head>
         @include('includes.head')
