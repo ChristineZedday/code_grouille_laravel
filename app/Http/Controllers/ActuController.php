@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Actu;
 use App\Image;
-use App\ImageActu;
+use App\ActuImage;
 
 class ActuController extends Controller
 {
