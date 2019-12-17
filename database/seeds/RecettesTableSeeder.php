@@ -152,46 +152,6 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
                 'portion_recette' => 1,
                 'user_id' => 3,
             ),
-<<<<<<< HEAD
-=======
-            5 =>
-            array (
-                'id' => 8,
-                'created_at' => '2019-12-16 09:28:09',
-                'updated_at' => '2019-12-16 09:28:09',
-                'titre_recette' => 'Grillons aux chocolat',
-                'description_recette' => 'Friandise de Noël',
-                'temps_preparation_recette' => 20,
-                'temps_cuisson_recette' => 10,
-                'difficulte_recette' => 'Facile',
-                'appetence_recette' => 'Entomophage Débutant',
-                'deroule_recette' => 'Faire fondre le chocolat<p>Faire griller les grillons</p>
-<p>Mouler des supports en chocolat&nbsp;</p>
-<p>Y poser les grillons grillés</p>
-<p>laisser sécher et déguster<br>
-<p>
-<br>
-</p>
-</p>',
-                'portion_recette' => 20,
-                'user_id' => 3,
-            ),
-            6 =>
-            array (
-                'id' => 10,
-                'created_at' => '2019-12-16 19:19:58',
-                'updated_at' => '2019-12-16 19:19:58',
-                'titre_recette' => 'Tarte aux pommes et aux ténébrions',
-                'description_recette' => 'dessert de saison',
-                'temps_preparation_recette' => 15,
-                'temps_cuisson_recette' => 35,
-                'difficulte_recette' => 'Facile',
-                'appetence_recette' => 'Entomophage Débutant',
-                'deroule_recette' => 'Comme la tarte aux pommes, mais on ajoute des ténébrions entre les lamelles de pomme.',
-                'portion_recette' => 6,
-                'user_id' => 3,
-            ),
->>>>>>> 2ac9c6e301cbbdd592b3661b65a56bf356ed3f6b
         ));
 
 
