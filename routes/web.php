@@ -98,7 +98,7 @@ Route::get('/membre', function () {
     return view('membres.dashboard');
 })->name('dashboard');
 
-Route::get('/comment', 'frontCommentController@index');
+Route::get('/comment', 'frontCommentController@index')->name('membres.comment');
 
 
 
