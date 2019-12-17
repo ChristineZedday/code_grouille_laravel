@@ -22,7 +22,7 @@
         <div class='article'>
             <h3 class='subarticle'><?php echo ($actus->resume_actu) ?></h3>
             <p><?php echo ($actus->texte_actu) ?></p>
-            <a href={{('actu.show')}}>Lire la suite</a>
+
         </div>
     </article>
     @endforeach

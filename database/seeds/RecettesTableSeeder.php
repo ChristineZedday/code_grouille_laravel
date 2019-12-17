@@ -12,12 +12,12 @@ class RecettesTableSeeder extends Seeder
      */
     public function run()
     {
-
+        
 
         \DB::table('recettes')->delete();
-
+        
         \DB::table('recettes')->insert(array (
-            0 =>
+            0 => 
             array (
                 'id' => 1,
                 'created_at' => '2019-12-12 13:55:26',
@@ -29,25 +29,27 @@ class RecettesTableSeeder extends Seeder
                 'difficulte_recette' => 'Facile',
                 'appetence_recette' => 'Entomophage Débutant',
                 'deroule_recette' => '10 g d’insectes déshydratés
-
-Trancher le concombre en fine lamelles.
+1 concombre
+Du fromage blanc
+1 Tomate
+Olives noires
+Basilic
+Ail et fines herbes, Trancher le concombre en fine lamelles.
 Ecraser l’ail et l’incorporer au fromage blanc.
 Ajouter les fines herbes hachées au fromage blanc.
 Couper la tomate et les olives noires en petits cubes.
 Etaler du fromage blanc sur la tranche de concombre.
 Ajouter quelques cubes de tomates et d’olives noires.
 Déposer quelques insectes sur la préparation ainsi qu’une feuille de basilic.
-Déguster cette recette fraiche et légère.
-
-source http://www.mangeons-des-insectes.com/recettes/amuse-bouches-insectes',
+Déguster cette recette fraiche et légère.source http://www.mangeons-des-insectes.com/recettes/amuse-bouches-insectes',
                 'portion_recette' => 6,
                 'user_id' => 2,
             ),
-            1 =>
+            1 => 
             array (
                 'id' => 2,
                 'created_at' => '2019-12-12 13:55:26',
-                'updated_at' => '2019-12-16 20:03:28',
+                'updated_at' => '2019-12-16 14:58:28',
                 'titre_recette' => 'Quiche aux ténébrions',
                 'description_recette' => 'Une quiche très facile à préparer',
                 'temps_preparation_recette' => 15,
@@ -69,11 +71,11 @@ Mettre au four',
                 'portion_recette' => 6,
                 'user_id' => 1,
             ),
-            2 =>
+            2 => 
             array (
                 'id' => 3,
                 'created_at' => '2019-12-12 13:55:26',
-                'updated_at' => '2019-12-16 14:58:59',
+                'updated_at' => '2019-12-17 09:42:02',
                 'titre_recette' => 'Verrines crumble',
                 'description_recette' => 'Un dessert gourmand facile à préparer',
                 'temps_preparation_recette' => 30,
@@ -113,7 +115,7 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
                 'portion_recette' => 6,
                 'user_id' => 2,
             ),
-            3 =>
+            3 => 
             array (
                 'id' => 5,
                 'created_at' => '2019-12-13 19:58:22',
@@ -137,7 +139,7 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
                 'portion_recette' => 30,
                 'user_id' => 7,
             ),
-            4 =>
+            4 => 
             array (
                 'id' => 7,
                 'created_at' => '2019-12-16 08:45:50',
@@ -153,7 +155,7 @@ Mettre les morceaux de pommes au fond de la verrine. Verser le caramel salé sur
                 'user_id' => 3,
             ),
         ));
-
-
+        
+        
     }
 }

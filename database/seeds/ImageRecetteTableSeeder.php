@@ -19,29 +19,13 @@ class ImageRecetteTableSeeder extends Seeder
         \DB::table('image_recette')->insert(array (
             0 => 
             array (
-                'id' => 1,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'recette_id' => 5,
-                'image_id' => 19,
-            ),
-            1 => 
-            array (
-                'id' => 2,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'recette_id' => 5,
-                'image_id' => 18,
-            ),
-            2 => 
-            array (
                 'id' => 3,
                 'created_at' => NULL,
                 'updated_at' => NULL,
                 'recette_id' => 1,
                 'image_id' => 63,
             ),
-            3 => 
+            1 => 
             array (
                 'id' => 4,
                 'created_at' => NULL,
@@ -49,7 +33,7 @@ class ImageRecetteTableSeeder extends Seeder
                 'recette_id' => 2,
                 'image_id' => 64,
             ),
-            4 => 
+            2 => 
             array (
                 'id' => 5,
                 'created_at' => NULL,
@@ -57,7 +41,7 @@ class ImageRecetteTableSeeder extends Seeder
                 'recette_id' => 3,
                 'image_id' => 65,
             ),
-            5 => 
+            3 => 
             array (
                 'id' => 6,
                 'created_at' => NULL,

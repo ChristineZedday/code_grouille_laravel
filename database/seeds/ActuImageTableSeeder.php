@@ -22,7 +22,7 @@ class ActuImageTableSeeder extends Seeder
                 'id' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'actu_id' => NULL,
+                'actu_id' => 1,
                 'image_id' => 67,
             ),
             1 => 
@@ -30,7 +30,7 @@ class ActuImageTableSeeder extends Seeder
                 'id' => 2,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'actu_id' => 1,
+                'actu_id' => 2,
                 'image_id' => 68,
             ),
             2 => 
@@ -38,7 +38,7 @@ class ActuImageTableSeeder extends Seeder
                 'id' => 3,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'actu_id' => 1,
+                'actu_id' => 3,
                 'image_id' => 69,
             ),
             3 => 
@@ -46,7 +46,7 @@ class ActuImageTableSeeder extends Seeder
                 'id' => 4,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'actu_id' => 2,
+                'actu_id' => 4,
                 'image_id' => 70,
             ),
             4 => 
@@ -54,16 +54,8 @@ class ActuImageTableSeeder extends Seeder
                 'id' => 5,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'actu_id' => 4,
-                'image_id' => 71,
-            ),
-            5 => 
-            array (
-                'id' => 6,
-                'created_at' => NULL,
-                'updated_at' => NULL,
                 'actu_id' => 5,
-                'image_id' => 72,
+                'image_id' => 71,
             ),
         ));
         
