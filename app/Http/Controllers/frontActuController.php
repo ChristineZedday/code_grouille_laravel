@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Auth;
 use App\Actu;
 use App\Image;
-use App\ImageActu;
+use App\ActuImage;
 
 class frontActuController extends Controller
 
