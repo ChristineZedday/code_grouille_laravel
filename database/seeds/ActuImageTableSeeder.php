@@ -22,8 +22,8 @@ class ActuImageTableSeeder extends Seeder
                 'id' => 1,
                 'created_at' => NULL,
                 'updated_at' => NULL,
-                'actu_id' => NULL,
-                'image_id' => 67,
+                'actu_id' => 5,
+                'image_id' => 72,
             ),
             1 => 
             array (
@@ -57,14 +57,8 @@ class ActuImageTableSeeder extends Seeder
                 'actu_id' => 4,
                 'image_id' => 71,
             ),
-            5 => 
-            array (
-                'id' => 6,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-                'actu_id' => 5,
-                'image_id' => 72,
-            ),
+          
+     
         ));
         
         
