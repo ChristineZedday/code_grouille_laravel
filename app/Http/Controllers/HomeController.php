@@ -7,6 +7,7 @@ use App\Actu;
 use App\Recette;
 use App\info;
 use App\Image;
+Use App\ActuImage;
 Use App\ImageRecette;
 
 
@@ -30,17 +31,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.home');
-    }
 
-    public function lastactu()
-    {
         $editoactu = Actu::find(4);
         $lastactu = Actu::orderBy('created_at', 'desc')->first();
         $lastrecettes = Recette::orderBy('created_at', 'desc')->take(3)->get();
-             // $lastactu = Actu::lastest();
-        return view('pages.home', ['lastactu'=> $lastactu, 'lastrecettes' => $lastrecettes, 'editoactu' => $editoactu, ]);
+
+        $imactus = $editoactu->Image;
+
+
+        return view('pages.home', ['lastactu'=> $lastactu, 'lastrecettes' => $lastrecettes, 'editoactu' => $editoactu,  'imactus' => $imactus ]);
+
     }
+
 
 
     public function showapropospara1()

@@ -36,7 +36,9 @@
             <br/>
             <a class='linkpage' href="{{route('actus')}}">Voir d'autres actus</a>
         </div>
-        <img class='imgarticle' src="{{asset('/img/'.$image->chemin_image)}}"/>
+        @foreach($imactus as $imactu)
+        <img class='imgarticle' src="{{asset('/img/'.$imactu->chemin_image)}}"/>
+        @endforeach
     </article>
 
     <div id='recettes'>
@@ -44,12 +46,16 @@
         <h2 class='title'>Nos dernières recettes</h2>
         <div id='suggestions'>
             @foreach($lastrecettes as $lastrecette)
+
                     <div class='recettehome'>
                         <h3 class='subarticle'>{{ $lastrecette->titre_recette }}</h3>
                             <p class='subarticle'>{{ $lastrecette->description_recette }}</p>
-                            <a class='linkrecette' href='{{route('recette.show',$lastrecette->id)}}'>Consulter cette recette</a>
+                            <a class='linkrecette' href="{{route('recette.show',$lastrecette->id)}}" >Consulter cette recette</a>
+
                             <div>
-                            <img src='/img/home2.jpg'/>
+                                @isset($image)
+                            <img src={{asset('/img/'.$lastrecette->Image->first()->chemin_image)}}/>
+                                @endisset
                             </div>
                     </div>
             @endforeach
