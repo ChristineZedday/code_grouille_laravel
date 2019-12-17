@@ -14,7 +14,8 @@ class InfoController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of
+     * resourcew.
      *
      * @return \Illuminate\Http\Response
      */

@@ -28,14 +28,21 @@
         @endauth
 
         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
-        <a href="{{route('recette.show',$recette->id)}}">
-            <h2 class='title'>{{ $recette->titre_recette }}</h2>
-        </a>
-        <p><?php echo ($recette->description_recette); 
-        $image = $recette->Image()->get()->first(); ?></p>
-        @isset($image)
-        <img class='imgarticle' src="{{asset('/img/'.$image->chemin_image)}}"/>
-        @endisset
+
+        <div id='recettedescr'>
+               <div>
+               <a href="{{route('recette.show',$recette->id)}}">
+                <h2 class='title'>{{ $recette->titre_recette }}</h2>
+               </a>
+               <p><?php echo ($recette->description_recette);?></p>
+               </div>
+
+            <div>
+            <?php $image = $recette->Image()->get()->first(); ?>
+            @isset($image)
+            <img class='imgarticle' src="{{asset('/img/'.$image->chemin_image)}}"/>
+            @endisset
+            </div>
     </div>
 @endforeach
 
