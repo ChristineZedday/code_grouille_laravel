@@ -141,7 +141,7 @@ class ActuController extends Controller
 
 
         return view('backpages.showActu',[
-            'actu'=> $actu, 'images' => $actu->image()->get(),
+            'actu'=> $actu, 'images' => $actu->Image ,
         ]);
     }
 
