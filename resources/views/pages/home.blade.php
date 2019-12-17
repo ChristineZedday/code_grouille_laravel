@@ -53,9 +53,9 @@
                             <a class='linkrecette' href="{{route('recette.show',$lastrecette->id)}}" >Consulter cette recette</a>
 
                             <div>
-                                @isset($image)
-                            <img src={{asset('/img/'.$lastrecette->Image->first()->chemin_image)}}/>
-                                @endisset
+                               @foreach($lastrecette->Image as $image)
+                            <img src={{asset('/img/'.$image->chemin_image)}}/>
+                                @endforeach
                             </div>
                     </div>
             @endforeach
