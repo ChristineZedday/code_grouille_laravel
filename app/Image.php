@@ -42,6 +42,54 @@ return $extension;
 
 }
 
+public static function charger($uploadedFile, $chemin_dossier)
+{
+  
 
+
+
+
+      if (file_exists ($chemin_dossier.$uploadedFile ) )
+      {
+           //chercher dans la base, le mettre ds images si pas encore, et ajouter insecte_id dans la table pivot
+
+           $image = Image::where('chemin_image', '$uploadedFile')->first();  //il peut être dans le dossier sans être dans la base!
+                  if (!isset($image))
+                  {
+
+                      $image = new Image(); //on rentre le fichier dans la table image
+                      $image->chemin_image = $uploadedFile;
+                      $image->save();
+
+                  }
+
+      }
+
+      else{ //une image qui vient de l'extérieur (pas dans public)
+          $extension = Image::fichier_type($uploadedFile); //fonction statique du model Image
+
+          if($extension=="jpg" ||
+              $extension=="png" ||
+              $extension=="gif")
+              {
+
+
+                  if(is_uploaded_file($_FILES['image1']['tmp_name']))
+                              {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploadedFile))
+                                  {   $image = New Image;
+                                      $image->chemin_image =  $uploadedFile;
+
+                                      $image->save();
+
+
+                                  }
+
+                              }
+              }
+           } //fin else: file existe pas
+ 
+
+return $image;
+   }
 
 }

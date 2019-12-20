@@ -74,55 +74,11 @@ class InsecteController extends Controller
 
                 $uploaded = $_FILES['image1']['name'];
 
+                $image = Image::charger($uploaded, $chemin_dossier); 
+                //copie ds le dossier si pas présente, copie en base si pas présente
 
-
-
-                if (file_exists ($chemin_dossier.$uploaded ) )
-                {
-                     //chercher dans la base, le mettre ds images si pas encore, et ajouter insecte_id dans la table pivot
-
-                     $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
-                            if (!isset($image))
-                            {
-
-                                $image = new Image(); //on rentre le fichier dans la table image
-                                $image->chemin_image = $uploaded;
-                                $image->save();
-
-                            }
-
-
-
-                        $newInsecte->Image()->attach($image->id);
-                }
-
-                else{ //une image qui vient de l'extérieur (pas dans public)
-                    $extension = Image::fichier_type($uploaded); //fonction statique du model Image
-
-                    if($extension=="jpg" ||
-                        $extension=="png" ||
-                        $extension=="gif")
-                        {
-
-
-                            if(is_uploaded_file($_FILES['image1']['tmp_name']))
-                                        {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
-                                            {   $image = New Image;
-                                                $image->chemin_image =  $uploaded;
-
-                                                $image->save();
-
-                                                $newInsecte->Image()->attach($image->id);
-
-
-                                            }
-
-                                        }
-                        }
-                     } //fin else: file existe pas
-            } // fin on a uploadé image 1
-
-
+                $newInsecte->Image()->attach($image->id);
+            }
 
             $request->session()->flash('status',"insecte enregistré avec succès");
             $request->session()->flash('alert-class',"alert-success");
