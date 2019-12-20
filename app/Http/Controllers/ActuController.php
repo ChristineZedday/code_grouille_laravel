@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Actu;
 use App\Image;
-use App\ActuImage;
+use App\ActuImage; //tables pivot: ordre alphabétique
 
 class ActuController extends Controller
 {
@@ -26,7 +26,7 @@ class ActuController extends Controller
      */
     public function index(Request $request)
     {
-       $actus = Actu::all();
+       $actus = Actu::all(); 
        return view('backpages.backActus',['actus' => $actus]);
     }
 
