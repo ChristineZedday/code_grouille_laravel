@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Actu;
 use App\Image;
-use App\ActuImage; //tables pivot: ordre alphabétique, eh oui
+use App\ActuImage; //tables pivot: ordre alphabétique, SVP!
 
 class ActuController extends Controller
 {
