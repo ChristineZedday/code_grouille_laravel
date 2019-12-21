@@ -81,6 +81,16 @@ Le grillon est omnivore. Sa durée de vie est d\'environ un an.',
                 'ordre_insecte' => 'Truc à antenne',
                 'description_insecte' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Curabitur aliquet quam id dui posuere blandit. Sed porttitor lectus nibh. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.',
             ),
+            6 => 
+            array (
+                'id' => 7,
+                'created_at' => '2019-12-21 17:43:00',
+                'updated_at' => '2019-12-21 17:43:00',
+                'nom_insecte' => 'Fine mouche',
+                'nom_latin_insecte' => 'Musca sapiens sapiens',
+                'ordre_insecte' => 'Diptères',
+                'description_insecte' => 'On consomme plutôt sa larve, l\'asticot. En fait, accidentellement le plus souvent.',
+            ),
         ));
         
         
