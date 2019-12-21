@@ -50,13 +50,24 @@ public static function charger($uploadedFile, $chemin_dossier)
         {
            //chercher dans la base, le mettre ds images si pas encore
 
-           $image = Image::where('chemin_image', '$uploadedFile')->first();  //il peut être dans le dossier sans être dans la base!
-                  if (! isset($image))
+           $image = Image::where('chemin_image', $uploadedFile)->first();  //il peut être dans le dossier sans être dans la base!
+           
+                if (isset($image))
                   {
-                      $image = new Image(); //on rentre le fichier dans la table image
-                      $image->chemin_image = $uploadedFile;
-                      $image->save();
+                    
+                     return $image;
+                    
                   }
+                  else {
+                  
+                    $image = new Image(); //on rentre le fichier dans la table image
+                    $image->chemin_image = $uploadedFile;
+                    $image->save();
+                
+                    return $image;
+                    
+                    
+                    }
         }
 
             else
