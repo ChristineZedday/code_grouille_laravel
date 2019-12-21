@@ -14,14 +14,13 @@ class CreateImageInsecteTable extends Migration
     public function up()
     {
         Schema::create('image_insecte', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+           
 
             $table->bigInteger('image_id')->unsigned()->nullable();
-            $table->foreign('image_id')->references('id')->on('images')->onDelete('set null');
+            $table->foreign('image_id')->references('id')->on('images');
 
             $table->bigInteger('insecte_id')->unsigned()->nullable();
-            $table->foreign('insecte_id')->references('id')->on('insectes')->onDelete('set null');
+            $table->foreign('insecte_id')->references('id')->on('insectes');
 
         });
     }
