@@ -144,52 +144,9 @@ class RecetteController extends Controller
             {
 
                 $uploaded = $_FILES['image1']['name'];
-
-
-
-
-                if (file_exists ($chemin_dossier.$uploaded ) )
-                {
-                     //chercher dans la base, le mettre ds images si pas encore, et ajouter recette_id dans la table pivot
-
-                     $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
-                            if (!isset($image))
-                            {
-                                $image = new Image(); //on rentre le fichier dans la table image
-                                $image->chemin_image = $uploaded;
-                                $image->save();
-
-                            }
-
-
-
-                        $newRecette->Image()->attach($image->id);
-                }
-
-                else{ //une image qui vient de l'extérieur (pas dans public)
-                    $extension = Image::fichier_type($uploaded); //fonction statique du model Image
-
-                    if($extension=="jpg" ||
-                        $extension=="png" ||
-                        $extension=="gif")
-                        {
-
-
-                            if(is_uploaded_file($_FILES['image1']['tmp_name']))
-                                        {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
-                                            {   $image = New Image;
-                                                $image->chemin_image =  $uploaded;
-
-                                                $image->save();
-
-                                                $newRecette->Image()->attach($image->id);
-
-
-                                            }
-
-                                        }
-                        }
-                     } //fin else: file existe pas
+                $image = Image::charger($uploaded,$chemin_dossier);
+                $newRecette->Image()->attach($image->id);
+              
             } // fin on a uploadé image 1
 
 
@@ -363,49 +320,13 @@ if (!empty($ingredients))
          if (isset($_FILES['image1']['name']))
          {
             $uploaded = $_FILES['image1']['name'];
+            $image = Image::charger($uploaded,$chemin_dossier);
 
-            if (file_exists ($chemin_dossier.$uploaded ) )
-                {
-                    //chercher dans la base, le mettre ds images si pas encore, et ajouter insecte_id dans la table pivot
+            $recette->Image()->attach($image->id);
 
-                    $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
-                    if (!isset($image))
-                    {
-
-                        $image = new Image(); //on rentre le fichier dans la table image
-                        $image->chemin_image = $uploaded;
-                        $image->save();
-
-                    }
-                    $recette->Image()->attach($image->id);
-
-                }
-                else{
-                $extension = Image::fichier_type($uploaded); //fonction statique du model Image
-
-                if($extension=="jpg" ||
-                    $extension=="png" ||
-                    $extension=="gif")
-                    {
-
-
-
-
-                        $chemin_dossier=public_path('') .'/img/';
-                        if(is_uploaded_file($_FILES['image1']['tmp_name']))
-                                    {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
-                                        {
-                                            $image = New Image;
-                                            $image->chemin_image =  $uploaded;
-
-                                            $image->save();
-                                            $recette->Image()->attach($image->id);
-                                        }
-
-                                    }
-                    }
-                }
-         }
+         
+        }
+               
 
 
         if ($recette->save()) {
