@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Actu;
 use App\Image;
-use App\ActuImage; //tables pivot: ordre alphabétique, SVP!
+
 
 class ActuController extends Controller
 {
@@ -65,53 +65,14 @@ class ActuController extends Controller
 
         if ($newActu->save()) {
 
-            $chemin_dossier=public_path('') .'/img/';
+            $chemin_dossier= public_path('') .'/img/';
 
             if (isset($_FILES['image1']['name']))
             {
                 $uploaded = $_FILES['image1']['name'];
-
-                if (file_exists ($chemin_dossier.$uploaded ) )
-                {
-                     //chercher dans la base, le mettre ds images si pas encore, et ajouter actu_id dans la table pivot
-
-                     $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
-                            if (isset($image))
-                            {
-                                $imid = $image->id;
-
-                            }
-                            else{
-                                $image = new Image(); //on rentre le fichier dans la table image
-                                $image->chemin_image = $uploaded;
-                                $image->save();
-
-                            }
-                            $newActu->Image()->attach($image->id);
-                }
-
-                else{
-                    $extension = Image::fichier_type($uploaded);
-
-                    if($extension=="jpg" ||
-                        $extension=="png" ||
-                        $extension=="gif")
-                        {
-
-
-                            if(is_uploaded_file($_FILES['image1']['tmp_name']))
-                                        {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
-                                            {   $image = New Image;
-                                                $image->chemin_image =  $uploaded;
-                                                $image->actu_id = $newactu->id;
-                                                $image->save();
-
-                                                $newActu->Image()->attach($image->id);
-                                            }
-
-                                        }
-                        }
-                     } //fin else: file existe pas
+                $image = Image::charger($uploaded, $chemin_dossier);
+                $newActu->Image()->attach($image->id);
+                      
             } // fin on a uploadé image 1
 
 
@@ -190,7 +151,7 @@ class ActuController extends Controller
                 if (isset($_POST['suppr'.$image->id]))
                 {
 
-                    $actu->Image()->detach($images->id);
+                    $actu->Image()->detach($image->id);
 
                 }
 
@@ -202,51 +163,10 @@ class ActuController extends Controller
             if (isset($_FILES['image1']['name']))
             {
                $uploaded = $_FILES['image1']['name'];
+               $image = Image::charger($uploaded, $chemin_dossier);
 
-               if (file_exists ($chemin_dossier.$uploaded ) )
-                   {
-                       //chercher dans la base, le mettre ds images si pas encore, et ajouter actu_id dans la table pivot
-
-                       $image = Image::where('chemin_image', '$uploaded')->first();  //il peut être dans le dossier sans être dans la base!
-                       if (isset($image))
-                       {
-                           $imid = $image->id;
-
-                       }
-                       else{
-                           $image = new Image(); //on rentre le fichier dans la table image
-                           $image->chemin_image = $uploaded;
-                           $image->save();
-
-                       }
-                       $actu->Image()->attach($image->id);
-
-                   }
-                   else{
-                   $extension = Image::fichier_type($uploaded); //fonction statique du model Image
-
-                   if($extension=="jpg" ||
-                       $extension=="png" ||
-                       $extension=="gif")
-                       {
-
-
-
-
-                           $chemin_dossier=public_path('') .'/img/';
-                           if(is_uploaded_file($_FILES['image1']['tmp_name']))
-                                       {  	if(copy($_FILES['image1']['tmp_name'], $chemin_dossier.$uploaded))
-                                           {
-                                               $image = New Image;
-                                               $image->chemin_image =  $uploaded;
-
-                                               $image->save();
-                                               $actu->Image()->attach($image->id);
-                                           }
-
-                                       }
-                       }
-                   }
+                $actu->Image()->attach($image->id);
+                                   
             }
 
 

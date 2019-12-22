@@ -67,6 +67,15 @@ cette source importante de protéines. Gôuter les, partagez vos recettes et par
 <br>
 </p>',
             ),
+            5 => 
+            array (
+                'id' => 6,
+                'created_at' => '2019-12-22 11:31:26',
+                'updated_at' => '2019-12-22 11:31:26',
+                'texte_actu' => 'La confection de vêtements en peau d\'insectes s\'avère plus ardue qu\'il ne l\'avait prévue au départ. En effet, les machines à coudre ne sont pas du tout adaptées à ce genre de matériaux. Du coup, les 3/4 des couturières de M.Bousier ont démissionné. Le quart restant, Mme Clarisse Bousier, menace de divorcer. Mais notre jeune et talentueux styliste ne s\'avoue pas vaincu pour autant. Il va s\'atteler lui-même à la couture, à la main, et espère être prêt pour la Biennale de 2022.',
+                'titre_actu' => 'Tanguy Bousier ne sera pas prêt pour la Biennale de la mode à Pas-de-Salage-sur-Sortie',
+                'resume_actu' => 'Tanguy Bousier projetait de nous présenter sa nouvelle collection de vêtements en peau d\'insectes pour la Biennale de Pas-de-Salage-sur-Sortie, qui aura lieu en février 2020.',
+            ),
         ));
         
         
