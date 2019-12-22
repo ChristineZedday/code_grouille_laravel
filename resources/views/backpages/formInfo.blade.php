@@ -4,7 +4,7 @@
 
 <div id='forminfo' class='content'>
 
-    <form action="@isset($info){{route('info.update', $info->id)}}@else{{route('info.store')}}@endisset" method="POST">
+    <form  enctype="multipart/form-data" action="@isset($info){{route('info.update', $info->id)}}@else{{route('info.store')}}@endisset" method="POST">
 						@csrf
 						@isset($info) @method('PUT') @endisset
 
@@ -64,6 +64,23 @@
 
         @endif
 
+
+        @isset($info)
+    <div>
+    @isset($images)
+    @foreach ($images as $image)
+        <img src="{{asset('/img/'.$image->chemin_image)}}" />
+        <input type="checkbox" id="suppr" name="{{'suppr'.$image->id}}" value= "{{$image->id}}" /> <label for="suppr">Supprimer l'image {{$image->id}}</label>
+    @endforeach
+    @endisset
+    </div>
+@endisset
+
+
+<div class='form-group'>
+<label>Image  (optionnelle)</label>
+<input id="image1" type="file" name="image1" value="" />
+</div>
 
 
 

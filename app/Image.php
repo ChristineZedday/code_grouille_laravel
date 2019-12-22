@@ -85,6 +85,7 @@ public static function charger($uploadedFile, $chemin_dossier)
                                             $image->chemin_image =  $uploadedFile;
 
                                             $image->save();
+                                            return $image;
 
                                         }
 
@@ -92,8 +93,8 @@ public static function charger($uploadedFile, $chemin_dossier)
                     }
                 } //fin else: file existe pas
  
+                return false;
 
-return $image;
    }
 
 }

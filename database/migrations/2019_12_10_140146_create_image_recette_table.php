@@ -14,8 +14,7 @@ class CreateImageRecetteTable extends Migration
     public function up()
     {
         Schema::create('image_recette', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+           
 
             $table->bigInteger('recette_id')->unsigned()->nullable();
             $table->foreign('recette_id')->references('id')->on('recettes')->onDelete('set null');

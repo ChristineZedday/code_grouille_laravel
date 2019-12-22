@@ -17,10 +17,10 @@ class CreateImageInsecteTable extends Migration
            
 
             $table->bigInteger('image_id')->unsigned()->nullable();
-            $table->foreign('image_id')->references('id')->on('images');
+            $table->foreign('image_id')->references('id')->on('images')->onDelete('set null');
 
             $table->bigInteger('insecte_id')->unsigned()->nullable();
-            $table->foreign('insecte_id')->references('id')->on('insectes');
+            $table->foreign('insecte_id')->references('id')->on('insectes')->onDelete('set null');
 
         });
     }

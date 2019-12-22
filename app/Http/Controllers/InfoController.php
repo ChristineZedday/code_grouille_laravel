@@ -57,6 +57,18 @@ class InfoController extends Controller
 
 
         if ($newInfo->save()) {
+
+            $chemin_dossier= public_path('') .'/img/';
+
+            if (isset($_FILES['image1']['name']))
+            {
+                $uploaded = $_FILES['image1']['name'];
+                $image = Image::charger($uploaded, $chemin_dossier);
+                $newInfo->Image()->attach($image->id);
+                      
+            } // fin on a uploadé image 1
+
+
             $request->session()->flash('status',"Info site mise à jour avec succès !");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('InfoController@index');
@@ -93,7 +105,8 @@ class InfoController extends Controller
     public function edit($id)
     {
         $info = Info::find($id);
-        return view('backpages.formInfo', ['info' => $info]);
+        $images = $info->Image;
+        return view('backpages.formInfo', ['info' => $info, 'images' =>$images]);
     }
 
     /**
@@ -115,6 +128,18 @@ class InfoController extends Controller
         $info->fill($validated);
 
         if ($info->save()) {
+
+            $chemin_dossier= public_path('') .'/img/';
+
+            if (isset($_FILES['image1']['name']))
+            {
+                $uploaded = $_FILES['image1']['name'];
+                $image = Image::charger($uploaded, $chemin_dossier);
+                $info->Image()->attach($image->id);
+                      
+            } // fin on a uploadé image 1
+
+
             $request->session()->flash('status',"Info site mise à jour avec succès");
             $request->session()->flash('alert-class',"alert-success");
             return redirect()->action('InfoController@index');

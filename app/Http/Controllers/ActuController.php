@@ -71,7 +71,11 @@ class ActuController extends Controller
             {
                 $uploaded = $_FILES['image1']['name'];
                 $image = Image::charger($uploaded, $chemin_dossier);
-                $newActu->Image()->attach($image->id);
+                if ($image)
+
+                {
+                    $newActu->Image()->attach($image->id);
+                }
                       
             } // fin on a uploadé image 1
 
@@ -150,8 +154,9 @@ class ActuController extends Controller
 
                 if (isset($_POST['suppr'.$image->id]))
                 {
-
+                   
                     $actu->Image()->detach($image->id);
+                   
 
                 }
 
@@ -164,8 +169,11 @@ class ActuController extends Controller
             {
                $uploaded = $_FILES['image1']['name'];
                $image = Image::charger($uploaded, $chemin_dossier);
+                    if ($image)
 
-                $actu->Image()->attach($image->id);
+                 {
+                     $actu->Image()->attach($image->id);
+                 }
                                    
             }
 

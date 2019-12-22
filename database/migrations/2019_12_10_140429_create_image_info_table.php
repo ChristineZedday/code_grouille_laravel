@@ -14,8 +14,7 @@ class CreateImageInfoTable extends Migration
     public function up()
     {
         Schema::create('image_info', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+          
 
             $table->bigInteger('info_id')->unsigned()->nullable();
             $table->foreign('info_id')->references('id')->on('infos')->onDelete('set null');

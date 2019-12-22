@@ -14,8 +14,7 @@ class CreateActuImageTable extends Migration
     public function up()
     {
         Schema::create('actu_image', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+           
 
             $table->bigInteger('actu_id')->unsigned()->nullable();
             $table->foreign('actu_id')->references('id')->on('actus')->onDelete('set null');
