@@ -14,16 +14,16 @@
 @section('content')
 
 
-    @foreach($actus as $actus)
+    @foreach($actus as $actu)
     <article>
         <img class='lineleft'src="{{asset('/img/picto/line.png')}}"/>
-        <h2 class='title'>{{ $actus->titre_actu }}</h2>
-        @foreach ($actus->Image as $image)
-        <img class='imgarticle' src="{{ $image->chemin_image}}"/>
+        <h2 class='title'>{{ $actu->titre_actu }}</h2>
+        @foreach ($actu->Image as $image)
+        <img class='imgarticle' src="{{ asset('/img/'.$image->chemin_image)}}"/>
         @endforeach
         <div class='article'>
-            <h3 class='subarticle'><?php echo ($actus->resume_actu) ?></h3>
-            <p><?php echo ($actus->texte_actu) ?></p>
+            <h3 class='subarticle'><?php echo ($actu->resume_actu) ?></h3>
+            <p><?php echo ($actu->texte_actu) ?></p>
 
         </div>
     </article>

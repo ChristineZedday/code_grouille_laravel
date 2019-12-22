@@ -195,7 +195,11 @@ class ActuController extends Controller
     {
         $actu = Actu::find($id);
 
+       
+
         if ($actu && $actu->delete()) {
+
+            $actu->Image()->detach(); //toutes les images s'il y en a
 
             return redirect()->action('ActuController@index');
         }

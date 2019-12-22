@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Auth;
 use App\Actu;
 use App\Image;
-use App\ActuImage;
+
 
 class frontActuController extends Controller
 
@@ -26,6 +26,7 @@ class frontActuController extends Controller
     public function index(Request $request)
     {
        $actus = Actu::all();
+      
        return view('pages.actus',['actus' => $actus]);
 
 

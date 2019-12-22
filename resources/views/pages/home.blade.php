@@ -54,7 +54,7 @@
 
                             <div>
                                @foreach($lastrecette->Image as $image)
-                            <img src={{asset('/img/'.$image->chemin_image)}}/>
+                            <img src="{{asset('/img/'.$image->chemin_image)}}"/>
                                 @endforeach
                             </div>
                     </div>

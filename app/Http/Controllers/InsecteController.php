@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Middleware\Admin;
 use App\Insecte;
-Use App\ImageInsecte;
 use App\Image;
 
 class InsecteController extends Controller
@@ -176,12 +175,11 @@ class InsecteController extends Controller
     {
         $insecte = Insecte::find($id);
 
-        if (! empty($insecte->Image ))
-        {
-            $insecte->Image()->detach(); //toutes les images s'il y en a
-        }
+      
 
         if ($insecte && $insecte->delete()) {
+
+            $insecte->Image()->detach(); //toutes les images s'il y en a
 
             return redirect()->action('InsecteController@index');
         }
