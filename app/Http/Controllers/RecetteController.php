@@ -350,6 +350,11 @@ if (!empty($ingredients))
 
             $recette->Image()->detach();
             $recette->Ingredient()->detach();
+            $commentaires = $recette->Commentaire;
+            foreach ($commentaires as $commentaire)
+            {
+                $commentaire->delete();
+            }
 
             return redirect()->action('RecetteController@index');
         }

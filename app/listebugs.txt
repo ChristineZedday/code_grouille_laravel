@@ -1,0 +1,44 @@
+Back office recettes:
+    Creation:
+        - crée une photo avec chemin null (id première image nulle) si on en met pas sinon OK
+        - ingrédient 1 : avec accent ne passe pas, sans accent passe (en base ou pas)
+        - ajouter un ingrédient: marche si pas d'accent  (en base ou pas, autant qu'on veut sans accent)
+    
+    Modification:
+         - crée une photo avec chemin null (id première image nulle) si on enregistre sans ajouter d'image, ou si on enlève l'image
+         - ingrédient 1 : avec accent ne passe pas, sans accent passe (en base ou pas)
+         - ajouter un ingrédient: marche si pas d'accent  (en base ou pas, autant qu'on veut sans accent)
+         - suppression d'un ingrédient: OK
+    
+    Suppression:
+         - Ne supprime pas l'ingrédient recette dans la table pivot, met ID recette a null et garde les autres champs
+         - Ne supprime pas les images de la table image-recette, met ID recette à null
+         - OK: les commentaires sont effacés avec onDelete('cascade') sur la fk recette de la table commentaires
+         
+
+Back office insectes:
+    Creation:
+        - crée une photo avec chemin null (id première image nulle) si on en met pas sinon OK
+
+    
+    Modification:
+         - crée une photo avec chemin null (id première image nulle) si on enregistre sans ajouter d'image,  ou si on enlève l'image
+         
+    
+    Suppression:
+         - OK: Supprime les images dans la table pivot et seulement elle. 
+         (delete set null, delete cascade: même comportement)
+         modèle enlevé, car table pivot simple.
+         -Supprimer un insecte ne supprime pas les ingrédients correspondant, juste mais ID insecte à null
+    
+Back office ingredients:
+    Creation:
+        - Ne vérifie pas si l'ingrédient existe déjà
+
+    
+    Modification:
+         - OK
+         
+    
+    Suppression:
+         - Supprime l'ingrédient dans la recette, mais reste avec ID recette nulle dans la table pivot
