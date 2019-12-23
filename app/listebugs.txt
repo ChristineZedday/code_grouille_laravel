@@ -29,15 +29,15 @@ Back office insectes:
          - OK: Supprime les images dans la table pivot et seulement elle. 
          (delete set null, delete cascade: même comportement)
          modèle enlevé, car table pivot simple.
-         -Supprimer un insecte ne supprime pas les ingrédients correspondant, juste mais ID insecte à null
+         -Supprimer un insecte ne supprime pas les ingrédients correspondant, juste mais ID insecteà null
     
 Back office ingredients:
     Creation:
-        - Ne vérifie pas si l'ingrédient existe déjà
+        - OK: vérifie si l'ingrédient existe déjà
 
     
     Modification:
-         - OK
+         - OK: vérifie si l'ingrédient existe déjà
          
     
     Suppression:
