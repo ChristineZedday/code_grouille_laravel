@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Commentaire;
+use App\Recette;
 
 
 
@@ -134,17 +136,28 @@ class MembreController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-        $recettes = $user->recette()->get();
-        foreach ($recettes as $recette)
-        {
-            $recette->SetUserId();
-            $recette->save();
 
-        }
+      
+            $recettes = $user->RecettePost()->get(); //anonymiser les recettes postées
+            foreach ($recettes as $recette)
+            {
+                $recette->SetUserId();
+                $recette->save();
 
-        if ($user && $user->delete()) {
+            }
 
-            return redirect()->action('MembreController@index');
+            $coms = $user->Commentaire()->get(); //anonymiser les commentaires des recettes
+            foreach ($coms as $com)
+            {
+                $com->SetUserId();
+                $com->save();
+
+            }
+
+            if ($user && $user->delete()) 
+            {
+
+                return redirect()->action('MembreController@index');
         }
     }
 }

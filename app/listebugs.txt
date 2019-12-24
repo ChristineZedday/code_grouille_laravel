@@ -42,3 +42,19 @@ Back office ingredients:
     
     Suppression:
          - Supprime l'ingrédient dans la recette, mais reste avec ID recette nulle dans la table pivot
+
+Back office Membres:
+    Creation:
+        - Les nouveaux membres créés en back office ne peuvent se logger?
+
+    
+    Modification:
+         - OK
+         
+    
+    Suppression:
+         - OK: Supprimer un membre anonymise ses recettes et ses commentaires
+         - OK: On ne peut pas supprimer directement un admin, il faut le passer en utilisateur avant
+         - Il faut rajouter qqchose pour ne pas transformer le dernier admin en utilisateur!
+        
+    Oubli mot de passe non traité.

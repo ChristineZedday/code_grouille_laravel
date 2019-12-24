@@ -20,5 +20,9 @@ class Commentaire extends Model
     return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function SetUserId()
+    {
+         $this->user_id = 1; //utilisateur anonyme
+    }
 
 }
