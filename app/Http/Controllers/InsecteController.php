@@ -72,11 +72,28 @@ class InsecteController extends Controller
                
 
                 $uploaded = $_FILES['image1']['name'];
+                $tmp = $_FILES['image1']['tmp_name'];
+               
 
-                $image = Image::charger($uploaded, $chemin_dossier); 
-                //copie ds le dossier si pas présente, copie en base si pas présente
-
+                $image = Image::verifier_presence($uploaded, $chemin_dossier); 
+                //copie en base si présente dans le dossier mais pas en basep
+                if ($image)
+                {
                 $newInsecte->Image()->attach($image->id);
+                }
+                else 
+                {
+               if (Image::est_image($uploaded))
+                    {
+                        if (move_uploaded_file($tmp, $chemin_dossier.$uploaded))
+                            {
+                                $image = new Image;
+                                $image->chemin_image = $uploaded;
+                                $image->save();
+                                $newinsecte->Image()->attach($image->id);
+                            }
+                    }
+                }
             }
 
             $request->session()->flash('status',"insecte enregistré avec succès");
@@ -148,15 +165,34 @@ class InsecteController extends Controller
              }
         $chemin_dossier=public_path('') .'/img/';
 
-         if (isset($_FILES['image1']['name']))
-         {
-            $uploaded = $_FILES['image1']['name'];
-            $image = Image::charger($uploaded, $chemin_dossier);
-          
-                $insecte->Image()->attach($image->id);
-                           
-         }
+        if (isset($_FILES['image1']['name']))
+        {
+           
 
+            $uploaded = $_FILES['image1']['name'];
+            $tmp = $_FILES['image1']['tmp_name'];
+           
+
+            $image = Image::verifier_presence($uploaded, $chemin_dossier); 
+            //copie en base si présente dans le dossier mais pas en base
+            if ($image)
+            {
+            $insecte->Image()->attach($image->id);
+            }
+            else 
+            {
+           if (Image::est_image($uploaded))
+                {
+                    if (move_uploaded_file($tmp, $chemin_dossier.$uploaded))
+                        {
+                            $image = new Image;
+                            $image->chemin_image = $uploaded;
+                            $image->save();
+                            $insecte->Image()->attach($image->id);
+                        }
+                }
+            }
+        }
 
         if ($insecte->save()) {
             $request->session()->flash('status',"insecte enregistré avec succès");

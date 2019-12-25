@@ -12,6 +12,7 @@
         <li><a href="{{route('tabingredients')}}">Liste des Ingrédients</a></li>
         <li><a href="{{route('tabmembres')}}">Membres</a></li>
         <li><a href="{{route('tabinfos')}}">Infos statiques</a></li>
+        <li><a href="{{route('tabimages')}}">Images</a></li>
 
 
     </span>

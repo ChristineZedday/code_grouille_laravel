@@ -69,15 +69,33 @@ class ActuController extends Controller
 
             if (isset($_FILES['image1']['name']))
             {
+               
+    
                 $uploaded = $_FILES['image1']['name'];
-                $image = Image::charger($uploaded, $chemin_dossier);
+                $tmp = $_FILES['image1']['tmp_name'];
+               
+    
+                $image = Image::verifier_presence($uploaded, $chemin_dossier); 
+                //copie en base si présente dans le dossier mais pas en base
                 if ($image)
-
                 {
-                    $newActu->Image()->attach($image->id);
+                $newActu->Image()->attach($image->id);
                 }
-                      
-            } // fin on a uploadé image 1
+                else 
+                {
+               if (Image::est_image($uploaded))
+                    {
+                        if (move_uploaded_file($tmp, $chemin_dossier.$uploaded))
+                            {
+                                $image = new Image;
+                                $image->chemin_image = $uploaded;
+                                $image->save();
+                                $newActu->Image()->attach($image->id);
+                            }
+                    }
+                }
+            }
+
 
 
 
@@ -167,15 +185,33 @@ class ActuController extends Controller
 
             if (isset($_FILES['image1']['name']))
             {
-               $uploaded = $_FILES['image1']['name'];
-               $image = Image::charger($uploaded, $chemin_dossier);
-                    if ($image)
-
-                 {
-                     $actu->Image()->attach($image->id);
-                 }
-                                   
+               
+    
+                $uploaded = $_FILES['image1']['name'];
+                $tmp = $_FILES['image1']['tmp_name'];
+               
+    
+                $image = Image::verifier_presence($uploaded, $chemin_dossier); 
+                //copie en base si présente dans le dossier mais pas en base
+                if ($image)
+                {
+                $actu->Image()->attach($image->id);
+                }
+                else 
+                {
+               if (Image::est_image($uploaded))
+                    {
+                        if (move_uploaded_file($tmp, $chemin_dossier.$uploaded))
+                            {
+                                $image = new Image;
+                                $image->chemin_image = $uploaded;
+                                $image->save();
+                                $actu->Image()->attach($image->id);
+                            }
+                    }
+                }
             }
+
 
 
         if ($actu->save()) {

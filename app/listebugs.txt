@@ -58,3 +58,8 @@ Back office Membres:
          - Il faut rajouter qqchose pour ne pas transformer le dernier admin en utilisateur!
         
     Oubli mot de passe non traité.
+
+    php artisan make:controller imageController --resource --model=Image
+
+    
+

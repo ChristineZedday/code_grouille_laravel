@@ -142,12 +142,32 @@ class RecetteController extends Controller
 
             if (isset($_FILES['image1']['name']))
             {
-
+               
+    
                 $uploaded = $_FILES['image1']['name'];
-                $image = Image::charger($uploaded,$chemin_dossier);
+                $tmp = $_FILES['image1']['tmp_name'];
+               
+    
+                $image = Image::verifier_presence($uploaded, $chemin_dossier); 
+                //copie en base si présente dans le dossier mais pas en base
+                if ($image)
+                {
                 $newRecette->Image()->attach($image->id);
-              
-            } // fin on a uploadé image 1
+                }
+                else 
+                {
+               if (Image::est_image($uploaded))
+                    {
+                        if (move_uploaded_file($tmp, $chemin_dossier.$uploaded))
+                            {
+                                $image = new Image;
+                                $image->chemin_image = $uploaded;
+                                $image->save();
+                                $newRecette->Image()->attach($image->id);
+                            }
+                    }
+                }
+            }
 
 
             $request->session()->flash('status',"recette enregistrée avec succès");
@@ -317,16 +337,35 @@ if (!empty($ingredients))
              }
         $chemin_dossier=public_path('') .'/img/';
 
-         if (isset($_FILES['image1']['name']))
-         {
+        if (isset($_FILES['image1']['name']))
+        {
+           
+
             $uploaded = $_FILES['image1']['name'];
-            $image = Image::charger($uploaded,$chemin_dossier);
+            $tmp = $_FILES['image1']['tmp_name'];
+           
 
+            $image = Image::verifier_presence($uploaded, $chemin_dossier); 
+            //copie en base si présente dans le dossier mais pas en base
+            if ($image)
+            {
             $recette->Image()->attach($image->id);
-
-         
+            }
+            else 
+            {
+           if (Image::est_image($uploaded))
+                {
+                    if (move_uploaded_file($tmp, $chemin_dossier.$uploaded))
+                        {
+                            $image = new Image;
+                            $image->chemin_image = $uploaded;
+                            $image->save();
+                            $recette->Image()->attach($image->id);
+                        }
+                }
+            }
         }
-               
+
 
 
         if ($recette->save()) {

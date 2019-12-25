@@ -66,3 +66,12 @@ Route::get('/back/infos/create', 'InfoController@create')->name('info.create');
 Route::put('/back/infos/update/{id}', 'InfoController@update')->name('info.update');
 Route::post('/back/infos/store/', 'InfoController@store')->name('info.store');
 Route::delete('/back/infos/{id}/destroy', 'InfoController@destroy')->name('info.destroy');
+
+Route::get('/back/images', 'ImageController@index')->name('tabimages');
+Route::get('/back/images/create', 'ImageController@create')->name('image.create');
+Route::put('/back/images/update/{id}', 'ImageController@update')->name('image.update');
+Route::post('/back/images/store/', 'ImageController@store')->name('image.store');
+Route::delete('/back/images/{id}/destroy', 'ImageController@destroy')->name('image.destroy');
+
+
+//Route::resource('images', 'ImageController'); //ensemble de routes qui gèrent toutes les actions sur les images??? Vraiment?
