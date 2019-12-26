@@ -36,10 +36,10 @@ class HomeController extends Controller
         $lastactu = Actu::orderBy('created_at', 'desc')->first();
         $lastrecettes = Recette::orderBy('created_at', 'desc')->take(3)->get();
 
-        $imactus = $editoactu->Image;
+       
 
 
-        return view('pages.home', ['lastactu'=> $lastactu, 'lastrecettes' => $lastrecettes, 'editoactu' => $editoactu,  'imactus' => $imactus ]);
+        return view('pages.home', ['lastactu'=> $lastactu, 'lastrecettes' => $lastrecettes, 'editoactu' => $editoactu]);
 
     }
 

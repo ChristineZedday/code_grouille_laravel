@@ -16,7 +16,7 @@
 <div class='home'>
 
     <article>
-        <img class='imgarticle' src="{{asset('/img/LuluGerzillon-AlliasPascaleLaCigale.jpg')}}"/>
+        <img class='imgarticle' src="{{asset('/img/home_edito.jpg')}}"/>
         <div class='article'>
         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
         <h2 class='title'>Edito</h2>
@@ -36,7 +36,7 @@
             <br/>
             <a class='linkpage' href="{{route('actus')}}">Voir d'autres actus</a>
         </div>
-        @foreach($imactus as $imactu)
+        @foreach($lastactu->Image as $imactu)
         <img class='imgarticle' src="{{asset('/img/'.$imactu->chemin_image)}}"/>
         @endforeach
     </article>

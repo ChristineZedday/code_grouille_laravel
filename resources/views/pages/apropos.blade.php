@@ -18,7 +18,7 @@
     <section id='about'>
 
         <article>
-            <img class='imgarticle' src="{{asset('/img/apropos-d0e5791126f8bf9de4a7c90d6ef9c19d.jpg')}}"/>
+            <img class='imgarticle' src="{{asset('/img/apropos_une.jpg')}}"/>
                 <div class='article'>
                 <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
                 <h2 class='subarticle'>{!! $apropospara1->titre!!}</h2>
@@ -27,7 +27,7 @@
         </article>
 
         <article>
-            <img class='imgarticle' src="{{asset('/img/apropos-asso-grouille-71f544a244c701f479f1bd16c7d19d8f.jpg')}}"/>
+            <img class='imgarticle' src="{{asset('/img/apropos_autre.jpg')}}"/>
             <div class='article'>
                 <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
                 <h2 class='subarticle'>{!! $apropospara2->titre !!}</h2>
