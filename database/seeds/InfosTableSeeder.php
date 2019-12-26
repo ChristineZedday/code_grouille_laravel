@@ -21,7 +21,7 @@ class InfosTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'created_at' => NULL,
-                'updated_at' => '2019-12-13 12:58:05',
+                'updated_at' => '2019-12-26 12:02:07',
                 'titre' => 'Mentions légales',
             'texte' => 'Le site internet www.grouille.fr est réalisé par Christine, Nathalie et Muriel&nbsp;<p>Ce site est celui de l\'association à but non lucratif (loi 1901): Grouille</p>
 <p>Siret: 012345678910</p>
@@ -44,7 +44,12 @@ SAS au capital de 10 000 000 €&nbsp;</p>
 <p>Code APE 6202A
 N° TVA : FR 22 424 761 419&nbsp;</p>
 <p>Siège social : 2 rue Kellermann – 59100 Roubaix – France.&nbsp;</p>
-<p>&nbsp;Crédit photos : A compléter&nbsp;</p>',
+<p>&nbsp;Crédit illustrations : A compléter&nbsp;</p>
+<p>
+photos: <br>
+James Wainscoat (Unsplash)<br>
+dessins: <br>
+Adrianna Watujo (MixKit)<br>',
                 'email' => NULL,
             ),
             1 => 

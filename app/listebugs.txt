@@ -59,7 +59,7 @@ Back office Membres:
         
     Oubli mot de passe non traité.
 
-    php artisan make:controller imageController --resource --model=Image
+    
 
     
 
