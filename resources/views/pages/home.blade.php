@@ -32,6 +32,7 @@
         <img class='lineleft' src="{{asset('/img/picto/line.png')}}"/>
         <h2 class='title'>Dernière actu</h2>
             <h3 class='subarticle'>{{ $lastactu->titre_actu }}</h3>
+            <h4>{!! $lastactu->resume_actu !!} </h4>
             <p>{!! $lastactu->texte_actu !!} </p>
             <br/>
             <a class='linkpage' href="{{route('actus')}}">Voir d'autres actus</a>
@@ -53,9 +54,9 @@
                             <a class='linkrecette' href="{{route('recette.show',$lastrecette->id)}}" >Consulter cette recette</a>
 
                             <div>
-                               @foreach($lastrecette->Image as $image)
+                             <?php $image= $lastrecette->Image->first(); ?>
                             <img src="{{asset('/img/'.$image->chemin_image)}}"/>
-                                @endforeach
+                              
                             </div>
                     </div>
             @endforeach

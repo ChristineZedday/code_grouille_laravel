@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Actu;
 
 class ActusTableSeeder extends Seeder
 {
@@ -21,8 +22,8 @@ class ActusTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'created_at' => '2019-12-12 13:55:26',
-                'updated_at' => '2019-12-26 19:45:23',
-                'texte_actu' => 'Nous déplorons cependant l’absence de membres du gouvernement que nous avions pourtant conviés. Elisabeth Borne s\'est excusée, elle avait raté son train. Agnès Buzyn était trop occupée à inaugurer la fermeture d\'une maternité à la campagne, et Didier Guillaume était invité au déjeuner de Noël de la FNSEA. Nous espérons qu\'ils pourront se rendre disponibles pour notre prochaine dégustation, qui aura lieu à Pâques ou à la Trinité.<br><br>
+                'updated_at' => '2019-12-27 18:11:16',
+                'texte_actu' => 'Nous déplorons cependant l’absence de membres du gouvernement que nous avions pourtant conviés. La ministre de l\'écologie et des transports s\'est excusée, elle avait raté son train. La ministre de la santé était trop occupée à inaugurer la fermeture d\'une maternité à la campagne, et le ministre de l\'agriculture était invité au déjeuner de Noël de la FNSEA. Nous espérons qu\'ils pourront se rendre disponibles pour notre prochaine dégustation, qui aura lieu à Pâques ou à la Trinité.<br><br>
 
 photo: Anthony Ievlev (Unsplash)',
                 'titre_actu' => 'Dégustation de chocolats et de gâteaux  pour Noël',
@@ -32,7 +33,7 @@ photo: Anthony Ievlev (Unsplash)',
             array (
                 'id' => 2,
                 'created_at' => '2019-12-09 13:55:26',
-                'updated_at' => '2019-12-26 19:45:48',
+                'updated_at' => '2019-12-27 17:46:03',
                 'texte_actu' => 'Il s\'agit de scarabées importés frauduleusement des pays de l\'Ouest, et les lasagnes étaient garanties pur bœuf. Si nous sommes pour l\'entomophagie, nous ne sommes décidément pas pour la tromperie sur les marchandises! Cette usine étant la principale pourvoyeuse d\'emplois de la région depuis la fermeture des pinces à linge Hopdebec, la consternation est immense à Trou et ses environs.
 
 <br><br>
@@ -44,7 +45,7 @@ Photo: Egor Kamelev (Pexel)',
             array (
                 'id' => 3,
                 'created_at' => '2019-12-10 13:55:26',
-                'updated_at' => '2019-12-26 20:25:20',
+                'updated_at' => '2019-12-27 17:46:22',
                 'texte_actu' => 'C\'est la L214 qui a alerté la célèbre actrice sur les cruautés que subissent les malheureux grillons dans l\'insecterie. Le patron se défend en arguant que l\'étourdissement électrique carbonise les insectes et les rend totalement impropres à la consommation.
 
 <br><br>
@@ -56,12 +57,12 @@ Photo: Wolfgang Hasselmann (Unsplash)',
             array (
                 'id' => 4,
                 'created_at' => '2019-12-09 13:55:26',
-                'updated_at' => '2019-12-26 20:33:23',
+                'updated_at' => '2019-12-27 17:47:29',
                 'texte_actu' => 'Notre association souhaite promouvoir les insectes et l\'alimentation à base d\'insecte. 
 Ne cherchez plus à vous débarasser des grillons, des vers de farine, des scarabés ou des fourmis en les écrasant 
 avec votre pied ou en les exterminant avec des produits chimiques. Ces derniers sont comestibles. Ce serait dommage de se priver de 
-cette source importante de protéines. Gôuter les, partagez vos recettes et parlez-en vos amis. Lucie Guerzillon
-
+cette source importante de protéines. Gôuter les, partagez vos recettes et parlez-en vos amis.<br> Lucie Guerzillon
+<br><br>
 Photo: Christine Zedday',
                 'titre_actu' => 'Les insectes à la une : Le mot de Lucie',
                 'resume_actu' => 'Les insectes souvent mal connus ou mal aimés sont mis en avant dans ce site. Apprenez à les connaitre pour mieux apprécier les "apprécier" !',
@@ -70,7 +71,7 @@ Photo: Christine Zedday',
             array (
                 'id' => 5,
                 'created_at' => '2019-12-15 14:51:51',
-                'updated_at' => '2019-12-26 20:30:29',
+                'updated_at' => '2019-12-27 17:46:47',
                 'texte_actu' => 'Les deux groupes appartiennent aux Arthropodes Antennates, donc les insectes sont plus proches des crustacés que des araignées qui sont des Arthropodes Chélicérates.
 C\'est sans doute pour cela que notre bien cher ami François de R., indiscutablement un écologiste sincère et convaincu, ne se rend jamais à nos dégustations. Il parait qu\'il a très mal digéré un homard, récemment...
 
@@ -91,6 +92,7 @@ Photo: Adolfo Félix (Unsplash)',
             ),
         ));
         
+
         
     }
 }

@@ -38,10 +38,11 @@
                </div>
 
             <div>
-            <?php $image = $recette->Image()->get()->first(); ?>
+            <?php $image = $recette->Image()->first(); ?>
             @isset($image)
             <img class='imgarticle' src="{{asset('/img/'.$image->chemin_image)}}"/>
             @endisset
+            </div>
             </div>
     </div>
 @endforeach
