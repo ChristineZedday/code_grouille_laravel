@@ -21,7 +21,7 @@ class InfosTableSeeder extends Seeder
             array (
                 'id' => 1,
                 'created_at' => NULL,
-                'updated_at' => '2019-12-26 19:01:37',
+                'updated_at' => '2019-12-29 15:44:51',
                 'titre' => 'Mentions légales',
             'texte' => 'Le site internet www.grouille.fr est réalisé par  Muriel Guillou, Nathalie Leblanc et Christine Zedday&nbsp;<p>Ce site est celui de l\'association à but non lucratif (loi 1901): Grouille</p>
 <p>Siret: 012345678910</p>
@@ -42,15 +42,20 @@ contact: chrizedday@free.fr
 <p>Hébergement:&nbsp;</p>
 <p>Github, Inc.
 
-<p>Siège social : San Francisco, Californie – USA.&nbsp;</p>
-<p>&nbsp;Crédit illustrations : A compléter&nbsp;</p>
+<p>Siège social : San Francisco, Californie – USA.&nbsp;</p><br><br>
+<p>&nbsp;Crédit illustrations : &nbsp;</p>
 <p>
 photos: <br>
 James Wainscoat (Unsplash), nuée d\'insectes sur la page d\'accueil<br>
 Brandon Phan (Pexel), mante religieuse page à propos<br>
 Tania Malréchauffé (Unsplash), hôtel à insectes page à propos<br>
+Clément Falize, demoiselles de la page insectes<br>
+Sergio Arze, John Hoang, Salmen Bejaoui pour les recettes (Unsplash)<br>
+
 dessins: <br>
-Adrianna Watujo (MixKit), la jeune fille aux lucioles de à propos<br>',
+Adrianna Watujo (MixKit), la jeune fille aux lucioles page à propos<br>
+Emma Chavez (MixKit), le chef de la page recettes<br>
+Pixabay, DomainPublicVector et OpenClipart pour les insectes, sauf les vers de farine: illustration de Des Helmore, collection Manaaki Whenua - Landcare research, NZ, license https://creativecommons.org<br>',
                 'email' => NULL,
             ),
             1 => 

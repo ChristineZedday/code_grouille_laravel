@@ -21,10 +21,11 @@
 
         @foreach($insectes as $insecte)
             <figure><a href="{{route('insecte.show',$insecte->id)}}">
-                @foreach ($insecte->Image as $image)
-               
-                        <img src="{{asset('/img/'.$image->chemin_image)}}"/>
-                 @endforeach 
+
+                   <?php $image = $insecte->Image()->first(); ?>
+            @isset($image)
+            <img class='imgarticle' src="{{asset('/img/'.$image->chemin_image)}}"/>
+            @endisset
                
                 <h3 class='subarticle'>{{$insecte->nom_insecte}}</h3>
                 <P>{{$insecte->nom_latin_insecte}}</P>
