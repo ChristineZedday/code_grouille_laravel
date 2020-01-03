@@ -38,8 +38,7 @@ class imageController extends Controller
     {
         $chemin_dossier=public_path('') .'/img/';
         
-
-     
+        $nom = $request->input('nom');
 
        if (isset($_FILES ['image1'] ['name']))
         {
@@ -55,7 +54,15 @@ class imageController extends Controller
                         if (move_uploaded_file($tmp, $chemin_dossier.$uploaded))
                             {
                                 $image = new Image;
-                                $image->chemin_image = $uploaded;
+                                if (isset($nom))
+                                    {
+                                        rename($chemin_dossier.$uploaded,$chemin_dossier.$nom);
+                                        $image->chemin_image = $nom;
+                                    }
+                                    else{
+                                        $image->chemin_image = $uploaded;
+                                    }
+                               
                                 $image->save();
                             }
                     } 
