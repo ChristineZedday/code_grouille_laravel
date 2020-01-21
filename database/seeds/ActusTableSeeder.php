@@ -58,10 +58,10 @@ Photo: Wolfgang Hasselmann (Unsplash)',
                 'id' => 4,
                 'created_at' => '2019-12-09 13:55:26',
                 'updated_at' => '2019-12-27 17:47:29',
-                'texte_actu' => 'Notre association souhaite promouvoir les insectes et l\'alimentation à base d\'insecte. 
+                'texte_actu' => 'Notre association souhaite promouvoir les insectes et l\'alimentation à base d\'insectes. 
 Ne cherchez plus à vous débarasser des grillons, des vers de farine, des scarabés ou des fourmis en les écrasant 
 avec votre pied ou en les exterminant avec des produits chimiques. Ces derniers sont comestibles. Ce serait dommage de se priver de 
-cette source importante de protéines. Gôuter les, partagez vos recettes et parlez-en vos amis.<br> Lucie Guerzillon
+cette source importante de protéines. Goûtez-les, partagez vos recettes et parlez-en à vos amis.<br> Lucie Guerzillon
 <br><br>
 Photo: Christine Zedday',
                 'titre_actu' => 'Les insectes à la une : Le mot de Lucie',
