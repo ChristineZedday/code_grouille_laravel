@@ -4,8 +4,9 @@
 
 <div id='forminsecte' class='content'>
 
-    <form enctype="multipart/form-data" action="{{route('image.store')}}" method="POST">
+    <form enctype="multipart/form-data" action="@isset($image){{route('image.update', $image->id)}}@else{{route('image.store')}}@endisset" method="POST">
 						@csrf
+                        @isset($image) @method('PUT') @endisset
 						
 @isset($image)
    
@@ -21,8 +22,8 @@
 @endisset
    
 <div class='form-group'>
-<label>Renommer l'image?  </label>
-<input id="nom" type="text" name="nom" value="" />
+<label>Renommer l'image @isset($image){{$image->chemin_image}}@endisset ?  </label>
+<input id="nom" type="text" name="chemin_image" value="" />
 </div>
    
 

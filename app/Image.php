@@ -8,7 +8,9 @@ use Orangehill\IseedServiceProvider\images;
 class Image extends Model
 
 {
-    public function Recette()
+  protected $fillable = ['chemin_image'];
+   
+  public function Recette()
     {
     return $this->belongsTo('App\ImageRecette');
     }

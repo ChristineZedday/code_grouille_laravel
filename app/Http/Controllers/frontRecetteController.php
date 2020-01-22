@@ -14,9 +14,15 @@ use Auth;
 class frontRecetteController extends Controller
 
 {
-    public function index(Request $request)
+    public function index()
     {
        $recettes = Recette::all();
+       return view('pages.recettes',['recettes' => $recettes]);
+    }
+
+    public function insecte($id)
+    {
+       $recettes = Recette::whereHas('Ingredient',function ($query) use ($id) { $query->where('insecte_id','=', $id);})->get();
        return view('pages.recettes',['recettes' => $recettes]);
     }
 

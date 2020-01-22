@@ -39,6 +39,8 @@ class Recette extends Model {
         return $this->belongsToMany('App\Image');
     }
 
+    
+
     public function SetUserId()
     {
          $this->user_id = 1; //utilisateur anonyme

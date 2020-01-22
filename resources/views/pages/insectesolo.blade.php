@@ -14,7 +14,8 @@
                 <h2>{{$insecte->nom_insecte}}</h2>
                 <h3>{{$insecte->nom_latin_insecte}}&nbsp;{{$insecte->ordre_insecte}}</h3>
                 <img class='lineright' src="{{asset('/img/picto/line.png')}}"/>
-                <p><?php echo($insecte->description_insecte) ?></p>
+                <p>{!!$insecte->description_insecte!!}</p>
+                <a class='linkpage' href="{{route('recette.insecte', $insecte->id)}}">Recettes avec cet insecte</a>
             </div>
         @endisset
     </section>

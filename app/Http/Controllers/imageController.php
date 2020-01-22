@@ -38,7 +38,7 @@ class imageController extends Controller
     {
         $chemin_dossier=public_path('') .'/img/';
         
-        $nom = $request->input('nom');
+        $nom = $request->input('chemin_image');
 
        if (isset($_FILES ['image1'] ['name']))
         {
@@ -97,7 +97,14 @@ class imageController extends Controller
      * @param  \App\Image  $image
      * @return \Illuminate\Http\Response
      */
-   
+    public function edit($id)
+    {
+        $image = Image::find($id);
+       
+
+        return view('backpages.formimage', ['image' => $image]);
+    }
+
 
     /**
      * Update the specified resource in storage.
@@ -106,7 +113,32 @@ class imageController extends Controller
      * @param  \App\Image  $image
      * @return \Illuminate\Http\Response
      */
-    
+    public function update(Request $request, $id)
+    {
+ 
+        $chemin_dossier=public_path('') .'/img/';
+        $validated = $request->validate([
+            'chemin_image' => 'string|required', //et bien sur faudra vérifier l'extension...
+            
+        ]);
+
+        $image = Image::find($id);
+        $ancien = $image->chemin_image ;
+        $image->fill($validated);
+
+        if ($image->chemin_image != $ancien)
+        {
+            rename($chemin_dossier.$ancien,$chemin_dossier.$image->chemin_image);
+            
+        }
+
+        if ($image->save())
+        {
+            $request->session()->flash('status',"image enregistrée avec succès");
+            $request->session()->flash('alert-class',"alert-success");
+            return redirect()->action('ImageController@index');
+        }
+    }
     /**
      * Remove the specified resource from storage.
      *

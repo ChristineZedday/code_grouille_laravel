@@ -19,8 +19,7 @@ class IngredientRecette extends Model //devrait étendre la classe pivot?
         return $this->belongsTo('App\Ingredient');
     }
 
-
-
+   
     public function Unite()
     {
         return $this->belongsTo('App\Unite');
