@@ -31,8 +31,8 @@
             <td class="align-middle">{{$user->email}}</td>
             <td class="align-middle">{{$user->role}}</td>
             <td class="align-middle">
-                <button><a href="{{route('membre.show',$user->id)}}" >Voir</a></button>
-                <button><a href="{{route('membre.edit',$user->id)}}">Modifier</a></button>
+                <a href="{{route('membre.show',$user->id)}}" ><button>Voir</button></a>
+                <a href="{{route('membre.edit',$user->id)}}"><button>Modifier</button></a>
                 @if ($user->id != 1 && $user->role != "admin")
                     <form action="{{route('membre.destroy', $user->id)}}" method="POST">
                     @csrf

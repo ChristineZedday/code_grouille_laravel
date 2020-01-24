@@ -2306,7 +2306,7 @@ div[contenteditable] img {
   #intro {
     position: absolute;
     width: 100%;
-    background-image: url(/images/intro.jpg?1dc98f0b5081ae020e8b03fe7d6cfb74);
+    background-image: url(/images/intro_background.jpg?fd5ca492857f46f7db65440c33c68986);
     background-attachment: fixed;
     background-size: cover;
     background-position: center bottom;
@@ -2321,7 +2321,7 @@ div[contenteditable] img {
 
   #apropos {
     width: 100%;
-    background-image: url(/images/apropos-backgroundgrouille.jpg?a6f2f104d80d5b763693b396bf6b66b6);
+    background-image: url(/images/apropos_background.png?19bed41d0f2cac2606e154116d5a8de6);
     background-attachment: fixed;
     background-size: cover;
     background-position: center bottom;
@@ -2336,7 +2336,7 @@ div[contenteditable] img {
 
   #about2 {
     width: 100%;
-    background-image: url(/images/about3.jpg?72b7690fff1ef4b2b15dc59c2e9baba8);
+    background-image: url(/images/apropos_autre.jpg?f1bbaf106fa770191e5328922a65ee34);
     background-size: cover;
     background-position: center bottom;
     height: 90vh;
@@ -2350,7 +2350,7 @@ div[contenteditable] img {
 
   #insecteintro {
     width: 100%;
-    background-image: url(/images/scorpion.jpg?d2f995c906508af009e23ff2e848ad84);
+    background-image: url(/images/insectes_background.jpg?5cc3f824033cfbf25f631737140dd515);
     background-size: cover;
     background-position: center bottom;
     height: 90vh;
@@ -2364,7 +2364,7 @@ div[contenteditable] img {
 
   #actusintro {
     width: 100%;
-    background-image: url(/images/manif2.jpg?4776302c5847e4cd97f05cec2f709eb0);
+    background-image: url(/images/actu_background.jpg?df1de40032be5f1c691c6a59eaa3e26b);
     background-size: cover;
     background-position: center bottom;
     height: 90vh;
@@ -2378,7 +2378,7 @@ div[contenteditable] img {
 
   #recettesintro {
     width: 100%;
-    background-image: url(/images/brochettes.jpg?7c4e07592744f6cdc7915053d938f09a);
+    background-image: url(/images/recettes_background.png?2a7eb67f129879ddd4cf68aa6cfa352c);
     background-size: cover;
     background-position: center bottom;
     height: 90vh;
@@ -2392,7 +2392,7 @@ div[contenteditable] img {
 
   #partnerintro {
     width: 100%;
-    background-image: url(/images/brochettes.jpg?7c4e07592744f6cdc7915053d938f09a);
+    background-image: url(/images/partners_background.png?df9e042b1efc7abc3a59f82ca44b1358);
     background-size: cover;
     background-position: center bottom;
     height: 90vh;
@@ -2408,7 +2408,7 @@ div[contenteditable] img {
 @media screen and (min-width: 800px) {
   #intro {
     width: 100%;
-    background-image: url(/images/intro.jpg?1dc98f0b5081ae020e8b03fe7d6cfb74);
+    background-image: url(/images/intro_background.jpg?fd5ca492857f46f7db65440c33c68986);
     background-attachment: fixed;
     background-size: cover;
     background-position: center bottom;
@@ -2424,7 +2424,7 @@ div[contenteditable] img {
 
   #apropos {
     width: 100%;
-    background-image: url(/images/apropos-backgroundgrouille.jpg?a6f2f104d80d5b763693b396bf6b66b6);
+    background-image: url(/images/apropos_background.png?19bed41d0f2cac2606e154116d5a8de6);
     background-attachment: fixed;
     background-size: cover;
     background-position: center bottom;
@@ -2440,7 +2440,7 @@ div[contenteditable] img {
 
   #about2 {
     width: 100%;
-    background-image: url(/images/about3.jpg?72b7690fff1ef4b2b15dc59c2e9baba8);
+    background-image: url(/images/apropos_autre.jpg?f1bbaf106fa770191e5328922a65ee34);
     background-attachment: fixed;
     background-size: cover;
     background-position: center bottom;
@@ -2455,7 +2455,7 @@ div[contenteditable] img {
 
   #insecteintro {
     width: 100%;
-    background-image: url(/images/scorpion.jpg?d2f995c906508af009e23ff2e848ad84);
+    background-image: url(/images/insectes_background.jpg?5cc3f824033cfbf25f631737140dd515);
     background-size: cover;
     background-position: center bottom;
     background-attachment: fixed;
@@ -2470,7 +2470,7 @@ div[contenteditable] img {
 
   #actusintro {
     width: 100%;
-    background-image: url(/images/manif2.jpg?4776302c5847e4cd97f05cec2f709eb0);
+    background-image: url(/images/actu_background.jpg?df1de40032be5f1c691c6a59eaa3e26b);
     background-size: cover;
     background-position: center bottom;
     background-attachment: fixed;
@@ -2485,7 +2485,7 @@ div[contenteditable] img {
 
   #recettesintro {
     width: 100%;
-    background-image: url(/images/brochettes.jpg?7c4e07592744f6cdc7915053d938f09a);
+    background-image: url(/images/recettes_background.png?2a7eb67f129879ddd4cf68aa6cfa352c);
     background-size: cover;
     background-position: center bottom;
     background-attachment: fixed;
@@ -2500,7 +2500,7 @@ div[contenteditable] img {
 
   #partnerintro {
     width: 100%;
-    background-image: url(/images/sushi.jpg?2ce8c65c64724449f4fc880c44a90bd2);
+    background-image: url(/images/partners_background.png?df9e042b1efc7abc3a59f82ca44b1358);
     background-size: cover;
     background-position: center bottom;
     background-attachment: fixed;
@@ -2577,6 +2577,19 @@ div[contenteditable] img {
     height: 20px;
     margin-top: 5%;
     margin-bottom: 5%;
+  }
+
+  .single #insectesview .linkpage {
+    border-radius: 20px;
+    padding: 13px;
+    background-color: black;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-right: auto;
+    width: 200px;
+    text-align: center;
   }
 
   .single #recettesview .lineleft {

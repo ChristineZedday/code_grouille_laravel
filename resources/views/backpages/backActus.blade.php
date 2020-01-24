@@ -31,8 +31,8 @@
         <td class="align-middle"><?php echo ($actu->resume_actu) ?></td>
 
         <td  class="align-middle">
-        <button><a href="{{route('actu.show',$actu->id)}}" >Voir</a></button>
-        <button><a href="{{route('actu.edit',$actu->id)}}">Modifier</a></button>
+        <a href="{{route('actu.show',$actu->id)}}" ><button>Voir</button></a>
+        <a href="{{route('actu.edit',$actu->id)}}"><button>Modifier</button></a>
         <form action="{{route('actu.destroy', $actu->id)}}" method="POST">
             @csrf
             @method('DELETE')

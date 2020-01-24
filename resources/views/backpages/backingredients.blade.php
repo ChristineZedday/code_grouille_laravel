@@ -29,8 +29,8 @@
             <td class="align-middle"> {{$ingredient->nom_ingredient}} </td>
 
             <td class="align-middle">
-                <button><a href="{{route('ingredient.show',$ingredient->id)}}">Voir</a></button>
-                <button><a href="{{route('ingredient.edit',$ingredient->id)}}">Modifier</a></button>
+                <a href="{{route('ingredient.show',$ingredient->id)}}"><button>Voir</button></a>
+                <a href="{{route('ingredient.edit',$ingredient->id)}}"><button>Modifier</button></a>
                 <form action="{{route('ingredient.destroy', $ingredient->id)}}" method="POST">
                 @csrf
                 @method('DELETE')

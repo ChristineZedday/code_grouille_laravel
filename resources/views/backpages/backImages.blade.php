@@ -32,7 +32,7 @@
         <td class="align-middle">public/img/</td>
         <td class="align-middle"><img src="{{asset('/img/'.$image->chemin_image)}}" style="width:150px"></td>
         <td  class="align-middle">
-        <button><a href="{{route('image.edit',$image->id)}}">Modifier</a></button>
+        <a href="{{route('image.edit',$image->id)}}"><button>Modifier</button></a>
         <form action="{{route('image.destroy', $image->id)}}" method="POST">
             @csrf
             @method('DELETE')

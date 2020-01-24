@@ -32,8 +32,8 @@
         <td class="align-middle">{{$insecte->nom_latin_insecte}}</td>
         <td class="align-middle">{{$insecte->ordre_insecte}}</td>
         <td  class="align-middle">
-        <button><a href="{{route('insecte.show',$insecte->id)}}" >Voir</a></button>
-        <button><a href="{{route('insecte.edit',$insecte->id)}}">Modifier</a></button>
+        <a href="{{route('insecte.show',$insecte->id)}}" ><button>Voir</button></a>
+        <a href="{{route('insecte.edit',$insecte->id)}}"><button>Modifier</button></a>
         <form action="{{route('insecte.destroy', $insecte->id)}}" method="POST">
             @csrf
             @method('DELETE')

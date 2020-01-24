@@ -35,8 +35,8 @@
             <td class="align-middle">{{$recette->Auteur->name}}</td>
             <td class="align-middle">{{$recette->portion_recette}}</td>
             <td class="align-middle">
-                <button><a href="{{route('recette.show',$recette->id)}}" >Voir</a></button>
-                <button><a href="{{route('recette.edit',$recette->id)}}">Modifier</a></button>
+                <a href="{{route('recette.show',$recette->id)}}" ><button>Voir</button></a>
+                <a href="{{route('recette.edit',$recette->id)}}"><button>Modifier</button></a>
                     <form action="{{route('recette.destroy', $recette->id)}}" method="POST">
                     @csrf
                     @method('DELETE')

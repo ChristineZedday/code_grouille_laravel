@@ -35,7 +35,7 @@
         <td class="align-middle"> {{ $info->email }}</td>
         <td class="align-middle"> {{  date('d/m/Y', strtotime($info->created_at)) }}</td>
         <td  class="align-middle">
-        <button><a href="{{route('info.edit',$info->id)}}">Modifier</a></button>
+        <a href="{{route('info.edit',$info->id)}}"><button>Modifier</button></a>
     </tr>
  @endforeach
 </tbody>

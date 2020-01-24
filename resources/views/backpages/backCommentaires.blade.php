@@ -33,7 +33,7 @@
                         <td class="align-middle"> {{ $commentaire_recette->Commentateur->name }}</td>
                         <td class="align-middle"> {{  date('d/m/Y', strtotime($commentaire_recette->created_at)) }}</td>
                         <td  class="align-middle">
-                        <button><a href="{{route('commentaire.edit',$commentaire_recette->id)}}">Modifier</a></button>
+                        <a href="{{route('commentaire.edit',$commentaire_recette->id)}}"><button>Modifier</button></a>
                         <form action="{{route('commentaire.destroy', $commentaire_recette->id)}}" method="POST">
                             @csrf
                             @method('DELETE')
